@@ -1087,7 +1087,7 @@ bool DistanceJoint::initConstraint(SimulationModel &model, const unsigned int rb
 	SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
 	RigidBody &rb1 = *rb[m_bodies[0]];
 	RigidBody &rb2 = *rb[m_bodies[1]];
-	return PositionBasedRigidBodyDynamics::init_DistanceJoint(
+	return PositionBasedRigidBodyDynamics::init_MuellerDistanceJoint(
 		rb1.getPosition(),
 		rb1.getRotation(),
 		rb2.getPosition(),
@@ -1102,7 +1102,7 @@ bool DistanceJoint::updateConstraint(SimulationModel &model)
 	SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
 	RigidBody &rb1 = *rb[m_bodies[0]];
 	RigidBody &rb2 = *rb[m_bodies[1]];
-	return PositionBasedRigidBodyDynamics::update_DistanceJoint(
+	return PositionBasedRigidBodyDynamics::update_MuellerDistanceJoint(
 		rb1.getPosition(),
 		rb1.getRotation(),
 		rb2.getPosition(),
@@ -1121,7 +1121,7 @@ bool DistanceJoint::solvePositionConstraint(SimulationModel &model, const unsign
 
 	Vector3r corr_x1, corr_x2;
 	Quaternionr corr_q1, corr_q2;
-	const bool res = PositionBasedRigidBodyDynamics::solve_DistanceJoint(
+	const bool res = PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
 		rb1.getInvMass(),
 		rb1.getPosition(),
 		rb1.getInertiaTensorInverseW(),

@@ -350,7 +350,7 @@ bool PositionBasedRigidBodyDynamics::solve_DistanceJoint(
 	Matrix3r K1, K2;
 	computeMatrixK(c0, invMass0, x0, inertiaInverseW0, K1);
 	computeMatrixK(c1, invMass1, x1, inertiaInverseW1, K2);
-	Vector3r dir = c0 - c1;
+	Vector3r dir = c0-c1;
 	if (length > static_cast<Real>(1e-5))
 		dir /= length;
 	else
@@ -2555,10 +2555,11 @@ bool PositionBasedRigidBodyDynamics::init_MuellerDistanceJoint(
     // 2:	connector in body 0 (global)
     // 3:	connector in body 1 (global)
 
-    // transform in local coordinates
+    // rot0T and rot1T are the rotation matrices, that allow for the inverse transformation of global vectors into local space
     const Matrix3r rot0T = q0.matrix().transpose();
     const Matrix3r rot1T = q1.matrix().transpose();
 
+    // For the first and second column multiply by rotT to transform into local space
     jointInfo.col(0) = rot0T * (pos0 - x0);
     jointInfo.col(1) = rot1T * (pos1 - x1);
     jointInfo.col(2) = pos0;
@@ -2582,7 +2583,7 @@ bool PositionBasedRigidBodyDynamics::update_MuellerDistanceJoint(
     // 2:	connector in body 0 (global)
     // 3:	connector in body 1 (global)
 
-    // compute world space positions of connectors
+    // compute world space positions of connectors (rot0 and rot1 are rotation matrices, that allow the transformation of the local space to global space)
     const Matrix3r rot0 = q0.matrix();
     const Matrix3r rot1 = q1.matrix();
     jointInfo.col(2) = rot0 * jointInfo.col(0) + x0;
@@ -2619,17 +2620,21 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     // evaluate constraint function
     const Vector3r &c0 = jointInfo.col(2);
     const Vector3r &c1 = jointInfo.col(3);
+
+    const Vector3r &connector0 = jointInfo.col(0);
+    const Vector3r &connector1 = jointInfo.col(1);
+
     const Real length = (c0 - c1).norm();
 
-    const Real C = (length - restLength);
+    Real delta_lambda = 0.0;
 
-    // compute K = J M^-1 J^T
-    Matrix3r K1, K2;
-    computeMatrixK(c0, invMass0, x0, inertiaInverseW0, K1);
-    computeMatrixK(c1, invMass1, x1, inertiaInverseW1, K2);
-    Vector3r dir = c0 - c1;
+
+    // Constraint Violation and Gradient of Constraint (Direction of the Constraint)
+    const Real c = (length - restLength);
+    Vector3r n = (c0 - c1);
+
     if (length > static_cast<Real>(1e-5))
-        dir /= length;
+        n /= length;
     else
     {
         corr_x0.setZero();
@@ -2639,54 +2644,48 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
         return true;
     }
 
-    // J = (dir^T	dir^T * r^* )
 
-    // J = (I   r^*)
-
-    Real K = (dir.transpose() * (K1 + K2)).dot(dir);
-
-    Real alpha = 0.0;
+    Real alphatilde = 0.0;
     if (stiffness != 0.0)
     {
-        alpha = static_cast<Real>(1.0) / (stiffness * dt * dt);
-        K += alpha;
+        alphatilde = static_cast<Real>(1.0) / (stiffness * dt * dt);
     }
 
-    Real Kinv = 0.0;
-    if (fabs(K) > static_cast<Real>(1e-6))
-        Kinv = static_cast<Real>(1.0) / K;
+    const Real w0 = invMass0 + (connector0.cross(n).transpose() * inertiaInverseW0 * connector0.cross(n));
+    const Real w1 = invMass1 + (connector1.cross(n).transpose() * inertiaInverseW1 * connector1.cross(n));;
+
+    if (fabs(w0 + w1) > static_cast<Real>(1e-6))
+        delta_lambda = (-c - (alphatilde * lambda))/(w0 + w1 + alphatilde);
     else
     {
         corr_x0.setZero();
         corr_x1.setZero();
         corr_q0.setIdentity();
         corr_q1.setIdentity();
+
         return true;
     }
 
-    const Real delta_lambda = -Kinv * (C + alpha * lambda);
-    lambda += delta_lambda;
-    const Vector3r pt = dir * delta_lambda;
+    const Vector3r p = n * delta_lambda;
 
+    lambda = lambda + delta_lambda;
 
     if (invMass0 != 0.0)
     {
-        const Vector3r r0 = c0 - x0;
-        corr_x0 = invMass0 * pt;
+        corr_x0 = invMass0 * p;
 
-        const Vector3r ot = (inertiaInverseW0 * (r0.cross(pt)));
+        const Vector3r ot = (inertiaInverseW0 * (connector0.cross(p)));
         const Quaternionr otQ(0.0, ot[0], ot[1], ot[2]);
         corr_q0.coeffs() = 0.5 *(otQ*q0).coeffs();
     }
 
     if (invMass1 != 0.0)
     {
-        const Vector3r r1 = c1 - x1;
-        corr_x1 = -invMass1 * pt;
+        corr_x1 = -invMass1 * p;
 
-        const Vector3r ot = (inertiaInverseW1 * (r1.cross(-pt)));
+        const Vector3r ot = (inertiaInverseW1 * (connector1.cross(p)));
         const Quaternionr otQ(0.0, ot[0], ot[1], ot[2]);
-        corr_q1.coeffs() = 0.5 *(otQ*q1).coeffs();
+        corr_q1.coeffs() = -0.5 *(otQ*q1).coeffs();
     }
     return true;
 }

@@ -1260,23 +1260,23 @@ namespace PBD
 			Vector3r &corr_x0, Quaternionr &corr_q0,
 			Vector3r &corr_x1, Quaternionr &corr_q1);
 
-        /** Initialize distance joint and return info which is required by the solver step.
-*
-* @param x0 center of mass of first body
-* @param q0 rotation of first body
-* @param x1 center of mass of second body
-* @param q1 rotation of second body
-* @param jointPosition position of distance joint
-* @param jointInfo Stores the local and global positions of the connector points.
-* The first two columns store the local connectors in body 0 and 1, respectively, while
-* the last two columns contain the global connector positions which have to be
-* updated in each simulation step by calling update_DistanceJoint().\n
-* The joint info contains the following columns:\n
-* 0:	connector in body 0 (local)\n
-* 1:	connector in body 1 (local)\n
-* 2:	connector in body 0 (global)\n
-* 3:	connector in body 1 (global)
-*/
+        /** Initialize distance joint (variant as described in Müller 2020 XPBD Paper) and return info which is required by the solver step.
+        *
+        * @param x0 center of mass of first body
+        * @param q0 rotation of first body
+        * @param x1 center of mass of second body
+        * @param q1 rotation of second body
+        * @param jointPosition (global) position of distance joint -> Used for computing jointInfo
+        * @param jointInfo Stores the local and global positions of the connector points.
+        * The first two columns store the local connectors in body 0 and 1, respectively, while
+        * the last two columns contain the global connector positions which have to be
+        * updated in each simulation step by calling update_DistanceJoint().\n
+        * The joint info contains the following columns:\n
+        * 0:	connector in body 0 (local)\n
+        * 1:	connector in body 1 (local)\n
+        * 2:	connector in body 0 (global)\n
+        * 3:	connector in body 1 (global)
+        */
         static bool init_MuellerDistanceJoint(
                 const Vector3r &x0, 						// center of mass of body 0
                 const Quaternionr &q0,					// rotation of body 0
@@ -1287,7 +1287,7 @@ namespace PBD
                 Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &jointInfo
         );
 
-        /** Update distance joint info which is required by the solver step.
+        /** Update a distance joint's (variant as described in Müller 2020 XPBD Paper) jointInfo which is required by the solver step.
         * The distance joint info must be generated in the initialization process of the model
         * by calling the function init_DistanceJoint().
         * This method should be called once per simulation step before executing the solver.\n\n
