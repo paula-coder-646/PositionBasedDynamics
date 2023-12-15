@@ -1439,7 +1439,47 @@ namespace PBD
 			Real &lambda,
 			Vector3r &corr_x0, Quaternionr &corr_q0,
 			Vector3r &corr_x1, Quaternionr &corr_q1);
-	};
+
+        static bool init_MuellerAngularJoint(
+                const Vector3r &x0, 						// center of mass of body 0
+                const Quaternionr &q0,					// rotation of body 0
+                const Vector3r &x1, 						// center of mass of body 1
+                const Quaternionr &q1,					// rotation of body 1
+                const Vector3r &pos0,
+                const Vector3r &pos1,
+                Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &jointInfo
+        );
+
+        static bool update_MuellerAngularJoint(
+                const Vector3r &x0, 						// center of mass of body 0
+                const Quaternionr &q0,					// rotation of body 0
+                const Vector3r &x1, 						// center of mass of body 1
+                const Quaternionr &q1,					// rotation of body 1
+                Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &jointInfo
+        );
+
+
+        static bool solve_MuellerAngularJoint(
+                const Real invMass0,							// inverse mass is zero if body is static
+                const Vector3r &x0, 						// center of mass of body 0
+                const Matrix3r &inertiaInverseW0,		// inverse inertia tensor (world space) of body 0
+                const Quaternionr &q0,					// rotation of body 0
+                const Real invMass1,							// inverse mass is zero if body is static
+                const Vector3r &x1, 						// center of mass of body 1
+                const Matrix3r &inertiaInverseW1,		// inverse inertia tensor (world space) of body 1
+                const Quaternionr &q1,					// rotation of body 1
+                const Real stiffness,
+                const Real restLength,
+                const Real dt,
+                const Eigen::Matrix<Real,3,4, Eigen::DontAlign> &jointInfo,	// precomputed joint info
+                Real &lambda,
+                Vector3r &corr_x0, Quaternionr &corr_q0,
+                Vector3r &corr_x1, Quaternionr &corr_q1);
+
+
+
+
+    };
 }
 
 #endif

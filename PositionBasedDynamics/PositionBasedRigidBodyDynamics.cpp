@@ -391,6 +391,9 @@ bool PositionBasedRigidBodyDynamics::solve_DistanceJoint(
 	lambda += delta_lambda;
 	const Vector3r pt = dir * delta_lambda;
 
+    std::cout << pt << std::endl;
+
+
 
 	if (invMass0 != 0.0)
 	{
@@ -2621,8 +2624,8 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     const Vector3r &c0 = jointInfo.col(2);
     const Vector3r &c1 = jointInfo.col(3);
 
-    const Vector3r &connector0 = jointInfo.col(0);
-    const Vector3r &connector1 = jointInfo.col(1);
+    const Vector3r &connector0 = c0 - x0;
+    const Vector3r &connector1 = c1 - x1;
 
     const Real length = (c0 - c1).norm();
 
@@ -2667,6 +2670,158 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     }
 
     const Vector3r p = n * delta_lambda;
+
+    lambda = lambda + delta_lambda;
+
+    if (invMass0 != 0.0)
+    {
+        corr_x0 = invMass0 * p;
+
+        const Vector3r ot = (inertiaInverseW0 * (connector0.cross(p)));
+        const Quaternionr otQ(0.0, ot[0], ot[1], ot[2]);
+        corr_q0.coeffs() = 0.5 *(otQ*q0).coeffs();
+    }
+
+    if (invMass1 != 0.0)
+    {
+        corr_x1 = -invMass1 * p;
+
+        const Vector3r ot = (inertiaInverseW1 * (connector1.cross(p)));
+        const Quaternionr otQ(0.0, ot[0], ot[1], ot[2]);
+        corr_q1.coeffs() = -0.5 *(otQ*q1).coeffs();
+    }
+    return true;
+}
+
+bool PositionBasedRigidBodyDynamics::init_MuellerAngularJoint(
+        const Vector3r &x0,
+        const Quaternionr &q0,
+        const Vector3r &x1,
+        const Quaternionr &q1,
+        const Vector3r &pos0,
+        const Vector3r &pos1,
+        Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &jointInfo
+)
+{
+    // jointInfo contains
+    // 0:	connector in body 0 (local)
+    // 1:	connector in body 1 (local)
+    // 2:	connector in body 0 (global)
+    // 3:	connector in body 1 (global)
+
+    // rot0T and rot1T are the rotation matrices, that allow for the inverse transformation of global vectors into local space
+    const Matrix3r rot0T = q0.matrix().transpose();
+    const Matrix3r rot1T = q1.matrix().transpose();
+
+    // For the first and second column multiply by rotT to transform into local space
+    jointInfo.col(0) = rot0T * (pos0 - x0);
+    jointInfo.col(1) = rot1T * (pos1 - x1);
+    jointInfo.col(2) = pos0;
+    jointInfo.col(3) = pos1;
+
+    return true;
+}
+
+// ----------------------------------------------------------------------------------------------
+bool PositionBasedRigidBodyDynamics::update_MuellerAngularJoint(
+        const Vector3r &x0,
+        const Quaternionr &q0,
+        const Vector3r &x1,
+        const Quaternionr &q1,
+        Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &jointInfo
+)
+{
+    // jointInfo contains
+    // 0:	connector in body 0 (local)
+    // 1:	connector in body 1 (local)
+    // 2:	connector in body 0 (global)
+    // 3:	connector in body 1 (global)
+
+    // compute world space positions of connectors (rot0 and rot1 are rotation matrices, that allow the transformation of the local space to global space)
+    const Matrix3r rot0 = q0.matrix();
+    const Matrix3r rot1 = q1.matrix();
+    jointInfo.col(2) = rot0 * jointInfo.col(0) + x0;
+    jointInfo.col(3) = rot1 * jointInfo.col(1) + x1;
+
+    return true;
+}
+
+
+// ----------------------------------------------------------------------------------------------
+bool PositionBasedRigidBodyDynamics::solve_MuellerAngularJoint(
+        const Real invMass0,
+        const Vector3r &x0,
+        const Matrix3r &inertiaInverseW0,
+        const Quaternionr &q0,
+        const Real invMass1,
+        const Vector3r &x1,
+        const Matrix3r &inertiaInverseW1,
+        const Quaternionr &q1,
+        const Real stiffness,
+        const Real restLength,
+        const Real dt,
+        const Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &jointInfo,
+        Real &lambda,
+        Vector3r &corr_x0, Quaternionr &corr_q0,
+        Vector3r &corr_x1, Quaternionr &corr_q1)
+{
+    // jointInfo contains
+    // 0:	connector in body 0 (local)
+    // 1:	connector in body 1 (local)
+    // 2:	connector in body 0 (global)
+    // 3:	connector in body 1 (global)
+
+    // evaluate constraint function
+    const Vector3r &c0 = jointInfo.col(2);
+    const Vector3r &c1 = jointInfo.col(3);
+
+    const Vector3r &connector0 = jointInfo.col(0);
+    const Vector3r &connector1 = jointInfo.col(1);
+
+    const Real length = (c0 - c1).norm();
+
+    Real delta_lambda = 0.0;
+
+
+    // Constraint Violation and Gradient of Constraint (Direction of the Constraint)
+    const Real c = (length - restLength);
+    Vector3r n = (c0 - c1);
+
+    if (length > static_cast<Real>(1e-5))
+        n /= length;
+    else
+    {
+        corr_x0.setZero();
+        corr_x1.setZero();
+        corr_q0.setIdentity();
+        corr_q1.setIdentity();
+        return true;
+    }
+
+    Real alphatilde = 0.0;
+    if (stiffness != 0.0)
+    {
+        alphatilde = static_cast<Real>(1.0) / (stiffness * dt * dt);
+    }
+
+    const Real w0 = invMass0 + (connector0.cross(n).transpose() * inertiaInverseW0 * connector0.cross(n));
+    const Real w1 = invMass1 + (connector1.cross(n).transpose() * inertiaInverseW1 * connector1.cross(n));;
+
+    if (fabs(w0 + w1) > static_cast<Real>(1e-6))
+        delta_lambda = (-c - (alphatilde * lambda))/(w0 + w1 + alphatilde);
+    else
+    {
+        corr_x0.setZero();
+        corr_x1.setZero();
+        corr_q0.setIdentity();
+        corr_q1.setIdentity();
+
+        return true;
+    }
+
+    const Vector3r p = n * delta_lambda;
+
+    std::cout << p << std::endl;
 
     lambda = lambda + delta_lambda;
 

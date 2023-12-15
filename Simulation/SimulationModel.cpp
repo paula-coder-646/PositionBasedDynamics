@@ -358,13 +358,12 @@ SimulationModel::ConstraintGroupVector & SimulationModel::getConstraintGroups()
 	return m_constraintGroups;
 }
 
-void SimulationModel::updateConstraints()
-{
-	for (unsigned int i = 0; i < m_constraints.size(); i++)
-		m_constraints[i]->updateConstraint(*this);
+void SimulationModel::updateConstraints() {
+    for (unsigned int i = 0; i < m_constraints.size(); i++) {
+        m_constraints[i]->updateConstraint(*this);
+    }
+
 }
-
-
 bool SimulationModel::addBallJoint(const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos)
 {
 	BallJoint *bj = new BallJoint();
