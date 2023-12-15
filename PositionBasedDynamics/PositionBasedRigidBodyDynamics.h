@@ -1,4 +1,4 @@
-#ifndef POSITION_BASED_RIGID_BODY_DYNAMICS_H
+  #ifndef POSITION_BASED_RIGID_BODY_DYNAMICS_H
 #define POSITION_BASED_RIGID_BODY_DYNAMICS_H
 
 #include "Common/Common.h"
@@ -1259,6 +1259,96 @@ namespace PBD
 			Real &lambda,
 			Vector3r &corr_x0, Quaternionr &corr_q0,
 			Vector3r &corr_x1, Quaternionr &corr_q1);
+
+        /** Initialize distance joint and return info which is required by the solver step.
+*
+* @param x0 center of mass of first body
+* @param q0 rotation of first body
+* @param x1 center of mass of second body
+* @param q1 rotation of second body
+* @param jointPosition position of distance joint
+* @param jointInfo Stores the local and global positions of the connector points.
+* The first two columns store the local connectors in body 0 and 1, respectively, while
+* the last two columns contain the global connector positions which have to be
+* updated in each simulation step by calling update_DistanceJoint().\n
+* The joint info contains the following columns:\n
+* 0:	connector in body 0 (local)\n
+* 1:	connector in body 1 (local)\n
+* 2:	connector in body 0 (global)\n
+* 3:	connector in body 1 (global)
+*/
+        static bool init_MuellerDistanceJoint(
+                const Vector3r &x0, 						// center of mass of body 0
+                const Quaternionr &q0,					// rotation of body 0
+                const Vector3r &x1, 						// center of mass of body 1
+                const Quaternionr &q1,					// rotation of body 1
+                const Vector3r &pos0,
+                const Vector3r &pos1,
+                Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &jointInfo
+        );
+
+        /** Update distance joint info which is required by the solver step.
+        * The distance joint info must be generated in the initialization process of the model
+        * by calling the function init_DistanceJoint().
+        * This method should be called once per simulation step before executing the solver.\n\n
+        *
+        * @param x0 center of mass of first body
+        * @param q0 rotation of first body
+        * @param x1 center of mass of second body
+        * @param q1 rotation of second body
+        * @param jointInfo joint information which should be updated
+        */
+        static bool update_MuellerDistanceJoint(
+                const Vector3r &x0, 						// center of mass of body 0
+                const Quaternionr &q0,					// rotation of body 0
+                const Vector3r &x1, 						// center of mass of body 1
+                const Quaternionr &q1,					// rotation of body 1
+                Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &jointInfo
+        );
+
+        /** Perform a solver step for a distance joint variant as described in Müller 2020 XPBD Paper which links two rigid bodies.
+        * A distance joint removes one translational degrees of freedom between the bodies.
+        * When setting a stiffness value which is not zero, we get an implicit spring.
+        * The distance joint info must be generated in the initialization process of the model
+        * by calling the function init_MuellerDistanceJoint() and updated each time the bodies
+        * change their state by update_DistanceJoint().\n\n
+        *
+        * @param invMass0 inverse mass of first body
+        * @param x0 center of mass of first body
+        * @param inertiaInverseW0 inverse inertia tensor in world coordinates of first body
+        * @param q0 rotation of first body
+        * @param invMass1 inverse mass of second body
+        * @param x1 center of mass of second body
+        * @param inertiaInverseW1 inverse inertia tensor in world coordinates of second body
+        * @param q1 rotation of second body
+        * @param stiffness Stiffness of the constraint. 0 means it is totally stiff and we get a distance joint otherwise we get an implicit spring.
+        * @param restLength Rest length of the joint.
+        * @param dt Time step size (required for XPBD when simulating a spring)
+        * @param jointInfo Joint information which is required by the solver. This
+        * information must be generated in the beginning by calling init_DistanceJoint()
+        * and updated each time the bodies change their state by update_DistanceJoint().
+        * @param lambda Lagrange multiplier (required for XPBD). Must be 0 in the first iteration.
+        * @param corr_x0 position correction of center of mass of first body
+        * @param corr_q0 rotation correction of first body
+        * @param corr_x1 position correction of center of mass of second body
+        * @param corr_q1 rotation correction of second body
+        */
+        static bool solve_MuellerDistanceJoint(
+                const Real invMass0,							// inverse mass is zero if body is static
+                const Vector3r &x0, 						// center of mass of body 0
+                const Matrix3r &inertiaInverseW0,		// inverse inertia tensor (world space) of body 0
+                const Quaternionr &q0,					// rotation of body 0
+                const Real invMass1,							// inverse mass is zero if body is static
+                const Vector3r &x1, 						// center of mass of body 1
+                const Matrix3r &inertiaInverseW1,		// inverse inertia tensor (world space) of body 1
+                const Quaternionr &q1,					// rotation of body 1
+                const Real stiffness,
+                const Real restLength,
+                const Real dt,
+                const Eigen::Matrix<Real,3,4, Eigen::DontAlign> &jointInfo,	// precomputed joint info
+                Real &lambda,
+                Vector3r &corr_x0, Quaternionr &corr_q0,
+                Vector3r &corr_x1, Quaternionr &corr_q1);
 
 		/** Initialize a motor slider joint which is able to enforce
 		* a target position and return info which is required by the solver step.

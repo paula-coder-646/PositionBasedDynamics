@@ -1,0 +1,629 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						6,
+						7,
+						8
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-baf70cee7c56ab3cee7e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						4,
+						5,
+						6,
+						7,
+						12,
+						13
+					]
+				},
+				{
+					"build" : "PositionBasedDynamics",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-PositionBasedDynamics-Release-3810067e7cebde45a8a3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "PositionBasedDynamics",
+					"targetIndexes" : 
+					[
+						19
+					]
+				},
+				{
+					"build" : "Simulation",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-Simulation-Release-85d6e7581a4ac9660278.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Simulation",
+					"targetIndexes" : 
+					[
+						23
+					]
+				},
+				{
+					"build" : "Utils",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-Utils-Release-ab8e0bec5d53e0e8c0a1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Utils",
+					"targetIndexes" : 
+					[
+						25
+					]
+				},
+				{
+					"build" : "extern/glfw",
+					"childIndexes" : 
+					[
+						5
+					],
+					"jsonFile" : "directory-extern.glfw-Release-c6a06dbe42ec955fb21a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "extern/glfw"
+				},
+				{
+					"build" : "extern/glfw/src",
+					"jsonFile" : "directory-extern.glfw.src-Release-06b54e1a243215744a6f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 1,
+					"source" : "extern/glfw/src",
+					"targetIndexes" : 
+					[
+						26
+					]
+				},
+				{
+					"build" : "extern/imgui",
+					"jsonFile" : "directory-extern.imgui-Release-03b56cfeed1eceefa958.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "extern/imgui",
+					"targetIndexes" : 
+					[
+						27
+					]
+				},
+				{
+					"build" : "extern/md5",
+					"jsonFile" : "directory-extern.md5-Release-f9801c5479b89d0e53e4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "extern/md5",
+					"targetIndexes" : 
+					[
+						18
+					]
+				},
+				{
+					"build" : "Demos",
+					"childIndexes" : 
+					[
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-Demos-Release-1e12f02b6e79e73770c3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Demos"
+				},
+				{
+					"build" : "Demos/BarDemo",
+					"jsonFile" : "directory-Demos.BarDemo-Release-d8b95fb9ac6d6aff47dc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 0,
+					"source" : "Demos/BarDemo",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "Demos/ClothDemo",
+					"jsonFile" : "directory-Demos.ClothDemo-Release-d97f12e1a5b623ce99e7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 0,
+					"source" : "Demos/ClothDemo",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "Demos/CosseratRodsDemo",
+					"jsonFile" : "directory-Demos.CosseratRodsDemo-Release-f3d967f6e9c163db2e13.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 0,
+					"source" : "Demos/CosseratRodsDemo",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "Demos/CouplingDemos",
+					"jsonFile" : "directory-Demos.CouplingDemos-Release-159dca87305055a4cf59.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 0,
+					"source" : "Demos/CouplingDemos",
+					"targetIndexes" : 
+					[
+						20
+					]
+				},
+				{
+					"build" : "Demos/DistanceFieldDemos",
+					"jsonFile" : "directory-Demos.DistanceFieldDemos-Release-10816286a70a4357c781.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 0,
+					"source" : "Demos/DistanceFieldDemos",
+					"targetIndexes" : 
+					[
+						2,
+						9,
+						21
+					]
+				},
+				{
+					"build" : "Demos/FluidDemo",
+					"jsonFile" : "directory-Demos.FluidDemo-Release-2f7f2cc4b6e32e7841b9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 0,
+					"source" : "Demos/FluidDemo",
+					"targetIndexes" : 
+					[
+						14
+					]
+				},
+				{
+					"build" : "Demos/GenericConstraintsDemos",
+					"jsonFile" : "directory-Demos.GenericConstraintsDemos-Release-e34103bf8eee910d6d1b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 0,
+					"source" : "Demos/GenericConstraintsDemos",
+					"targetIndexes" : 
+					[
+						15,
+						16
+					]
+				},
+				{
+					"build" : "Demos/PositionBasedElasticRodsDemo",
+					"jsonFile" : "directory-Demos.PositionBasedElasticRodsDemo-Release-ec53940c7906be953134.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 0,
+					"source" : "Demos/PositionBasedElasticRodsDemo",
+					"targetIndexes" : 
+					[
+						11
+					]
+				},
+				{
+					"build" : "Demos/RigidBodyDemos",
+					"jsonFile" : "directory-Demos.RigidBodyDemos-Release-5885c183f64e94c504eb.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 0,
+					"source" : "Demos/RigidBodyDemos",
+					"targetIndexes" : 
+					[
+						1,
+						17
+					]
+				},
+				{
+					"build" : "Demos/SceneLoaderDemo",
+					"jsonFile" : "directory-Demos.SceneLoaderDemo-Release-35b2e1a49886e40f9c1a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 0,
+					"source" : "Demos/SceneLoaderDemo",
+					"targetIndexes" : 
+					[
+						22
+					]
+				},
+				{
+					"build" : "Demos/StiffRodsDemos",
+					"jsonFile" : "directory-Demos.StiffRodsDemos-Release-49c9eaa0665096f5364d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 0,
+					"source" : "Demos/StiffRodsDemos",
+					"targetIndexes" : 
+					[
+						10,
+						24
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19
+					],
+					"name" : "PositionBasedDynamics",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						27
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4,
+						5
+					],
+					"name" : "GLFW",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						26
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 9,
+					"id" : "BarDemo::@6e7cfe8d6d362f53dac8",
+					"jsonFile" : "target-BarDemo-Release-3a285ca3a5afd6652cf2.json",
+					"name" : "BarDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 17,
+					"id" : "ChainDemo::@9bb2f7b92ba469695cfb",
+					"jsonFile" : "target-ChainDemo-Release-8bca4bf6bf1a9c59f47c.json",
+					"name" : "ChainDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 13,
+					"id" : "ClothCollisionDemo::@09de5dd975e929e89497",
+					"jsonFile" : "target-ClothCollisionDemo-Release-b7c17481b8ddcc5d4a5c.json",
+					"name" : "ClothCollisionDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "ClothDemo::@acc45915278c6da34594",
+					"jsonFile" : "target-ClothDemo-Release-5d80c15f5177c4c3edfb.json",
+					"name" : "ClothDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "CopyImguiFonts::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CopyImguiFonts-Release-fba9903168ffc22ebac9.json",
+					"name" : "CopyImguiFonts",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "CopyPBDModels::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CopyPBDModels-Release-5579c238d667dfdacd75.json",
+					"name" : "CopyPBDModels",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "CopyPBDScenes::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CopyPBDScenes-Release-50a5bb53a83ac321a3e2.json",
+					"name" : "CopyPBDScenes",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "CopyPBDShaders::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CopyPBDShaders-Release-634530607b17895bb2a2.json",
+					"name" : "CopyPBDShaders",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "CosseratRodsDemo::@866a5a86a27d7d1c1302",
+					"jsonFile" : "target-CosseratRodsDemo-Release-f61b97476883f02e5f9f.json",
+					"name" : "CosseratRodsDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 13,
+					"id" : "DeformableCollisionDemo::@09de5dd975e929e89497",
+					"jsonFile" : "target-DeformableCollisionDemo-Release-3347954e2a2b50725cd2.json",
+					"name" : "DeformableCollisionDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 19,
+					"id" : "DirectPositionBasedSolverForStiffRodsDemo::@e5dc5c39be182334db11",
+					"jsonFile" : "target-DirectPositionBasedSolverForStiffRodsDemo-Release-fefa4f494fac15143e19.json",
+					"name" : "DirectPositionBasedSolverForStiffRodsDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 16,
+					"id" : "ElasticRodDemo::@8fda0ef4d8be86e4b173",
+					"jsonFile" : "target-ElasticRodDemo-Release-b6511c5c85e2f952bf0b.json",
+					"name" : "ElasticRodDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Ext_Discregrid::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Ext_Discregrid-Release-77161951e71cef4bf158.json",
+					"name" : "Ext_Discregrid",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Ext_GenericParameters::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Ext_GenericParameters-Release-04fed158aa471fffa950.json",
+					"name" : "Ext_GenericParameters",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 14,
+					"id" : "FluidDemo::@f9cb306eaefd252a6ed5",
+					"jsonFile" : "target-FluidDemo-Release-e19a210006e8f27ee59b.json",
+					"name" : "FluidDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 15,
+					"id" : "GenericParticleConstraintsDemo::@6828b86d89bde5885a4a",
+					"jsonFile" : "target-GenericParticleConstraintsDemo-Release-1f7677a61d321ca81624.json",
+					"name" : "GenericParticleConstraintsDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 15,
+					"id" : "GenericRigidBodyConstraintsDemo::@6828b86d89bde5885a4a",
+					"jsonFile" : "target-GenericRigidBodyConstraintsDemo-Release-d6e2e76b7ddd736bbf27.json",
+					"name" : "GenericRigidBodyConstraintsDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 17,
+					"id" : "JointDemo::@9bb2f7b92ba469695cfb",
+					"jsonFile" : "target-JointDemo-Release-1d8700ea0c8cd83f7c69.json",
+					"name" : "JointDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "MD5::@2560cb1460e292f3cc50",
+					"jsonFile" : "target-MD5-Release-430c005bf29b48ce7441.json",
+					"name" : "MD5",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "PositionBasedDynamics::@790e44c1aa834eb49df3",
+					"jsonFile" : "target-PositionBasedDynamics-Release-0b3555e3aaad5e0c28b8.json",
+					"name" : "PositionBasedDynamics",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 12,
+					"id" : "RigidBodyClothCouplingDemo::@2fffc77709d0b473a512",
+					"jsonFile" : "target-RigidBodyClothCouplingDemo-Release-d2a0afa6a59bc92cb705.json",
+					"name" : "RigidBodyClothCouplingDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 13,
+					"id" : "RigidBodyCollisionDemo::@09de5dd975e929e89497",
+					"jsonFile" : "target-RigidBodyCollisionDemo-Release-d54857367cf5badcf942.json",
+					"name" : "RigidBodyCollisionDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 18,
+					"id" : "SceneLoaderDemo::@66175a876498b1700353",
+					"jsonFile" : "target-SceneLoaderDemo-Release-b4bc0c3d3f24bb08dad2.json",
+					"name" : "SceneLoaderDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Simulation::@cd0e5bd26015bc6b509c",
+					"jsonFile" : "target-Simulation-Release-947ef30667cc4930067a.json",
+					"name" : "Simulation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 19,
+					"id" : "StretchBendingTwistingDemo::@e5dc5c39be182334db11",
+					"jsonFile" : "target-StretchBendingTwistingDemo-Release-067cb4f0be7937e537b9.json",
+					"name" : "StretchBendingTwistingDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Utils::@63186210bb9289bb1152",
+					"jsonFile" : "target-Utils-Release-ca65547218a8354e9eb0.json",
+					"name" : "Utils",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "glfw::@81d610105217ee077306",
+					"jsonFile" : "target-glfw-Release-8756fd69685802147fa4.json",
+					"name" : "glfw",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "imgui::@585051bfad45d3748f65",
+					"jsonFile" : "target-imgui-Release-af501dda20b2872608bc.json",
+					"name" : "imgui",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug",
+		"source" : "/home/paula/Desktop/PBD/PositionBasedDynamics"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

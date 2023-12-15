@@ -1,0 +1,1 @@
+cmd='/snap/clion/260/bin/cmake/linux/x64/bin/cmake;-DCMAKE_BUILD_TYPE:STRING=Release;-DCMAKE_INSTALL_PREFIX:PATH=/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid;-DBUILD_CMD_EXECUTABLE:BOOL=0;-DEIGEN3_INCLUDE_DIR:PATH=/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen;-DCMAKE_CXX_FLAGS=;-GNinja;-S;<SOURCE_DIR><SOURCE_SUBDIR>;-B;<BINARY_DIR>'

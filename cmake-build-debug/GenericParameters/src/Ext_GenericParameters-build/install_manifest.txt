@@ -1,0 +1,6 @@
+/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include/NumericParameter.h
+/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include/EnumParameter.h
+/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include/ParameterObject.h
+/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include/Parameter.h
+/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include/VectorParameter.h
+/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include/FunctionParameter.h
