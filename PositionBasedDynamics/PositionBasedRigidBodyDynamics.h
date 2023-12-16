@@ -1447,7 +1447,8 @@ namespace PBD
                 const Quaternionr &q1,					// rotation of body 1
                 const Vector3r &pos0,
                 const Vector3r &pos1,
-                Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &jointInfo
+                const Vector3r &corraxis,
+                Eigen::Matrix<Real, 3, 5, Eigen::DontAlign> &jointInfo
         );
 
         static bool update_MuellerAngularJoint(
@@ -1455,7 +1456,7 @@ namespace PBD
                 const Quaternionr &q0,					// rotation of body 0
                 const Vector3r &x1, 						// center of mass of body 1
                 const Quaternionr &q1,					// rotation of body 1
-                Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &jointInfo
+                Eigen::Matrix<Real, 3, 5, Eigen::DontAlign> &jointInfo
         );
 
 
@@ -1469,12 +1470,11 @@ namespace PBD
                 const Matrix3r &inertiaInverseW1,		// inverse inertia tensor (world space) of body 1
                 const Quaternionr &q1,					// rotation of body 1
                 const Real stiffness,
-                const Real restLength,
                 const Real dt,
-                const Eigen::Matrix<Real,3,4, Eigen::DontAlign> &jointInfo,	// precomputed joint info
+                const Eigen::Matrix<Real,3,5, Eigen::DontAlign> &jointInfo,	// precomputed joint info
                 Real &lambda,
-                Vector3r &corr_x0, Quaternionr &corr_q0,
-                Vector3r &corr_x1, Quaternionr &corr_q1);
+                Quaternionr &corr_q0,
+                Quaternionr &corr_q1);
 
 
 
