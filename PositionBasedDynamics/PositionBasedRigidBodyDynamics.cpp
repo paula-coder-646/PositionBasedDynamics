@@ -339,7 +339,7 @@ bool PositionBasedRigidBodyDynamics::solve_DistanceJoint(
 	// 2:	connector in body 0 (global)
 	// 3:	connector in body 1 (global)
 
-	// evaluate constraint function
+	// evaluate constraint function (Used to calculate constraint Violation C )
 	const Vector3r &c0 = jointInfo.col(2);
 	const Vector3r &c1 = jointInfo.col(3);
 	const Real length = (c0 - c1).norm();
@@ -390,8 +390,6 @@ bool PositionBasedRigidBodyDynamics::solve_DistanceJoint(
 	const Real delta_lambda = -Kinv * (C + alpha * lambda);
 	lambda += delta_lambda;
 	const Vector3r pt = dir * delta_lambda;
-
-    std::cout << pt << std::endl;
 
 
 
@@ -2620,24 +2618,47 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     // 2:	connector in body 0 (global)
     // 3:	connector in body 1 (global)
 
-    // evaluate constraint function
+    // evaluate constraint function (Used to calculate constraint violation c)
     const Vector3r &c0 = jointInfo.col(2);
     const Vector3r &c1 = jointInfo.col(3);
 
-    const Vector3r &connector0 = c0 - x0;
-    const Vector3r &connector1 = c1 - x1;
+    // Vector from center of mass to connector point in global space
+    const Vector3r &connectorglobal0 = c0 - x0;
+    const Vector3r &connectorglobal1 = c1 - x1;
 
-    const Real length = (c0 - c1).norm();
+    // Local connectors used for lambda calculation (avoids adjustment of Inertia for Rotation)
+    const Vector3r &connectorlocal0 = jointInfo.col(0);
+    const Vector3r &connectorlocal1 = jointInfo.col(1);
 
     Real delta_lambda = 0.0;
 
-
     // Constraint Violation and Gradient of Constraint (Direction of the Constraint)
-    const Real c = (length - restLength);
-    Vector3r n = (c0 - c1);
+    const Real length = (c0 - c1).norm();
 
-    if (length > static_cast<Real>(1e-5))
-        n /= length;
+    const Real c = (length - restLength);
+    Vector3r n = c0 - c1;
+
+    // Rotation Matrices and Inverses, used for localizing both n and Inertia-Tensors
+    Matrix3r rot0T = q0.matrix().transpose();
+    Matrix3r rot1T = q1.matrix().transpose();
+
+    Matrix3r rot0 = q0.matrix();
+    Matrix3r rot1 = q1.matrix();
+
+
+    Vector3r n0 = rot0T * (c0 - c1);
+    Vector3r n1 = rot1T * (c0 - c1);
+
+    Matrix3r localinerinv0 = rot0 * inertiaInverseW0 * rot0T;
+    Matrix3r localinerinv1 = rot1 * inertiaInverseW1 * rot1T;
+
+
+    // Normalize n0 (n in body1 space), n1 (n in body2 space), n
+    if (length > static_cast<Real>(1e-5)) {
+        n0.normalize();
+        n1.normalize();
+        n.normalize();
+    }
     else
     {
         corr_x0.setZero();
@@ -2647,16 +2668,18 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
         return true;
     }
 
-
+    // Calculate alpha-tilde which is time step adjusted compliance
     Real alphatilde = 0.0;
     if (stiffness != 0.0)
     {
         alphatilde = static_cast<Real>(1.0) / (stiffness * dt * dt);
     }
 
-    const Real w0 = invMass0 + (connector0.cross(n).transpose() * inertiaInverseW0 * connector0.cross(n));
-    const Real w1 = invMass1 + (connector1.cross(n).transpose() * inertiaInverseW1 * connector1.cross(n));;
+    // Calculate inverse masses w1 and w2 for body 1 and 2
+    const Real w0 = invMass0 + (connectorlocal0.cross(n0).transpose() * localinerinv0 * connectorlocal0.cross(n0));
+    const Real w1 = invMass1 + (connectorlocal1.cross(n1).transpose() * localinerinv1 * connectorlocal1.cross(n1));;
 
+    // Calculate Delta Lambda
     if (fabs(w0 + w1) > static_cast<Real>(1e-6))
         delta_lambda = (-c - (alphatilde * lambda))/(w0 + w1 + alphatilde);
     else
@@ -2669,15 +2692,17 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
         return true;
     }
 
+    // Calculate Correction Impulse p
     const Vector3r p = n * delta_lambda;
 
     lambda = lambda + delta_lambda;
 
+    // Apply Positional and Rotational Correction
     if (invMass0 != 0.0)
     {
         corr_x0 = invMass0 * p;
 
-        const Vector3r ot = (inertiaInverseW0 * (connector0.cross(p)));
+        const Vector3r ot = (inertiaInverseW0 * (connectorglobal0.cross(p)));
         const Quaternionr otQ(0.0, ot[0], ot[1], ot[2]);
         corr_q0.coeffs() = 0.5 *(otQ*q0).coeffs();
     }
@@ -2686,7 +2711,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     {
         corr_x1 = -invMass1 * p;
 
-        const Vector3r ot = (inertiaInverseW1 * (connector1.cross(p)));
+        const Vector3r ot = (inertiaInverseW1 * (connectorglobal1.cross(p)));
         const Quaternionr otQ(0.0, ot[0], ot[1], ot[2]);
         corr_q1.coeffs() = -0.5 *(otQ*q1).coeffs();
     }
