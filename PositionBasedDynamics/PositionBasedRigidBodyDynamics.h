@@ -1476,8 +1476,54 @@ namespace PBD
                 Quaternionr &corr_q0,
                 Quaternionr &corr_q1);
 
+// ----------------------------------------------------------------------------------------------
 
+        bool MuellerAngleLimits(
+                const Vector3r &n,
+                const Vector3r &n0,
+                const Vector3r &n1,
+                const Real alpha,
+                const Real beta,
+                Vector3r &corr_q_fixed,
+                Real alphaswing = 0,
+                Real betaswing = 0,
+                Real alphatwist = 0,
+                Real betatwist = 0
+        );
 
+// ----------------------------------------------------------------------------------------------
+        bool init_MuellerBallJoint(
+                const Vector3r &x0,
+                const Quaternionr &q0,
+                const Vector3r &x1,
+                const Quaternionr &q1,
+                const Vector3r &ballJointPosition,
+                Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &ballJointInfo
+        );
+
+// ----------------------------------------------------------------------------------------------
+        bool update_MuellerBallJoint(
+                const Vector3r &x0,
+                const Quaternionr &q0,
+                const Vector3r &x1,
+                const Quaternionr &q1,
+                Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &ballJointInfo
+        );
+
+// ----------------------------------------------------------------------------------------------
+        bool solve_MuellerBallJoint(
+                const Real invMass0,
+                const Vector3r &x0,
+                const Matrix3r &inertiaInverseW0,
+                const Quaternionr &q0,
+                const Real invMass1,
+                const Vector3r &x1,
+                const Matrix3r &inertiaInverseW1,
+                const Quaternionr &q1,
+                const Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &ballJointInfo,
+                Vector3r &corr_x0, Quaternionr &corr_q0,
+                Vector3r &corr_x1, Quaternionr &corr_q1
+        );
 
     };
 }
