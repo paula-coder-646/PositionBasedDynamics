@@ -1440,41 +1440,22 @@ namespace PBD
 			Vector3r &corr_x0, Quaternionr &corr_q0,
 			Vector3r &corr_x1, Quaternionr &corr_q1);
 
-        static bool init_MuellerAngularJoint(
-                const Vector3r &x0, 						// center of mass of body 0
-                const Quaternionr &q0,					// rotation of body 0
-                const Vector3r &x1, 						// center of mass of body 1
-                const Quaternionr &q1,					// rotation of body 1
-                const Vector3r &pos0,
-                const Vector3r &pos1,
-                const Vector3r &corraxis,
-                Eigen::Matrix<Real, 3, 5, Eigen::DontAlign> &jointInfo
-        );
-
-        static bool update_MuellerAngularJoint(
-                const Vector3r &x0, 						// center of mass of body 0
-                const Quaternionr &q0,					// rotation of body 0
-                const Vector3r &x1, 						// center of mass of body 1
-                const Quaternionr &q1,					// rotation of body 1
-                Eigen::Matrix<Real, 3, 5, Eigen::DontAlign> &jointInfo
-        );
-
 
         static bool solve_MuellerAngularJoint(
-                const Real invMass0,							// inverse mass is zero if body is static
-                const Vector3r &x0, 						// center of mass of body 0
-                const Matrix3r &inertiaInverseW0,		// inverse inertia tensor (world space) of body 0
-                const Quaternionr &q0,					// rotation of body 0
-                const Real invMass1,							// inverse mass is zero if body is static
-                const Vector3r &x1, 						// center of mass of body 1
-                const Matrix3r &inertiaInverseW1,		// inverse inertia tensor (world space) of body 1
-                const Quaternionr &q1,					// rotation of body 1
-                const Real stiffness,
-                const Real dt,
-                const Eigen::Matrix<Real,3,5, Eigen::DontAlign> &jointInfo,	// precomputed joint info
+                const Real invMass0,
+                const Vector3r &x0,
+                const Matrix3r &inertiaInverseW0,
+                const Quaternionr &q0,
+                const Real invMass1,
+                const Vector3r &x1,
+                const Matrix3r &inertiaInverseW1,
+                const Quaternionr &q1,
+                Vector3r corraxis,
                 Real &lambda,
                 Quaternionr &corr_q0,
-                Quaternionr &corr_q1);
+                Quaternionr &corr_q1,
+                const Real stiffness,
+                const Real dt);
 
 // ----------------------------------------------------------------------------------------------
 
@@ -1484,11 +1465,7 @@ namespace PBD
                 const Vector3r &n1,
                 const Real alpha,
                 const Real beta,
-                Vector3r &corr_q_fixed,
-                Real alphaswing = 0,
-                Real betaswing = 0,
-                Real alphatwist = 0,
-                Real betatwist = 0
+                Vector3r &corr_q_fixed
         );
 
 // ----------------------------------------------------------------------------------------------
@@ -1522,7 +1499,14 @@ namespace PBD
                 const Quaternionr &q1,
                 const Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &ballJointInfo,
                 Vector3r &corr_x0, Quaternionr &corr_q0,
-                Vector3r &corr_x1, Quaternionr &corr_q1
+                Vector3r &corr_x1, Quaternionr &corr_q1,
+                Real &lambda,
+                Real &stiffness,
+                Real &dt,
+                Real alphaswing,
+                Real betaswing,
+                Real alphatwist,
+                Real betatwist
         );
 
     };

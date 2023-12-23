@@ -2732,66 +2732,6 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     return true;
 }
 
-bool PositionBasedRigidBodyDynamics::init_MuellerAngularJoint(
-        const Vector3r &x0,
-        const Quaternionr &q0,
-        const Vector3r &x1,
-        const Quaternionr &q1,
-        const Vector3r &pos0,
-        const Vector3r &pos1,
-        const Vector3r &corraxis,
-        Eigen::Matrix<Real, 3, 5, Eigen::DontAlign> &jointInfo
-)
-{
-    // jointInfo contains
-    // 0:	connector in body 0 (local)
-    // 1:	connector in body 1 (local)
-    // 2:	connector in body 0 (global)
-    // 3:	connector in body 1 (global)
-    // 4:   rotation axis (direction is axis, magnitude angle to be rotated)
-
-    // rot0T and rot1T are the rotation matrices, that allow for the inverse transformation of global vectors into local space
-    const Matrix3r rot0T = q0.matrix().transpose();
-    const Matrix3r rot1T = q1.matrix().transpose();
-
-    // For the first and second column multiply by rotT to transform into local space
-    jointInfo.col(0) = rot0T * (pos0 - x0);
-    jointInfo.col(1) = rot1T * (pos1 - x1);
-    jointInfo.col(2) = pos0;
-    jointInfo.col(3) = pos1;
-    jointInfo.col(4) = corraxis;
-
-    return true;
-}
-
-// ----------------------------------------------------------------------------------------------
-bool PositionBasedRigidBodyDynamics::update_MuellerAngularJoint(
-        const Vector3r &x0,
-        const Quaternionr &q0,
-        const Vector3r &x1,
-        const Quaternionr &q1,
-        Eigen::Matrix<Real, 3, 5, Eigen::DontAlign> &jointInfo
-)
-{
-    // jointInfo contains
-    // 0:	connector in body 0 (local)
-    // 1:	connector in body 1 (local)
-    // 2:	connector in body 0 (global)
-    // 3:	connector in body 1 (global)
-    // 4:   rotation axis (direction is axis, magnitude angle to be rotated)
-
-    // compute world space positions of connectors (rot0 and rot1 are rotation matrices, that allow the transformation of the local space to global space)
-    const Matrix3r rot0 = q0.matrix();
-    const Matrix3r rot1 = q1.matrix();
-    jointInfo.col(2) = rot0 * jointInfo.col(0) + x0;
-    jointInfo.col(3) = rot1 * jointInfo.col(1) + x1;
-
-    // Since the rotation axis is global and stays fixed during all iterations, It needs no updating
-
-    return true;
-}
-
-
 // ----------------------------------------------------------------------------------------------
 bool PositionBasedRigidBodyDynamics::solve_MuellerAngularJoint(
         const Real invMass0,
@@ -2802,26 +2742,18 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerAngularJoint(
         const Vector3r &x1,
         const Matrix3r &inertiaInverseW1,
         const Quaternionr &q1,
-        const Real stiffness,
-        const Real dt,
-        const Eigen::Matrix<Real, 3, 5, Eigen::DontAlign> &jointInfo,
+        Vector3r corraxis,
         Real &lambda,
         Quaternionr &corr_q0,
-        Quaternionr &corr_q1)
+        Quaternionr &corr_q1,
+        const Real stiffness = 0.0,
+        const Real dt = 0)
 {
-    // jointInfo contains
-    // 0:	connector in body 0 (local)
-    // 1:	connector in body 1 (local)
-    // 2:	connector in body 0 (global)
-    // 3:	connector in body 1 (global)
-    // 4:   rotation axis (direction is axis, magnitude angle to be rotated)
-
     // Rotation Matrices used for representing rotation axis to body 1 and body 2 local coordinates
     Matrix3r rot0T = q0.matrix().transpose();
     Matrix3r rot1T = q1.matrix().transpose();
 
     // The axis of rotation around which the angular constraint is resolved
-    const Vector3r &corraxis = jointInfo.col(4);
     const Vector3r n = corraxis.normalized();
 
     // Extract the angle of the rotation from the length of the rotation axis
@@ -2940,6 +2872,7 @@ bool PositionBasedRigidBodyDynamics::init_MuellerBallJoint(
     ballJointInfo.col(2) = ballJointPosition;
     ballJointInfo.col(3) = ballJointPosition;
 
+
     return true;
 }
 
@@ -2980,16 +2913,20 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
         const Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &ballJointInfo,
         Vector3r &corr_x0, Quaternionr &corr_q0,
         Vector3r &corr_x1, Quaternionr &corr_q1,
+        Real &lambda,
+        Real &stiffness,
+        Real &dt,
         Real alphaswing = 0,
         Real betaswing = 0,
         Real alphatwist = 0,
         Real betatwist = 0)
 {
     // jointInfo contains
-    // 0:	connector in body 0 (local)
+    // 0:	connector in b    init_MuellerAngularJoint();ody 0 (local)
     // 1:	connector in body 1 (local)
     // 2:	connector in body 0 (global)
     // 3:	connector in body 1 (global)
+
 
     // Masterplan:
     // In general, angular constraints are solved in 4 stages:
@@ -2997,8 +2934,16 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     // 2. Determine Rotation (If needed, solve Angular Limits)
     // 3. Solve Angular Constraint (-> Correct rotation of Body, and therefore change position of attached connector)
     // 4. Since both connectors might be off, solve Position Constraint for connector points.
+    // 5. Apply Corrections !
 
 
+    // Init Corrections for later use:
+    Quaternionr scorr_q0;
+    Quaternionr scorr_q1;
+    Quaternionr tcorr_q0;
+    Quaternionr tcorr_q1;
+
+    // Init connectors
     const Vector3r &c0 = ballJointInfo.col(2);
     const Vector3r &c1 = ballJointInfo.col(3);
 
@@ -3025,18 +2970,71 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     // 2. Twist Limits
     Vector3r twistcorr;
 
-    Vector3r n = (a0g + a1g).normalized(),
+    Vector3r n = (a0g + a1g).normalized();
     Vector3r n0 = b0g - (n.dot(b0g)* n).normalized();
     Vector3r n1 = b1g - (n.dot(b1g)* n).normalized();
 
     MuellerAngleLimits(n, n0, n1, alphatwist, betatwist, twistcorr);
 
     // 3. Solve Angular Constraint
-    solve_MuellerAngularJoint(swingcorr);
-    solve_MuellerAngularJoint(twistcorr);
+    solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, swingcorr, lambda, scorr_q0, scorr_q1); // Swing-Correction
+    solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, twistcorr, lambda, tcorr_q0, tcorr_q1);// Twist Correction;
 
     // 4. Solve Position Constraint
-    solve_MuellerDistanceJoint();
+
+    // 4.1 Dirty Hack, init jointinfo here, to avoid Creating Separate Constraint
+    Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> jointInfo;
+
+    // 4.2 Preview Corrections for the Distance Joint.
+    Vector3r distcorr_x0;
+    Quaternionr distcorr_q0;
+    Vector3r distcorr_x1;
+    Quaternionr distcorr_q1;
+
+    // 4.3 Preview Rotations to solve Distance Joint
+    corr_q0.coeffs() = scorr_q0.coeffs() + tcorr_q0.coeffs();
+    corr_q0.coeffs() = scorr_q1.coeffs() + tcorr_q1.coeffs();
+
+    Quaternionr prevrot0;
+    prevrot0.coeffs() = q0.coeffs() + corr_q0.coeffs();
+    prevrot0.normalize();
+
+    Quaternionr prevrot1;
+    prevrot1.coeffs() = q1.coeffs() + corr_q1.coeffs();
+    prevrot1.normalize();
+
+    Matrix3r rotprev0 = prevrot0.matrix();
+    Matrix3r rotprev1 = prevrot1.matrix();
+    Matrix3r rotprev0T = prevrot0.matrix().transpose();
+    Matrix3r rotprev1T = prevrot1.matrix().transpose();
+
+    Vector3r prevcon0 = rotprev0 * c0;
+    Vector3r prevcon1 = rotprev1 * c1;
+
+    // Preview InverseInertia
+    // First extract local inverse Inertia
+    Matrix3r localInertiaInverse0 = q0.matrix().transpose() * inertiaInverseW0 * q0.matrix();
+    Matrix3r localInertiaInverse1 = q1.matrix().transpose() * inertiaInverseW1 * q1.matrix();
+    Matrix3r InertiaInverseW0prev = rotprev0 * localInertiaInverse0 * rotprev0T;
+    Matrix3r InertiaInverseW1prev = rotprev1 * localInertiaInverse1 * rotprev1T;
+
+    // Solve Distance Joint
+    init_MuellerDistanceJoint(x0, prevrot0, x1, prevrot1, prevcon0, prevcon1, jointInfo);
+    solve_MuellerDistanceJoint(invMass0, x0, InertiaInverseW0prev, q0, invMass1, x1, InertiaInverseW1prev, q1, stiffness, 0, dt, jointInfo, lambda, distcorr_x0, distcorr_q0, distcorr_x1, distcorr_q1);
+
+    // 5. Add up Corrections
+    if (invMass0 != 0.0)
+    {
+        corr_x0 = distcorr_x0;
+        corr_q0.coeffs() = corr_q0.coeffs() + distcorr_q0.coeffs();
+    }
+
+    if (invMass1 != 0.0)
+    {
+        corr_x1 = distcorr_x1;
+        corr_q1.coeffs() = corr_q1.coeffs() + distcorr_q1.coeffs();
+    }
+
 
     return true;
 }
