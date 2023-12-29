@@ -1154,8 +1154,7 @@ bool DistanceJoint::solvePositionConstraint(SimulationModel &model, const unsign
 		corr_x1,
 		corr_q1,
 		corr_x2,
-		corr_q2,
-        lastlambda);
+		corr_q2);
 
 	if (res)
 	{

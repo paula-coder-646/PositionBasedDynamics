@@ -1348,8 +1348,7 @@ namespace PBD
                 const Eigen::Matrix<Real,3,4, Eigen::DontAlign> &jointInfo,	// precomputed joint info
                 Real &lambda,
                 Vector3r &corr_x0, Quaternionr &corr_q0,
-                Vector3r &corr_x1, Quaternionr &corr_q1,
-                Real delta_lambda_out);
+                Vector3r &corr_x1, Quaternionr &corr_q1);
 
 		/** Initialize a motor slider joint which is able to enforce
 		* a target position and return info which is required by the solver step.
