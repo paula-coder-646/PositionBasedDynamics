@@ -58,7 +58,7 @@ bool BallJoint::initConstraint(SimulationModel &model, const unsigned int rbInde
 	SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
 	RigidBody &rb1 = *rb[m_bodies[0]];
 	RigidBody &rb2 = *rb[m_bodies[1]];
-	return PositionBasedRigidBodyDynamics::init_BallJoint(
+	return PositionBasedRigidBodyDynamics::init_MuellerBallJoint(
 		rb1.getPosition(),
 		rb1.getRotation(),
 		rb2.getPosition(),
@@ -72,7 +72,7 @@ bool BallJoint::updateConstraint(SimulationModel &model)
 	SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
 	RigidBody &rb1 = *rb[m_bodies[0]];
 	RigidBody &rb2 = *rb[m_bodies[1]];
-	return PositionBasedRigidBodyDynamics::update_BallJoint(
+	return PositionBasedRigidBodyDynamics::update_MuellerBallJoint(
 		rb1.getPosition(),
 		rb1.getRotation(),
 		rb2.getPosition(),
@@ -87,9 +87,18 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
 	RigidBody &rb1 = *rb[m_bodies[0]];
 	RigidBody &rb2 = *rb[m_bodies[1]];
 
+    Real stiffness = 0.0;
+    Real dt = 0.0;
+    Real alphaswing = 0.0;
+    Real betaswing = 0.0;
+    Real alphatwist = 0.0;
+    Real betatwist = 0.0;
+
+    Real lambda = 0;
+
 	Vector3r corr_x1, corr_x2;
 	Quaternionr corr_q1, corr_q2;
-	const bool res = PositionBasedRigidBodyDynamics::solve_BallJoint(
+	const bool res = PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 		rb1.getInvMass(),
 		rb1.getPosition(),
 		rb1.getInertiaTensorInverseW(),
@@ -102,9 +111,15 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
 		corr_x1,
 		corr_q1,
 		corr_x2,
-		corr_q2);
+		corr_q2,
+        stiffness,
+        dt,
+        alphaswing,
+        betaswing,
+        alphatwist,
+        betatwist);
 
-	if (res)
+    if (res)
 	{
 		if (rb1.getMass() != 0.0)
 		{
@@ -1118,6 +1133,7 @@ bool DistanceJoint::solvePositionConstraint(SimulationModel &model, const unsign
 	RigidBody &rb2 = *rb[m_bodies[1]];
 
 	Real lambda = 0.0;
+    //Real delta_lambda_out = 0.0;
 
 	Vector3r corr_x1, corr_x2;
 	Quaternionr corr_q1, corr_q2;
@@ -1138,10 +1154,13 @@ bool DistanceJoint::solvePositionConstraint(SimulationModel &model, const unsign
 		corr_x1,
 		corr_q1,
 		corr_x2,
-		corr_q2);
+		corr_q2,
+        lastlambda);
 
 	if (res)
 	{
+
+
 		if (rb1.getMass() != 0.0)
 		{
 			rb1.getPosition() += corr_x1;

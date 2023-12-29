@@ -1,11 +1,11 @@
 # ninja log v5
-3	1691	1702573253415433935	discregrid/CMakeFiles/Discregrid.dir/src/mesh/entity_iterators.cpp.o	a71409362d46a70e
-1	1814	1702573253535668472	discregrid/CMakeFiles/Discregrid.dir/src/discrete_grid.cpp.o	26df67d9e2568e9a
-2	808	1702573252529665459	discregrid/CMakeFiles/Discregrid.dir/src/utility/timing.cpp.o	4dbfaceb1ffc955
-4677	4695	1702573256420951053	bin/libDiscregrid.a	b9c04aaf90944c
-5	2703	1702573254429376492	discregrid/CMakeFiles/Discregrid.dir/src/mesh/triangle_mesh.cpp.o	dc02eb9ab473202b
+23	3235	1703604730672286696	discregrid/CMakeFiles/Discregrid.dir/src/mesh/entity_iterators.cpp.o	a71409362d46a70e
+2	3331	1703604730768286747	discregrid/CMakeFiles/Discregrid.dir/src/discrete_grid.cpp.o	26df67d9e2568e9a
+2	1856	1703604729296285946	discregrid/CMakeFiles/Discregrid.dir/src/utility/timing.cpp.o	4dbfaceb1ffc955
+6024	6038	1703604733476288178	bin/libDiscregrid.a	b6b8adc8cf8efe80
+31	4340	1703604731780287289	discregrid/CMakeFiles/Discregrid.dir/src/mesh/triangle_mesh.cpp.o	dc02eb9ab473202b
 5967	6138	1702572558312305699	bin/libDiscregrid_d.a	4479160c412ff2a8
-2	4677	1702573256400916787	discregrid/CMakeFiles/Discregrid.dir/src/cubic_lagrange_discrete_grid.cpp.o	ae05830eed3bb047
-2	1906	1702573253627848283	discregrid/CMakeFiles/Discregrid.dir/src/mesh/entity_containers.cpp.o	522b630e4c7ebf5
-2	9	0	CMakeFiles/install.util	6aef8c035abcd643
-2	8	0	CMakeFiles/install.util	6aef8c035abcd643
+3	6024	1703604733464288172	discregrid/CMakeFiles/Discregrid.dir/src/cubic_lagrange_discrete_grid.cpp.o	ae05830eed3bb047
+12	3019	1703604730456286579	discregrid/CMakeFiles/Discregrid.dir/src/mesh/entity_containers.cpp.o	522b630e4c7ebf5
+4	11	0	CMakeFiles/install.util	b4b3a2a78df1326c
+2	16	0	CMakeFiles/install.util	b4b3a2a78df1326c

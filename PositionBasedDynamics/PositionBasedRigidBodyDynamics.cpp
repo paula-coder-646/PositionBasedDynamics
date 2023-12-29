@@ -6,6 +6,7 @@
 #include "math.h"
 
 using namespace PBD;
+using namespace std;
 
 // ----------------------------------------------------------------------------------------------
 void PositionBasedRigidBodyDynamics::computeMatrixK(
@@ -215,7 +216,7 @@ bool PositionBasedRigidBodyDynamics::solve_BallJoint(
 	const Matrix3r &inertiaInverseW0,		
 	const Quaternionr &q0,					
 	const Real invMass1,
-	const Vector3r &x1, 						
+	const Vector3r &x1,
 	const Matrix3r &inertiaInverseW1,		
 	const Quaternionr &q1,	
 	const Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &ballJointInfo,
@@ -236,6 +237,7 @@ bool PositionBasedRigidBodyDynamics::solve_BallJoint(
 	computeMatrixK(connector0, invMass0, x0, inertiaInverseW0, K1);
 	computeMatrixK(connector1, invMass1, x1, inertiaInverseW1, K2);
 
+    // K1 + K2 are sufficient, since J = Id (Connectors are used)
 	const Vector3r pt = (K1 + K2).llt().solve(connector1 - connector0);
 
 	if (invMass0 != 0.0)
@@ -351,6 +353,7 @@ bool PositionBasedRigidBodyDynamics::solve_DistanceJoint(
 	computeMatrixK(c0, invMass0, x0, inertiaInverseW0, K1);
 	computeMatrixK(c1, invMass1, x1, inertiaInverseW1, K2);
 	Vector3r dir = c0-c1;
+
 	if (length > static_cast<Real>(1e-5))
 		dir /= length;
 	else
@@ -376,7 +379,7 @@ bool PositionBasedRigidBodyDynamics::solve_DistanceJoint(
 	}
 	
 	Real Kinv = 0.0;
-	if (fabs(K) > static_cast<Real>(1e-6))
+	if (fabs(K) > static_cast<Real>(1e-3))
 		Kinv = static_cast<Real>(1.0) / K;
 	else
 	{
@@ -388,7 +391,9 @@ bool PositionBasedRigidBodyDynamics::solve_DistanceJoint(
 	}
 
 	const Real delta_lambda = -Kinv * (C + alpha * lambda);
+
 	lambda += delta_lambda;
+
 	const Vector3r pt = dir * delta_lambda;
 
 
@@ -408,9 +413,9 @@ bool PositionBasedRigidBodyDynamics::solve_DistanceJoint(
 		const Vector3r r1 = c1 - x1;
 		corr_x1 = -invMass1 * pt;
 
-		const Vector3r ot = (inertiaInverseW1 * (r1.cross(-pt)));
+		const Vector3r ot = (inertiaInverseW1 * (r1.cross(pt)));
 		const Quaternionr otQ(0.0, ot[0], ot[1], ot[2]);
-		corr_q1.coeffs() = 0.5 *(otQ*q1).coeffs();
+		corr_q1.coeffs() = -0.5 *(otQ*q1).coeffs();
 	}
 	return true;
 }
@@ -610,13 +615,15 @@ bool PositionBasedRigidBodyDynamics::init_HingeJoint(
 	R0.col(2).normalize();
 
 	Quaternionr qR0(R0);
-	const Quaternionr q00 = (q0.conjugate() * qR0).conjugate();
-	const Quaternionr q10 = (q1.conjugate() * qR0).conjugate();
+	const Quaternionr q00 = (q0.conjugate() * qR0).conjugate(); // R0 sys to q0 sys
+	const Quaternionr q10 = (q1.conjugate() * qR0).conjugate(); // R0 sys to q1 sys
 
 	Eigen::Matrix<Real, 4, 4, Eigen::DontAlign> Qq00, QHatq10;
 	computeMatrixQ(q00, Qq00);
 	computeMatrixQHat(q10, QHatq10);
-	Eigen::Matrix<Real, 2, 4, Eigen::DontAlign> Pr = (QHatq10.transpose() * Qq00).block<2, 4>(2, 0);
+	Eigen::Matrix<Real, 2, 4, Eigen::DontAlign> Pr = (QHatq10.transpose() * Qq00).block<2, 4>(2, 0); // q1 sys to Ro sys * Quaternion * R0 to q0 sys
+    // Take the 2x4 block diagonal, since 2 DOF are restricted in a Hinge Joint, so only project onto 2 axis
+    // Restricts exactly the DOF that are perpendicular to the direction
 	jointInfo.block<4, 2>(0, 0) = Pr.transpose();
 
 	return true;
@@ -680,13 +687,15 @@ bool PositionBasedRigidBodyDynamics::solve_HingeJoint(
 
 	Eigen::Matrix<Real, 5, 1> C;
 
+    // Jacobi Matrix of c0 - c1 is Identity or neg Identity Matrix
 	C.block<3, 1>(0, 0) = c0 - c1;
 
-    // Difference between q0 and q1
+    // Difference between q0 and q1 -> Convert q0-space into q1-space
 	const Quaternionr tmp = (q0.conjugate() * q1);
 	const Vector4r qVec(tmp.w(), tmp.x(), tmp.y(), tmp.z());
 
-    // Somehow this calculates the difference between q0 and q1 projected onto the plane that is spanned by P
+    // Calculates the difference between q0 and q1 projected onto the plane that is spanned by P
+    // Stores, how the combination of Basis of P with the planes basis combine the qVec Projection onto P
 	C.block<2, 1>(3, 0) = Pr * qVec;
 
 	// compute matrix J M^-1 J^T = K
@@ -705,7 +714,11 @@ bool PositionBasedRigidBodyDynamics::solve_HingeJoint(
 	Eigen::Matrix<Real, 4, 4, Eigen::DontAlign> Qq0;
 	computeMatrixQ(q0, Qq0);
 
-    // TODO What the heck ist t ?
+    // TODO T is the derivative (Pr * qVec)
+
+    //	Eigen::Matrix<Real, 2, 4, Eigen::DontAlign> Pr = (QHatq10.transpose() * Qq00
+    //  C.block = Pr * qVec;
+    //
 	const Eigen::Matrix<Real, 2, 3> t = -Pr * (Qq0.transpose() * Gq1);
 
 	Eigen::Matrix<Real, 5, 5> K;
@@ -720,9 +733,18 @@ bool PositionBasedRigidBodyDynamics::solve_HingeJoint(
 		// where I_3 is the identity matrix, r0* is the cross product matrix of r0 and
 		// t = -Pr * (Qq0^T * Gq1)
 		//
+
 		// J M^-1 J^T =
 		// ( 1/m I_3-r0 * J0^-1 * r0*    -r0 * J0^-1 * t^T   )
 		// ( (-r0 * J0^-1 * t^T)^T       t * J0^-1 * t^T     )
+
+        //
+
+
+
+
+
+
 
 		Matrix3r K00;
 		computeMatrixK(c0, invMass0, x0, inertiaInverseW0, K00);
@@ -760,7 +782,8 @@ bool PositionBasedRigidBodyDynamics::solve_HingeJoint(
 	const Eigen::Matrix<Real, 5, 1> lambda = K.llt().solve(-C);
 
 	const Vector3r pt = lambda.block<3, 1>(0, 0);
-    // TODO What is amt
+
+    // TODO What is amt (Likely the change in angular velocity, but why, dunno :D
 	const Vector3r amt = t.transpose() * lambda.block<2, 1>(3, 0);
 
 	if (invMass0 != 0.0)
@@ -1002,7 +1025,7 @@ bool PositionBasedRigidBodyDynamics::init_SliderJoint(
 
 
 	// determine constraint coordinate system
-	// with direction as x-axis
+	// with direction as x-axis -> Store axis as columns in R0
 	Matrix3r R0;
 	R0.col(0) = direction;
 	R0.col(0).normalize();
@@ -1017,22 +1040,27 @@ bool PositionBasedRigidBodyDynamics::init_SliderJoint(
 	R0.col(1).normalize();
 	R0.col(2).normalize();
 
-	Quaternionr qR0(R0);
+	Quaternionr qR0(R0); // store orientation in quaternion
 	jointInfo.col(1) = qR0.coeffs();
 
 	// coordinate system of body 0 (local)
+    // stores the difference between q0 and qR0
 	jointInfo.col(0) = (q0.conjugate() * qR0).coeffs();
 
 	const Eigen::Matrix< Real, 2, 3 > P = R0.block<3, 2>(0, 1).transpose();
 	jointInfo.block<2, 1>(0, 2) = P * (x0 - x1);
 
-	const Quaternionr q00 = (q0.conjugate() * qR0).conjugate();
-	const Quaternionr q10 = (q1.conjugate() * qR0).conjugate();
+	const Quaternionr q00 = (q0.conjugate() * qR0).conjugate(); // Global Position Delta of q0 to Coordinate System
+	const Quaternionr q10 = (q1.conjugate() * qR0).conjugate(); // Global Position Delta of q1 to Coordinate System
 
 	Eigen::Matrix<Real, 4, 4, Eigen::DontAlign> Qq00, QHatq10;
-	computeMatrixQ(q00, Qq00);
-	computeMatrixQHat(q10, QHatq10);
+
+	computeMatrixQ(q00, Qq00); // let q_00, q_y be quaternions, then (q_y) * Qq00 = q_y * q00
+	computeMatrixQHat(q10, QHatq10); // let q_10, q_y be quaternions, then (q_y) * Qq10 = q10 * q_y
+
+    // TODO MAYBE: Pr takes in a quaternion q and calculates q10 * q * q00 -> Projecting the Current Position of the quaternion on the "plane" spanned by q10 and q00
 	Eigen::Matrix<Real, 3, 4> Pr = (QHatq10.transpose() * Qq00).block<3, 4>(1, 0);
+    // Maybe take the 3x4 block diagonal, since all 3 Rotational DOF are restricted in a Slider Joint
 	jointInfo.block<4, 3>(0, 3) = Pr.transpose();
 
 	return true;
@@ -1056,6 +1084,7 @@ bool PositionBasedRigidBodyDynamics::update_SliderJoint(
 	// transform constraint coordinate system of body 0 to world space
 	Quaternionr qR0;
 	qR0.coeffs() = jointInfo.col(0);
+    // TODO Figure Out why this is the global coordinate system
 	jointInfo.col(1) = (q0 * qR0).coeffs();
 	return true;
 }
@@ -1083,6 +1112,8 @@ bool PositionBasedRigidBodyDynamics::solve_SliderJoint(
 	Eigen::Matrix< Real, 2, 3 > P;
 	Quaternionr qCoord;
 	qCoord.coeffs() = jointInfo.col(1);
+
+    // Transform position quaternion into coordinate system, and take direction-perpend. vect. as Plane Vectors
 	const Matrix3r &R0 = qCoord.matrix();
 	P.row(0) = R0.col(1).transpose();
 	P.row(1) = R0.col(2).transpose();
@@ -1093,9 +1124,12 @@ bool PositionBasedRigidBodyDynamics::solve_SliderJoint(
 
  	// evaluate constraint function
  	Eigen::Matrix<Real, 5, 1> C;
+
+     // D allows for slack, so that the bodies don't need to stay "exactly" on the slider line
  	C.block<2, 1>(0, 0) = P * (x0 - x1) - d;
  	const Quaternionr tmp = (q0.conjugate() * q1);
  	const Vector4r qVec(tmp.w(), tmp.x(), tmp.y(), tmp.z());
+
  	C.block<3, 1>(2, 0) = Pr * qVec;
 
 
@@ -1104,6 +1138,7 @@ bool PositionBasedRigidBodyDynamics::solve_SliderJoint(
 	Eigen::Matrix<Real, 4, 4, Eigen::DontAlign> Qq0;
 	computeMatrixQ(q0, Qq0);
 
+    // Pr (3x4) ,
 	const Matrix3r t = -Pr * (Qq0.transpose() * Gq1);
 
 	// compute K = J M^-1 J^T
@@ -1113,9 +1148,16 @@ bool PositionBasedRigidBodyDynamics::solve_SliderJoint(
 	{
 		// Jacobian for body 0 is
 		//
-		// (P     0)
-		// (0     t)
-		//
+		// (P (2x3)     0)
+		// (0     t (3x3))
+        //
+        // Constraint           Derivative
+        // P * (x0 - x1) - d    P
+		// Pr * qVec            -Pr * (Qq0.transpose() * Gq1)
+        //
+        //
+        // The Jacobian is
+        //
 		// where I_3 is the identity matrix and t = -Pr * (Qq0^T * Gq1)
 		//
 		// J M^-1 J^T =
@@ -2624,7 +2666,8 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
         const Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &jointInfo,
         Real &lambda,
         Vector3r &corr_x0, Quaternionr &corr_q0,
-        Vector3r &corr_x1, Quaternionr &corr_q1)
+        Vector3r &corr_x1, Quaternionr &corr_q1,
+        Real delta_lambda_out)
 {
     // jointInfo contains
     // 0:	connector in body 0 (local)
@@ -2640,7 +2683,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     const Vector3r &connectorglobal0 = c0 - x0;
     const Vector3r &connectorglobal1 = c1 - x1;
 
-    // Local connectors used for lambda calculation (avoids adjustment of Inertia for Rotation)
+    // Local connectors from center of mass to connector point used for lambda calculation (avoids adjustment of Inertia for Rotation)
     const Vector3r &connectorlocal0 = jointInfo.col(0);
     const Vector3r &connectorlocal1 = jointInfo.col(1);
 
@@ -2687,6 +2730,9 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     if (stiffness != 0.0)
     {
         alphatilde = static_cast<Real>(1.0) / (stiffness * dt * dt);
+        if (alphatilde > 1.0)
+            alphatilde = 1.0;
+
     }
 
     // Calculate inverse masses w1 and w2 for body 1 and 2
@@ -2705,6 +2751,9 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
 
         return true;
     }
+
+    delta_lambda_out = delta_lambda;
+    std::cout << delta_lambda_out << "\n";
 
     // Calculate Correction Impulse p
     const Vector3r p = n * delta_lambda;
@@ -2770,8 +2819,8 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerAngularJoint(
         alphatilde = static_cast<Real>(1.0) / (stiffness * dt * dt);
     }
 
-    const Real w0 = (n0.transpose() * inertiaInverseW0 * n0); // TODO: use body1's n here
-    const Real w1 = (n1.transpose() * inertiaInverseW1 * n1); // TODO: use body 2's n here
+    const Real w0 = (n0.transpose() * inertiaInverseW0 * n0);
+    const Real w1 = (n1.transpose() * inertiaInverseW1 * n1);
 
     Real delta_lambda = 0;
 
@@ -2913,13 +2962,12 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
         const Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &ballJointInfo,
         Vector3r &corr_x0, Quaternionr &corr_q0,
         Vector3r &corr_x1, Quaternionr &corr_q1,
-        Real &lambda,
         Real &stiffness,
         Real &dt,
-        Real alphaswing = 0,
-        Real betaswing = 0,
-        Real alphatwist = 0,
-        Real betatwist = 0)
+        Real &alphaswing,
+        Real &betaswing,
+        Real &alphatwist,
+        Real &betatwist)
 {
     // jointInfo contains
     // 0:	connector in b    init_MuellerAngularJoint();ody 0 (local)
@@ -2936,7 +2984,8 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     // 4. Since both connectors might be off, solve Position Constraint for connector points.
     // 5. Apply Corrections !
 
-
+    // Init lambda
+    Real lambda = 0;
     // Init Corrections for later use:
     Quaternionr scorr_q0;
     Quaternionr scorr_q1;
@@ -3020,7 +3069,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
     // Solve Distance Joint
     init_MuellerDistanceJoint(x0, prevrot0, x1, prevrot1, prevcon0, prevcon1, jointInfo);
-    solve_MuellerDistanceJoint(invMass0, x0, InertiaInverseW0prev, q0, invMass1, x1, InertiaInverseW1prev, q1, stiffness, 0, dt, jointInfo, lambda, distcorr_x0, distcorr_q0, distcorr_x1, distcorr_q1);
+    solve_MuellerDistanceJoint(invMass0, x0, InertiaInverseW0prev, q0, invMass1, x1, InertiaInverseW1prev, q1, stiffness, 0, dt, jointInfo, lambda, distcorr_x0, distcorr_q0, distcorr_x1, distcorr_q1, 0.0);
 
     // 5. Add up Corrections
     if (invMass0 != 0.0)

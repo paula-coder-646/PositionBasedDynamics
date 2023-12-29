@@ -243,6 +243,7 @@ namespace PBD
 		static int TYPE_ID;
 		Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> m_jointInfo;
 		Real m_restLength;
+        Real lastlambda = 0.0;
 
 		DistanceJoint() : Constraint(2) {}
 		virtual int &getTypeId() const { return TYPE_ID; }

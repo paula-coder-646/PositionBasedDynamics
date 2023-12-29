@@ -1348,7 +1348,8 @@ namespace PBD
                 const Eigen::Matrix<Real,3,4, Eigen::DontAlign> &jointInfo,	// precomputed joint info
                 Real &lambda,
                 Vector3r &corr_x0, Quaternionr &corr_q0,
-                Vector3r &corr_x1, Quaternionr &corr_q1);
+                Vector3r &corr_x1, Quaternionr &corr_q1,
+                Real delta_lambda_out);
 
 		/** Initialize a motor slider joint which is able to enforce
 		* a target position and return info which is required by the solver step.
@@ -1459,7 +1460,7 @@ namespace PBD
 
 // ----------------------------------------------------------------------------------------------
 
-        bool MuellerAngleLimits(
+        static bool MuellerAngleLimits(
                 const Vector3r &n,
                 const Vector3r &n0,
                 const Vector3r &n1,
@@ -1469,7 +1470,7 @@ namespace PBD
         );
 
 // ----------------------------------------------------------------------------------------------
-        bool init_MuellerBallJoint(
+        static bool init_MuellerBallJoint(
                 const Vector3r &x0,
                 const Quaternionr &q0,
                 const Vector3r &x1,
@@ -1479,7 +1480,7 @@ namespace PBD
         );
 
 // ----------------------------------------------------------------------------------------------
-        bool update_MuellerBallJoint(
+        static bool update_MuellerBallJoint(
                 const Vector3r &x0,
                 const Quaternionr &q0,
                 const Vector3r &x1,
@@ -1488,7 +1489,7 @@ namespace PBD
         );
 
 // ----------------------------------------------------------------------------------------------
-        bool solve_MuellerBallJoint(
+        static bool solve_MuellerBallJoint(
                 const Real invMass0,
                 const Vector3r &x0,
                 const Matrix3r &inertiaInverseW0,
@@ -1500,13 +1501,12 @@ namespace PBD
                 const Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &ballJointInfo,
                 Vector3r &corr_x0, Quaternionr &corr_q0,
                 Vector3r &corr_x1, Quaternionr &corr_q1,
-                Real &lambda,
                 Real &stiffness,
                 Real &dt,
-                Real alphaswing,
-                Real betaswing,
-                Real alphatwist,
-                Real betatwist
+                Real &alphaswing,
+                Real &betaswing,
+                Real &alphatwist,
+                Real &betatwist
         );
 
     };
