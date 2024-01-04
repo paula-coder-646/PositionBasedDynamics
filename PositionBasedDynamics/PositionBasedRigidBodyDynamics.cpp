@@ -413,9 +413,9 @@ bool PositionBasedRigidBodyDynamics::solve_DistanceJoint(
 		const Vector3r r1 = c1 - x1;
 		corr_x1 = -invMass1 * pt;
 
-		const Vector3r ot = (inertiaInverseW1 * (r1.cross(pt)));
+		const Vector3r ot = (inertiaInverseW1 * (r1.cross(-pt)));
 		const Quaternionr otQ(0.0, ot[0], ot[1], ot[2]);
-		corr_q1.coeffs() = -0.5 *(otQ*q1).coeffs();
+		corr_q1.coeffs() = 0.5 *(otQ*q1).coeffs();
 	}
 	return true;
 }
@@ -599,7 +599,7 @@ bool PositionBasedRigidBodyDynamics::init_HingeJoint(
 	jointInfo.block<3, 1>(0, 6) = rot0T * direction;
 
 	// determine constraint coordinate system
-	// with direction as x-axis
+	// with hinge axis as x-axis
 	Matrix3r R0;
 	R0.col(0) = direction;
 	R0.col(0).normalize();
@@ -615,13 +615,22 @@ bool PositionBasedRigidBodyDynamics::init_HingeJoint(
 	R0.col(2).normalize();
 
 	Quaternionr qR0(R0);
-	const Quaternionr q00 = (q0.conjugate() * qR0).conjugate(); // R0 sys to q0 sys
-	const Quaternionr q10 = (q1.conjugate() * qR0).conjugate(); // R0 sys to q1 sys
+    // qR0 is the World-Coordinate System
+	const Quaternionr q00 = (q0.conjugate() * qR0).conjugate(); // R0 sys to q0 sys // q00 is the Delta of q0 to the WCS
+    // q0: WCS -> q0
+    // q0.conj: q0 -> WCS
+    // qR0: WCS -> R0
+    // q00: q0 -> R0
+    // q00.conj: R0 -> q0
+	const Quaternionr q10 = (q1.conjugate() * qR0).conjugate(); // R0 sys to q1 sys // q10 is the Delta of q1 to the WCS
+    // q10.conj: R0 -> q1
 
 	Eigen::Matrix<Real, 4, 4, Eigen::DontAlign> Qq00, QHatq10;
 	computeMatrixQ(q00, Qq00);
 	computeMatrixQHat(q10, QHatq10);
-	Eigen::Matrix<Real, 2, 4, Eigen::DontAlign> Pr = (QHatq10.transpose() * Qq00).block<2, 4>(2, 0); // q1 sys to Ro sys * Quaternion * R0 to q0 sys
+	Eigen::Matrix<Real, 2, 4, Eigen::DontAlign> Pr = (QHatq10.transpose() * Qq00).block<2, 4>(2, 0);
+    // R0 sys to q1 sys * Quaternion * q0 to R0 sys
+    // Project Orientation onto the Axis of R0
     // Take the 2x4 block diagonal, since 2 DOF are restricted in a Hinge Joint, so only project onto 2 axis
     // Restricts exactly the DOF that are perpendicular to the direction
 	jointInfo.block<4, 2>(0, 0) = Pr.transpose();
@@ -694,8 +703,8 @@ bool PositionBasedRigidBodyDynamics::solve_HingeJoint(
 	const Quaternionr tmp = (q0.conjugate() * q1);
 	const Vector4r qVec(tmp.w(), tmp.x(), tmp.y(), tmp.z());
 
-    // Calculates the difference between q0 and q1 projected onto the plane that is spanned by P
-    // Stores, how the combination of Basis of P with the planes basis combine the qVec Projection onto P
+    // Calculates the difference between q0 and q1 (or q1 and q2) projected onto the Coordinate System of R0
+    // Stores, how the combined Basis Vectors of Pr build up the Delta-Orientation Violation between q0 and q1
 	C.block<2, 1>(3, 0) = Pr * qVec;
 
 	// compute matrix J M^-1 J^T = K
@@ -714,11 +723,12 @@ bool PositionBasedRigidBodyDynamics::solve_HingeJoint(
 	Eigen::Matrix<Real, 4, 4, Eigen::DontAlign> Qq0;
 	computeMatrixQ(q0, Qq0);
 
-    // TODO T is the derivative (Pr * qVec)
+    // TODO t is the derivative (Pr * qVec)
 
-    //	Eigen::Matrix<Real, 2, 4, Eigen::DontAlign> Pr = (QHatq10.transpose() * Qq00
-    //  C.block = Pr * qVec;
-    //
+    //	Eigen::Matrix<Real, 2, 4, Eigen::DontAlign> Pr = (QHatq10.transpose() * Qq00)
+    //  C.block = Pr * qVec; qVec is q0.conj * q1
+
+    // TODO Find out why t takes Qq0 and not q0 directly
 	const Eigen::Matrix<Real, 2, 3> t = -Pr * (Qq0.transpose() * Gq1);
 
 	Eigen::Matrix<Real, 5, 5> K;
@@ -738,13 +748,9 @@ bool PositionBasedRigidBodyDynamics::solve_HingeJoint(
 		// ( 1/m I_3-r0 * J0^-1 * r0*    -r0 * J0^-1 * t^T   )
 		// ( (-r0 * J0^-1 * t^T)^T       t * J0^-1 * t^T     )
 
+        // I_3 is the positional Part of the Constraint specific Part of the Jacobi Matrix since the Constraint C(P1,P2) = P1 - P2 derived by p1 yields Id
+        // r0* is the Constraint specific Part of the Jacobi Matrix, since the Constraint C(P1,P2) = P1 x P2 derived by P1 yields P2*
         //
-
-
-
-
-
-
 
 		Matrix3r K00;
 		computeMatrixK(c0, invMass0, x0, inertiaInverseW0, K00);
@@ -2679,20 +2685,18 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     const Vector3r &c1 = jointInfo.col(3);
 
     // Vector from center of mass to connector point in global space
-    const Vector3r &connectorglobal0 = c0 - x0;
-    const Vector3r &connectorglobal1 = c1 - x1;
+    const Vector3r &c0g = c0 - x0;
+    const Vector3r &c1g = c1 - x1;
 
     // Local connectors from center of mass to connector point used for lambda calculation (avoids adjustment of Inertia for Rotation)
-    const Vector3r &connectorlocal0 = jointInfo.col(0);
-    const Vector3r &connectorlocal1 = jointInfo.col(1);
-
-    Real delta_lambda = 0.0;
+    const Vector3r &c0l = jointInfo.col(0);
+    const Vector3r &c1l = jointInfo.col(1);
 
     // Constraint Violation and Gradient of Constraint (Direction of the Constraint)
     const Real length = (c0 - c1).norm();
 
     const Real c = (length - restLength);
-    Vector3r n = c0 - c1;
+    Vector3r n = (c0 - c1);
 
     // Rotation Matrices and Inverses, used for localizing both n and Inertia-Tensors
     Matrix3r rot0T = q0.matrix().transpose();
@@ -2701,19 +2705,9 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     Matrix3r rot0 = q0.matrix();
     Matrix3r rot1 = q1.matrix();
 
-
-    Vector3r n0 = rot0T * (c0 - c1);
-    Vector3r n1 = rot1T * (c0 - c1);
-
-    Matrix3r localinerinv0 = rot0 * inertiaInverseW0 * rot0T;
-    Matrix3r localinerinv1 = rot1 * inertiaInverseW1 * rot1T;
-
-
-    // Normalize n0 (n in body1 space), n1 (n in body2 space), n
+    // Normalize n
     if (length > static_cast<Real>(1e-5)) {
-        n0.normalize();
-        n1.normalize();
-        n.normalize();
+        n /= length;
     }
     else
     {
@@ -2723,6 +2717,13 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
         corr_q1.setIdentity();
         return true;
     }
+
+    Vector3r n0 = rot0T * n;
+    Vector3r n1 = rot1T * n;
+
+    Matrix3r localinerinv0 = rot0 * inertiaInverseW0 * rot0T;
+    Matrix3r localinerinv1 = rot1 * inertiaInverseW1 * rot1T;
+
 
     // Calculate alpha-tilde which is time step adjusted compliance
     Real alphatilde = 0.0;
@@ -2732,34 +2733,37 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     }
 
     // Calculate inverse masses w1 and w2 for body 1 and 2
-    const Real w0 = invMass0 + (connectorlocal0.cross(n0).transpose() * localinerinv0 * connectorlocal0.cross(n0));
-    const Real w1 = invMass1 + (connectorlocal1.cross(n1).transpose() * localinerinv1 * connectorlocal1.cross(n1));;
+    const Real w0 = invMass0 + (c0l.cross(n0).transpose() * localinerinv0 * c0l.cross(n0));
+    const Real w1 = invMass1 + (c1l.cross(n1).transpose() * localinerinv1 * c1l.cross(n1));;
 
+    Real w = 0; // Initialize Inverse Mass to 0 in case w1 or w2 are close to 0
     // Calculate Delta Lambda
-    if (fabs(w0 + w1) > static_cast<Real>(1e-6))
-        delta_lambda = (-c - (alphatilde * lambda))/(w0 + w1 + alphatilde);
+    if (fabs(w0 + w1) > static_cast<Real>(1e-3)) {
+        w = static_cast<Real>(1.0) / (w0 + w1 + alphatilde);
+    }
     else
     {
         corr_x0.setZero();
         corr_x1.setZero();
         corr_q0.setIdentity();
         corr_q1.setIdentity();
-
         return true;
     }
 
+    Real delta_lambda = (-c - (alphatilde * lambda)) * w;
+
+    lambda += delta_lambda;
 
     // Calculate Correction Impulse p
     const Vector3r p = n * delta_lambda;
 
-    lambda = lambda + delta_lambda;
 
     // Apply Positional and Rotational Correction
     if (invMass0 != 0.0)
     {
         corr_x0 = invMass0 * p;
 
-        const Vector3r ot = (inertiaInverseW0 * (connectorglobal0.cross(p)));
+        const Vector3r ot = (inertiaInverseW0 * (c0g.cross(p)));
         const Quaternionr otQ(0.0, ot[0], ot[1], ot[2]);
         corr_q0.coeffs() = 0.5 *(otQ*q0).coeffs();
     }
@@ -2768,9 +2772,9 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     {
         corr_x1 = -invMass1 * p;
 
-        const Vector3r ot = (inertiaInverseW1 * (connectorglobal1.cross(p)));
+        const Vector3r ot = (inertiaInverseW1 * (c1g.cross(-p)));
         const Quaternionr otQ(0.0, ot[0], ot[1], ot[2]);
-        corr_q1.coeffs() = -0.5 *(otQ*q1).coeffs();
+        corr_q1.coeffs() = 0.5 *(otQ*q1).coeffs();
     }
     return true;
 }
@@ -2793,9 +2797,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerAngularJoint(
         const Real dt = 0)
 {
 
-    cout << "Angular Joint called" << "\n";
-
-    // Rotation Matrices used for representing rotation axis to body 1 and body 2 local coordinates
+    // Rotation Matrices used for representing rotation axis to body 1 and body 2 in local coordinates
     Matrix3r rot0T = q0.matrix().transpose();
     Matrix3r rot1T = q1.matrix().transpose();
 
@@ -2816,13 +2818,14 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerAngularJoint(
         alphatilde = max(static_cast<Real>(1.0) / (stiffness * dt * dt), 10.0);
     }
 
-    const Real w0 = (n0.transpose() * inertiaInverseW0 * n0);
-    const Real w1 = (n1.transpose() * inertiaInverseW1 * n1);
+    // Currently use global n and InertiaInverse to get code working
+    const Real w0 = (n.transpose() * inertiaInverseW0 * n);
+    const Real w1 = (n.transpose() * inertiaInverseW1 * n);
 
     Real delta_lambda = 0;
 
-    if (fabs(w0 + w1) > static_cast<Real>(1e-6))
-        delta_lambda = (-theta - (alphatilde * lambda))/(w0 + w1 + alphatilde);
+    if (fabs(w0 + w1) > static_cast<Real>(1e-3))
+        delta_lambda = (-theta - alphatilde * lambda)/(w0 + w1 + alphatilde);
     else
     {
         corr_q0.setIdentity();
@@ -2862,7 +2865,6 @@ bool PositionBasedRigidBodyDynamics::MuellerAngleLimits(
         Vector3r &corr_q_fixed
 ) {
 
-    cout << "Angle Limits called" << "\n";
     // Determine, if the angle of n0 and n1 with respect to the rotation axis n is
     // within the limits of [alpha, beta]
 
@@ -2886,7 +2888,7 @@ bool PositionBasedRigidBodyDynamics::MuellerAngleLimits(
         // Clamping theta, since std::clamp is not available
         theta = std::max(std::min(theta, beta), alpha);
 
-        AngleAxisr rotaxis = AngleAxisr(theta, n.normalized());
+        AngleAxisr rotaxis = AngleAxisr(theta, n);
 
         // Rotate n1 around n by theta degrees
         Vector3r n0_corrected = rotaxis.toRotationMatrix() * n0;
@@ -2969,47 +2971,50 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
         Real &alphatwist,
         Real &betatwist)
 {
-    // jointInfo contains
-    // 0:	connector in b    init_MuellerAngularJoint();ody 0 (local)
-    // 1:	connector in body 1 (local)
-    // 2:	connector in body 0 (global)
-    // 3:	connector in body 1 (global)
+    // Masterplan: In general, angular constraints are solved in 4 stages:
+
+    // 1. Solve Position Constraint for Both Joints
+    // 2. Build Angular Coordinate System
+    // 3. Determine Rotation (If needed, solve Angular Limits)
+    // 4. Solve Angular Constraint (-> Correct rotation of Body, and therefore change position of attached connector)
+
+    // Step 1: Solve Position Constraint for Both Joints
+    Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> distJointInfo;
+
+    Vector3r c0 = ballJointInfo.col(2);
+    Vector3r c1 = ballJointInfo.col(3);
+
+    // Solve BallJoint First, to restrict Joints to Rotational Movement
+    Real lambda = 0.0;
+    Real restlength = 0.0;
+
+    solve_MuellerDistanceJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, stiffness, restlength, dt, ballJointInfo, lambda, corr_x0, corr_q0, corr_x1, corr_q1);
 
 
-    // Masterplan:
-    // In general, angular constraints are solved in 4 stages:
-    // 1. Build Angular Coordinate System
-    // 2. Determine Rotation (If needed, solve Angular Limits)
-    // 3. Solve Angular Constraint (-> Correct rotation of Body, and therefore change position of attached connector)
-    // 4. Since both connectors might be off, solve Position Constraint for connector points.
-    // 5. Apply Corrections !
-
-    // Init lambda
-    Real lambda = 0;
-
-    cout << "Ball Joint called" << "\n";
-
-    // Init Swing and Twist Corrections for later use:
-    Quaternionr scorr_q0;
-    Quaternionr scorr_q1;
-    Quaternionr tcorr_q0;
-    Quaternionr tcorr_q1;
-
+    // Step 2: Build Angular Coordinate System,
     // Init connectors
-    const Vector3r &c0 = ballJointInfo.col(2);
-    const Vector3r &c1 = ballJointInfo.col(3);
+    /*  jointInfo contains
+    0:	connector in body 0 (local)
+    1:	connector in body 1 (local)
+    2:	connector in body 0 (global)
+    3:	connector in body 1 (global)
+     */
 
+    // Init Coordinate System in Local Space
     Vector3r connector0g = c0 - x0;
     Vector3r connector1g = c1 - x1;
 
-    // Perpendicular Global Angle Axis for Both Bodies
-    Vector3r &a0g = connector0g;
-    Vector3r &a1g = connector1g;
+
+    // Axis a0 and a0 are pointing towards the Joint
+    Vector3r a0g = connector0g;
+    // Since both vectors are pointing in the same direction, a1 needs to be reversed
+    Vector3r a1g = connector1g;
 
     Vector3r v0 = Vector3r(1.0, 0.0, 0.0);
     Vector3r v1 = Vector3r(1.0, 0.0, 0.0);
 
-    if (fabs(a0g.dot(v0)) > 0.99)
+    // TODO Check Orientation of Axis (Draw Diagram)
+    if (fabs(a0g.dot(v0)) < -0.99)
         v0 = Vector3r(0.0, 1.0, 0.0);
 
     if (fabs(a0g.dot(v1)) > 0.99)
@@ -3018,16 +3023,23 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     Vector3r b0g = a0g.cross(v0);
     Vector3r b1g = a1g.cross(v1);
 
+    if (fabs(b0g.dot(b1g)) < 0)
+        b1g = -b1g;
+
     Vector3r c0g = a0g.cross(b0g);
     Vector3r c1g = a1g.cross(b1g);
 
     // Normalize axis
     a0g.normalize();
     a1g.normalize();
+
     b0g.normalize();
     b1g.normalize();
+
     c0g.normalize();
     c1g.normalize();
+
+    // RESULT: a: Joint Connectors, a, b orthogonal (Right Hand Rule)
 
 
     // Determine Angular Limits:
@@ -3047,10 +3059,17 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     MuellerAngleLimits(n, n0, n1, alphatwist, betatwist, twistcorr);
 
     // 3. Solve Angular Constraint
+    // Init Swing and Twist Corrections for later use:
+    Quaternionr scorr_q0;
+    Quaternionr scorr_q1;
+    Quaternionr tcorr_q0;
+    Quaternionr tcorr_q1;
+
     solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, swingcorr, lambda, scorr_q0, scorr_q1); // Swing-Correction
     solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, twistcorr, lambda, tcorr_q0, tcorr_q1);// Twist Correction;
 
-    // 4. Solve Position Constraint
+    /*
+    // 4. Solve Position Constraint (Probably not useful anymore)
 
     // 4.1 Init jointinfo to use DistanceJoint later on
     Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> jointInfo;
@@ -3062,8 +3081,9 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     Quaternionr distcorr_q1;
 
     // 4.3 Preview Rotations to solve Distance Joint with "updated" rotations from the Angular Constraint solve
-    corr_q0.coeffs() = scorr_q0.coeffs() + tcorr_q0.coeffs();
-    corr_q1.coeffs() = scorr_q1.coeffs() + tcorr_q1.coeffs();
+    // TODO Check if this is problematic (adding up angular corrections)
+     // corr_q0.coeffs() = scorr_q0.coeffs() + tcorr_q0.coeffs();
+     // corr_q1.coeffs() = scorr_q1.coeffs() + tcorr_q1.coeffs();
 
     Quaternionr prevrot0;
     prevrot0.coeffs() = q0.coeffs() + corr_q0.coeffs();
@@ -3088,28 +3108,29 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     Matrix3r localInertiaInverse0 = q0.matrix().transpose() * inertiaInverseW0 * q0.matrix();
     Matrix3r localInertiaInverse1 = q1.matrix().transpose() * inertiaInverseW1 * q1.matrix();
 
-    // Compute "New" InertiaInverse
+    // Compute "New" InertiaInvers
     Matrix3r InertiaInverseW0prev = rotprev0 * localInertiaInverse0 * rotprev0T;
     Matrix3r InertiaInverseW1prev = rotprev1 * localInertiaInverse1 * rotprev1T;
 
+
     // Solve Distance Joint
-    init_MuellerDistanceJoint(x0, prevrot0, x1, prevrot1, prevcon0, prevcon1, jointInfo);
-    solve_MuellerDistanceJoint(invMass0, x0, InertiaInverseW0prev, q0, invMass1, x1, InertiaInverseW1prev, q1, stiffness, 0, dt, jointInfo, lambda, distcorr_x0, distcorr_q0, distcorr_x1, distcorr_q1);
+    init_DistanceJoint(x0, q0, x1, q1, c0, c1, jointInfo);
+    solve_DistanceJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, stiffness, 0, dt, jointInfo, lambda, distcorr_x0, distcorr_q0, distcorr_x1, distcorr_q1);
+
+    */
 
     // 5. Add up Corrections
     if (invMass0 != 0.0)
     {
-        corr_x0 = distcorr_x0;
-        corr_q0.coeffs() = corr_q0.coeffs() + distcorr_q0.coeffs();
-
+        cout << tcorr_q1.coeffs() << scorr_q1.coeffs() << "\n";
+        corr_q0.coeffs() += scorr_q0.coeffs() + tcorr_q0.coeffs();
     }
 
     if (invMass1 != 0.0)
     {
-        corr_x1 = distcorr_x1;
-        corr_q1.coeffs() = corr_q1.coeffs() + distcorr_q1.coeffs();
+        cout << tcorr_q1.coeffs() << scorr_q1.coeffs() << "\n";
+        corr_q1.coeffs() += scorr_q1.coeffs() + tcorr_q1.coeffs();
     }
-
 
     return true;
 }
