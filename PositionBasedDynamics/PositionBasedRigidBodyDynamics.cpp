@@ -2873,52 +2873,43 @@ bool PositionBasedRigidBodyDynamics::MuellerAngleLimits(
         const Real beta,
         Vector3r &corr_q_fixed
 ) {
-    // CHeck for Deg Rad Conversion
-    Vector3r axis = n.normalized();
+    Real pi = M_PI;
 
-    Vector3r n1n = n1.normalized();
     Vector3r n0n = n0.normalized();
+    Vector3r n1n = n1.normalized();
+    Vector3r nn = n.normalized();
 
-    Real alpharad = alpha/180 * M_PI;
-    Real betarad = beta/180 * M_PI;
+    Real angle = asin((n0n.cross(n1n)).dot(nn));
 
-    // Determine, if the angle of n0 and n1 with respect to the rotation axis n is
-    // within the limits of [alpha, beta]
-
-    Real theta = std::asin(static_cast<double>(n1n.cross(n0n).dot(axis)));
-
-    cout << theta/M_PI * 180 << "\n";
-
-    if (n0.dot(n1) < 0) // If the angle between n0 and n1 is greater than 90 and smaller than 270  (asin angle between (0 , -90)
+    if (n0n.dot(n1n) < 0.0)
     {
-        theta = (2*M_PI) - theta; // asin angle (360, 450)
+        angle = 2 * pi - angle;
     }
-    if (theta > M_PI)
+
+    if (angle > pi)
     {
-        theta = theta - (2*M_PI); // asin angle (0,90)
+        angle = angle - 2*pi;
     }
-    /*
-    if (theta < -M_PI)
+
+    if (angle < -pi)
     {
-        theta = theta + (2*M_PI);
+        angle = angle + 2*pi;
     }
-    */
 
-    if (theta < alpharad || theta > betarad)
+    Real angledeg = angle/pi * 180;
+
+    if (angledeg < alpha || beta < angledeg)
     {
-        // Clamping theta, since std::clamp is not available
-        theta = std::max(std::min(theta, betarad), alpharad);
+        angledeg = max(min(angledeg, alpha),beta);
+        angle = angledeg/180 * pi;
 
-        AngleAxisr rotaxis = AngleAxisr(theta, axis);
+        AngleAxisr corraxis = AngleAxisr(angle, nn);
+        Vector3r n0c = corraxis * n0n;
+        corr_q_fixed = n0c.cross(n1n);
 
-        Matrix3r rotmat = rotaxis.toRotationMatrix();
-
-        // Rotate n1 around n by theta degrees
-        // TODO Check if really n1 should be rotated !!!
-        Vector3r n0_corrected = rotmat * n0n;
-
-        corr_q_fixed = n0_corrected.cross(n1n);
+        return true;
     }
+    corr_q_fixed.setZero();
     return true;
 }
 
@@ -2995,112 +2986,98 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
         Real &alphatwist,
         Real &betatwist)
 {
-    // Masterplan: In general, angular constraints are solved in 4 stages:
+    // Masterplan: This code solves ball Joints in 3 Stages:
 
-    // 1. Solve Position Constraint for Both Joints
-    // 2. Build Angular Coordinate System
-    // 3. Determine Rotation (If needed, solve Angular Limits)
-    // 4. Solve Angular Constraint (-> Correct rotation of Body, and therefore change position of attached connector)
+    // 1. Build Local Coordinate Systems -> Convert to global Coordinates
+    // 2. Solve Position Constraint for Both Joints
+    // 3. Solve Angular Constraint (-> Correct rotation of Body, and therefore change position of attached connector)
 
-    // Step 1: Solve Position Constraint for Both Joints
-    Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> distJointInfo;
+    // Rot Matrices to convert local -> global connectors
+    Matrix3r rot0 = q0.matrix();
+    Matrix3r rot1 = q1.matrix();
+    Matrix3r rot0T = rot0.transpose();
+    Matrix3r rot1T = rot1.transpose();
 
-    Vector3r c0 = ballJointInfo.col(2);
-    Vector3r c1 = ballJointInfo.col(3);
+    Vector3r a0l = ballJointInfo.col(0).normalized();
+    Vector3r a1l = - (ballJointInfo.col(1).normalized()); // Since both axes point in the same direction, invert a1g
 
-    // Solve BallJoint First, to restrict Joints to Rotational Movement
-    Real lambda = 0.0;
-    Real restlength = 0.0;
-
-    solve_MuellerDistanceJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, stiffness, restlength, dt, ballJointInfo, lambda, corr_x0, corr_q0, corr_x1, corr_q1);
-
-
-    // Step 2: Build Angular Coordinate System,
-    // Init connectors
-    /*  jointInfo contains
-    0:	connector in body 0 (local)
-    1:	connector in body 1 (local)
-    2:	connector in body 0 (global)
-    3:	connector in body 1 (global)
-     */
-
-    // Init Coordinate System in Local Space
-    Vector3r connector0g = c0 - x0;
-    Vector3r connector1g = c1 - x1;
-
-
-    // Axis a0 and a0 are pointing towards the Joint
-    Vector3r a0g = connector0g.normalized();
-    // Since both vectors are pointing in the same direction, a1 needs to be reversed
-    Vector3r a1g = -connector1g.normalized();
-
+    // temp vector used for building the coordinate system
     Vector3r v0 = Vector3r(1.0, 0.0, 0.0);
     Vector3r v1 = Vector3r(1.0, 0.0, 0.0);
 
-
-    //TODO Check Orientation of Axis (Draw Diagram)
-    if (fabs(a0g.dot(v0)) > 0.90)
+    if(abs(a0l.dot(v0)) > 0.9)
+    {
         v0 = Vector3r(0.0, 1.0, 0.0);
+    }
 
-    if (fabs(a1g.dot(v1)) > 0.90)
+    if(abs(a1l.dot(v1)) > 0.9)
+    {
         v1 = Vector3r(0.0, 1.0, 0.0);
+    }
+
+    Vector3r b0l = a0l.cross(v0);
+    b0l.normalize();
+    Vector3r b1l = a1l.cross(v1);
+    b1l.normalize();
+    Vector3r c0l = a0l.cross(b0l);
+    c0l.normalize();
+    Vector3r c1l = a1l.cross(b1l);
+    c1l.normalized();
+
+    // Get global systems
+    Vector3r a0g = rot0 * a0l;
+    Vector3r b0g = rot0 * b0l;
+    Vector3r c0g = rot0 * c0l;
+
+    Vector3r a1g = rot1 * a1l;
+    Vector3r b1g = rot1 * b1l;
+    Vector3r c1g = rot1 * c1l;
+
+    // 2. Solve Distance Joint
+    Real lambda = 0.0;
+    solve_MuellerDistanceJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, stiffness, 0.0, dt, ballJointInfo, lambda, corr_x0, corr_q0, corr_x1, corr_q1);
 
 
-    Vector3r b0g = a0g.cross(v0);
-    Vector3r b1g = a1g.cross(v1);
-
-    Vector3r c0g = b0g.cross(a0g);
-    Vector3r c1g = b1g.cross(a1g);
-
-
-    // Normalize axis
-    b0g.normalize();
-    b1g.normalize();
-
-    c0g.normalize();
-    c1g.normalize();
-
-    // RESULT: a: Joint Connectors, a, b orthogonal (Right Hand Rule)
-
-    // Determine Angular Limits:
-
-    // 1. Swing Limits:
-    Vector3r swingcorr;
-
-    MuellerAngleLimits(a0g.cross(a1g), a0g, a1g, alphaswing, betaswing, swingcorr);
-
-    // 2. Twist Limits
-    Vector3r twistcorr;
-
-    Vector3r n = (a0g + a1g).normalized();
-    Vector3r n0 = b0g - (n.dot(b0g) * n).normalized();
-    Vector3r n1 = b1g - (n.dot(b1g) * n).normalized();
-
-    MuellerAngleLimits(n, n0, n1, alphatwist, betatwist, twistcorr);
-
-    // 3. Solve Angular Constraint
-    // Init Swing and Twist Corrections for later use:
+    // Swing and Twist Limits
+    Vector3r swingcorr = Vector3r(0.0, 0.0, 0.0);
     Quaternionr scorr_q0;
     Quaternionr scorr_q1;
+    lambda = 0.0;
+
+    Vector3r n = a0g.cross(a1g);
+    Vector3r n1 = a0g;
+    Vector3r n2 = a1g;
+    MuellerAngleLimits(n, n1, n2, alphaswing, betaswing, swingcorr);
+
+    if (!swingcorr.isZero())
+    {
+        solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, swingcorr, lambda, scorr_q0, scorr_q1, stiffness, dt);
+    }
+
+    Vector3r twistcorr = Vector3r(0.0, 0.0, 0.0);
     Quaternionr tcorr_q0;
     Quaternionr tcorr_q1;
+    lambda = 0.0;
 
-    solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, swingcorr, lambda, scorr_q0, scorr_q1, stiffness, dt); // Swing-Correction
-    solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, twistcorr, lambda, tcorr_q0, tcorr_q1, stiffness, dt);// Twist Correction;
+    n = (a0g + a1g).normalized();
+    n1 = (b0g - (n.dot(b0g)) * n).normalized();
+    n2 = (b1g - (n.dot(b1g)) * n).normalized();
+    MuellerAngleLimits(n, n1, n2, alphatwist, betatwist, twistcorr);
 
-    // 5. Add up Corrections
+    if (!twistcorr.isZero())
+    {
+        solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, twistcorr, lambda, tcorr_q0, tcorr_q1, stiffness, dt);
+    }
+
     if (invMass0 != 0.0)
     {
-        //cout << tcorr_q1.coeffs() << scorr_q1.coeffs() << "\n";
         corr_q0.coeffs() += scorr_q0.coeffs() + tcorr_q0.coeffs();
 
     }
 
     if (invMass1 != 0.0)
     {
-        //cout << tcorr_q1.coeffs() << scorr_q1.coeffs() << "\n";
         corr_q1.coeffs() += scorr_q1.coeffs() + tcorr_q1.coeffs();
-
     }
 
     return true;

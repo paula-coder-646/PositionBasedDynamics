@@ -90,7 +90,7 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
     Real stiffness = 10000.0;
     const Real dt = TimeManager::getCurrent()->getTimeStepSize();
     Real alphaswing = 0.0;
-    Real betaswing = 0.0;
+    Real betaswing = 10.0;
     Real alphatwist = 0.0;
     Real betatwist = 0.0;
 
