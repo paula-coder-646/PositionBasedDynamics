@@ -277,6 +277,8 @@ Demos/PositionBasedElasticRodsDemo/clean: Demos/PositionBasedElasticRodsDemo/CMa
 # Recursive "all" directory target.
 Demos/RigidBodyDemos/all: Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/all
 Demos/RigidBodyDemos/all: Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/all
+Demos/RigidBodyDemos/all: Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/all
+Demos/RigidBodyDemos/all: Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/all
 .PHONY : Demos/RigidBodyDemos/all
 
 # Recursive "preinstall" directory target.
@@ -286,6 +288,8 @@ Demos/RigidBodyDemos/preinstall:
 # Recursive "clean" directory target.
 Demos/RigidBodyDemos/clean: Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/clean
 Demos/RigidBodyDemos/clean: Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/clean
+Demos/RigidBodyDemos/clean: Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/clean
+Demos/RigidBodyDemos/clean: Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/clean
 .PHONY : Demos/RigidBodyDemos/clean
 
 #=============================================================================
@@ -432,7 +436,7 @@ extern/md5/clean: extern/md5/CMakeFiles/MD5.dir/clean
 CMakeFiles/Ext_Discregrid.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ext_Discregrid.dir/build.make CMakeFiles/Ext_Discregrid.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ext_Discregrid.dir/build.make CMakeFiles/Ext_Discregrid.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=35,36,37 "Built target Ext_Discregrid"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=36,37,38 "Built target Ext_Discregrid"
 .PHONY : CMakeFiles/Ext_Discregrid.dir/all
 
 # Build rule for subdir invocation for target.
@@ -458,7 +462,7 @@ CMakeFiles/Ext_Discregrid.dir/clean:
 CMakeFiles/Ext_GenericParameters.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ext_GenericParameters.dir/build.make CMakeFiles/Ext_GenericParameters.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ext_GenericParameters.dir/build.make CMakeFiles/Ext_GenericParameters.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=38,39,40,41 "Built target Ext_GenericParameters"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=39,40,41,42 "Built target Ext_GenericParameters"
 .PHONY : CMakeFiles/Ext_GenericParameters.dir/all
 
 # Build rule for subdir invocation for target.
@@ -484,12 +488,12 @@ CMakeFiles/Ext_GenericParameters.dir/clean:
 CMakeFiles/CopyPBDShaders.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CopyPBDShaders.dir/build.make CMakeFiles/CopyPBDShaders.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CopyPBDShaders.dir/build.make CMakeFiles/CopyPBDShaders.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=17 "Built target CopyPBDShaders"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num= "Built target CopyPBDShaders"
 .PHONY : CMakeFiles/CopyPBDShaders.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/CopyPBDShaders.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/CopyPBDShaders.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : CMakeFiles/CopyPBDShaders.dir/rule
@@ -510,7 +514,7 @@ CMakeFiles/CopyPBDShaders.dir/clean:
 CMakeFiles/CopyPBDModels.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CopyPBDModels.dir/build.make CMakeFiles/CopyPBDModels.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CopyPBDModels.dir/build.make CMakeFiles/CopyPBDModels.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=16 "Built target CopyPBDModels"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=19 "Built target CopyPBDModels"
 .PHONY : CMakeFiles/CopyPBDModels.dir/all
 
 # Build rule for subdir invocation for target.
@@ -588,7 +592,7 @@ CMakeFiles/CopyImguiFonts.dir/clean:
 PositionBasedDynamics/CMakeFiles/PositionBasedDynamics.dir/all:
 	$(MAKE) $(MAKESILENT) -f PositionBasedDynamics/CMakeFiles/PositionBasedDynamics.dir/build.make PositionBasedDynamics/CMakeFiles/PositionBasedDynamics.dir/depend
 	$(MAKE) $(MAKESILENT) -f PositionBasedDynamics/CMakeFiles/PositionBasedDynamics.dir/build.make PositionBasedDynamics/CMakeFiles/PositionBasedDynamics.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=61,62,63 "Built target PositionBasedDynamics"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=64,65,66 "Built target PositionBasedDynamics"
 .PHONY : PositionBasedDynamics/CMakeFiles/PositionBasedDynamics.dir/all
 
 # Build rule for subdir invocation for target.
@@ -616,7 +620,7 @@ Simulation/CMakeFiles/Simulation.dir/all: CMakeFiles/Ext_GenericParameters.dir/a
 Simulation/CMakeFiles/Simulation.dir/all: PositionBasedDynamics/CMakeFiles/PositionBasedDynamics.dir/all
 	$(MAKE) $(MAKESILENT) -f Simulation/CMakeFiles/Simulation.dir/build.make Simulation/CMakeFiles/Simulation.dir/depend
 	$(MAKE) $(MAKESILENT) -f Simulation/CMakeFiles/Simulation.dir/build.make Simulation/CMakeFiles/Simulation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=76,77,78,79,80,81,82 "Built target Simulation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=78,79,80,81,82,83,84 "Built target Simulation"
 .PHONY : Simulation/CMakeFiles/Simulation.dir/all
 
 # Build rule for subdir invocation for target.
@@ -642,7 +646,7 @@ Simulation/CMakeFiles/Simulation.dir/clean:
 Utils/CMakeFiles/Utils.dir/all: CMakeFiles/Ext_GenericParameters.dir/all
 	$(MAKE) $(MAKESILENT) -f Utils/CMakeFiles/Utils.dir/build.make Utils/CMakeFiles/Utils.dir/depend
 	$(MAKE) $(MAKESILENT) -f Utils/CMakeFiles/Utils.dir/build.make Utils/CMakeFiles/Utils.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=87,88,89 "Built target Utils"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=88,89,90 "Built target Utils"
 .PHONY : Utils/CMakeFiles/Utils.dir/all
 
 # Build rule for subdir invocation for target.
@@ -668,12 +672,12 @@ Utils/CMakeFiles/Utils.dir/clean:
 extern/glfw/src/CMakeFiles/glfw.dir/all:
 	$(MAKE) $(MAKESILENT) -f extern/glfw/src/CMakeFiles/glfw.dir/build.make extern/glfw/src/CMakeFiles/glfw.dir/depend
 	$(MAKE) $(MAKESILENT) -f extern/glfw/src/CMakeFiles/glfw.dir/build.make extern/glfw/src/CMakeFiles/glfw.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=90,91,92,93,94,95,96 "Built target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=91,92,93,94,95,96 "Built target glfw"
 .PHONY : extern/glfw/src/CMakeFiles/glfw.dir/all
 
 # Build rule for subdir invocation for target.
 extern/glfw/src/CMakeFiles/glfw.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 extern/glfw/src/CMakeFiles/glfw.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : extern/glfw/src/CMakeFiles/glfw.dir/rule
@@ -699,7 +703,7 @@ extern/imgui/CMakeFiles/imgui.dir/all: extern/glfw/src/CMakeFiles/glfw.dir/all
 
 # Build rule for subdir invocation for target.
 extern/imgui/CMakeFiles/imgui.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 extern/imgui/CMakeFiles/imgui.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : extern/imgui/CMakeFiles/imgui.dir/rule
@@ -720,7 +724,7 @@ extern/imgui/CMakeFiles/imgui.dir/clean:
 extern/md5/CMakeFiles/MD5.dir/all:
 	$(MAKE) $(MAKESILENT) -f extern/md5/CMakeFiles/MD5.dir/build.make extern/md5/CMakeFiles/MD5.dir/depend
 	$(MAKE) $(MAKESILENT) -f extern/md5/CMakeFiles/MD5.dir/build.make extern/md5/CMakeFiles/MD5.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=60 "Built target MD5"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=63 "Built target MD5"
 .PHONY : extern/md5/CMakeFiles/MD5.dir/all
 
 # Build rule for subdir invocation for target.
@@ -753,12 +757,12 @@ Demos/BarDemo/CMakeFiles/BarDemo.dir/all: extern/glfw/src/CMakeFiles/glfw.dir/al
 Demos/BarDemo/CMakeFiles/BarDemo.dir/all: extern/imgui/CMakeFiles/imgui.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/BarDemo/CMakeFiles/BarDemo.dir/build.make Demos/BarDemo/CMakeFiles/BarDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/BarDemo/CMakeFiles/BarDemo.dir/build.make Demos/BarDemo/CMakeFiles/BarDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=1,2,3 "Built target BarDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=4,5,6,7 "Built target BarDemo"
 .PHONY : Demos/BarDemo/CMakeFiles/BarDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/BarDemo/CMakeFiles/BarDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/BarDemo/CMakeFiles/BarDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/BarDemo/CMakeFiles/BarDemo.dir/rule
@@ -786,12 +790,12 @@ Demos/ClothDemo/CMakeFiles/ClothDemo.dir/all: extern/glfw/src/CMakeFiles/glfw.di
 Demos/ClothDemo/CMakeFiles/ClothDemo.dir/all: extern/imgui/CMakeFiles/imgui.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/ClothDemo/CMakeFiles/ClothDemo.dir/build.make Demos/ClothDemo/CMakeFiles/ClothDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/ClothDemo/CMakeFiles/ClothDemo.dir/build.make Demos/ClothDemo/CMakeFiles/ClothDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=12,13,14,15 "Built target ClothDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=15,16,17,18 "Built target ClothDemo"
 .PHONY : Demos/ClothDemo/CMakeFiles/ClothDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/ClothDemo/CMakeFiles/ClothDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/ClothDemo/CMakeFiles/ClothDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/ClothDemo/CMakeFiles/ClothDemo.dir/rule
@@ -819,12 +823,12 @@ Demos/CosseratRodsDemo/CMakeFiles/CosseratRodsDemo.dir/all: extern/glfw/src/CMak
 Demos/CosseratRodsDemo/CMakeFiles/CosseratRodsDemo.dir/all: extern/imgui/CMakeFiles/imgui.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/CosseratRodsDemo/CMakeFiles/CosseratRodsDemo.dir/build.make Demos/CosseratRodsDemo/CMakeFiles/CosseratRodsDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/CosseratRodsDemo/CMakeFiles/CosseratRodsDemo.dir/build.make Demos/CosseratRodsDemo/CMakeFiles/CosseratRodsDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=18,19,20,21 "Built target CosseratRodsDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=20,21,22,23 "Built target CosseratRodsDemo"
 .PHONY : Demos/CosseratRodsDemo/CMakeFiles/CosseratRodsDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/CosseratRodsDemo/CMakeFiles/CosseratRodsDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/CosseratRodsDemo/CMakeFiles/CosseratRodsDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/CosseratRodsDemo/CMakeFiles/CosseratRodsDemo.dir/rule
@@ -853,12 +857,12 @@ Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/all: extern/glfw/s
 Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/all: extern/imgui/CMakeFiles/imgui.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/build.make Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/build.make Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=64,65,66,67 "Built target RigidBodyClothCouplingDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=67,68,69,70 "Built target RigidBodyClothCouplingDemo"
 .PHONY : Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 37
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/rule
@@ -887,12 +891,12 @@ Demos/DistanceFieldDemos/CMakeFiles/ClothCollisionDemo.dir/all: extern/glfw/src/
 Demos/DistanceFieldDemos/CMakeFiles/ClothCollisionDemo.dir/all: extern/imgui/CMakeFiles/imgui.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/DistanceFieldDemos/CMakeFiles/ClothCollisionDemo.dir/build.make Demos/DistanceFieldDemos/CMakeFiles/ClothCollisionDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/DistanceFieldDemos/CMakeFiles/ClothCollisionDemo.dir/build.make Demos/DistanceFieldDemos/CMakeFiles/ClothCollisionDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=8,9,10,11 "Built target ClothCollisionDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=12,13,14 "Built target ClothCollisionDemo"
 .PHONY : Demos/DistanceFieldDemos/CMakeFiles/ClothCollisionDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/DistanceFieldDemos/CMakeFiles/ClothCollisionDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 37
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/DistanceFieldDemos/CMakeFiles/ClothCollisionDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/DistanceFieldDemos/CMakeFiles/ClothCollisionDemo.dir/rule
@@ -921,12 +925,12 @@ Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/all: extern/glfw
 Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/all: extern/imgui/CMakeFiles/imgui.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/build.make Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/build.make Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=22,23,24 "Built target DeformableCollisionDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=24,25,26 "Built target DeformableCollisionDemo"
 .PHONY : Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/rule
@@ -955,12 +959,12 @@ Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/all: extern/glfw/
 Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/all: extern/imgui/CMakeFiles/imgui.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/build.make Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/build.make Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=68,69,70,71 "Built target RigidBodyCollisionDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=71,72,73 "Built target RigidBodyCollisionDemo"
 .PHONY : Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 37
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/rule
@@ -987,12 +991,12 @@ Demos/FluidDemo/CMakeFiles/FluidDemo.dir/all: extern/glfw/src/CMakeFiles/glfw.di
 Demos/FluidDemo/CMakeFiles/FluidDemo.dir/all: extern/imgui/CMakeFiles/imgui.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/FluidDemo/CMakeFiles/FluidDemo.dir/build.make Demos/FluidDemo/CMakeFiles/FluidDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/FluidDemo/CMakeFiles/FluidDemo.dir/build.make Demos/FluidDemo/CMakeFiles/FluidDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=42,43,44,45 "Built target FluidDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=43,44,45,46 "Built target FluidDemo"
 .PHONY : Demos/FluidDemo/CMakeFiles/FluidDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/FluidDemo/CMakeFiles/FluidDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/FluidDemo/CMakeFiles/FluidDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/FluidDemo/CMakeFiles/FluidDemo.dir/rule
@@ -1021,12 +1025,12 @@ Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/all:
 Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/all: extern/imgui/CMakeFiles/imgui.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/build.make Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/build.make Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=46,47,48,49,50 "Built target GenericParticleConstraintsDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=47,48,49,50 "Built target GenericParticleConstraintsDemo"
 .PHONY : Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 38
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/rule
@@ -1060,7 +1064,7 @@ Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 38
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 36
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/rule
@@ -1088,12 +1092,12 @@ Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/all: extern/glf
 Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/all: extern/imgui/CMakeFiles/imgui.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/build.make Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/build.make Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=30,31,32,33,34 "Built target ElasticRodDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=31,32,33,34,35 "Built target ElasticRodDemo"
 .PHONY : Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 37
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/rule
@@ -1122,12 +1126,12 @@ Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/all: extern/glfw/src/CMakeFiles/gl
 Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/all: extern/imgui/CMakeFiles/imgui.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=4,5,6,7 "Built target ChainDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=8,9,10,11 "Built target ChainDemo"
 .PHONY : Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 37
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/rule
@@ -1156,12 +1160,12 @@ Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/all: extern/glfw/src/CMakeFiles/gl
 Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/all: extern/imgui/CMakeFiles/imgui.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=56,57,58,59 "Built target JointDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=59,60,61,62 "Built target JointDemo"
 .PHONY : Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 37
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/rule
@@ -1174,6 +1178,74 @@ JointDemo: Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/rule
 Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/clean:
 	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/clean
 .PHONY : Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/clean
+
+#=============================================================================
+# Target rules for target Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir
+
+# All Build rule for target.
+Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/all: CMakeFiles/Ext_GenericParameters.dir/all
+Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/all: CMakeFiles/CopyPBDShaders.dir/all
+Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/all: CMakeFiles/CopyPBDModels.dir/all
+Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/all: CMakeFiles/CopyImguiFonts.dir/all
+Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/all: PositionBasedDynamics/CMakeFiles/PositionBasedDynamics.dir/all
+Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/all: Simulation/CMakeFiles/Simulation.dir/all
+Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/all: Utils/CMakeFiles/Utils.dir/all
+Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/all: extern/glfw/src/CMakeFiles/glfw.dir/all
+Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/all: extern/imgui/CMakeFiles/imgui.dir/all
+	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/depend
+	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=56,57,58 "Built target HingeBallJointDemo"
+.PHONY : Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/all
+
+# Build rule for subdir invocation for target.
+Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 34
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
+.PHONY : Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/rule
+
+# Convenience name for target.
+HingeBallJointDemo: Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/rule
+.PHONY : HingeBallJointDemo
+
+# clean rule for target.
+Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/clean
+.PHONY : Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/clean
+
+#=============================================================================
+# Target rules for target Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir
+
+# All Build rule for target.
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/all: CMakeFiles/Ext_GenericParameters.dir/all
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/all: CMakeFiles/CopyPBDShaders.dir/all
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/all: CMakeFiles/CopyPBDModels.dir/all
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/all: CMakeFiles/CopyImguiFonts.dir/all
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/all: PositionBasedDynamics/CMakeFiles/PositionBasedDynamics.dir/all
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/all: Simulation/CMakeFiles/Simulation.dir/all
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/all: Utils/CMakeFiles/Utils.dir/all
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/all: extern/glfw/src/CMakeFiles/glfw.dir/all
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/all: extern/imgui/CMakeFiles/imgui.dir/all
+	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/depend
+	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=1,2,3 "Built target BallJointDemo"
+.PHONY : Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/all
+
+# Build rule for subdir invocation for target.
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 34
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
+.PHONY : Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/rule
+
+# Convenience name for target.
+BallJointDemo: Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/rule
+.PHONY : BallJointDemo
+
+# clean rule for target.
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/clean
+.PHONY : Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/clean
 
 #=============================================================================
 # Target rules for target Demos/SceneLoaderDemo/CMakeFiles/SceneLoaderDemo.dir
@@ -1191,12 +1263,12 @@ Demos/SceneLoaderDemo/CMakeFiles/SceneLoaderDemo.dir/all: extern/imgui/CMakeFile
 Demos/SceneLoaderDemo/CMakeFiles/SceneLoaderDemo.dir/all: extern/md5/CMakeFiles/MD5.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/SceneLoaderDemo/CMakeFiles/SceneLoaderDemo.dir/build.make Demos/SceneLoaderDemo/CMakeFiles/SceneLoaderDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/SceneLoaderDemo/CMakeFiles/SceneLoaderDemo.dir/build.make Demos/SceneLoaderDemo/CMakeFiles/SceneLoaderDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=72,73,74,75 "Built target SceneLoaderDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=74,75,76,77 "Built target SceneLoaderDemo"
 .PHONY : Demos/SceneLoaderDemo/CMakeFiles/SceneLoaderDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/SceneLoaderDemo/CMakeFiles/SceneLoaderDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 37
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/SceneLoaderDemo/CMakeFiles/SceneLoaderDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/SceneLoaderDemo/CMakeFiles/SceneLoaderDemo.dir/rule
@@ -1227,12 +1299,12 @@ Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/all: extern/imgui
 Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/all: extern/md5/CMakeFiles/MD5.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/build.make Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/build.make Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=83,84,85,86 "Built target StretchBendingTwistingDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=85,86,87 "Built target StretchBendingTwistingDemo"
 .PHONY : Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 38
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/rule
@@ -1264,12 +1336,12 @@ Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/al
 Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/all: extern/md5/CMakeFiles/MD5.dir/all
 	$(MAKE) $(MAKESILENT) -f Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/build.make Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/depend
 	$(MAKE) $(MAKESILENT) -f Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/build.make Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=25,26,27,28,29 "Built target DirectPositionBasedSolverForStiffRodsDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=27,28,29,30 "Built target DirectPositionBasedSolverForStiffRodsDemo"
 .PHONY : Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/all
 
 # Build rule for subdir invocation for target.
 Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 39
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 36
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles 0
 .PHONY : Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/rule

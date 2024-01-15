@@ -189,6 +189,58 @@ JointDemo/fast:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build
 .PHONY : JointDemo/fast
 
+# Convenience name for target.
+Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/rule:
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/rule
+.PHONY : Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/rule
+
+# Convenience name for target.
+HingeBallJointDemo: Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/rule
+.PHONY : HingeBallJointDemo
+
+# fast build rule for target.
+HingeBallJointDemo/fast:
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build
+.PHONY : HingeBallJointDemo/fast
+
+# Convenience name for target.
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/rule:
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/rule
+.PHONY : Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/rule
+
+# Convenience name for target.
+BallJointDemo: Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/rule
+.PHONY : BallJointDemo
+
+# fast build rule for target.
+BallJointDemo/fast:
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build
+.PHONY : BallJointDemo/fast
+
+BallJointDemo.o: BallJointDemo.cpp.o
+.PHONY : BallJointDemo.o
+
+# target to build an object file
+BallJointDemo.cpp.o:
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o
+.PHONY : BallJointDemo.cpp.o
+
+BallJointDemo.i: BallJointDemo.cpp.i
+.PHONY : BallJointDemo.i
+
+# target to preprocess a source file
+BallJointDemo.cpp.i:
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.i
+.PHONY : BallJointDemo.cpp.i
+
+BallJointDemo.s: BallJointDemo.cpp.s
+.PHONY : BallJointDemo.s
+
+# target to generate assembly for a file
+BallJointDemo.cpp.s:
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.s
+.PHONY : BallJointDemo.cpp.s
+
 ChainDemo.o: ChainDemo.cpp.o
 .PHONY : ChainDemo.o
 
@@ -212,6 +264,33 @@ ChainDemo.s: ChainDemo.cpp.s
 ChainDemo.cpp.s:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/ChainDemo.cpp.s
 .PHONY : ChainDemo.cpp.s
+
+HingeBallJointDemo.o: HingeBallJointDemo.cpp.o
+.PHONY : HingeBallJointDemo.o
+
+# target to build an object file
+HingeBallJointDemo.cpp.o:
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/HingeBallJointDemo.cpp.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/HingeBallJointDemo.cpp.o
+.PHONY : HingeBallJointDemo.cpp.o
+
+HingeBallJointDemo.i: HingeBallJointDemo.cpp.i
+.PHONY : HingeBallJointDemo.i
+
+# target to preprocess a source file
+HingeBallJointDemo.cpp.i:
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/HingeBallJointDemo.cpp.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/HingeBallJointDemo.cpp.i
+.PHONY : HingeBallJointDemo.cpp.i
+
+HingeBallJointDemo.s: HingeBallJointDemo.cpp.s
+.PHONY : HingeBallJointDemo.s
+
+# target to generate assembly for a file
+HingeBallJointDemo.cpp.s:
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/HingeBallJointDemo.cpp.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/HingeBallJointDemo.cpp.s
+.PHONY : HingeBallJointDemo.cpp.s
 
 JointDemo.o: JointDemo.cpp.o
 .PHONY : JointDemo.o
@@ -244,6 +323,8 @@ __/Common/DemoBase.o: __/Common/DemoBase.cpp.o
 __/Common/DemoBase.cpp.o:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/DemoBase.cpp.o
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Common/DemoBase.cpp.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/DemoBase.cpp.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/DemoBase.cpp.o
 .PHONY : __/Common/DemoBase.cpp.o
 
 __/Common/DemoBase.i: __/Common/DemoBase.cpp.i
@@ -253,6 +334,8 @@ __/Common/DemoBase.i: __/Common/DemoBase.cpp.i
 __/Common/DemoBase.cpp.i:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/DemoBase.cpp.i
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Common/DemoBase.cpp.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/DemoBase.cpp.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/DemoBase.cpp.i
 .PHONY : __/Common/DemoBase.cpp.i
 
 __/Common/DemoBase.s: __/Common/DemoBase.cpp.s
@@ -262,6 +345,8 @@ __/Common/DemoBase.s: __/Common/DemoBase.cpp.s
 __/Common/DemoBase.cpp.s:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/DemoBase.cpp.s
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Common/DemoBase.cpp.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/DemoBase.cpp.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/DemoBase.cpp.s
 .PHONY : __/Common/DemoBase.cpp.s
 
 __/Common/LogWindow.o: __/Common/LogWindow.cpp.o
@@ -271,6 +356,8 @@ __/Common/LogWindow.o: __/Common/LogWindow.cpp.o
 __/Common/LogWindow.cpp.o:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/LogWindow.cpp.o
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Common/LogWindow.cpp.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/LogWindow.cpp.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/LogWindow.cpp.o
 .PHONY : __/Common/LogWindow.cpp.o
 
 __/Common/LogWindow.i: __/Common/LogWindow.cpp.i
@@ -280,6 +367,8 @@ __/Common/LogWindow.i: __/Common/LogWindow.cpp.i
 __/Common/LogWindow.cpp.i:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/LogWindow.cpp.i
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Common/LogWindow.cpp.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/LogWindow.cpp.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/LogWindow.cpp.i
 .PHONY : __/Common/LogWindow.cpp.i
 
 __/Common/LogWindow.s: __/Common/LogWindow.cpp.s
@@ -289,6 +378,8 @@ __/Common/LogWindow.s: __/Common/LogWindow.cpp.s
 __/Common/LogWindow.cpp.s:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/LogWindow.cpp.s
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Common/LogWindow.cpp.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/LogWindow.cpp.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/LogWindow.cpp.s
 .PHONY : __/Common/LogWindow.cpp.s
 
 __/Common/Simulator_GUI_imgui.o: __/Common/Simulator_GUI_imgui.cpp.o
@@ -298,6 +389,8 @@ __/Common/Simulator_GUI_imgui.o: __/Common/Simulator_GUI_imgui.cpp.o
 __/Common/Simulator_GUI_imgui.cpp.o:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
 .PHONY : __/Common/Simulator_GUI_imgui.cpp.o
 
 __/Common/Simulator_GUI_imgui.i: __/Common/Simulator_GUI_imgui.cpp.i
@@ -307,6 +400,8 @@ __/Common/Simulator_GUI_imgui.i: __/Common/Simulator_GUI_imgui.cpp.i
 __/Common/Simulator_GUI_imgui.cpp.i:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/Simulator_GUI_imgui.cpp.i
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.i
 .PHONY : __/Common/Simulator_GUI_imgui.cpp.i
 
 __/Common/Simulator_GUI_imgui.s: __/Common/Simulator_GUI_imgui.cpp.s
@@ -316,6 +411,8 @@ __/Common/Simulator_GUI_imgui.s: __/Common/Simulator_GUI_imgui.cpp.s
 __/Common/Simulator_GUI_imgui.cpp.s:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/Simulator_GUI_imgui.cpp.s
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.s
 .PHONY : __/Common/Simulator_GUI_imgui.cpp.s
 
 __/Common/imguiParameters.o: __/Common/imguiParameters.cpp.o
@@ -325,6 +422,8 @@ __/Common/imguiParameters.o: __/Common/imguiParameters.cpp.o
 __/Common/imguiParameters.cpp.o:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/imguiParameters.cpp.o
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Common/imguiParameters.cpp.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/imguiParameters.cpp.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/imguiParameters.cpp.o
 .PHONY : __/Common/imguiParameters.cpp.o
 
 __/Common/imguiParameters.i: __/Common/imguiParameters.cpp.i
@@ -334,6 +433,8 @@ __/Common/imguiParameters.i: __/Common/imguiParameters.cpp.i
 __/Common/imguiParameters.cpp.i:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/imguiParameters.cpp.i
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Common/imguiParameters.cpp.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/imguiParameters.cpp.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/imguiParameters.cpp.i
 .PHONY : __/Common/imguiParameters.cpp.i
 
 __/Common/imguiParameters.s: __/Common/imguiParameters.cpp.s
@@ -343,6 +444,8 @@ __/Common/imguiParameters.s: __/Common/imguiParameters.cpp.s
 __/Common/imguiParameters.cpp.s:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/imguiParameters.cpp.s
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Common/imguiParameters.cpp.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/imguiParameters.cpp.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/imguiParameters.cpp.s
 .PHONY : __/Common/imguiParameters.cpp.s
 
 __/Visualization/MiniGL.o: __/Visualization/MiniGL.cpp.o
@@ -352,6 +455,8 @@ __/Visualization/MiniGL.o: __/Visualization/MiniGL.cpp.o
 __/Visualization/MiniGL.cpp.o:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Visualization/MiniGL.cpp.o
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Visualization/MiniGL.cpp.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Visualization/MiniGL.cpp.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization/MiniGL.cpp.o
 .PHONY : __/Visualization/MiniGL.cpp.o
 
 __/Visualization/MiniGL.i: __/Visualization/MiniGL.cpp.i
@@ -361,6 +466,8 @@ __/Visualization/MiniGL.i: __/Visualization/MiniGL.cpp.i
 __/Visualization/MiniGL.cpp.i:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Visualization/MiniGL.cpp.i
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Visualization/MiniGL.cpp.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Visualization/MiniGL.cpp.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization/MiniGL.cpp.i
 .PHONY : __/Visualization/MiniGL.cpp.i
 
 __/Visualization/MiniGL.s: __/Visualization/MiniGL.cpp.s
@@ -370,6 +477,8 @@ __/Visualization/MiniGL.s: __/Visualization/MiniGL.cpp.s
 __/Visualization/MiniGL.cpp.s:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Visualization/MiniGL.cpp.s
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Visualization/MiniGL.cpp.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Visualization/MiniGL.cpp.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization/MiniGL.cpp.s
 .PHONY : __/Visualization/MiniGL.cpp.s
 
 __/Visualization/Shader.o: __/Visualization/Shader.cpp.o
@@ -379,6 +488,8 @@ __/Visualization/Shader.o: __/Visualization/Shader.cpp.o
 __/Visualization/Shader.cpp.o:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Visualization/Shader.cpp.o
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Visualization/Shader.cpp.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Visualization/Shader.cpp.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization/Shader.cpp.o
 .PHONY : __/Visualization/Shader.cpp.o
 
 __/Visualization/Shader.i: __/Visualization/Shader.cpp.i
@@ -388,6 +499,8 @@ __/Visualization/Shader.i: __/Visualization/Shader.cpp.i
 __/Visualization/Shader.cpp.i:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Visualization/Shader.cpp.i
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Visualization/Shader.cpp.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Visualization/Shader.cpp.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization/Shader.cpp.i
 .PHONY : __/Visualization/Shader.cpp.i
 
 __/Visualization/Shader.s: __/Visualization/Shader.cpp.s
@@ -397,6 +510,8 @@ __/Visualization/Shader.s: __/Visualization/Shader.cpp.s
 __/Visualization/Shader.cpp.s:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Visualization/Shader.cpp.s
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/Visualization/Shader.cpp.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Visualization/Shader.cpp.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization/Shader.cpp.s
 .PHONY : __/Visualization/Shader.cpp.s
 
 __/__/extern/glfw/deps/glad_gl.o: __/__/extern/glfw/deps/glad_gl.c.o
@@ -406,6 +521,8 @@ __/__/extern/glfw/deps/glad_gl.o: __/__/extern/glfw/deps/glad_gl.c.o
 __/__/extern/glfw/deps/glad_gl.c.o:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
 .PHONY : __/__/extern/glfw/deps/glad_gl.c.o
 
 __/__/extern/glfw/deps/glad_gl.i: __/__/extern/glfw/deps/glad_gl.c.i
@@ -415,6 +532,8 @@ __/__/extern/glfw/deps/glad_gl.i: __/__/extern/glfw/deps/glad_gl.c.i
 __/__/extern/glfw/deps/glad_gl.c.i:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/__/extern/glfw/deps/glad_gl.c.i
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.i
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.i
 .PHONY : __/__/extern/glfw/deps/glad_gl.c.i
 
 __/__/extern/glfw/deps/glad_gl.s: __/__/extern/glfw/deps/glad_gl.c.s
@@ -424,6 +543,8 @@ __/__/extern/glfw/deps/glad_gl.s: __/__/extern/glfw/deps/glad_gl.c.s
 __/__/extern/glfw/deps/glad_gl.c.s:
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/__/extern/glfw/deps/glad_gl.c.s
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.s
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build && $(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.s
 .PHONY : __/__/extern/glfw/deps/glad_gl.c.s
 
 # Help Target
@@ -438,11 +559,19 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... BallJointDemo"
 	@echo "... ChainDemo"
+	@echo "... HingeBallJointDemo"
 	@echo "... JointDemo"
+	@echo "... BallJointDemo.o"
+	@echo "... BallJointDemo.i"
+	@echo "... BallJointDemo.s"
 	@echo "... ChainDemo.o"
 	@echo "... ChainDemo.i"
 	@echo "... ChainDemo.s"
+	@echo "... HingeBallJointDemo.o"
+	@echo "... HingeBallJointDemo.i"
+	@echo "... HingeBallJointDemo.s"
 	@echo "... JointDemo.o"
 	@echo "... JointDemo.i"
 	@echo "... JointDemo.s"

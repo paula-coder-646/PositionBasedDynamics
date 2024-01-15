@@ -125,6 +125,8 @@
 /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/PositionBasedElasticRodsDemo/CMakeFiles/install/strip.dir
 /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir
 /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir
+/home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir
+/home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir
 /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/RigidBodyDemos/CMakeFiles/edit_cache.dir
 /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/RigidBodyDemos/CMakeFiles/rebuild_cache.dir
 /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/RigidBodyDemos/CMakeFiles/list_install_components.dir

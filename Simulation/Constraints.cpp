@@ -87,7 +87,7 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
 	RigidBody &rb1 = *rb[m_bodies[0]];
 	RigidBody &rb2 = *rb[m_bodies[1]];
 
-    Real stiffness = 1000.0;
+    Real stiffness = 10000.0;
     const Real dt = TimeManager::getCurrent()->getTimeStepSize();
     Real alphaswing = 0.0;
     Real betaswing = 0.0;
@@ -1165,9 +1165,9 @@ bool DistanceJoint::solvePositionConstraint(SimulationModel &model, const unsign
 		rb2.getPosition(),
 		rb2.getInertiaTensorInverseW(),
 		rb2.getRotation(),
-		0.0,
+		1000.0,
 		m_restLength,
-		0.0,
+		dt,
 		m_jointInfo,
 		lambda,
 		corr_x1,

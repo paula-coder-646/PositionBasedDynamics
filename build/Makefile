@@ -487,6 +487,32 @@ JointDemo/fast:
 .PHONY : JointDemo/fast
 
 #=============================================================================
+# Target rules for targets named HingeBallJointDemo
+
+# Build rule for target.
+HingeBallJointDemo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 HingeBallJointDemo
+.PHONY : HingeBallJointDemo
+
+# fast build rule for target.
+HingeBallJointDemo/fast:
+	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/build
+.PHONY : HingeBallJointDemo/fast
+
+#=============================================================================
+# Target rules for targets named BallJointDemo
+
+# Build rule for target.
+BallJointDemo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BallJointDemo
+.PHONY : BallJointDemo
+
+# fast build rule for target.
+BallJointDemo/fast:
+	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/build
+.PHONY : BallJointDemo/fast
+
+#=============================================================================
 # Target rules for targets named SceneLoaderDemo
 
 # Build rule for target.
@@ -543,6 +569,7 @@ help:
 	@echo "... CopyPBDShaders"
 	@echo "... Ext_Discregrid"
 	@echo "... Ext_GenericParameters"
+	@echo "... BallJointDemo"
 	@echo "... BarDemo"
 	@echo "... ChainDemo"
 	@echo "... ClothCollisionDemo"
@@ -554,6 +581,7 @@ help:
 	@echo "... FluidDemo"
 	@echo "... GenericParticleConstraintsDemo"
 	@echo "... GenericRigidBodyConstraintsDemo"
+	@echo "... HingeBallJointDemo"
 	@echo "... JointDemo"
 	@echo "... MD5"
 	@echo "... PositionBasedDynamics"

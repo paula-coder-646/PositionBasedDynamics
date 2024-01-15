@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "../../../bin/ChainDemo.pdb"
   "CMakeFiles/ChainDemo.dir/ChainDemo.cpp.o"
   "CMakeFiles/ChainDemo.dir/ChainDemo.cpp.o.d"
+  "CMakeFiles/ChainDemo.dir/HingeBallJointDemo.cpp.o"
+  "CMakeFiles/ChainDemo.dir/HingeBallJointDemo.cpp.o.d"
   "CMakeFiles/ChainDemo.dir/__/Common/DemoBase.cpp.o"
   "CMakeFiles/ChainDemo.dir/__/Common/DemoBase.cpp.o.d"
   "CMakeFiles/ChainDemo.dir/__/Common/LogWindow.cpp.o"

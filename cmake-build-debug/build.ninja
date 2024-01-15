@@ -3172,6 +3172,14 @@ build Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Visualization/Shader.cpp.
   OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir
   OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Visualization
 
+build Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/HingeBallJointDemo.cpp.o: CXX_COMPILER__ChainDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/HingeBallJointDemo.cpp || cmake_object_order_depends_target_ChainDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/HingeBallJointDemo.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ChainDemo
@@ -3180,7 +3188,7 @@ build Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Visualization/Shader.cpp.
 #############################################
 # Link the executable /home/paula/Desktop/PBD/PositionBasedDynamics/bin/ChainDemo
 
-build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/ChainDemo: CXX_EXECUTABLE_LINKER__ChainDemo_Release Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/ChainDemo.cpp.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/LogWindow.cpp.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/imguiParameters.cpp.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/DemoBase.cpp.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Visualization/MiniGL.cpp.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Visualization/Shader.cpp.o | lib/libimgui.a lib/libglfw3.a lib/libPositionBasedDynamics.a lib/libSimulation.a lib/libUtils.a /usr/lib/x86_64-linux-gnu/libOpenGL.so /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libGLU.so /usr/lib/x86_64-linux-gnu/librt.a /usr/lib/x86_64-linux-gnu/libm.so /usr/lib/x86_64-linux-gnu/libX11.so lib/libPositionBasedDynamics.a /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.a || CopyImguiFonts CopyPBDModels CopyPBDShaders Ext_GenericParameters lib/libPositionBasedDynamics.a lib/libSimulation.a lib/libUtils.a lib/libglfw3.a lib/libimgui.a
+build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/ChainDemo: CXX_EXECUTABLE_LINKER__ChainDemo_Release Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/ChainDemo.cpp.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/LogWindow.cpp.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/imguiParameters.cpp.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Common/DemoBase.cpp.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Visualization/MiniGL.cpp.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/__/Visualization/Shader.cpp.o Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/HingeBallJointDemo.cpp.o | lib/libimgui.a lib/libglfw3.a lib/libPositionBasedDynamics.a lib/libSimulation.a lib/libUtils.a /usr/lib/x86_64-linux-gnu/libOpenGL.so /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libGLU.so /usr/lib/x86_64-linux-gnu/librt.a /usr/lib/x86_64-linux-gnu/libm.so /usr/lib/x86_64-linux-gnu/libX11.so lib/libPositionBasedDynamics.a /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.a || CopyImguiFonts CopyPBDModels CopyPBDShaders Ext_GenericParameters lib/libPositionBasedDynamics.a lib/libSimulation.a lib/libUtils.a lib/libglfw3.a lib/libimgui.a
   FLAGS = -O3 -DNDEBUG -march=native
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = lib/libimgui.a  lib/libglfw3.a  lib/libPositionBasedDynamics.a  lib/libSimulation.a  lib/libUtils.a  -lOpenGL  -lGLX  -lGLU  -Wl,-Bstatic  -lrt  -Wl,-Bdynamic  -lm  -ldl  -lX11  lib/libPositionBasedDynamics.a  -lgomp  -Wl,-Bstatic  -lpthread  -Wl,-Bdynamic
@@ -3280,6 +3288,188 @@ build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/JointDemo: CXX_EXECUTABL
   PRE_LINK = :
   TARGET_FILE = /home/paula/Desktop/PBD/PositionBasedDynamics/bin/JointDemo
   TARGET_PDB = JointDemo.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target HingeBallJointDemo
+
+
+#############################################
+# Order-only phony target for HingeBallJointDemo
+
+build cmake_object_order_depends_target_HingeBallJointDemo: phony || CopyImguiFonts CopyPBDModels CopyPBDShaders Ext_GenericParameters cmake_object_order_depends_target_PositionBasedDynamics cmake_object_order_depends_target_Simulation cmake_object_order_depends_target_Utils cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui
+
+build Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/HingeBallJointDemo.cpp.o: CXX_COMPILER__HingeBallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/HingeBallJointDemo.cpp || cmake_object_order_depends_target_HingeBallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/HingeBallJointDemo.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir
+
+build Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/LogWindow.cpp.o: CXX_COMPILER__HingeBallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Common/LogWindow.cpp || cmake_object_order_depends_target_HingeBallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/LogWindow.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common
+
+build Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o: CXX_COMPILER__HingeBallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Common/Simulator_GUI_imgui.cpp || cmake_object_order_depends_target_HingeBallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common
+
+build Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/imguiParameters.cpp.o: CXX_COMPILER__HingeBallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Common/imguiParameters.cpp || cmake_object_order_depends_target_HingeBallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/imguiParameters.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common
+
+build Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/DemoBase.cpp.o: CXX_COMPILER__HingeBallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Common/DemoBase.cpp || cmake_object_order_depends_target_HingeBallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/DemoBase.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common
+
+build Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o: C_COMPILER__HingeBallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/deps/glad_gl.c || cmake_object_order_depends_target_HingeBallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o.d
+  FLAGS = -O3 -DNDEBUG -fdiagnostics-color=always
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/__/extern/glfw/deps
+
+build Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Visualization/MiniGL.cpp.o: CXX_COMPILER__HingeBallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Visualization/MiniGL.cpp || cmake_object_order_depends_target_HingeBallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Visualization/MiniGL.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Visualization
+
+build Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Visualization/Shader.cpp.o: CXX_COMPILER__HingeBallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Visualization/Shader.cpp || cmake_object_order_depends_target_HingeBallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Visualization/Shader.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Visualization
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target HingeBallJointDemo
+
+
+#############################################
+# Link the executable /home/paula/Desktop/PBD/PositionBasedDynamics/bin/HingeBallJointDemo
+
+build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/HingeBallJointDemo: CXX_EXECUTABLE_LINKER__HingeBallJointDemo_Release Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/HingeBallJointDemo.cpp.o Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/LogWindow.cpp.o Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/imguiParameters.cpp.o Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/DemoBase.cpp.o Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Visualization/MiniGL.cpp.o Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Visualization/Shader.cpp.o | lib/libimgui.a lib/libglfw3.a lib/libPositionBasedDynamics.a lib/libSimulation.a lib/libUtils.a /usr/lib/x86_64-linux-gnu/libOpenGL.so /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libGLU.so /usr/lib/x86_64-linux-gnu/librt.a /usr/lib/x86_64-linux-gnu/libm.so /usr/lib/x86_64-linux-gnu/libX11.so lib/libPositionBasedDynamics.a /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.a || CopyImguiFonts CopyPBDModels CopyPBDShaders Ext_GenericParameters lib/libPositionBasedDynamics.a lib/libSimulation.a lib/libUtils.a lib/libglfw3.a lib/libimgui.a
+  FLAGS = -O3 -DNDEBUG -march=native
+  LINK_FLAGS = -rdynamic
+  LINK_LIBRARIES = lib/libimgui.a  lib/libglfw3.a  lib/libPositionBasedDynamics.a  lib/libSimulation.a  lib/libUtils.a  -lOpenGL  -lGLX  -lGLU  -Wl,-Bstatic  -lrt  -Wl,-Bdynamic  -lm  -ldl  -lX11  lib/libPositionBasedDynamics.a  -lgomp  -Wl,-Bstatic  -lpthread  -Wl,-Bdynamic
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = /home/paula/Desktop/PBD/PositionBasedDynamics/bin/HingeBallJointDemo
+  TARGET_PDB = HingeBallJointDemo.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target BallJointDemo
+
+
+#############################################
+# Order-only phony target for BallJointDemo
+
+build cmake_object_order_depends_target_BallJointDemo: phony || CopyImguiFonts CopyPBDModels CopyPBDShaders Ext_GenericParameters cmake_object_order_depends_target_PositionBasedDynamics cmake_object_order_depends_target_Simulation cmake_object_order_depends_target_Utils cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui
+
+build Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o: CXX_COMPILER__BallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/BallJointDemo.cpp || cmake_object_order_depends_target_BallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir
+
+build Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/LogWindow.cpp.o: CXX_COMPILER__BallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Common/LogWindow.cpp || cmake_object_order_depends_target_BallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/LogWindow.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common
+
+build Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o: CXX_COMPILER__BallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Common/Simulator_GUI_imgui.cpp || cmake_object_order_depends_target_BallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common
+
+build Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/imguiParameters.cpp.o: CXX_COMPILER__BallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Common/imguiParameters.cpp || cmake_object_order_depends_target_BallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/imguiParameters.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common
+
+build Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/DemoBase.cpp.o: CXX_COMPILER__BallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Common/DemoBase.cpp || cmake_object_order_depends_target_BallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/DemoBase.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common
+
+build Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o: C_COMPILER__BallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/deps/glad_gl.c || cmake_object_order_depends_target_BallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o.d
+  FLAGS = -O3 -DNDEBUG -fdiagnostics-color=always
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/__/extern/glfw/deps
+
+build Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization/MiniGL.cpp.o: CXX_COMPILER__BallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Visualization/MiniGL.cpp || cmake_object_order_depends_target_BallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization/MiniGL.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization
+
+build Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization/Shader.cpp.o: CXX_COMPILER__BallJointDemo_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Visualization/Shader.cpp || cmake_object_order_depends_target_BallJointDemo
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
+  DEP_FILE = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization/Shader.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -march=native -std=gnu++11 -fdiagnostics-color=always -fopenmp
+  INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid/include
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir
+  OBJECT_FILE_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target BallJointDemo
+
+
+#############################################
+# Link the executable /home/paula/Desktop/PBD/PositionBasedDynamics/bin/BallJointDemo
+
+build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/BallJointDemo: CXX_EXECUTABLE_LINKER__BallJointDemo_Release Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/LogWindow.cpp.o Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/imguiParameters.cpp.o Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/DemoBase.cpp.o Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization/MiniGL.cpp.o Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization/Shader.cpp.o | lib/libimgui.a lib/libglfw3.a lib/libPositionBasedDynamics.a lib/libSimulation.a lib/libUtils.a /usr/lib/x86_64-linux-gnu/libOpenGL.so /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libGLU.so /usr/lib/x86_64-linux-gnu/librt.a /usr/lib/x86_64-linux-gnu/libm.so /usr/lib/x86_64-linux-gnu/libX11.so lib/libPositionBasedDynamics.a /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.a || CopyImguiFonts CopyPBDModels CopyPBDShaders Ext_GenericParameters lib/libPositionBasedDynamics.a lib/libSimulation.a lib/libUtils.a lib/libglfw3.a lib/libimgui.a
+  FLAGS = -O3 -DNDEBUG -march=native
+  LINK_FLAGS = -rdynamic
+  LINK_LIBRARIES = lib/libimgui.a  lib/libglfw3.a  lib/libPositionBasedDynamics.a  lib/libSimulation.a  lib/libUtils.a  -lOpenGL  -lGLX  -lGLU  -Wl,-Bstatic  -lrt  -Wl,-Bdynamic  -lm  -ldl  -lX11  lib/libPositionBasedDynamics.a  -lgomp  -Wl,-Bstatic  -lpthread  -Wl,-Bdynamic
+  OBJECT_DIR = Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = /home/paula/Desktop/PBD/PositionBasedDynamics/bin/BallJointDemo
+  TARGET_PDB = BallJointDemo.dbg
 
 
 #############################################
@@ -3770,6 +3960,8 @@ build Demos/StiffRodsDemos/install/strip: phony Demos/StiffRodsDemos/CMakeFiles/
 # =============================================================================
 # Target aliases.
 
+build BallJointDemo: phony /home/paula/Desktop/PBD/PositionBasedDynamics/bin/BallJointDemo
+
 build BarDemo: phony /home/paula/Desktop/PBD/PositionBasedDynamics/bin/BarDemo
 
 build ChainDemo: phony /home/paula/Desktop/PBD/PositionBasedDynamics/bin/ChainDemo
@@ -3791,6 +3983,8 @@ build FluidDemo: phony /home/paula/Desktop/PBD/PositionBasedDynamics/bin/FluidDe
 build GenericParticleConstraintsDemo: phony /home/paula/Desktop/PBD/PositionBasedDynamics/bin/GenericParticleConstraintsDemo
 
 build GenericRigidBodyConstraintsDemo: phony /home/paula/Desktop/PBD/PositionBasedDynamics/bin/GenericRigidBodyConstraintsDemo
+
+build HingeBallJointDemo: phony /home/paula/Desktop/PBD/PositionBasedDynamics/bin/HingeBallJointDemo
 
 build JointDemo: phony /home/paula/Desktop/PBD/PositionBasedDynamics/bin/JointDemo
 
@@ -3904,7 +4098,7 @@ build Demos/PositionBasedElasticRodsDemo/all: phony /home/paula/Desktop/PBD/Posi
 #############################################
 # Folder: /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos
 
-build Demos/RigidBodyDemos/all: phony /home/paula/Desktop/PBD/PositionBasedDynamics/bin/ChainDemo /home/paula/Desktop/PBD/PositionBasedDynamics/bin/JointDemo
+build Demos/RigidBodyDemos/all: phony /home/paula/Desktop/PBD/PositionBasedDynamics/bin/ChainDemo /home/paula/Desktop/PBD/PositionBasedDynamics/bin/JointDemo /home/paula/Desktop/PBD/PositionBasedDynamics/bin/HingeBallJointDemo /home/paula/Desktop/PBD/PositionBasedDynamics/bin/BallJointDemo
 
 # =============================================================================
 

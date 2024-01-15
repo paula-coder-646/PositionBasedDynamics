@@ -1450,7 +1450,7 @@ namespace PBD
                 const Vector3r &x1,
                 const Matrix3r &inertiaInverseW1,
                 const Quaternionr &q1,
-                Vector3r corraxis,
+                const Vector3r& corraxis,
                 Real &lambda,
                 Quaternionr &corr_q0,
                 Quaternionr &corr_q1,
