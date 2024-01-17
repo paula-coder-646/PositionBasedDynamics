@@ -2879,7 +2879,7 @@ bool PositionBasedRigidBodyDynamics::MuellerAngleLimits(
     Vector3r n1n = n1.normalized();
     Vector3r nn = n.normalized();
 
-    Real angle = asin((n0n.cross(n1n)).dot(nn));
+    Real angle = asin((n1n.cross(n0n)).dot(nn)); // Change from Paper: Switched n0 and n1
 
     if (n0n.dot(n1n) < 0.0)
     {
@@ -2898,15 +2898,16 @@ bool PositionBasedRigidBodyDynamics::MuellerAngleLimits(
 
     Real angledeg = angle/pi * 180;
 
-    if (angledeg < alpha || beta < angledeg)
+    if (angledeg < alpha || angledeg > beta)
     {
-        angledeg = max(min(angledeg, alpha),beta);
+        angledeg = min(max(angledeg, alpha),beta);
         angle = angledeg/180 * pi;
 
         AngleAxisr corraxis = AngleAxisr(angle, nn);
         Vector3r n0c = corraxis * n0n;
-        corr_q_fixed = n0c.cross(n1n);
 
+        corr_q_fixed = n1n.cross(n0n); // Change from Paper: Switched n0 and n1
+        //corr_q_fixed = n0c.cross(n1n);
         return true;
     }
     corr_q_fixed.setZero();
@@ -2920,7 +2921,7 @@ bool PositionBasedRigidBodyDynamics::init_MuellerBallJoint(
         const Vector3r &x1,
         const Quaternionr &q1,
         const Vector3r &ballJointPosition,
-        Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &ballJointInfo
+        Eigen::Matrix<Real, 3, 6, Eigen::DontAlign> &ballJointInfo
 )
 {
     // jointInfo contains
@@ -2938,6 +2939,22 @@ bool PositionBasedRigidBodyDynamics::init_MuellerBallJoint(
     ballJointInfo.col(2) = ballJointPosition;
     ballJointInfo.col(3) = ballJointPosition;
 
+    // temp vector used for building the coordinate system
+    Vector3r v0 = Vector3r(1.0, 0.0, 0.0);
+    Vector3r v1 = Vector3r(1.0, 0.0, 0.0);
+
+    if(abs(ballJointInfo.col(0).dot(v0)) > 0.9)
+    {
+        v0 = Vector3r(0.0, 1.0, 0.0);
+    }
+
+    if(abs(ballJointInfo.col(1).dot(v1)) > 0.9)
+    {
+        v1 = Vector3r(0.0, 1.0, 0.0);
+    }
+
+    ballJointInfo.col(4) = v0;
+    ballJointInfo.col(5) = v1;
 
     return true;
 }
@@ -2948,7 +2965,7 @@ bool PositionBasedRigidBodyDynamics::update_MuellerBallJoint(
         const Quaternionr &q0,
         const Vector3r &x1,
         const Quaternionr &q1,
-        Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &ballJointInfo
+        Eigen::Matrix<Real, 3, 6, Eigen::DontAlign> &ballJointInfo
 )
 {
     // jointInfo contains
@@ -2976,7 +2993,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
         const Vector3r &x1,
         const Matrix3r &inertiaInverseW1,
         const Quaternionr &q1,
-        const Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &ballJointInfo,
+        const Eigen::Matrix<Real, 3, 6, Eigen::DontAlign> &ballJointInfo,
         Vector3r &corr_x0, Quaternionr &corr_q0,
         Vector3r &corr_x1, Quaternionr &corr_q1,
         Real &stiffness,
@@ -3002,18 +3019,8 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     Vector3r a1l = - (ballJointInfo.col(1).normalized()); // Since both axes point in the same direction, invert a1g
 
     // temp vector used for building the coordinate system
-    Vector3r v0 = Vector3r(1.0, 0.0, 0.0);
-    Vector3r v1 = Vector3r(1.0, 0.0, 0.0);
-
-    if(abs(a0l.dot(v0)) > 0.9)
-    {
-        v0 = Vector3r(0.0, 1.0, 0.0);
-    }
-
-    if(abs(a1l.dot(v1)) > 0.9)
-    {
-        v1 = Vector3r(0.0, 1.0, 0.0);
-    }
+    Vector3r v0 = ballJointInfo.col(4);
+    Vector3r v1 = ballJointInfo.col(5);
 
     Vector3r b0l = a0l.cross(v0);
     b0l.normalize();
@@ -3035,8 +3042,8 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
     // 2. Solve Distance Joint
     Real lambda = 0.0;
-    solve_MuellerDistanceJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, stiffness, 0.0, dt, ballJointInfo, lambda, corr_x0, corr_q0, corr_x1, corr_q1);
-
+    Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> distJointInfo = ballJointInfo.block<3, 4>(0, 0);
+    solve_MuellerDistanceJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, 0.0, 0.0, dt, distJointInfo, lambda, corr_x0, corr_q0, corr_x1, corr_q1);
 
     // Swing and Twist Limits
     Vector3r swingcorr = Vector3r(0.0, 0.0, 0.0);
@@ -3054,7 +3061,9 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
         solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, swingcorr, lambda, scorr_q0, scorr_q1, stiffness, dt);
     }
 
+
     Vector3r twistcorr = Vector3r(0.0, 0.0, 0.0);
+
     Quaternionr tcorr_q0;
     Quaternionr tcorr_q1;
     lambda = 0.0;
@@ -3071,13 +3080,13 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
     if (invMass0 != 0.0)
     {
-        corr_q0.coeffs() += scorr_q0.coeffs() + tcorr_q0.coeffs();
+        corr_q0.coeffs() += tcorr_q0.coeffs();
 
     }
 
     if (invMass1 != 0.0)
     {
-        corr_q1.coeffs() += scorr_q1.coeffs() + tcorr_q1.coeffs();
+        corr_q1.coeffs() += tcorr_q1.coeffs();
     }
 
     return true;

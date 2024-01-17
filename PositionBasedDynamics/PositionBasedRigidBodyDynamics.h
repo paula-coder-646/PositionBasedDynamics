@@ -1475,7 +1475,7 @@ namespace PBD
                 const Vector3r &x1,
                 const Quaternionr &q1,
                 const Vector3r &ballJointPosition,
-                Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &ballJointInfo
+                Eigen::Matrix<Real, 3, 6, Eigen::DontAlign> &ballJointInfo
         );
 
 // ----------------------------------------------------------------------------------------------
@@ -1484,7 +1484,7 @@ namespace PBD
                 const Quaternionr &q0,
                 const Vector3r &x1,
                 const Quaternionr &q1,
-                Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &ballJointInfo
+                Eigen::Matrix<Real, 3, 6, Eigen::DontAlign> &ballJointInfo
         );
 
 // ----------------------------------------------------------------------------------------------
@@ -1497,7 +1497,7 @@ namespace PBD
                 const Vector3r &x1,
                 const Matrix3r &inertiaInverseW1,
                 const Quaternionr &q1,
-                const Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> &ballJointInfo,
+                const Eigen::Matrix<Real, 3, 6, Eigen::DontAlign> &ballJointInfo,
                 Vector3r &corr_x0, Quaternionr &corr_q0,
                 Vector3r &corr_x1, Quaternionr &corr_q1,
                 Real &stiffness,
