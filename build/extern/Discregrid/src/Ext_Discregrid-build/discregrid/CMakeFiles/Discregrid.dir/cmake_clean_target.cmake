@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "../bin/libDiscregrid.a"
+  "../bin/libDiscregrid_d.a"
 )

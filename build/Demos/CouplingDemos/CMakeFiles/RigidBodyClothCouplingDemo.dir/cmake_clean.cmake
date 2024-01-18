@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/RigidBodyClothCouplingDemo"
-  "../../../bin/RigidBodyClothCouplingDemo.pdb"
+  "../../../bin/RigidBodyClothCouplingDemo_d"
+  "../../../bin/RigidBodyClothCouplingDemo_d.pdb"
   "CMakeFiles/RigidBodyClothCouplingDemo.dir/RigidBodyClothCouplingDemo.cpp.o"
   "CMakeFiles/RigidBodyClothCouplingDemo.dir/RigidBodyClothCouplingDemo.cpp.o.d"
   "CMakeFiles/RigidBodyClothCouplingDemo.dir/__/Common/DemoBase.cpp.o"

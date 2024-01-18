@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics/build/extern/Discregrid/src/Ext_Discregrid/discregrid/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/build/extern/Discregrid/src/Ext_Discregrid/discregrid/include/Discregrid -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/build/extern/Discregrid/src/Ext_Discregrid/discregrid/../extern
 
-CXX_FLAGS = -O3 -DNDEBUG -fopenmp -std=gnu++11
+CXX_FLAGS = -g -fopenmp -std=gnu++11
 

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../lib/libUtils.a"
-  "../lib/libUtils.pdb"
+  "../lib/libUtils_d.a"
+  "../lib/libUtils_d.pdb"
   "CMakeFiles/Utils.dir/IndexedFaceMesh.cpp.o"
   "CMakeFiles/Utils.dir/IndexedFaceMesh.cpp.o.d"
   "CMakeFiles/Utils.dir/IndexedTetMesh.cpp.o"

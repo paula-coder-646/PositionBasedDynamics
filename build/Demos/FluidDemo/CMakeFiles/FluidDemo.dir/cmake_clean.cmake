@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/FluidDemo"
-  "../../../bin/FluidDemo.pdb"
+  "../../../bin/FluidDemo_d"
+  "../../../bin/FluidDemo_d.pdb"
   "CMakeFiles/FluidDemo.dir/FluidModel.cpp.o"
   "CMakeFiles/FluidDemo.dir/FluidModel.cpp.o.d"
   "CMakeFiles/FluidDemo.dir/TimeStepFluidModel.cpp.o"

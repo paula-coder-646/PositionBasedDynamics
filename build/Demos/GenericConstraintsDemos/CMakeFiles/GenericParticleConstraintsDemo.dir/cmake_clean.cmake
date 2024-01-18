@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/GenericParticleConstraintsDemo"
-  "../../../bin/GenericParticleConstraintsDemo.pdb"
+  "../../../bin/GenericParticleConstraintsDemo_d"
+  "../../../bin/GenericParticleConstraintsDemo_d.pdb"
   "CMakeFiles/GenericParticleConstraintsDemo.dir/GenericConstraints.cpp.o"
   "CMakeFiles/GenericParticleConstraintsDemo.dir/GenericConstraints.cpp.o.d"
   "CMakeFiles/GenericParticleConstraintsDemo.dir/GenericConstraintsModel.cpp.o"

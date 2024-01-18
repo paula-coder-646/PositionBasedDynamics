@@ -195,35 +195,35 @@ RigidBodyCollisionDemo_OBJECTS = \
 # External object files for target RigidBodyCollisionDemo
 RigidBodyCollisionDemo_EXTERNAL_OBJECTS =
 
-../bin/RigidBodyCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/RigidBodyCollisionDemo.cpp.o
-../bin/RigidBodyCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/__/Common/LogWindow.cpp.o
-../bin/RigidBodyCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
-../bin/RigidBodyCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/__/Common/imguiParameters.cpp.o
-../bin/RigidBodyCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/__/Common/DemoBase.cpp.o
-../bin/RigidBodyCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
-../bin/RigidBodyCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/__/Visualization/MiniGL.cpp.o
-../bin/RigidBodyCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/__/Visualization/Shader.cpp.o
-../bin/RigidBodyCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/build.make
-../bin/RigidBodyCollisionDemo: lib/libimgui.a
-../bin/RigidBodyCollisionDemo: lib/libglfw3.a
-../bin/RigidBodyCollisionDemo: lib/libPositionBasedDynamics.a
-../bin/RigidBodyCollisionDemo: lib/libSimulation.a
-../bin/RigidBodyCollisionDemo: lib/libUtils.a
-../bin/RigidBodyCollisionDemo: /usr/lib/x86_64-linux-gnu/libOpenGL.so
-../bin/RigidBodyCollisionDemo: /usr/lib/x86_64-linux-gnu/libGLX.so
-../bin/RigidBodyCollisionDemo: /usr/lib/x86_64-linux-gnu/libGLU.so
-../bin/RigidBodyCollisionDemo: /usr/lib/x86_64-linux-gnu/librt.a
-../bin/RigidBodyCollisionDemo: /usr/lib/x86_64-linux-gnu/libm.so
-../bin/RigidBodyCollisionDemo: /usr/lib/x86_64-linux-gnu/libX11.so
-../bin/RigidBodyCollisionDemo: lib/libPositionBasedDynamics.a
-../bin/RigidBodyCollisionDemo: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
-../bin/RigidBodyCollisionDemo: /usr/lib/x86_64-linux-gnu/libpthread.a
-../bin/RigidBodyCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable ../../../bin/RigidBodyCollisionDemo"
+../bin/RigidBodyCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/RigidBodyCollisionDemo.cpp.o
+../bin/RigidBodyCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/__/Common/LogWindow.cpp.o
+../bin/RigidBodyCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
+../bin/RigidBodyCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/__/Common/imguiParameters.cpp.o
+../bin/RigidBodyCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/__/Common/DemoBase.cpp.o
+../bin/RigidBodyCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
+../bin/RigidBodyCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/__/Visualization/MiniGL.cpp.o
+../bin/RigidBodyCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/__/Visualization/Shader.cpp.o
+../bin/RigidBodyCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/build.make
+../bin/RigidBodyCollisionDemo_d: lib/libimgui_d.a
+../bin/RigidBodyCollisionDemo_d: lib/libglfw3_d.a
+../bin/RigidBodyCollisionDemo_d: lib/libPositionBasedDynamics_d.a
+../bin/RigidBodyCollisionDemo_d: lib/libSimulation_d.a
+../bin/RigidBodyCollisionDemo_d: lib/libUtils_d.a
+../bin/RigidBodyCollisionDemo_d: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+../bin/RigidBodyCollisionDemo_d: /usr/lib/x86_64-linux-gnu/libGLX.so
+../bin/RigidBodyCollisionDemo_d: /usr/lib/x86_64-linux-gnu/libGLU.so
+../bin/RigidBodyCollisionDemo_d: /usr/lib/x86_64-linux-gnu/librt.a
+../bin/RigidBodyCollisionDemo_d: /usr/lib/x86_64-linux-gnu/libm.so
+../bin/RigidBodyCollisionDemo_d: /usr/lib/x86_64-linux-gnu/libX11.so
+../bin/RigidBodyCollisionDemo_d: lib/libPositionBasedDynamics_d.a
+../bin/RigidBodyCollisionDemo_d: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
+../bin/RigidBodyCollisionDemo_d: /usr/lib/x86_64-linux-gnu/libpthread.a
+../bin/RigidBodyCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable ../../../bin/RigidBodyCollisionDemo_d"
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/DistanceFieldDemos && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/RigidBodyCollisionDemo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/build: ../bin/RigidBodyCollisionDemo
+Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/build: ../bin/RigidBodyCollisionDemo_d
 .PHONY : Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/build
 
 Demos/DistanceFieldDemos/CMakeFiles/RigidBodyCollisionDemo.dir/clean:

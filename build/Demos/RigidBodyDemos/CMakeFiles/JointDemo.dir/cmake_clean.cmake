@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/JointDemo"
-  "../../../bin/JointDemo.pdb"
+  "../../../bin/JointDemo_d"
+  "../../../bin/JointDemo_d.pdb"
   "CMakeFiles/JointDemo.dir/JointDemo.cpp.o"
   "CMakeFiles/JointDemo.dir/JointDemo.cpp.o.d"
   "CMakeFiles/JointDemo.dir/__/Common/DemoBase.cpp.o"

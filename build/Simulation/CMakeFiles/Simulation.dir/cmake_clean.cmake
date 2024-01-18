@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../lib/libSimulation.a"
-  "../lib/libSimulation.pdb"
+  "../lib/libSimulation_d.a"
+  "../lib/libSimulation_d.pdb"
   "CMakeFiles/Simulation.dir/BoundingSphereHierarchy.cpp.o"
   "CMakeFiles/Simulation.dir/BoundingSphereHierarchy.cpp.o.d"
   "CMakeFiles/Simulation.dir/CollisionDetection.cpp.o"

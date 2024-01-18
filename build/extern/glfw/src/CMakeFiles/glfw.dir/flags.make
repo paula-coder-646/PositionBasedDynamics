@@ -6,7 +6,7 @@ C_DEFINES = -DUSE_DOUBLE -D_GLFW_USE_CONFIG_H
 
 C_INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src -I/home/paula/Desktop/PBD/PositionBasedDynamics/build/extern/glfw/src -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui
 
-C_FLAGS = -O3 -DNDEBUG -fPIC -Wall -std=gnu99
+C_FLAGS = -g -fPIC -Wall -std=gnu99
 
 # Custom flags: extern/glfw/src/CMakeFiles/glfw.dir/context.c.o_FLAGS = -Wdeclaration-after-statement
 

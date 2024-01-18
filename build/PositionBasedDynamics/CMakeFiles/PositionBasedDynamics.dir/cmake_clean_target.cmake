@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "../lib/libPositionBasedDynamics.a"
+  "../lib/libPositionBasedDynamics_d.a"
 )

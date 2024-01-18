@@ -6,5 +6,5 @@ CXX_DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
 
 CXX_INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui
 
-CXX_FLAGS = -O3 -DNDEBUG -march=native -fopenmp -std=gnu++11
+CXX_FLAGS = -g -D_DEBUG -fopenmp -std=gnu++11
 

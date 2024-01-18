@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/DirectPositionBasedSolverForStiffRodsDemo"
-  "../../../bin/DirectPositionBasedSolverForStiffRodsDemo.pdb"
+  "../../../bin/DirectPositionBasedSolverForStiffRodsDemo_d"
+  "../../../bin/DirectPositionBasedSolverForStiffRodsDemo_d.pdb"
   "CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/DirectPositionBasedSolverForStiffRodsDemo.cpp.o"
   "CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/DirectPositionBasedSolverForStiffRodsDemo.cpp.o.d"
   "CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/StiffRodsSceneLoader.cpp.o"

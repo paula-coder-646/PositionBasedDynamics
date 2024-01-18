@@ -210,38 +210,38 @@ DirectPositionBasedSolverForStiffRodsDemo_OBJECTS = \
 # External object files for target DirectPositionBasedSolverForStiffRodsDemo
 DirectPositionBasedSolverForStiffRodsDemo_EXTERNAL_OBJECTS =
 
-../bin/DirectPositionBasedSolverForStiffRodsDemo: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/DirectPositionBasedSolverForStiffRodsDemo.cpp.o
-../bin/DirectPositionBasedSolverForStiffRodsDemo: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/StiffRodsSceneLoader.cpp.o
-../bin/DirectPositionBasedSolverForStiffRodsDemo: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/__/Common/LogWindow.cpp.o
-../bin/DirectPositionBasedSolverForStiffRodsDemo: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
-../bin/DirectPositionBasedSolverForStiffRodsDemo: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/__/Common/imguiParameters.cpp.o
-../bin/DirectPositionBasedSolverForStiffRodsDemo: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/__/Common/DemoBase.cpp.o
-../bin/DirectPositionBasedSolverForStiffRodsDemo: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
-../bin/DirectPositionBasedSolverForStiffRodsDemo: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/__/Visualization/MiniGL.cpp.o
-../bin/DirectPositionBasedSolverForStiffRodsDemo: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/__/Visualization/Shader.cpp.o
-../bin/DirectPositionBasedSolverForStiffRodsDemo: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/build.make
-../bin/DirectPositionBasedSolverForStiffRodsDemo: lib/libimgui.a
-../bin/DirectPositionBasedSolverForStiffRodsDemo: lib/libglfw3.a
-../bin/DirectPositionBasedSolverForStiffRodsDemo: lib/libMD5.a
-../bin/DirectPositionBasedSolverForStiffRodsDemo: lib/libPositionBasedDynamics.a
-../bin/DirectPositionBasedSolverForStiffRodsDemo: lib/libSimulation.a
-../bin/DirectPositionBasedSolverForStiffRodsDemo: lib/libUtils.a
-../bin/DirectPositionBasedSolverForStiffRodsDemo: /usr/lib/x86_64-linux-gnu/libOpenGL.so
-../bin/DirectPositionBasedSolverForStiffRodsDemo: /usr/lib/x86_64-linux-gnu/libGLX.so
-../bin/DirectPositionBasedSolverForStiffRodsDemo: /usr/lib/x86_64-linux-gnu/libGLU.so
-../bin/DirectPositionBasedSolverForStiffRodsDemo: Discregrid/lib/libDiscregrid.a
-../bin/DirectPositionBasedSolverForStiffRodsDemo: /usr/lib/x86_64-linux-gnu/librt.a
-../bin/DirectPositionBasedSolverForStiffRodsDemo: /usr/lib/x86_64-linux-gnu/libm.so
-../bin/DirectPositionBasedSolverForStiffRodsDemo: /usr/lib/x86_64-linux-gnu/libX11.so
-../bin/DirectPositionBasedSolverForStiffRodsDemo: lib/libPositionBasedDynamics.a
-../bin/DirectPositionBasedSolverForStiffRodsDemo: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
-../bin/DirectPositionBasedSolverForStiffRodsDemo: /usr/lib/x86_64-linux-gnu/libpthread.a
-../bin/DirectPositionBasedSolverForStiffRodsDemo: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable ../../../bin/DirectPositionBasedSolverForStiffRodsDemo"
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/DirectPositionBasedSolverForStiffRodsDemo.cpp.o
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/StiffRodsSceneLoader.cpp.o
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/__/Common/LogWindow.cpp.o
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/__/Common/imguiParameters.cpp.o
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/__/Common/DemoBase.cpp.o
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/__/Visualization/MiniGL.cpp.o
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/__/Visualization/Shader.cpp.o
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/build.make
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: lib/libimgui_d.a
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: lib/libglfw3_d.a
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: lib/libMD5_d.a
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: lib/libPositionBasedDynamics_d.a
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: lib/libSimulation_d.a
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: lib/libUtils_d.a
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: /usr/lib/x86_64-linux-gnu/libGLX.so
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: /usr/lib/x86_64-linux-gnu/libGLU.so
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: Discregrid/lib/libDiscregrid_d.a
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: /usr/lib/x86_64-linux-gnu/librt.a
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: /usr/lib/x86_64-linux-gnu/libm.so
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: /usr/lib/x86_64-linux-gnu/libX11.so
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: lib/libPositionBasedDynamics_d.a
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: /usr/lib/x86_64-linux-gnu/libpthread.a
+../bin/DirectPositionBasedSolverForStiffRodsDemo_d: Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable ../../../bin/DirectPositionBasedSolverForStiffRodsDemo_d"
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/StiffRodsDemos && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/build: ../bin/DirectPositionBasedSolverForStiffRodsDemo
+Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/build: ../bin/DirectPositionBasedSolverForStiffRodsDemo_d
 .PHONY : Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/build
 
 Demos/StiffRodsDemos/CMakeFiles/DirectPositionBasedSolverForStiffRodsDemo.dir/clean:

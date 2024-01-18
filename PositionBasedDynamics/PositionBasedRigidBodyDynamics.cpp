@@ -3022,23 +3022,18 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     Vector3r v0 = ballJointInfo.col(4);
     Vector3r v1 = ballJointInfo.col(5);
 
-    Vector3r b0l = a0l.cross(v0);
-    b0l.normalize();
-    Vector3r b1l = a1l.cross(v1);
-    b1l.normalize();
-    Vector3r c0l = a0l.cross(b0l);
-    c0l.normalize();
-    Vector3r c1l = a1l.cross(b1l);
-    c1l.normalized();
+    Vector3r b0l = a0l.cross(v0).normalized();
+    Vector3r b1l = a1l.cross(v1).normalized();
+    Vector3r c0l = a0l.cross(b0l).normalized();
+    Vector3r c1l = a1l.cross(b1l).normalized();
 
     // Get global systems
-    Vector3r a0g = rot0 * a0l;
-    Vector3r b0g = rot0 * b0l;
-    Vector3r c0g = rot0 * c0l;
-
-    Vector3r a1g = rot1 * a1l;
-    Vector3r b1g = rot1 * b1l;
-    Vector3r c1g = rot1 * c1l;
+    Vector3r a0g = (rot0 * a0l).normalized();
+    Vector3r b0g = (rot0 * b0l).normalized();
+    Vector3r c0g = (rot0 * c0l).normalized();
+    Vector3r a1g = (rot1 * a1l).normalized();
+    Vector3r b1g = (rot1 * b1l).normalized();
+    Vector3r c1g = (rot1 * c1l).normalized();
 
     // 2. Solve Distance Joint
     Real lambda = 0.0;
@@ -3068,25 +3063,27 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     Quaternionr tcorr_q1;
     lambda = 0.0;
 
-    n = (a0g + a1g).normalized();
-    n1 = (b0g - (n.dot(b0g)) * n).normalized();
-    n2 = (b1g - (n.dot(b1g)) * n).normalized();
-    MuellerAngleLimits(n, n1, n2, alphatwist, betatwist, twistcorr);
+    Vector3r tn = (a0g + a1g).normalized();
+    Vector3r tn1 = (b0g - (n.dot(b0g) * n)).normalized();
+    Vector3r tn2 = (b1g - (n.dot(b1g) * n)).normalized();
+    MuellerAngleLimits(tn, tn1, tn2, alphatwist, betatwist, twistcorr);
+
+    //cout << "N coeffs: " << n << ", n1 coeffs: " << n1 << ", n2 coeffs: " << n2 << "\n";
 
     if (!twistcorr.isZero())
     {
-        solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, twistcorr, lambda, tcorr_q0, tcorr_q1, stiffness, dt);
+        solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, twistcorr, lambda, tcorr_q0, tcorr_q1, 5.0, dt);
     }
 
     if (invMass0 != 0.0)
     {
-        corr_q0.coeffs() += tcorr_q0.coeffs();
+        corr_q0.coeffs() += scorr_q0.coeffs(); // + scorr_q0.coeffs();
 
     }
 
     if (invMass1 != 0.0)
     {
-        corr_q1.coeffs() += tcorr_q1.coeffs();
+        corr_q1.coeffs() += scorr_q1.coeffs(); // + scorr_q1.coeffs();
     }
 
     return true;

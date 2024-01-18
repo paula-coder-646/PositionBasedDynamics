@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/SceneLoaderDemo"
-  "../../../bin/SceneLoaderDemo.pdb"
+  "../../../bin/SceneLoaderDemo_d"
+  "../../../bin/SceneLoaderDemo_d.pdb"
   "CMakeFiles/SceneLoaderDemo.dir/SceneLoaderDemo.cpp.o"
   "CMakeFiles/SceneLoaderDemo.dir/SceneLoaderDemo.cpp.o.d"
   "CMakeFiles/SceneLoaderDemo.dir/__/Common/DemoBase.cpp.o"

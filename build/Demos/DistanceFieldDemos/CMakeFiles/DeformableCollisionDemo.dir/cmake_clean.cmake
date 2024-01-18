@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/DeformableCollisionDemo"
-  "../../../bin/DeformableCollisionDemo.pdb"
+  "../../../bin/DeformableCollisionDemo_d"
+  "../../../bin/DeformableCollisionDemo_d.pdb"
   "CMakeFiles/DeformableCollisionDemo.dir/DeformableCollisionDemo.cpp.o"
   "CMakeFiles/DeformableCollisionDemo.dir/DeformableCollisionDemo.cpp.o.d"
   "CMakeFiles/DeformableCollisionDemo.dir/__/Common/DemoBase.cpp.o"

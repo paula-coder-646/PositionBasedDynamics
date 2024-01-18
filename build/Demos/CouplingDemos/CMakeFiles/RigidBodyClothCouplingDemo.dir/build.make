@@ -195,35 +195,35 @@ RigidBodyClothCouplingDemo_OBJECTS = \
 # External object files for target RigidBodyClothCouplingDemo
 RigidBodyClothCouplingDemo_EXTERNAL_OBJECTS =
 
-../bin/RigidBodyClothCouplingDemo: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/RigidBodyClothCouplingDemo.cpp.o
-../bin/RigidBodyClothCouplingDemo: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/__/Common/LogWindow.cpp.o
-../bin/RigidBodyClothCouplingDemo: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
-../bin/RigidBodyClothCouplingDemo: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/__/Common/imguiParameters.cpp.o
-../bin/RigidBodyClothCouplingDemo: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/__/Common/DemoBase.cpp.o
-../bin/RigidBodyClothCouplingDemo: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
-../bin/RigidBodyClothCouplingDemo: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/__/Visualization/MiniGL.cpp.o
-../bin/RigidBodyClothCouplingDemo: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/__/Visualization/Shader.cpp.o
-../bin/RigidBodyClothCouplingDemo: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/build.make
-../bin/RigidBodyClothCouplingDemo: lib/libimgui.a
-../bin/RigidBodyClothCouplingDemo: lib/libglfw3.a
-../bin/RigidBodyClothCouplingDemo: lib/libPositionBasedDynamics.a
-../bin/RigidBodyClothCouplingDemo: lib/libSimulation.a
-../bin/RigidBodyClothCouplingDemo: lib/libUtils.a
-../bin/RigidBodyClothCouplingDemo: /usr/lib/x86_64-linux-gnu/libOpenGL.so
-../bin/RigidBodyClothCouplingDemo: /usr/lib/x86_64-linux-gnu/libGLX.so
-../bin/RigidBodyClothCouplingDemo: /usr/lib/x86_64-linux-gnu/libGLU.so
-../bin/RigidBodyClothCouplingDemo: /usr/lib/x86_64-linux-gnu/librt.a
-../bin/RigidBodyClothCouplingDemo: /usr/lib/x86_64-linux-gnu/libm.so
-../bin/RigidBodyClothCouplingDemo: /usr/lib/x86_64-linux-gnu/libX11.so
-../bin/RigidBodyClothCouplingDemo: lib/libPositionBasedDynamics.a
-../bin/RigidBodyClothCouplingDemo: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
-../bin/RigidBodyClothCouplingDemo: /usr/lib/x86_64-linux-gnu/libpthread.a
-../bin/RigidBodyClothCouplingDemo: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable ../../../bin/RigidBodyClothCouplingDemo"
+../bin/RigidBodyClothCouplingDemo_d: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/RigidBodyClothCouplingDemo.cpp.o
+../bin/RigidBodyClothCouplingDemo_d: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/__/Common/LogWindow.cpp.o
+../bin/RigidBodyClothCouplingDemo_d: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
+../bin/RigidBodyClothCouplingDemo_d: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/__/Common/imguiParameters.cpp.o
+../bin/RigidBodyClothCouplingDemo_d: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/__/Common/DemoBase.cpp.o
+../bin/RigidBodyClothCouplingDemo_d: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
+../bin/RigidBodyClothCouplingDemo_d: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/__/Visualization/MiniGL.cpp.o
+../bin/RigidBodyClothCouplingDemo_d: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/__/Visualization/Shader.cpp.o
+../bin/RigidBodyClothCouplingDemo_d: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/build.make
+../bin/RigidBodyClothCouplingDemo_d: lib/libimgui_d.a
+../bin/RigidBodyClothCouplingDemo_d: lib/libglfw3_d.a
+../bin/RigidBodyClothCouplingDemo_d: lib/libPositionBasedDynamics_d.a
+../bin/RigidBodyClothCouplingDemo_d: lib/libSimulation_d.a
+../bin/RigidBodyClothCouplingDemo_d: lib/libUtils_d.a
+../bin/RigidBodyClothCouplingDemo_d: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+../bin/RigidBodyClothCouplingDemo_d: /usr/lib/x86_64-linux-gnu/libGLX.so
+../bin/RigidBodyClothCouplingDemo_d: /usr/lib/x86_64-linux-gnu/libGLU.so
+../bin/RigidBodyClothCouplingDemo_d: /usr/lib/x86_64-linux-gnu/librt.a
+../bin/RigidBodyClothCouplingDemo_d: /usr/lib/x86_64-linux-gnu/libm.so
+../bin/RigidBodyClothCouplingDemo_d: /usr/lib/x86_64-linux-gnu/libX11.so
+../bin/RigidBodyClothCouplingDemo_d: lib/libPositionBasedDynamics_d.a
+../bin/RigidBodyClothCouplingDemo_d: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
+../bin/RigidBodyClothCouplingDemo_d: /usr/lib/x86_64-linux-gnu/libpthread.a
+../bin/RigidBodyClothCouplingDemo_d: Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable ../../../bin/RigidBodyClothCouplingDemo_d"
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/CouplingDemos && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/RigidBodyClothCouplingDemo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/build: ../bin/RigidBodyClothCouplingDemo
+Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/build: ../bin/RigidBodyClothCouplingDemo_d
 .PHONY : Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/build
 
 Demos/CouplingDemos/CMakeFiles/RigidBodyClothCouplingDemo.dir/clean:

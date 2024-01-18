@@ -225,37 +225,37 @@ GenericRigidBodyConstraintsDemo_OBJECTS = \
 # External object files for target GenericRigidBodyConstraintsDemo
 GenericRigidBodyConstraintsDemo_EXTERNAL_OBJECTS =
 
-../bin/GenericRigidBodyConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/GenericRigidBodyConstraintsDemo.cpp.o
-../bin/GenericRigidBodyConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/GenericConstraintsModel.cpp.o
-../bin/GenericRigidBodyConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/GenericConstraints.cpp.o
-../bin/GenericRigidBodyConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/__/Common/LogWindow.cpp.o
-../bin/GenericRigidBodyConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
-../bin/GenericRigidBodyConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/__/Common/imguiParameters.cpp.o
-../bin/GenericRigidBodyConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/__/Common/DemoBase.cpp.o
-../bin/GenericRigidBodyConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
-../bin/GenericRigidBodyConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/__/Visualization/MiniGL.cpp.o
-../bin/GenericRigidBodyConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/__/Visualization/Shader.cpp.o
-../bin/GenericRigidBodyConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/build.make
-../bin/GenericRigidBodyConstraintsDemo: lib/libimgui.a
-../bin/GenericRigidBodyConstraintsDemo: lib/libglfw3.a
-../bin/GenericRigidBodyConstraintsDemo: lib/libPositionBasedDynamics.a
-../bin/GenericRigidBodyConstraintsDemo: lib/libSimulation.a
-../bin/GenericRigidBodyConstraintsDemo: lib/libUtils.a
-../bin/GenericRigidBodyConstraintsDemo: /usr/lib/x86_64-linux-gnu/libOpenGL.so
-../bin/GenericRigidBodyConstraintsDemo: /usr/lib/x86_64-linux-gnu/libGLX.so
-../bin/GenericRigidBodyConstraintsDemo: /usr/lib/x86_64-linux-gnu/libGLU.so
-../bin/GenericRigidBodyConstraintsDemo: /usr/lib/x86_64-linux-gnu/librt.a
-../bin/GenericRigidBodyConstraintsDemo: /usr/lib/x86_64-linux-gnu/libm.so
-../bin/GenericRigidBodyConstraintsDemo: /usr/lib/x86_64-linux-gnu/libX11.so
-../bin/GenericRigidBodyConstraintsDemo: lib/libPositionBasedDynamics.a
-../bin/GenericRigidBodyConstraintsDemo: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
-../bin/GenericRigidBodyConstraintsDemo: /usr/lib/x86_64-linux-gnu/libpthread.a
-../bin/GenericRigidBodyConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable ../../../bin/GenericRigidBodyConstraintsDemo"
+../bin/GenericRigidBodyConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/GenericRigidBodyConstraintsDemo.cpp.o
+../bin/GenericRigidBodyConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/GenericConstraintsModel.cpp.o
+../bin/GenericRigidBodyConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/GenericConstraints.cpp.o
+../bin/GenericRigidBodyConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/__/Common/LogWindow.cpp.o
+../bin/GenericRigidBodyConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
+../bin/GenericRigidBodyConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/__/Common/imguiParameters.cpp.o
+../bin/GenericRigidBodyConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/__/Common/DemoBase.cpp.o
+../bin/GenericRigidBodyConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
+../bin/GenericRigidBodyConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/__/Visualization/MiniGL.cpp.o
+../bin/GenericRigidBodyConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/__/Visualization/Shader.cpp.o
+../bin/GenericRigidBodyConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/build.make
+../bin/GenericRigidBodyConstraintsDemo_d: lib/libimgui_d.a
+../bin/GenericRigidBodyConstraintsDemo_d: lib/libglfw3_d.a
+../bin/GenericRigidBodyConstraintsDemo_d: lib/libPositionBasedDynamics_d.a
+../bin/GenericRigidBodyConstraintsDemo_d: lib/libSimulation_d.a
+../bin/GenericRigidBodyConstraintsDemo_d: lib/libUtils_d.a
+../bin/GenericRigidBodyConstraintsDemo_d: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+../bin/GenericRigidBodyConstraintsDemo_d: /usr/lib/x86_64-linux-gnu/libGLX.so
+../bin/GenericRigidBodyConstraintsDemo_d: /usr/lib/x86_64-linux-gnu/libGLU.so
+../bin/GenericRigidBodyConstraintsDemo_d: /usr/lib/x86_64-linux-gnu/librt.a
+../bin/GenericRigidBodyConstraintsDemo_d: /usr/lib/x86_64-linux-gnu/libm.so
+../bin/GenericRigidBodyConstraintsDemo_d: /usr/lib/x86_64-linux-gnu/libX11.so
+../bin/GenericRigidBodyConstraintsDemo_d: lib/libPositionBasedDynamics_d.a
+../bin/GenericRigidBodyConstraintsDemo_d: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
+../bin/GenericRigidBodyConstraintsDemo_d: /usr/lib/x86_64-linux-gnu/libpthread.a
+../bin/GenericRigidBodyConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable ../../../bin/GenericRigidBodyConstraintsDemo_d"
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/GenericConstraintsDemos && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GenericRigidBodyConstraintsDemo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/build: ../bin/GenericRigidBodyConstraintsDemo
+Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/build: ../bin/GenericRigidBodyConstraintsDemo_d
 .PHONY : Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/build
 
 Demos/GenericConstraintsDemos/CMakeFiles/GenericRigidBodyConstraintsDemo.dir/clean:

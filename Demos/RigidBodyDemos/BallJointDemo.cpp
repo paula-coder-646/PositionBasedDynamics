@@ -47,7 +47,7 @@ int main( int argc, char **argv )
 	base = new DemoBase();
 	base->init(argc, argv, "Rigid body demo");
 
- 	SimulationModel *model = new SimulationModel();
+  	SimulationModel *model = new SimulationModel();
 	model->init();
 	Simulation::getCurrent()->setModel(model);
 
@@ -105,7 +105,7 @@ void timeStep()
 
 		base->step();
 	}
-}
+  }
 
 void buildModel ()
 {
@@ -190,7 +190,7 @@ void createBodyModel()
 
 	Real jointY = 0.75;
 	model->addBallJoint(0, 1, Vector3r(0.25, jointY, 1.25));
-	model->addBallJoint(1, 2, Vector3r(0.25, jointY, 3.0));
+	//model->addBallJoint(1, 2, Vector3r(0.25, jointY, 3.0));
 
 }
 

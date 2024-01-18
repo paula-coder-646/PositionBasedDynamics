@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/HingeBallJointDemo"
-  "../../../bin/HingeBallJointDemo.pdb"
+  "../../../bin/HingeBallJointDemo_d"
+  "../../../bin/HingeBallJointDemo_d.pdb"
   "CMakeFiles/HingeBallJointDemo.dir/HingeBallJointDemo.cpp.o"
   "CMakeFiles/HingeBallJointDemo.dir/HingeBallJointDemo.cpp.o.d"
   "CMakeFiles/HingeBallJointDemo.dir/__/Common/DemoBase.cpp.o"

@@ -195,35 +195,35 @@ DeformableCollisionDemo_OBJECTS = \
 # External object files for target DeformableCollisionDemo
 DeformableCollisionDemo_EXTERNAL_OBJECTS =
 
-../bin/DeformableCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/DeformableCollisionDemo.cpp.o
-../bin/DeformableCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/__/Common/LogWindow.cpp.o
-../bin/DeformableCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
-../bin/DeformableCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/__/Common/imguiParameters.cpp.o
-../bin/DeformableCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/__/Common/DemoBase.cpp.o
-../bin/DeformableCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
-../bin/DeformableCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/__/Visualization/MiniGL.cpp.o
-../bin/DeformableCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/__/Visualization/Shader.cpp.o
-../bin/DeformableCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/build.make
-../bin/DeformableCollisionDemo: lib/libimgui.a
-../bin/DeformableCollisionDemo: lib/libglfw3.a
-../bin/DeformableCollisionDemo: lib/libPositionBasedDynamics.a
-../bin/DeformableCollisionDemo: lib/libSimulation.a
-../bin/DeformableCollisionDemo: lib/libUtils.a
-../bin/DeformableCollisionDemo: /usr/lib/x86_64-linux-gnu/libOpenGL.so
-../bin/DeformableCollisionDemo: /usr/lib/x86_64-linux-gnu/libGLX.so
-../bin/DeformableCollisionDemo: /usr/lib/x86_64-linux-gnu/libGLU.so
-../bin/DeformableCollisionDemo: /usr/lib/x86_64-linux-gnu/librt.a
-../bin/DeformableCollisionDemo: /usr/lib/x86_64-linux-gnu/libm.so
-../bin/DeformableCollisionDemo: /usr/lib/x86_64-linux-gnu/libX11.so
-../bin/DeformableCollisionDemo: lib/libPositionBasedDynamics.a
-../bin/DeformableCollisionDemo: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
-../bin/DeformableCollisionDemo: /usr/lib/x86_64-linux-gnu/libpthread.a
-../bin/DeformableCollisionDemo: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable ../../../bin/DeformableCollisionDemo"
+../bin/DeformableCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/DeformableCollisionDemo.cpp.o
+../bin/DeformableCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/__/Common/LogWindow.cpp.o
+../bin/DeformableCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
+../bin/DeformableCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/__/Common/imguiParameters.cpp.o
+../bin/DeformableCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/__/Common/DemoBase.cpp.o
+../bin/DeformableCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
+../bin/DeformableCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/__/Visualization/MiniGL.cpp.o
+../bin/DeformableCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/__/Visualization/Shader.cpp.o
+../bin/DeformableCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/build.make
+../bin/DeformableCollisionDemo_d: lib/libimgui_d.a
+../bin/DeformableCollisionDemo_d: lib/libglfw3_d.a
+../bin/DeformableCollisionDemo_d: lib/libPositionBasedDynamics_d.a
+../bin/DeformableCollisionDemo_d: lib/libSimulation_d.a
+../bin/DeformableCollisionDemo_d: lib/libUtils_d.a
+../bin/DeformableCollisionDemo_d: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+../bin/DeformableCollisionDemo_d: /usr/lib/x86_64-linux-gnu/libGLX.so
+../bin/DeformableCollisionDemo_d: /usr/lib/x86_64-linux-gnu/libGLU.so
+../bin/DeformableCollisionDemo_d: /usr/lib/x86_64-linux-gnu/librt.a
+../bin/DeformableCollisionDemo_d: /usr/lib/x86_64-linux-gnu/libm.so
+../bin/DeformableCollisionDemo_d: /usr/lib/x86_64-linux-gnu/libX11.so
+../bin/DeformableCollisionDemo_d: lib/libPositionBasedDynamics_d.a
+../bin/DeformableCollisionDemo_d: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
+../bin/DeformableCollisionDemo_d: /usr/lib/x86_64-linux-gnu/libpthread.a
+../bin/DeformableCollisionDemo_d: Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable ../../../bin/DeformableCollisionDemo_d"
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/DistanceFieldDemos && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DeformableCollisionDemo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/build: ../bin/DeformableCollisionDemo
+Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/build: ../bin/DeformableCollisionDemo_d
 .PHONY : Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/build
 
 Demos/DistanceFieldDemos/CMakeFiles/DeformableCollisionDemo.dir/clean:

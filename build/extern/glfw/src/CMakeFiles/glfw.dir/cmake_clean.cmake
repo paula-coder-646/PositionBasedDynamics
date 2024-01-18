@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../lib/libglfw3.a"
-  "../../../lib/libglfw3.pdb"
+  "../../../lib/libglfw3_d.a"
+  "../../../lib/libglfw3_d.pdb"
   "CMakeFiles/glfw.dir/context.c.o"
   "CMakeFiles/glfw.dir/context.c.o.d"
   "CMakeFiles/glfw.dir/egl_context.c.o"

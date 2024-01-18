@@ -12,7 +12,7 @@
 
 # =============================================================================
 # Project: Discregrid
-# Configurations: Release
+# Configurations: Debug
 # =============================================================================
 
 #############################################
@@ -24,7 +24,7 @@ ninja_required_version = 1.5
 #############################################
 # Set configuration variable for custom commands.
 
-CONFIGURATION = Release
+CONFIGURATION = Debug
 # =============================================================================
 # Include auxiliary files.
 
@@ -119,44 +119,44 @@ build install/strip: phony CMakeFiles/install/strip.util
 
 build cmake_object_order_depends_target_Discregrid: phony || discregrid/CMakeFiles/Discregrid.dir
 
-build discregrid/CMakeFiles/Discregrid.dir/src/discrete_grid.cpp.o: CXX_COMPILER__Discregrid_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/src/discrete_grid.cpp || cmake_object_order_depends_target_Discregrid
+build discregrid/CMakeFiles/Discregrid.dir/src/discrete_grid.cpp.o: CXX_COMPILER__Discregrid_unscanned_Debug /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/src/discrete_grid.cpp || cmake_object_order_depends_target_Discregrid
   DEP_FILE = discregrid/CMakeFiles/Discregrid.dir/src/discrete_grid.cpp.o.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++11 -fopenmp
+  FLAGS = -g -std=gnu++11 -fopenmp
   INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/include/Discregrid -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/../extern
   OBJECT_DIR = discregrid/CMakeFiles/Discregrid.dir
   OBJECT_FILE_DIR = discregrid/CMakeFiles/Discregrid.dir/src
 
-build discregrid/CMakeFiles/Discregrid.dir/src/cubic_lagrange_discrete_grid.cpp.o: CXX_COMPILER__Discregrid_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/src/cubic_lagrange_discrete_grid.cpp || cmake_object_order_depends_target_Discregrid
+build discregrid/CMakeFiles/Discregrid.dir/src/cubic_lagrange_discrete_grid.cpp.o: CXX_COMPILER__Discregrid_unscanned_Debug /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/src/cubic_lagrange_discrete_grid.cpp || cmake_object_order_depends_target_Discregrid
   DEP_FILE = discregrid/CMakeFiles/Discregrid.dir/src/cubic_lagrange_discrete_grid.cpp.o.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++11 -fopenmp
+  FLAGS = -g -std=gnu++11 -fopenmp
   INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/include/Discregrid -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/../extern
   OBJECT_DIR = discregrid/CMakeFiles/Discregrid.dir
   OBJECT_FILE_DIR = discregrid/CMakeFiles/Discregrid.dir/src
 
-build discregrid/CMakeFiles/Discregrid.dir/src/mesh/entity_containers.cpp.o: CXX_COMPILER__Discregrid_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/src/mesh/entity_containers.cpp || cmake_object_order_depends_target_Discregrid
+build discregrid/CMakeFiles/Discregrid.dir/src/mesh/entity_containers.cpp.o: CXX_COMPILER__Discregrid_unscanned_Debug /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/src/mesh/entity_containers.cpp || cmake_object_order_depends_target_Discregrid
   DEP_FILE = discregrid/CMakeFiles/Discregrid.dir/src/mesh/entity_containers.cpp.o.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++11 -fopenmp
+  FLAGS = -g -std=gnu++11 -fopenmp
   INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/include/Discregrid -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/../extern
   OBJECT_DIR = discregrid/CMakeFiles/Discregrid.dir
   OBJECT_FILE_DIR = discregrid/CMakeFiles/Discregrid.dir/src/mesh
 
-build discregrid/CMakeFiles/Discregrid.dir/src/mesh/entity_iterators.cpp.o: CXX_COMPILER__Discregrid_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/src/mesh/entity_iterators.cpp || cmake_object_order_depends_target_Discregrid
+build discregrid/CMakeFiles/Discregrid.dir/src/mesh/entity_iterators.cpp.o: CXX_COMPILER__Discregrid_unscanned_Debug /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/src/mesh/entity_iterators.cpp || cmake_object_order_depends_target_Discregrid
   DEP_FILE = discregrid/CMakeFiles/Discregrid.dir/src/mesh/entity_iterators.cpp.o.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++11 -fopenmp
+  FLAGS = -g -std=gnu++11 -fopenmp
   INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/include/Discregrid -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/../extern
   OBJECT_DIR = discregrid/CMakeFiles/Discregrid.dir
   OBJECT_FILE_DIR = discregrid/CMakeFiles/Discregrid.dir/src/mesh
 
-build discregrid/CMakeFiles/Discregrid.dir/src/mesh/triangle_mesh.cpp.o: CXX_COMPILER__Discregrid_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/src/mesh/triangle_mesh.cpp || cmake_object_order_depends_target_Discregrid
+build discregrid/CMakeFiles/Discregrid.dir/src/mesh/triangle_mesh.cpp.o: CXX_COMPILER__Discregrid_unscanned_Debug /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/src/mesh/triangle_mesh.cpp || cmake_object_order_depends_target_Discregrid
   DEP_FILE = discregrid/CMakeFiles/Discregrid.dir/src/mesh/triangle_mesh.cpp.o.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++11 -fopenmp
+  FLAGS = -g -std=gnu++11 -fopenmp
   INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/include/Discregrid -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/../extern
   OBJECT_DIR = discregrid/CMakeFiles/Discregrid.dir
   OBJECT_FILE_DIR = discregrid/CMakeFiles/Discregrid.dir/src/mesh
 
-build discregrid/CMakeFiles/Discregrid.dir/src/utility/timing.cpp.o: CXX_COMPILER__Discregrid_unscanned_Release /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/src/utility/timing.cpp || cmake_object_order_depends_target_Discregrid
+build discregrid/CMakeFiles/Discregrid.dir/src/utility/timing.cpp.o: CXX_COMPILER__Discregrid_unscanned_Debug /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/src/utility/timing.cpp || cmake_object_order_depends_target_Discregrid
   DEP_FILE = discregrid/CMakeFiles/Discregrid.dir/src/utility/timing.cpp.o.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++11 -fopenmp
+  FLAGS = -g -std=gnu++11 -fopenmp
   INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/include/Discregrid -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid/discregrid/../extern
   OBJECT_DIR = discregrid/CMakeFiles/Discregrid.dir
   OBJECT_FILE_DIR = discregrid/CMakeFiles/Discregrid.dir/src/utility
@@ -167,15 +167,15 @@ build discregrid/CMakeFiles/Discregrid.dir/src/utility/timing.cpp.o: CXX_COMPILE
 
 
 #############################################
-# Link the static library bin/libDiscregrid.a
+# Link the static library bin/libDiscregrid_d.a
 
-build bin/libDiscregrid.a: CXX_STATIC_LIBRARY_LINKER__Discregrid_Release discregrid/CMakeFiles/Discregrid.dir/src/discrete_grid.cpp.o discregrid/CMakeFiles/Discregrid.dir/src/cubic_lagrange_discrete_grid.cpp.o discregrid/CMakeFiles/Discregrid.dir/src/mesh/entity_containers.cpp.o discregrid/CMakeFiles/Discregrid.dir/src/mesh/entity_iterators.cpp.o discregrid/CMakeFiles/Discregrid.dir/src/mesh/triangle_mesh.cpp.o discregrid/CMakeFiles/Discregrid.dir/src/utility/timing.cpp.o
-  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+build bin/libDiscregrid_d.a: CXX_STATIC_LIBRARY_LINKER__Discregrid_Debug discregrid/CMakeFiles/Discregrid.dir/src/discrete_grid.cpp.o discregrid/CMakeFiles/Discregrid.dir/src/cubic_lagrange_discrete_grid.cpp.o discregrid/CMakeFiles/Discregrid.dir/src/mesh/entity_containers.cpp.o discregrid/CMakeFiles/Discregrid.dir/src/mesh/entity_iterators.cpp.o discregrid/CMakeFiles/Discregrid.dir/src/mesh/triangle_mesh.cpp.o discregrid/CMakeFiles/Discregrid.dir/src/utility/timing.cpp.o
+  LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = discregrid/CMakeFiles/Discregrid.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = bin/libDiscregrid.a
-  TARGET_PDB = Discregrid.a.dbg
+  TARGET_FILE = bin/libDiscregrid_d.a
+  TARGET_PDB = Discregrid_d.a.dbg
 
 
 #############################################
@@ -245,9 +245,9 @@ build discregrid/install/strip: phony discregrid/CMakeFiles/install/strip.util
 # =============================================================================
 # Target aliases.
 
-build Discregrid: phony bin/libDiscregrid.a
+build Discregrid: phony bin/libDiscregrid_d.a
 
-build libDiscregrid.a: phony bin/libDiscregrid.a
+build libDiscregrid_d.a: phony bin/libDiscregrid_d.a
 
 # =============================================================================
 # Folder targets.
@@ -264,7 +264,7 @@ build all: phony discregrid/all
 #############################################
 # Folder: /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-build/discregrid
 
-build discregrid/all: phony bin/libDiscregrid.a
+build discregrid/all: phony bin/libDiscregrid_d.a
 
 # =============================================================================
 # Unknown Build Time Dependencies.

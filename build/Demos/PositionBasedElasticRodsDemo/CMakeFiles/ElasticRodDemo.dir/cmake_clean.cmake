@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/ElasticRodDemo"
-  "../../../bin/ElasticRodDemo.pdb"
+  "../../../bin/ElasticRodDemo_d"
+  "../../../bin/ElasticRodDemo_d.pdb"
   "CMakeFiles/ElasticRodDemo.dir/PositionBasedElasticRodsConstraints.cpp.o"
   "CMakeFiles/ElasticRodDemo.dir/PositionBasedElasticRodsConstraints.cpp.o.d"
   "CMakeFiles/ElasticRodDemo.dir/PositionBasedElasticRodsDemo.cpp.o"
