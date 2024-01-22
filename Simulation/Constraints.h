@@ -41,6 +41,8 @@ namespace PBD
 		static int TYPE_ID;
 		Eigen::Matrix<Real, 3, 6, Eigen::DontAlign> m_jointInfo;
 
+
+
 		BallJoint() : Constraint(2) {}
 		virtual int &getTypeId() const { return TYPE_ID; }
 

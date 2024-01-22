@@ -1465,7 +1465,9 @@ namespace PBD
                 const Vector3r &n1,
                 const Real alpha,
                 const Real beta,
-                Vector3r &corr_q_fixed
+                Vector3r &corr_q_fixed,
+                const Real dt,
+                const Real mode
         );
 
 // ----------------------------------------------------------------------------------------------
