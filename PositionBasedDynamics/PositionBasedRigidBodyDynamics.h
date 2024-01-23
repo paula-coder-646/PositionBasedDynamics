@@ -1510,6 +1510,41 @@ namespace PBD
                 Real &betatwist
         );
 
+        static bool init_MuellerHingeJoint(
+                const Vector3r &x0,
+                const Quaternionr &q0,
+                const Vector3r &x1,
+                const Quaternionr &q1,
+                const Vector3r &ballJointPosition,
+                const Vector3r &hingeAxis,
+                Eigen::Matrix<Real, 3, 7, Eigen::DontAlign> &hingeJointInfo
+        );
+
+        static bool update_MuellerHingeJoint(
+                const Vector3r &x0,
+                const Quaternionr &q0,
+                const Vector3r &x1,
+                const Quaternionr &q1,
+                Eigen::Matrix<Real, 3, 7, Eigen::DontAlign> &hingeJointInfo
+        );
+
+        static bool solve_MuellerHingeJoint(
+                const Real invMass0,
+                const Vector3r &x0,
+                const Matrix3r &inertiaInverseW0,
+                const Quaternionr &q0,
+                const Real invMass1,
+                const Vector3r &x1,
+                const Matrix3r &inertiaInverseW1,
+                const Quaternionr &q1,
+                const Eigen::Matrix<Real, 3, 7, Eigen::DontAlign> &hingeJointInfo,
+                Vector3r &corr_x0, Quaternionr &corr_q0,
+                Vector3r &corr_x1, Quaternionr &corr_q1,
+                Real &stiffness,
+                Real &dt,
+                Real &alphaswing,
+                Real &betaswing
+        );
     };
 }
 

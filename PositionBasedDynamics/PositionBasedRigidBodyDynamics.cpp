@@ -2746,8 +2746,8 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     Real w = 0; // Initialize Inverse Mass to 0 in case w1 or w2 are close to 0
 
     // Calculate Delta Lambda
-
-    if (fabs(w0 + w1) > static_cast<Real>(1e-5)) {
+    Real check = fabs(w0 + w1);
+    if (check > static_cast<Real>(1e-5)) {
         w = static_cast<Real>(1.0) / (w0 + w1 + alphatilde);
     }
     else
@@ -2842,11 +2842,10 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerAngularJoint(
     }
 
     const Vector3r impulse = delta_lambda * axis;
-    Real phi = impulse.norm();
     Real scale = dt;
 
-    if (phi > 0.5)
-        scale = 0.5 / phi;
+    if (impulse.norm() > 0.5)
+        scale = 0.5 / impulse.norm();
 
     if (invMass0 != 0.0)
     {
@@ -3018,6 +3017,15 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
         Real &alphatwist,
         Real &betatwist)
 {
+    // 2. Solve Distance Joint
+    Real lambda = 0.0;
+    Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> distJointInfo = ballJointInfo.block<3, 4>(0, 0);
+    solve_MuellerDistanceJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, stiffness, 0.0, dt, distJointInfo, lambda, corr_x0, corr_q0, corr_x1, corr_q1);
+
+/*
+
+
+
     // Masterplan: This code solves ball Joints in 3 Stages:
 
     // 1. Build Local Coordinate Systems -> Convert to global Coordinates
@@ -3072,9 +3080,6 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     }
 
     // Twist Limits
-
-    // Stupid Idea: What if we "preview rotations before applying the twist correction" to account for the hinge correction
-
     Vector3r twistcorr = Vector3r(0.0, 0.0, 0.0);
 
     Quaternionr tcorr_q0;
@@ -3095,15 +3100,186 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
     if (invMass0 != 0.0)
     {
-        corr_q0.coeffs() += scorr_q0.coeffs() + tcorr_q0.coeffs();
+        //corr_q0.coeffs() += scorr_q0.coeffs() + tcorr_q0.coeffs();
 
     }
 
     if (invMass1 != 0.0)
     {
-        corr_q1.coeffs() += scorr_q1.coeffs() + tcorr_q1.coeffs();
+        //corr_q1.coeffs() += scorr_q1.coeffs() + tcorr_q1.coeffs();
     }
+*/
+    return true;
+
+}
+
+// ----------------------------------------------------------------------------------------------
+bool PositionBasedRigidBodyDynamics::init_MuellerHingeJoint(
+        const Vector3r &x0,
+        const Quaternionr &q0,
+        const Vector3r &x1,
+        const Quaternionr &q1,
+        const Vector3r &hingeJointPosition,
+        const Vector3r & hingeAxis,
+        Eigen::Matrix<Real, 3, 7, Eigen::DontAlign> &hingeJointInfo
+)
+{
+    // jointInfo contains
+    // 0:	connector in body 0 (local)
+    // 1:	connector in body 1 (local)
+    // 2:	connector in body 0 (global)
+    // 3:	connector in body 1 (global)
+    // 4:   Hinge Axis in body 1 (local)
+    // 5:   Hinge Axis in body 2 (local)
+    // 6:   Hinge Axis (global)
+
+    // transform in local coordinates
+    const Matrix3r rot0T = q0.matrix().transpose();
+    const Matrix3r rot1T = q1.matrix().transpose();
+
+    hingeJointInfo.col(0) = rot0T * (hingeJointPosition - x0);
+    hingeJointInfo.col(1) = rot1T * (hingeJointPosition - x1);
+
+    hingeJointInfo.col(2) = hingeJointPosition;
+    hingeJointInfo.col(3) = hingeJointPosition;
+
+    hingeJointInfo.col(4) = rot0T * hingeAxis;
+    hingeJointInfo.col(5) = rot1T * hingeAxis;
+
+    hingeJointInfo.col(6) = hingeAxis;
 
     return true;
 }
 
+// ----------------------------------------------------------------------------------------------
+bool PositionBasedRigidBodyDynamics::update_MuellerHingeJoint(
+        const Vector3r &x0,
+        const Quaternionr &q0,
+        const Vector3r &x1,
+        const Quaternionr &q1,
+        Eigen::Matrix<Real, 3, 7, Eigen::DontAlign> &hingeJointInfo
+)
+{
+    // jointInfo contains
+    // 0:	connector in body 0 (local)
+    // 1:	connector in body 1 (local)
+    // 2:	connector in body 0 (global)
+    // 3:	connector in body 1 (global)
+    // 4:   Hinge Axis in body 1 (local)
+    // 5:   Hinge Axis in body 2 (local)
+    // 6:   Hinge Axis (global)
+
+    // compute world space positions of connectors
+    const Matrix3r rot0 = q0.matrix();
+    const Matrix3r rot1 = q1.matrix();
+    hingeJointInfo.col(2) = rot0 * hingeJointInfo.col(0) + x0; // Update Global Positions
+    hingeJointInfo.col(3) = rot1 * hingeJointInfo.col(1) + x1; // Update Global Positions
+
+    return true;
+}
+
+// ----------------------------------------------------------------------------------------------
+bool PositionBasedRigidBodyDynamics::solve_MuellerHingeJoint(
+        const Real invMass0,
+        const Vector3r &x0,
+        const Matrix3r &inertiaInverseW0,
+        const Quaternionr &q0,
+        const Real invMass1,
+        const Vector3r &x1,
+        const Matrix3r &inertiaInverseW1,
+        const Quaternionr &q1,
+        const Eigen::Matrix<Real, 3, 7, Eigen::DontAlign> &hingeJointInfo,
+        Vector3r &corr_x0, Quaternionr &corr_q0,
+        Vector3r &corr_x1, Quaternionr &corr_q1,
+        Real &stiffness,
+        Real &dt,
+        Real &alphaswing,
+        Real &betaswing)
+{
+    // Masterplan: This code solves Hinge Joints in 3 Stages:
+
+    // 1. Build Local Coordinate Systems -> Convert to global Coordinates
+    // 2. Solve Distance Joint Alignment
+    // 3. Solve Hinge Joint Alignment
+    // 4. Solve Twist Limits if existing
+
+    // Rot Matrices to convert local -> global connectors
+    Matrix3r rot0 = q0.matrix();
+    Matrix3r rot1 = q1.matrix();
+    Matrix3r rot0T = rot0.transpose();
+    Matrix3r rot1T = rot1.transpose();
+
+    Vector3r globalHingeAxis = hingeJointInfo.col(6);
+
+    /*
+     * Axis are aligned as follows:
+     * a0l:     Local Hinge axis,
+     * b0l:     perpendicular to a0l and local connector
+     * c0l:     perpendicular to a0l and b0l
+     */
+
+    Vector3r a0l = hingeJointInfo.col(4);
+    Vector3r a1l = hingeJointInfo.col(5);
+
+    Vector3r b0l = hingeJointInfo.col(0).normalized().cross(a0l);
+    Vector3r b1l = - (hingeJointInfo.col(1).normalized().cross(a1l)); // Since both axes point in the same direction, invert b1g
+
+    Vector3r c0l = a0l.cross(b0l).normalized();
+    Vector3r c1l = a1l.cross(b1l).normalized();
+
+    // Get global systems
+    Vector3r a0g = (rot0 * a0l).normalized();
+    Vector3r b0g = (rot0 * b0l).normalized();
+    Vector3r c0g = (rot0 * c0l).normalized();
+    Vector3r a1g = (rot1 * a1l).normalized();
+    Vector3r b1g = (rot1 * b1l).normalized();
+    Vector3r c1g = (rot1 * c1l).normalized();
+
+    // 2. Solve Distance Joint
+    Real lambda = 0.0;
+    Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> distJointInfo = hingeJointInfo.block<3, 4>(0, 0);
+    solve_MuellerDistanceJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, stiffness, 0.0, dt, distJointInfo, lambda, corr_x0, corr_q0, corr_x1, corr_q1);
+
+    // 2. Solve Hinge Joint
+    lambda = 0.0;
+    Quaternionr hcorr_q0;
+    Quaternionr hcorr_q1;
+    Vector3r hingecorr = a0g.cross(a1g);
+
+    solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, hingecorr, lambda, hcorr_q0, hcorr_q1, stiffness, dt);
+
+    Quaternionr previewq0;
+    Quaternionr previewq1;
+    Matrix3r previewInertiaInverseW0;
+    Matrix3r previewInertiaInverseW1;
+
+    //previewMuellerRotation(q0, q1, hcorr_q0, hcorr_q1, inertiaInverseW0, inertiaInverseW1, previewq0, previewq1, previewInertiaInverseW0, previewInertiaInverseW1);
+
+    // Swing Limits
+    Vector3r swingcorr = Vector3r(0.0, 0.0, 0.0);
+    Quaternionr scorr_q0;
+    Quaternionr scorr_q1;
+    lambda = 0.0;
+
+    Vector3r n = a0g;
+    Vector3r n1 = b0g;
+    Vector3r n2 = b1g;
+    MuellerAngleLimits(n, n1, n2, alphaswing, betaswing, swingcorr, dt, 0.0);
+
+    if (!swingcorr.isZero())
+    {
+        solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, swingcorr, lambda, scorr_q0, scorr_q1, stiffness, dt);
+    }
+
+    if (invMass0 != 0.0)
+    {
+        corr_q0.coeffs() += hcorr_q0.coeffs() + scorr_q0.coeffs();
+    }
+
+    if (invMass1 != 0.0)
+    {
+        corr_q1.coeffs() += hcorr_q1.coeffs() + scorr_q1.coeffs();
+    }
+
+    return true;
+}

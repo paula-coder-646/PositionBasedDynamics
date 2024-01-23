@@ -51,6 +51,6 @@ CMake Deprecation Warning at extern/glfw/CMakeLists.txt:1 (cmake_minimum_require
 -- Looking for IceConnectionNumber in ICE
 -- Looking for IceConnectionNumber in ICE - found
 -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
--- Configuring done (1.9s)
+-- Configuring done (2.1s)
 -- Generating done (0.1s)
 -- Build files have been written to: /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
