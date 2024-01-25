@@ -2847,10 +2847,10 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerAngularJoint(
     }
 
     const Vector3r impulse = delta_lambda * axis;
-    Real scale = dt;
+    Real scale = 1.0; //dt;
 
-    if (impulse.norm() > 0.5)
-        scale = 0.5 / impulse.norm();
+    //if (impulse.norm() > 0.5)
+    //    scale = 0.5 / impulse.norm();
 
     if (invMass0 != 0.0)
     {
@@ -3140,13 +3140,13 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
     if (invMass0 != 0.0)
     {
-        corr_q0.coeffs() += scorr_q0.coeffs() + tcorr_q0.coeffs();
+        corr_q0.coeffs() += scorr_q0.coeffs(); // + tcorr_q0.coeffs();
 
     }
 
     if (invMass1 != 0.0)
     {
-        corr_q1.coeffs() += scorr_q1.coeffs() + tcorr_q1.coeffs();
+        corr_q1.coeffs() += scorr_q1.coeffs(); //+ tcorr_q1.coeffs();
     }
 
     return true;
