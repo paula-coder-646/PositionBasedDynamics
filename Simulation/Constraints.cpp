@@ -94,7 +94,7 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
 
 	Vector3r corr_x1, corr_x2;
 	Quaternionr corr_q1, corr_q2;
-    Real stiffness = 0.0;
+    Real stiffness = 100.0;
     const Real dt = TimeManager::getCurrent()->getTimeStepSize();
 /*
     const bool res = PositionBasedRigidBodyDynamics::solve_BallJoint(

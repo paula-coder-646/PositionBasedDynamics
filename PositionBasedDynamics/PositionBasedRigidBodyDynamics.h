@@ -1469,6 +1469,20 @@ namespace PBD
                 const Real dt,
                 const Real mode
         );
+// ----------------------------------------------------------------------------------------------
+
+        static bool preview_MuellerRotations(
+                const Quaternionr &q0,
+                const Quaternionr &q1,
+                const Matrix3r inertiaInverseW0,
+                const Matrix3r inertiaInverseW1,
+                const Quaternionr corr0,
+                const Quaternionr corr1,
+                Quaternionr q0preview,
+                Quaternionr q1preview,
+                Matrix3r inertiaInverseW0_preview,
+                Matrix3r inertiaInverseW1_preview
+        );
 
 // ----------------------------------------------------------------------------------------------
         static bool init_MuellerBallJoint(

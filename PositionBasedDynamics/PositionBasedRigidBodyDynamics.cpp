@@ -2687,6 +2687,8 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     // 2:	connector in body 0 (global)
     // 3:	connector in body 1 (global)
 
+
+    //cout << jointInfo.col(2).transpose() << "\n" << jointInfo.col(3).transpose() << "\n \n";
     // evaluate constraint function (Used to calculate constraint violation c)
     const Vector3r &c0 = jointInfo.col(2);
     const Vector3r &c1 = jointInfo.col(3);
@@ -2700,7 +2702,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     const Vector3r &c1l = jointInfo.col(1);
 
     // Constraint Violation and Gradient of Constraint (Direction of the Constraint)
-    const Real length = (c0 - c1).norm();
+    const Real length = (c0 - c1).stableNorm();
 
     const Real c = (length - restLength);
     Vector3r n = (c0 - c1);
@@ -2712,8 +2714,11 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
     Matrix3r rot0 = q0.matrix();
     Matrix3r rot1 = q1.matrix();
 
-    // Normalize n
-    if (length > static_cast<Real>(1e-5)) {
+
+     //Normalize n
+     n.stableNormalize();
+
+    /*    if (length > static_cast<Real>(1e-5)) {
         n /= length;
     }
     else
@@ -2723,7 +2728,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerDistanceJoint(
         corr_q0.setIdentity();
         corr_q1.setIdentity();
         return true;
-    }
+    } */
 
     Vector3r n0 = rot0T * n;
     Vector3r n1 = rot1T * n;
@@ -2884,6 +2889,8 @@ bool PositionBasedRigidBodyDynamics::MuellerAngleLimits(
 
     Real angle = asin((n0n.cross(n1n)).dot(nn)); // Change from Paper: Switched n0 and n1
 
+    //cout  << angle <<"\n";
+
     if (n0n.dot(n1n) < 0.0)
     {
         angle = pi - angle;
@@ -2906,9 +2913,12 @@ bool PositionBasedRigidBodyDynamics::MuellerAngleLimits(
         angledeg = min(max(angledeg, alpha),beta);
         angle = angledeg/180 * pi;
 
-        AngleAxisr corraxis = AngleAxisr(angle, nn);
-        Vector3r n0c = corraxis * n0n;
-
+        Vector3r n0c = n0n;
+        if (angle != 0.0)
+        {
+            AngleAxisr corraxis = AngleAxisr(angle, nn);
+            n0c = corraxis * n0n;
+        }
         //corr_q_fixed = n1n.cross(n0c); // Change from Paper: Switched n0 and n1
         corr_q_fixed = n0c.cross(n1n);
         Real maxCorr = M_PI;
@@ -2919,13 +2929,47 @@ bool PositionBasedRigidBodyDynamics::MuellerAngleLimits(
         }
 
         Real len = corr_q_fixed.norm();
-        if (len > M_PI)
+        if (len > maxCorr)
             corr_q_fixed = corr_q_fixed * (maxCorr/ len);
         return true;
 
     }
     corr_q_fixed.setZero();
     return true;
+}
+
+// ----------------------------------------------------------------------------------------------
+
+bool PositionBasedRigidBodyDynamics::preview_MuellerRotations(
+        const Quaternionr &q0,
+        const Quaternionr &q1,
+        const Matrix3r inertiaInverseW0,
+        const Matrix3r inertiaInverseW1,
+        const Quaternionr corr0,
+        const Quaternionr corr1,
+        Quaternionr q0preview,
+        Quaternionr q1preview,
+        Matrix3r inertiaInverseW0_preview,
+        Matrix3r inertiaInverseW1_preview
+        )
+{
+    // Simulate the Application of a Rotation Update to allow for Handling of Joints "as if" a previous correction
+    // was already applied !
+
+    Matrix3r rot0 = q0.matrix();
+    Matrix3r rot1 = q1.matrix();
+
+    Matrix3r inertiaInverseL0 = rot0.transpose() * inertiaInverseW0 * rot0;
+    Matrix3r inertiaInverseL1 = rot1.transpose() * inertiaInverseW1 * rot1;
+
+    q0preview.coeffs() = q0.coeffs() + corr0.coeffs();
+    q1preview.coeffs() = q1.coeffs() + corr1.coeffs();
+
+    rot0 = q0preview.matrix();
+    rot1 = q1preview.matrix();
+
+    inertiaInverseW0_preview = rot0 * inertiaInverseL0 * rot0.transpose();
+    inertiaInverseW1_preview = rot1 * inertiaInverseL0 * rot1.transpose();
 }
 
 // ----------------------------------------------------------------------------------------------
@@ -2957,12 +3001,12 @@ bool PositionBasedRigidBodyDynamics::init_MuellerBallJoint(
     Vector3r v0 = Vector3r(1.0, 0.0, 0.0);
     Vector3r v1 = Vector3r(1.0, 0.0, 0.0);
 
-    if(abs(ballJointInfo.col(0).dot(v0)) > 0.9)
+    if(fabs(ballJointInfo.col(0).dot(v0)) > 0.9)
     {
         v0 = Vector3r(0.0, 1.0, 0.0);
     }
 
-    if(abs(ballJointInfo.col(1).dot(v1)) > 0.9)
+    if(fabs(ballJointInfo.col(1).dot(v1)) > 0.9)
     {
         v1 = Vector3r(0.0, 1.0, 0.0);
     }
@@ -3017,12 +3061,6 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
         Real &alphatwist,
         Real &betatwist)
 {
-    // 2. Solve Distance Joint
-    Real lambda = 0.0;
-    Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> distJointInfo = ballJointInfo.block<3, 4>(0, 0);
-    solve_MuellerDistanceJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, stiffness, 0.0, dt, distJointInfo, lambda, corr_x0, corr_q0, corr_x1, corr_q1);
-
-/*
 
 
 
@@ -3074,6 +3112,8 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     Vector3r n2 = a1g;
     MuellerAngleLimits(n, n1, n2, alphaswing, betaswing, swingcorr, dt, 0.0);
 
+    cout << swingcorr.transpose() << "\n";
+
     if (!swingcorr.isZero())
     {
         solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, swingcorr, lambda, scorr_q0, scorr_q1, stiffness, dt);
@@ -3100,15 +3140,15 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
     if (invMass0 != 0.0)
     {
-        //corr_q0.coeffs() += scorr_q0.coeffs() + tcorr_q0.coeffs();
+        corr_q0.coeffs() += scorr_q0.coeffs() + tcorr_q0.coeffs();
 
     }
 
     if (invMass1 != 0.0)
     {
-        //corr_q1.coeffs() += scorr_q1.coeffs() + tcorr_q1.coeffs();
+        corr_q1.coeffs() += scorr_q1.coeffs() + tcorr_q1.coeffs();
     }
-*/
+
     return true;
 
 }
