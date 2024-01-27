@@ -7,7 +7,7 @@
 
 # =============================================================================
 # Project: PositionBasedDynamics
-# Configurations: Debug
+# Configurations: Release
 # =============================================================================
 # =============================================================================
 
@@ -22,7 +22,7 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__PositionBasedDynamics_unscanned_Debug
+rule CXX_COMPILER__PositionBasedDynamics_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -32,8 +32,8 @@ rule CXX_COMPILER__PositionBasedDynamics_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__PositionBasedDynamics_Debug
-  command = $PRE_LINK && /snap/clion/261/bin/cmake/linux/x64/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
+rule CXX_STATIC_LIBRARY_LINKER__PositionBasedDynamics_Release
+  command = $PRE_LINK && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
@@ -41,7 +41,7 @@ rule CXX_STATIC_LIBRARY_LINKER__PositionBasedDynamics_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__Simulation_unscanned_Debug
+rule CXX_COMPILER__Simulation_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -51,8 +51,8 @@ rule CXX_COMPILER__Simulation_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__Simulation_Debug
-  command = $PRE_LINK && /snap/clion/261/bin/cmake/linux/x64/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
+rule CXX_STATIC_LIBRARY_LINKER__Simulation_Release
+  command = $PRE_LINK && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
@@ -60,7 +60,7 @@ rule CXX_STATIC_LIBRARY_LINKER__Simulation_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__Utils_unscanned_Debug
+rule CXX_COMPILER__Utils_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -70,8 +70,8 @@ rule CXX_COMPILER__Utils_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__Utils_Debug
-  command = $PRE_LINK && /snap/clion/261/bin/cmake/linux/x64/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
+rule CXX_STATIC_LIBRARY_LINKER__Utils_Release
+  command = $PRE_LINK && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
@@ -79,7 +79,7 @@ rule CXX_STATIC_LIBRARY_LINKER__Utils_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__glfw_unscanned_Debug
+rule C_COMPILER__glfw_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -89,8 +89,8 @@ rule C_COMPILER__glfw_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER__glfw_Debug
-  command = $PRE_LINK && /snap/clion/261/bin/cmake/linux/x64/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
+rule C_STATIC_LIBRARY_LINKER__glfw_Release
+  command = $PRE_LINK && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
 
@@ -98,7 +98,7 @@ rule C_STATIC_LIBRARY_LINKER__glfw_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__imgui_unscanned_Debug
+rule CXX_COMPILER__imgui_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -108,8 +108,8 @@ rule CXX_COMPILER__imgui_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__imgui_Debug
-  command = $PRE_LINK && /snap/clion/261/bin/cmake/linux/x64/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
+rule CXX_STATIC_LIBRARY_LINKER__imgui_Release
+  command = $PRE_LINK && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
@@ -117,7 +117,7 @@ rule CXX_STATIC_LIBRARY_LINKER__imgui_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__MD5_unscanned_Debug
+rule CXX_COMPILER__MD5_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -127,8 +127,8 @@ rule CXX_COMPILER__MD5_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__MD5_Debug
-  command = $PRE_LINK && /snap/clion/261/bin/cmake/linux/x64/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
+rule CXX_STATIC_LIBRARY_LINKER__MD5_Release
+  command = $PRE_LINK && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
@@ -136,7 +136,7 @@ rule CXX_STATIC_LIBRARY_LINKER__MD5_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__BarDemo_unscanned_Debug
+rule C_COMPILER__BarDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -146,7 +146,7 @@ rule C_COMPILER__BarDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__BarDemo_unscanned_Debug
+rule CXX_COMPILER__BarDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -156,7 +156,7 @@ rule CXX_COMPILER__BarDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__BarDemo_Debug
+rule CXX_EXECUTABLE_LINKER__BarDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -165,7 +165,7 @@ rule CXX_EXECUTABLE_LINKER__BarDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__ClothDemo_unscanned_Debug
+rule C_COMPILER__ClothDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -175,7 +175,7 @@ rule C_COMPILER__ClothDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__ClothDemo_unscanned_Debug
+rule CXX_COMPILER__ClothDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -185,7 +185,7 @@ rule CXX_COMPILER__ClothDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__ClothDemo_Debug
+rule CXX_EXECUTABLE_LINKER__ClothDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -194,7 +194,7 @@ rule CXX_EXECUTABLE_LINKER__ClothDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__CosseratRodsDemo_unscanned_Debug
+rule C_COMPILER__CosseratRodsDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -204,7 +204,7 @@ rule C_COMPILER__CosseratRodsDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__CosseratRodsDemo_unscanned_Debug
+rule CXX_COMPILER__CosseratRodsDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -214,7 +214,7 @@ rule CXX_COMPILER__CosseratRodsDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__CosseratRodsDemo_Debug
+rule CXX_EXECUTABLE_LINKER__CosseratRodsDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -223,7 +223,7 @@ rule CXX_EXECUTABLE_LINKER__CosseratRodsDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__RigidBodyClothCouplingDemo_unscanned_Debug
+rule C_COMPILER__RigidBodyClothCouplingDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -233,7 +233,7 @@ rule C_COMPILER__RigidBodyClothCouplingDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__RigidBodyClothCouplingDemo_unscanned_Debug
+rule CXX_COMPILER__RigidBodyClothCouplingDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -243,7 +243,7 @@ rule CXX_COMPILER__RigidBodyClothCouplingDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__RigidBodyClothCouplingDemo_Debug
+rule CXX_EXECUTABLE_LINKER__RigidBodyClothCouplingDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -252,7 +252,7 @@ rule CXX_EXECUTABLE_LINKER__RigidBodyClothCouplingDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__ClothCollisionDemo_unscanned_Debug
+rule C_COMPILER__ClothCollisionDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -262,7 +262,7 @@ rule C_COMPILER__ClothCollisionDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__ClothCollisionDemo_unscanned_Debug
+rule CXX_COMPILER__ClothCollisionDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -272,7 +272,7 @@ rule CXX_COMPILER__ClothCollisionDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__ClothCollisionDemo_Debug
+rule CXX_EXECUTABLE_LINKER__ClothCollisionDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -281,7 +281,7 @@ rule CXX_EXECUTABLE_LINKER__ClothCollisionDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__DeformableCollisionDemo_unscanned_Debug
+rule C_COMPILER__DeformableCollisionDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -291,7 +291,7 @@ rule C_COMPILER__DeformableCollisionDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__DeformableCollisionDemo_unscanned_Debug
+rule CXX_COMPILER__DeformableCollisionDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -301,7 +301,7 @@ rule CXX_COMPILER__DeformableCollisionDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__DeformableCollisionDemo_Debug
+rule CXX_EXECUTABLE_LINKER__DeformableCollisionDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -310,7 +310,7 @@ rule CXX_EXECUTABLE_LINKER__DeformableCollisionDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__RigidBodyCollisionDemo_unscanned_Debug
+rule C_COMPILER__RigidBodyCollisionDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -320,7 +320,7 @@ rule C_COMPILER__RigidBodyCollisionDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__RigidBodyCollisionDemo_unscanned_Debug
+rule CXX_COMPILER__RigidBodyCollisionDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -330,7 +330,7 @@ rule CXX_COMPILER__RigidBodyCollisionDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__RigidBodyCollisionDemo_Debug
+rule CXX_EXECUTABLE_LINKER__RigidBodyCollisionDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -339,7 +339,7 @@ rule CXX_EXECUTABLE_LINKER__RigidBodyCollisionDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__FluidDemo_unscanned_Debug
+rule C_COMPILER__FluidDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -349,7 +349,7 @@ rule C_COMPILER__FluidDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__FluidDemo_unscanned_Debug
+rule CXX_COMPILER__FluidDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -359,7 +359,7 @@ rule CXX_COMPILER__FluidDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__FluidDemo_Debug
+rule CXX_EXECUTABLE_LINKER__FluidDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -368,7 +368,7 @@ rule CXX_EXECUTABLE_LINKER__FluidDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__GenericParticleConstraintsDemo_unscanned_Debug
+rule C_COMPILER__GenericParticleConstraintsDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -378,7 +378,7 @@ rule C_COMPILER__GenericParticleConstraintsDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__GenericParticleConstraintsDemo_unscanned_Debug
+rule CXX_COMPILER__GenericParticleConstraintsDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -388,7 +388,7 @@ rule CXX_COMPILER__GenericParticleConstraintsDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__GenericParticleConstraintsDemo_Debug
+rule CXX_EXECUTABLE_LINKER__GenericParticleConstraintsDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -397,7 +397,7 @@ rule CXX_EXECUTABLE_LINKER__GenericParticleConstraintsDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__GenericRigidBodyConstraintsDemo_unscanned_Debug
+rule C_COMPILER__GenericRigidBodyConstraintsDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -407,7 +407,7 @@ rule C_COMPILER__GenericRigidBodyConstraintsDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__GenericRigidBodyConstraintsDemo_unscanned_Debug
+rule CXX_COMPILER__GenericRigidBodyConstraintsDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -417,7 +417,7 @@ rule CXX_COMPILER__GenericRigidBodyConstraintsDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__GenericRigidBodyConstraintsDemo_Debug
+rule CXX_EXECUTABLE_LINKER__GenericRigidBodyConstraintsDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -426,7 +426,7 @@ rule CXX_EXECUTABLE_LINKER__GenericRigidBodyConstraintsDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__ElasticRodDemo_unscanned_Debug
+rule C_COMPILER__ElasticRodDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -436,7 +436,7 @@ rule C_COMPILER__ElasticRodDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__ElasticRodDemo_unscanned_Debug
+rule CXX_COMPILER__ElasticRodDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -446,7 +446,7 @@ rule CXX_COMPILER__ElasticRodDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__ElasticRodDemo_Debug
+rule CXX_EXECUTABLE_LINKER__ElasticRodDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -455,7 +455,7 @@ rule CXX_EXECUTABLE_LINKER__ElasticRodDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__ChainDemo_unscanned_Debug
+rule C_COMPILER__ChainDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -465,7 +465,7 @@ rule C_COMPILER__ChainDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__ChainDemo_unscanned_Debug
+rule CXX_COMPILER__ChainDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -475,7 +475,7 @@ rule CXX_COMPILER__ChainDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__ChainDemo_Debug
+rule CXX_EXECUTABLE_LINKER__ChainDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -484,7 +484,7 @@ rule CXX_EXECUTABLE_LINKER__ChainDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__JointDemo_unscanned_Debug
+rule C_COMPILER__JointDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -494,7 +494,7 @@ rule C_COMPILER__JointDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__JointDemo_unscanned_Debug
+rule CXX_COMPILER__JointDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -504,7 +504,7 @@ rule CXX_COMPILER__JointDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__JointDemo_Debug
+rule CXX_EXECUTABLE_LINKER__JointDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -513,7 +513,7 @@ rule CXX_EXECUTABLE_LINKER__JointDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__HingeBallJointDemo_unscanned_Debug
+rule C_COMPILER__HingeBallJointDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -523,7 +523,7 @@ rule C_COMPILER__HingeBallJointDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__HingeBallJointDemo_unscanned_Debug
+rule CXX_COMPILER__HingeBallJointDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -533,7 +533,7 @@ rule CXX_COMPILER__HingeBallJointDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__HingeBallJointDemo_Debug
+rule CXX_EXECUTABLE_LINKER__HingeBallJointDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -542,7 +542,7 @@ rule CXX_EXECUTABLE_LINKER__HingeBallJointDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__BallJointDemo_unscanned_Debug
+rule C_COMPILER__BallJointDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -552,7 +552,7 @@ rule C_COMPILER__BallJointDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__BallJointDemo_unscanned_Debug
+rule CXX_COMPILER__BallJointDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -562,7 +562,7 @@ rule CXX_COMPILER__BallJointDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__BallJointDemo_Debug
+rule CXX_EXECUTABLE_LINKER__BallJointDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -571,7 +571,7 @@ rule CXX_EXECUTABLE_LINKER__BallJointDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__SceneLoaderDemo_unscanned_Debug
+rule C_COMPILER__SceneLoaderDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -581,7 +581,7 @@ rule C_COMPILER__SceneLoaderDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__SceneLoaderDemo_unscanned_Debug
+rule CXX_COMPILER__SceneLoaderDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -591,7 +591,7 @@ rule CXX_COMPILER__SceneLoaderDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__SceneLoaderDemo_Debug
+rule CXX_EXECUTABLE_LINKER__SceneLoaderDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -600,7 +600,7 @@ rule CXX_EXECUTABLE_LINKER__SceneLoaderDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__StretchBendingTwistingDemo_unscanned_Debug
+rule C_COMPILER__StretchBendingTwistingDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -610,7 +610,7 @@ rule C_COMPILER__StretchBendingTwistingDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__StretchBendingTwistingDemo_unscanned_Debug
+rule CXX_COMPILER__StretchBendingTwistingDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -620,7 +620,7 @@ rule CXX_COMPILER__StretchBendingTwistingDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__StretchBendingTwistingDemo_Debug
+rule CXX_EXECUTABLE_LINKER__StretchBendingTwistingDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -629,7 +629,7 @@ rule CXX_EXECUTABLE_LINKER__StretchBendingTwistingDemo_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__DirectPositionBasedSolverForStiffRodsDemo_unscanned_Debug
+rule C_COMPILER__DirectPositionBasedSolverForStiffRodsDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -639,7 +639,7 @@ rule C_COMPILER__DirectPositionBasedSolverForStiffRodsDemo_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__DirectPositionBasedSolverForStiffRodsDemo_unscanned_Debug
+rule CXX_COMPILER__DirectPositionBasedSolverForStiffRodsDemo_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -649,7 +649,7 @@ rule CXX_COMPILER__DirectPositionBasedSolverForStiffRodsDemo_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__DirectPositionBasedSolverForStiffRodsDemo_Debug
+rule CXX_EXECUTABLE_LINKER__DirectPositionBasedSolverForStiffRodsDemo_Release
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -659,7 +659,7 @@ rule CXX_EXECUTABLE_LINKER__DirectPositionBasedSolverForStiffRodsDemo_Debug
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /snap/clion/261/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  command = /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 
@@ -668,7 +668,7 @@ rule RERUN_CMAKE
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = /snap/clion/261/bin/ninja/linux/x64/ninja $FILE_ARG -t clean $TARGETS
+  command = /snap/clion/current/bin/ninja/linux/x64/ninja $FILE_ARG -t clean $TARGETS
   description = Cleaning all built files...
 
 
@@ -676,6 +676,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = /snap/clion/261/bin/ninja/linux/x64/ninja -t targets
+  command = /snap/clion/current/bin/ninja/linux/x64/ninja -t targets
   description = All primary targets available:
 

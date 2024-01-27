@@ -727,8 +727,10 @@ bool PositionBasedRigidBodyDynamics::solve_HingeJoint(
 
     // TODO t is the derivative (Pr * qVec)
 
-    //	Eigen::Matrix<Real, 2, 4, Eigen::DontAlign> Pr = (QHatq10.transpose() * Qq00)
-    //  C.block = Pr * qVec; qVec is q0.conj * q1
+    //	Pr = (QHatq10.transpose() * Qq00)
+    //  C.block = Pr * qVec
+    //  qVec is q0.conj * q1
+    //  t = -Pr * Qq0 * Gq1
 
     // TODO Find out why t takes Qq0 and not q0 directly
 	const Eigen::Matrix<Real, 2, 3> t = -Pr * (Qq0.transpose() * Gq1);
@@ -2970,6 +2972,8 @@ bool PositionBasedRigidBodyDynamics::preview_MuellerRotations(
 
     inertiaInverseW0_preview = rot0 * inertiaInverseL0 * rot0.transpose();
     inertiaInverseW1_preview = rot1 * inertiaInverseL0 * rot1.transpose();
+
+    return true;
 }
 
 // ----------------------------------------------------------------------------------------------
@@ -3140,13 +3144,18 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
     if (invMass0 != 0.0)
     {
-        corr_q0.coeffs() += scorr_q0.coeffs(); // + tcorr_q0.coeffs();
+        corr_q0.coeffs() += scorr_q0.coeffs();
+        //corr_q0.coeffs() += tcorr_q0.coeffs();
+        //corr_q0.coeffs() += scorr_q0.coeffs() + tcorr_q0.coeffs();
+
 
     }
 
     if (invMass1 != 0.0)
     {
-        corr_q1.coeffs() += scorr_q1.coeffs(); //+ tcorr_q1.coeffs();
+        corr_q1.coeffs() += scorr_q1.coeffs();
+        //corr_q1.coeffs() += tcorr_q1.coeffs();
+        //corr_q1.coeffs() += scorr_q1.coeffs()+ tcorr_q1.coeffs();
     }
 
     return true;
@@ -3293,7 +3302,18 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerHingeJoint(
     Matrix3r previewInertiaInverseW0;
     Matrix3r previewInertiaInverseW1;
 
-    //previewMuellerRotation(q0, q1, hcorr_q0, hcorr_q1, inertiaInverseW0, inertiaInverseW1, previewq0, previewq1, previewInertiaInverseW0, previewInertiaInverseW1);
+    preview_MuellerRotations(q0, q1, inertiaInverseW0, inertiaInverseW1, hcorr_q0, hcorr_q1, previewq0, previewq1, previewInertiaInverseW0, previewInertiaInverseW1);
+
+    // Recalculate Axis
+    rot0 = previewq0.matrix();
+    rot1 = previewq1.matrix();
+
+    a0g = (rot0 * a0l).normalized();
+    b0g = (rot0 * b0l).normalized();
+    c0g = (rot0 * c0l).normalized();
+    a1g = (rot1 * a1l).normalized();
+    b1g = (rot1 * b1l).normalized();
+    c1g = (rot1 * c1l).normalized();
 
     // Swing Limits
     Vector3r swingcorr = Vector3r(0.0, 0.0, 0.0);
