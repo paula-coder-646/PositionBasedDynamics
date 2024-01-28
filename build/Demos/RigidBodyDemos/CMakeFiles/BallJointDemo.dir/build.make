@@ -69,19 +69,19 @@ include Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/progress.make
 # Include the compile flags for this target's objects.
 include Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/flags.make
 
-Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o: Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/flags.make
-Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o: ../Demos/RigidBodyDemos/BallJointDemo.cpp
-Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o: Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o"
-	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/RigidBodyDemos && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o -MF CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o.d -o CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o -c /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/BallJointDemo.cpp
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/JointDemo.cpp.o: Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/flags.make
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/JointDemo.cpp.o: ../Demos/RigidBodyDemos/JointDemo.cpp
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/JointDemo.cpp.o: Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/JointDemo.cpp.o"
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/RigidBodyDemos && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/JointDemo.cpp.o -MF CMakeFiles/BallJointDemo.dir/JointDemo.cpp.o.d -o CMakeFiles/BallJointDemo.dir/JointDemo.cpp.o -c /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/JointDemo.cpp
 
-Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.i"
-	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/RigidBodyDemos && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/BallJointDemo.cpp > CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.i
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/JointDemo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BallJointDemo.dir/JointDemo.cpp.i"
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/RigidBodyDemos && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/JointDemo.cpp > CMakeFiles/BallJointDemo.dir/JointDemo.cpp.i
 
-Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.s"
-	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/RigidBodyDemos && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/BallJointDemo.cpp -o CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.s
+Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/JointDemo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BallJointDemo.dir/JointDemo.cpp.s"
+	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/RigidBodyDemos && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/JointDemo.cpp -o CMakeFiles/BallJointDemo.dir/JointDemo.cpp.s
 
 Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/LogWindow.cpp.o: Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/flags.make
 Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/LogWindow.cpp.o: ../Demos/Common/LogWindow.cpp
@@ -183,7 +183,7 @@ Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Visualization/Shader.cpp.s:
 
 # Object files for target BallJointDemo
 BallJointDemo_OBJECTS = \
-"CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o" \
+"CMakeFiles/BallJointDemo.dir/JointDemo.cpp.o" \
 "CMakeFiles/BallJointDemo.dir/__/Common/LogWindow.cpp.o" \
 "CMakeFiles/BallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o" \
 "CMakeFiles/BallJointDemo.dir/__/Common/imguiParameters.cpp.o" \
@@ -195,7 +195,7 @@ BallJointDemo_OBJECTS = \
 # External object files for target BallJointDemo
 BallJointDemo_EXTERNAL_OBJECTS =
 
-../bin/BallJointDemo_d: Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o
+../bin/BallJointDemo_d: Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/JointDemo.cpp.o
 ../bin/BallJointDemo_d: Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/LogWindow.cpp.o
 ../bin/BallJointDemo_d: Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
 ../bin/BallJointDemo_d: Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/__/Common/imguiParameters.cpp.o

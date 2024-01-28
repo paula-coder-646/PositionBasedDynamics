@@ -163,7 +163,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/DependInfo.cmake"
   "Demos/RigidBodyDemos/CMakeFiles/ChainDemo.dir/DependInfo.cmake"
   "Demos/RigidBodyDemos/CMakeFiles/JointDemo.dir/DependInfo.cmake"
-  "Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/DependInfo.cmake"
   "Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir/DependInfo.cmake"
   "Demos/SceneLoaderDemo/CMakeFiles/SceneLoaderDemo.dir/DependInfo.cmake"
   "Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/DependInfo.cmake"

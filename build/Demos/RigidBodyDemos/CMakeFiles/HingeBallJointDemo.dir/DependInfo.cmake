@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/deps/glad_gl.c" "Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o" "gcc" "Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o.d"
-  "/home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/HingeBallJointDemo.cpp" "Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/HingeBallJointDemo.cpp.o" "gcc" "Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/HingeBallJointDemo.cpp.o.d"
+  "/home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/JointDemo.cpp" "Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/JointDemo.cpp.o" "gcc" "Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/JointDemo.cpp.o.d"
   "/home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Common/DemoBase.cpp" "Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/DemoBase.cpp.o" "gcc" "Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/DemoBase.cpp.o.d"
   "/home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Common/LogWindow.cpp" "Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/LogWindow.cpp.o" "gcc" "Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/LogWindow.cpp.o.d"
   "/home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Common/Simulator_GUI_imgui.cpp" "Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o" "gcc" "Demos/RigidBodyDemos/CMakeFiles/HingeBallJointDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o.d"

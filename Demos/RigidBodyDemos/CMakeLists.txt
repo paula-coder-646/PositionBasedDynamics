@@ -39,9 +39,6 @@ add_executable(ChainDemo
 	  ${PROJECT_PATH}/Common/Common.h
 
 	  CMakeLists.txt
-        HingeBallJointDemo.cpp
-		HingeBallJointDemo.cpp
-		HingeBallJointDemo.cpp
 )
 
 set_target_properties(ChainDemo PROPERTIES FOLDER "Demos")
@@ -64,7 +61,7 @@ add_executable(JointDemo
 	  ../Common/DemoBase.cpp
 	  ../Common/DemoBase.h
 	    
-	  ${VIS_FILES}          
+	  ${VIS_FILES}
 	  ${PROJECT_PATH}/Common/Common.h
 	  
 	  CMakeLists.txt
@@ -77,39 +74,8 @@ set_target_properties(JointDemo PROPERTIES MINSIZEREL_POSTFIX ${CMAKE_MINSIZEREL
 add_dependencies(JointDemo ${SIMULATION_DEPENDENCIES})
 target_link_libraries(JointDemo ${SIMULATION_LINK_LIBRARIES})
 
-add_executable(HingeBallJointDemo
-
-
-		HingeBallJointDemo.cpp
-
-
-		../Common/LogWindow.cpp
-		../Common/LogWindow.h
-		../Common/Simulator_GUI_imgui.cpp
-		../Common/Simulator_GUI_imgui.h
-		../Common/imguiParameters.cpp
-		../Common/imguiParameters.h
-		../Common/DemoBase.cpp
-		../Common/DemoBase.h
-
-		${VIS_FILES}
-		${PROJECT_PATH}/Common/Common.h
-
-		CMakeLists.txt
-)
-
-set_target_properties(HingeBallJointDemo PROPERTIES FOLDER "Demos")
-set_target_properties(HingeBallJointDemo PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
-set_target_properties(HingeBallJointDemo PROPERTIES RELWITHDEBINFO_POSTFIX ${CMAKE_RELWITHDEBINFO_POSTFIX})
-set_target_properties(HingeBallJointDemo PROPERTIES MINSIZEREL_POSTFIX ${CMAKE_MINSIZEREL_POSTFIX})
-add_dependencies(HingeBallJointDemo ${SIMULATION_DEPENDENCIES})
-target_link_libraries(HingeBallJointDemo ${SIMULATION_LINK_LIBRARIES})
-
 add_executable(BallJointDemo
-
-
 		BallJointDemo.cpp
-
 
 		../Common/LogWindow.cpp
 		../Common/LogWindow.h
@@ -124,7 +90,6 @@ add_executable(BallJointDemo
 		${PROJECT_PATH}/Common/Common.h
 
 		CMakeLists.txt
-		BallJointDemo.cpp
 )
 
 set_target_properties(BallJointDemo PROPERTIES FOLDER "Demos")
@@ -133,6 +98,7 @@ set_target_properties(BallJointDemo PROPERTIES RELWITHDEBINFO_POSTFIX ${CMAKE_RE
 set_target_properties(BallJointDemo PROPERTIES MINSIZEREL_POSTFIX ${CMAKE_MINSIZEREL_POSTFIX})
 add_dependencies(BallJointDemo ${SIMULATION_DEPENDENCIES})
 target_link_libraries(BallJointDemo ${SIMULATION_LINK_LIBRARIES})
+
 
 find_package( Eigen3 REQUIRED )
 include_directories( ${EIGEN3_INCLUDE_DIR} )
