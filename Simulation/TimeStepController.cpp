@@ -272,7 +272,7 @@ void TimeStepController::positionConstraintProjection(SimulationModel &model)
 		for (unsigned int group = 0; group < groups.size(); group++)
 		{
 			const int groupSize = (int)groups[group].size();
-			#pragma omp parallel if(groupSize > MIN_PARALLEL_SIZE) default(shared)
+ 			#pragma omp parallel if(groupSize > MIN_PARALLEL_SIZE) default(shared)
 			{
 				#pragma omp for schedule(static) 
 				for (int i = 0; i < groupSize; i++)

@@ -2841,12 +2841,13 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerAngularJoint(
     {
         delta_lambda = -(-angle -alpha*lambda) / (w0 + w1 + alpha);
     }
+    /*
     else
     {
         corr_q0.setIdentity();
         corr_q1.setIdentity();
         return true;
-    }
+    }*/
 
     const Vector3r impulse = delta_lambda * axis;
     Real scale = 1.0; //dt;
@@ -2966,12 +2967,14 @@ bool PositionBasedRigidBodyDynamics::preview_MuellerRotations(
 
     q0preview.coeffs() = q0.coeffs() + corr0.coeffs();
     q1preview.coeffs() = q1.coeffs() + corr1.coeffs();
+    q0preview.normalize();
+    q1preview.normalize();
 
     rot0 = q0preview.matrix();
     rot1 = q1preview.matrix();
 
     inertiaInverseW0_preview = rot0 * inertiaInverseL0 * rot0.transpose();
-    inertiaInverseW1_preview = rot1 * inertiaInverseL0 * rot1.transpose();
+    inertiaInverseW1_preview = rot1 * inertiaInverseL1 * rot1.transpose();
 
     return true;
 }
@@ -3063,7 +3066,8 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
         Real &alphaswing,
         Real &betaswing,
         Real &alphatwist,
-        Real &betatwist)
+        Real &betatwist,
+        Real maxrotpersubstep = 0.5)
 {
 
 
@@ -3120,11 +3124,30 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
     if (!swingcorr.isZero())
     {
-        solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, swingcorr, lambda, scorr_q0, scorr_q1, stiffness, dt);
+        solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, swingcorr, lambda, scorr_q0, scorr_q1, stiffness*100, dt);
     }
 
     // Twist Limits
     Vector3r twistcorr = Vector3r(0.0, 0.0, 0.0);
+
+    // Preview Changes Made by SwingCorrections
+    Quaternionr previewq0;
+    Quaternionr previewq1;
+    Matrix3r previewInertiaInverseW0;
+    Matrix3r previewInertiaInverseW1;
+
+    preview_MuellerRotations(q0, q1, inertiaInverseW0, inertiaInverseW1, scorr_q0, scorr_q1, previewq0, previewq1, previewInertiaInverseW0, previewInertiaInverseW1);
+
+    // Recalculate Axis
+    rot0 = previewq0.matrix();
+    rot1 = previewq1.matrix();
+
+    a0g = (rot0 * a0l).normalized();
+    b0g = (rot0 * b0l).normalized();
+    c0g = (rot0 * c0l).normalized();
+    a1g = (rot1 * a1l).normalized();
+    b1g = (rot1 * b1l).normalized();
+    c1g = (rot1 * c1l).normalized();
 
     Quaternionr tcorr_q0;
     Quaternionr tcorr_q1;
@@ -3139,7 +3162,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
     if (!twistcorr.isZero())
     {
-        solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, twistcorr, lambda, tcorr_q0, tcorr_q1, stiffness, dt);
+        solve_MuellerAngularJoint(invMass0, x0, previewInertiaInverseW0, previewq0, invMass1, x1, previewInertiaInverseW1, previewq1, twistcorr, lambda, tcorr_q0, tcorr_q1, 0.0, dt);
     }
 
     if (invMass0 != 0.0)
@@ -3155,7 +3178,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     {
         corr_q1.coeffs() += scorr_q1.coeffs();
         //corr_q1.coeffs() += tcorr_q1.coeffs();
-        //corr_q1.coeffs() += scorr_q1.coeffs()+ tcorr_q1.coeffs();
+        //corr_q1.coeffs() += scorr_q1.coeffs() + tcorr_q1.coeffs();
     }
 
     return true;

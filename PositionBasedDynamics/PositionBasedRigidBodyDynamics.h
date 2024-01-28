@@ -1521,7 +1521,8 @@ namespace PBD
                 Real &alphaswing,
                 Real &betaswing,
                 Real &alphatwist,
-                Real &betatwist
+                Real &betatwist,
+                Real maxrotpersubstep
         );
 
         static bool init_MuellerHingeJoint(
