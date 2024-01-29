@@ -133,7 +133,7 @@ Vector3r computeInertiaTensorBox(const Real mass, const Real width, const Real h
 
 /** Create the rigid body model
 */
-void createBodyModel()e
+void createBodyModel()
 {
 	SimulationModel *model = Simulation::getCurrent()->getModel();
 	SimulationModel::RigidBodyVector &rb = model->getRigidBodies();
@@ -147,6 +147,7 @@ void createBodyModel()e
 	VertexData vdStatic;
 	DemoBase::loadMesh(fileName, vdStatic, meshStatic, Vector3r::Zero(), Matrix3r::Identity(), Vector3r(0.5, 0.5, 0.5));
 	meshStatic.setFlatShading(true);
+    // AngleAxisr(-M_PI/4, Vector3r(0.0,1.0,0.0)).toRotationMatrix()
 
 	// static body
 	const unsigned int numberOfBodies = 3;
@@ -168,16 +169,24 @@ void createBodyModel()e
 			Quaternionr(1.0, 0.0, 0.0, 0.0),
 			vdStatic, meshStatic);
 
-		// dynamic body
+		/* dynamic body (twisted)
 		rb[3*i+1] = new RigidBody();
 		rb[3*i+1]->initBody(1.0,
-			Vector3r(startX, startY- static_cast<Real>(0.25), static_cast<Real>(2.0)),
+			Vector3r(startX, startY - static_cast<Real>(1.25), 1.0),
 			computeInertiaTensorBox(1.0, width, height, depth),
-			Quaternionr(1.0, 0.0, 0.0, 0.0),
+			Quaternionr(AngleAxisr(-M_PI/4, Vector3r(0.0,1.0,0.0))),
 			vd, mesh);
+*/
+        // dynamic body
+        rb[3*i+1] = new RigidBody();
+        rb[3*i+1]->initBody(1.0,
+                            Vector3r(startX, startY - static_cast<Real>(0.25), 2.0),
+                            computeInertiaTensorBox(1.0, width, height, depth),
+                            Quaternionr(1.0, 0.0, 0.0, 0.0),
+                            vd, mesh);
 
 
-		// dynamic body
+        // dynamic body
 		rb[3 * i + 2] = new RigidBody();
 		rb[3 * i + 2]->initBody(1.0,
 			Vector3r(startX, startY - static_cast<Real>(0.25), static_cast<Real>(4.0)),
@@ -190,7 +199,7 @@ void createBodyModel()e
 	}
 
 	Real jointY = 0.75;
-	model->addBallJoint(0, 1, Vector3r(0.25, jointY, 1.0));
+	model->addBallJoint(0, 1, Vector3r(0.0, jointY, 1.0));
 	model->addBallJoint(1, 2, Vector3r(0.25, jointY, 3.0));
 
 }

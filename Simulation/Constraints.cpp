@@ -88,13 +88,13 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
 	RigidBody &rb2 = *rb[m_bodies[1]];
 
     Real alphaswing = 0.0;
-    Real betaswing = 0.0;
+    Real betaswing = 90.0;
     Real alphatwist = 0.0;
-    Real betatwist = 90.0;
+    Real betatwist = 0.0;
 
 	Vector3r corr_x1, corr_x2;
 	Quaternionr corr_q1, corr_q2;
-    Real stiffness = 1000.0;
+    Real stiffness = 100.0;
     const Real dt = TimeManager::getCurrent()->getTimeStepSize();
 
 	const bool res = PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
@@ -125,14 +125,16 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
 		{
 			rb1.getPosition() += corr_x1;
 			rb1.getRotation().coeffs() += corr_q1.coeffs();
-			rb1.getRotation().normalize();
+            Real norm = rb1.getRotation().coeffs().norm();
+			rb1.getRotation().coeffs() = rb1.getRotation().coeffs() / norm;
 			rb1.rotationUpdated();
 		}
 		if (rb2.getMass() != 0.0)
 		{
 			rb2.getPosition() += corr_x2;
 			rb2.getRotation().coeffs() += corr_q2.coeffs();
-			rb2.getRotation().normalize();
+            Real norm = rb2.getRotation().coeffs().norm();
+            rb2.getRotation().coeffs() = rb2.getRotation().coeffs() / norm;
 			rb2.rotationUpdated();
 		}
 	}
