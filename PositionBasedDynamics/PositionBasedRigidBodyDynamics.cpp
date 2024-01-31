@@ -2799,7 +2799,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerAngularJoint(
 {
     const Vector3r axis = corraxis.normalized();
     const Real angle = corraxis.norm();
-    Real delta_lambda;
+    Real delta_lambda = 0.0;
 
 
     Matrix3r rot0T = q0.matrix().transpose();
@@ -2902,13 +2902,15 @@ bool PositionBasedRigidBodyDynamics::MuellerAngleLimits(
         angle = angledeg/180 * pi;
 
         Vector3r n0c = n0n;
+
         if (angle != 0.0)
         {
-            AngleAxisr corraxis = AngleAxisr(angle, nn);
+            Matrix3r corraxis = AngleAxisr(angle, nn).toRotationMatrix();
             n0c = corraxis * n0n;
         }
         //corr_q_fixed = n1n.cross(n0c); // Change from Paper: Switched n0 and n1
         corr_q_fixed = n0c.cross(n1n);
+
         Real maxCorr = M_PI;
         
         if (mode != 0.0)
@@ -3098,18 +3100,27 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     Vector3r swingcorr = Vector3r(0.0, 0.0, 0.0);
     Quaternionr scorr_q0;
     Quaternionr scorr_q1;
+    //scorr_q0.setIdentity();
+    //scorr_q1.setIdentity();
+
     lambda = 0.0;
 
     Vector3r n = a0g.cross(a1g);
     Vector3r n1 = a0g;
     Vector3r n2 = a1g;
-    MuellerAngleLimits(n, n1, n2, alphaswing, betaswing, swingcorr, dt, 0.0);
 
-    cout << "Swing Correction: " <<- swingcorr.transpose() << "\n";
+    if (!n.isZero())
+    {
+        MuellerAngleLimits(n, n1, n2, alphaswing, betaswing, swingcorr, dt, 0.0);
+    }
+
+    //cout << "Swing Correction: " <<- swingcorr.transpose() << "\n";
 
     if (!swingcorr.isZero()) {
         solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, swingcorr, lambda, scorr_q0, scorr_q1, stiffness, dt);
     }
+
+    cout << "SCorr: " << scorr_q1.coeffs().transpose() << "\n";
 
     // Twist Limits
     Vector3r twistcorr = Vector3r(0.0, 0.0, 0.0);
@@ -3138,15 +3149,14 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
 
 
-    Quaternionr tcorr_q0;
-    Quaternionr tcorr_q1;
+    Quaternionr tcorr_q0 = Quaternionr::Identity();
+    Quaternionr tcorr_q1 = Quaternionr::Identity();
     lambda = 0.0;
 
     Vector3r tn = (a0g + a1g).normalized();
     Vector3r tn1 = (b0g - (n.dot(b0g) * n)).normalized();
     Vector3r tn2 = (b1g - (n.dot(b1g) * n)).normalized();
     MuellerAngleLimits(tn, tn1, tn2, alphatwist, betatwist, twistcorr, dt, 1.0);
-
 
 
     if (!twistcorr.isZero())
@@ -3157,8 +3167,8 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     if (invMass0 != 0.0)
     {
         //corr_q0.coeffs() += scorr_q0.coeffs();
-        //corr_q0.coeffs() += tcorr_q0.coeffs();
-        corr_q0.coeffs() += scorr_q0.coeffs() + tcorr_q0.coeffs();
+        corr_q0.coeffs() += tcorr_q0.coeffs();
+        //corr_q0 += tcorr_q0 * scorr_q0;
 
 
     }
@@ -3166,8 +3176,9 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     if (invMass1 != 0.0)
     {
         //corr_q1.coeffs() += scorr_q1.coeffs();
-        //corr_q1.coeffs() += tcorr_q1.coeffs();
-        corr_q1.coeffs() += scorr_q1.coeffs() + tcorr_q1.coeffs();
+        corr_q1.coeffs() += tcorr_q1.coeffs();
+        //corr_q1 += tcorr_q1 + scorr_q1;
+
     }
 
     return true;

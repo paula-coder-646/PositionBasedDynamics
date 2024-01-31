@@ -35,8 +35,8 @@ void reset();
 DemoBase *base;
 
 const Real width = static_cast<Real>(0.4);
-const Real height = static_cast<Real>(2.0);
-const Real depth = static_cast<Real>(0.4);
+const Real height = static_cast<Real>(0.4);
+const Real depth = static_cast<Real>(2.0);
 
 
 // main 
@@ -114,7 +114,8 @@ void buildModel ()
 
 	LOG_INFO << "\nJoint types in simulation:";
 	LOG_INFO << "--------------------------\n";
-	LOG_INFO << "row 1:    ball joint";
+	LOG_INFO << "row 1:    ball joint,             ball-distance joint,               hinge joint";
+;
 }
 
 void render ()
@@ -141,13 +142,12 @@ void createBodyModel()
 	string fileName = FileSystem::normalizePath(base->getExePath() + "/resources/models/cube.obj");
 	IndexedFaceMesh mesh;
 	VertexData vd;
-	DemoBase::loadMesh(fileName, vd, mesh, Vector3r::Zero(), AngleAxisr(M_PI/4, Vector3r(0.0,1.0,0.0)).toRotationMatrix(), Vector3r(width, height, depth));
+	DemoBase::loadMesh(fileName, vd, mesh, Vector3r::Zero(), Matrix3r::Identity(), Vector3r(width, height, depth));
 	mesh.setFlatShading(true);
 	IndexedFaceMesh meshStatic;
 	VertexData vdStatic;
 	DemoBase::loadMesh(fileName, vdStatic, meshStatic, Vector3r::Zero(), Matrix3r::Identity(), Vector3r(0.5, 0.5, 0.5));
 	meshStatic.setFlatShading(true);
-    // AngleAxisr(-M_PI/4, Vector3r(0.0,1.0,0.0)).toRotationMatrix()
 
 	// static body
 	const unsigned int numberOfBodies = 2;
@@ -169,25 +169,16 @@ void createBodyModel()
 			Quaternionr(1.0, 0.0, 0.0, 0.0),
 			vdStatic, meshStatic);
 
-		// dynamic body (twisted)
+		// dynamic body
 		rb[3*i+1] = new RigidBody();
 		rb[3*i+1]->initBody(1.0,
-			Vector3r(startX, startY - static_cast<Real>(1.25), 1.0),
+			Vector3r(startX, startY- static_cast<Real>(0.25), static_cast<Real>(2.0)),
 			computeInertiaTensorBox(1.0, width, height, depth),
-			Quaternionr(AngleAxisr(M_PI/4, Vector3r(0.0,1.0,0.0))),
+			Quaternionr(1.0, 0.0, 0.0, 0.0),
 			vd, mesh);
 
-        /* Bodies for Swing and Twist
-        // dynamic body
-        rb[3*i+1] = new RigidBody();
-        rb[3*i+1]->initBody(1.0,
-                            Vector3r(startX, startY - static_cast<Real>(0.25), 2.0),
-                            computeInertiaTensorBox(1.0, width, height, depth),
-                            Quaternionr(1.0, 0.0, 0.0, 0.0),
-                            vd, mesh);
-
-
-        // dynamic body
+/*
+		// dynamic body
 		rb[3 * i + 2] = new RigidBody();
 		rb[3 * i + 2]->initBody(1.0,
 			Vector3r(startX, startY - static_cast<Real>(0.25), static_cast<Real>(4.0)),
@@ -195,14 +186,44 @@ void createBodyModel()
 			Quaternionr(1.0, 0.0, 0.0, 0.0),
 			vd, mesh);
 */
-
-		startX += 4.0;
 	}
 
 	Real jointY = 0.75;
-	model->addBallJoint(0, 1, Vector3r(0.15, jointY, 1.15));
+	model->addBallJoint(0, 1, Vector3r(0.0, jointY, 1.0));
 	//model->addBallJoint(1, 2, Vector3r(0.25, jointY, 3.0));
+	/*
+	model->addBallOnLineJoint(3, 4, Vector3r(4.25, jointY, 1.0), Vector3r(1.0, 0.0, 0.0));
+	model->addBallJoint(4, 5, Vector3r(4.25, jointY, 3.0));
+	
+	model->addHingeJoint(6, 7, Vector3r(8.0, jointY, 1.0), Vector3r(1.0, 0.0, 0.0));
+	model->addBallJoint(7, 8, Vector3r(8.25, jointY, 3.0));
 
+	model->addUniversalJoint(9, 10, Vector3r(12.0, jointY, 1.0), Vector3r(1.0, 0.0, 0.0), Vector3r(0.0, 1.0, 0.0));
+	model->addBallJoint(10, 11, Vector3r(12.25, jointY, 3.0));
+
+	jointY -= 5.5;
+	model->addTargetAngleMotorHingeJoint(12, 13, Vector3r(0.0, jointY, 1.0), Vector3r(1.0, 0.0, 0.0));
+	model->addBallJoint(13, 14, Vector3r(0.25, jointY, 3.0));
+  
+	model->addTargetVelocityMotorHingeJoint(15, 16, Vector3r(4.0, jointY, 1.0), Vector3r(1.0, 0.0, 0.0));
+	model->addBallJoint(16, 17, Vector3r(4.25, jointY, 3.0));
+
+	model->addTargetPositionMotorSliderJoint(18, 19, Vector3r(1.0, 0.0, 0.0));
+	model->addBallJoint(19, 20, Vector3r(8.25, jointY, 3.0));
+
+	model->addTargetVelocityMotorSliderJoint(21, 22, Vector3r(1.0, 0.0, 0.0));
+	model->addBallJoint(22, 23, Vector3r(12.25, jointY, 3.0));
+
+	jointY -= 5.5;
+	model->addRigidBodySpring(24, 25, Vector3r(0.25, jointY, 1.0), Vector3r(0.25, jointY, 1.0), 50.0);
+	model->addBallJoint(25, 26, Vector3r(0.25, jointY, 3.0));
+
+	model->addDistanceJoint(27, 28, Vector3r(4.25, jointY, 1.0), Vector3r(4.25, jointY, 2.0));
+	model->addBallJoint(28, 29, Vector3r(4.25, jointY, 3.0));
+
+	model->addSliderJoint(30, 31, Vector3r(1.0, 0.0, 0.0));
+	model->addBallJoint(31, 32, Vector3r(8.25, jointY, 3.0));
+	 */
 }
 
 
