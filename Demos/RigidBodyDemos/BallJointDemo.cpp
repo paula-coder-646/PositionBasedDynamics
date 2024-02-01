@@ -177,15 +177,16 @@ void createBodyModel()
 			Quaternionr(AngleAxisr(M_PI/4, Vector3r(0.0,1.0,0.0))),
 			vd, mesh);
 
-        /* Bodies for Swing and Twist
+        /*
         // dynamic body
-        rb[3*i+1] = new RigidBody();
-        rb[3*i+1]->initBody(1.0,
-                            Vector3r(startX, startY - static_cast<Real>(0.25), 2.0),
+        rb[3*i+2] = new RigidBody();
+        rb[3*i+2]->initBody(1.0,
+                            Vector3r(startX, startY - static_cast<Real>(3.25), 1.0),
                             computeInertiaTensorBox(1.0, width, height, depth),
-                            Quaternionr(1.0, 0.0, 0.0, 0.0),
+                            Quaternionr(AngleAxisr(-M_PI/4, Vector3r(0.0,1.0,0.0))),
                             vd, mesh);
 
+        /*
 
         // dynamic body
 		rb[3 * i + 2] = new RigidBody();
@@ -200,8 +201,8 @@ void createBodyModel()
 	}
 
 	Real jointY = 0.75;
-	model->addBallJoint(0, 1, Vector3r(0.15, jointY, 1.15));
-	//model->addBallJoint(1, 2, Vector3r(0.25, jointY, 3.0));
+	model->addBallJoint(0, 1, Vector3r(0.1, jointY, 1.0));
+	//model->addBallJoint(1, 2, Vector3r(0.0, jointY , 1.0));
 
 }
 

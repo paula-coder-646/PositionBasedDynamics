@@ -2895,24 +2895,23 @@ bool PositionBasedRigidBodyDynamics::MuellerAngleLimits(
 
         Vector3r n0c = n0n;
 
-        if (angle != 0.0)
-        {
-            Matrix3r corraxis = AngleAxisr(angle, nn).toRotationMatrix();
-            n0c = corraxis * n0n;
-        }
-        //corr_q_fixed = n1n.cross(n0c); // Change from Paper: Switched n0 and n1
+        Matrix3r corraxis = AngleAxisr(angle, nn).toRotationMatrix();
+        n0c = corraxis * n0n;
+
         corr_q_fixed = n0c.cross(n1n);
 
         Real maxCorr = M_PI;
-        
+
+        /*
         if (mode != 0.0)
         {
-            maxCorr = n0n.dot(n1n) > -0.5 ? 2.0 * M_PI : 1.0 * dt;
+            maxCorr = n0n.dot(n1n) < -0.5 ? 2.0 * M_PI : 0.1 * dt;
         }
+        */
 
         Real len = corr_q_fixed.norm();
         if (len > maxCorr)
-            corr_q_fixed = corr_q_fixed * (maxCorr/ len);
+            corr_q_fixed = corr_q_fixed * (maxCorr / len);
         return true;
 
     }
@@ -3090,8 +3089,8 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
     // Swing Limits
     Vector3r swingcorr = Vector3r(0.0, 0.0, 0.0);
-    Quaternionr scorr_q0 = Quaternionr::Identity();
-    Quaternionr scorr_q1 = Quaternionr::Identity();
+    Quaternionr scorr_q0 = Quaternionr(0.0, 0.0, 0.0, 0.0);
+    Quaternionr scorr_q1 = Quaternionr(0.0, 0.0, 0.0, 0.0);
 
     lambda = 0.0;
 
@@ -3099,10 +3098,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     Vector3r n1 = a0g;
     Vector3r n2 = a1g;
 
-    if (!n.isZero())
-    {
-        MuellerAngleLimits(n, n1, n2, alphaswing, betaswing, swingcorr, dt, 0.0);
-    }
+    MuellerAngleLimits(n, n1, n2, alphaswing, betaswing, swingcorr, dt, 0.0);
 
     if (!swingcorr.isZero()) {
         solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, swingcorr, lambda, scorr_q0, scorr_q1, stiffness, dt);
@@ -3118,7 +3114,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     Matrix3r previewInertiaInverseW1 = inertiaInverseW1;
 
 
-    preview_MuellerRotations(q0, q1, inertiaInverseW0, inertiaInverseW1, scorr_q0, scorr_q1, previewq0, previewq1,previewInertiaInverseW0, previewInertiaInverseW1);
+    preview_MuellerRotations(previewq0, previewq1, previewInertiaInverseW0, previewInertiaInverseW1, scorr_q0, scorr_q1, previewq0, previewq1,previewInertiaInverseW0, previewInertiaInverseW1);
 
 
     // Recalculate Axis
@@ -3132,26 +3128,27 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     b1g = (rot1 * b1l).normalized();
     c1g = (rot1 * c1l).normalized();
 
-    Quaternionr tcorr_q0 = Quaternionr::Identity();
-    Quaternionr tcorr_q1 = Quaternionr::Identity();
+    Quaternionr tcorr_q0 = Quaternionr(0.0, 0.0, 0.0, 0.0);
+    Quaternionr tcorr_q1 = Quaternionr(0.0, 0.0, 0.0, 0.0);
 
     lambda = 0.0;
 
     Vector3r tn = (a0g + a1g).normalized();
     Vector3r tn1 = (b0g - (n.dot(b0g) * n)).normalized();
     Vector3r tn2 = (b1g - (n.dot(b1g) * n)).normalized();
+
     MuellerAngleLimits(tn, tn1, tn2, alphatwist, betatwist, twistcorr, dt, 1.0);
 
 
     if (!twistcorr.isZero())
     {
-        solve_MuellerAngularJoint(invMass0, x0, previewInertiaInverseW0, previewq0, invMass1, x1, previewInertiaInverseW1, previewq1, twistcorr, lambda, tcorr_q0, tcorr_q1, stiffness, dt);
+        solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, twistcorr, lambda, tcorr_q0, tcorr_q1, stiffness, dt);
     }
 
     if (invMass0 != 0.0)
     {
-        corr_q0.coeffs() += scorr_q0.coeffs();
-        //corr_q0.coeffs() += tcorr_q0.coeffs();
+        //corr_q0.coeffs() += scorr_q0.coeffs();
+        corr_q0.coeffs() += tcorr_q0.coeffs();
         //corr_q0 += tcorr_q0 * scorr_q0;
 
 
@@ -3159,9 +3156,9 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
     if (invMass1 != 0.0)
     {
-        corr_q1.coeffs() += scorr_q1.coeffs();
-        cout << q1.coeffs().transpose() << "\n";
-        //corr_q1.coeffs() += tcorr_q1.coeffs();
+        //corr_q1.coeffs() += scorr_q1.coeffs();
+        cout << tcorr_q1.coeffs().transpose() << "\n";
+        corr_q1.coeffs() += tcorr_q1.coeffs();
         //corr_q1 += tcorr_q1 + scorr_q1;
 
     }
