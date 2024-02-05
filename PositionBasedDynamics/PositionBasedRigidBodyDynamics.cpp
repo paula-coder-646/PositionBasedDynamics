@@ -3147,6 +3147,11 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     Vector3r tn1 = (b0g - (n.dot(b0g) * n)).normalized();
     Vector3r tn2 = (b1g - (n.dot(b1g) * n)).normalized();
 
+    if (tn1.cross(tn2).dot(tn) < 0)
+    {
+        tn *= -1;
+    }
+
     MuellerAngleLimits(tn, tn1, tn2, alphatwist, betatwist, twistcorr, dt, 1.0);
 
     cout << swingcorr.transpose() << "\n";

@@ -200,7 +200,7 @@ void createBodyModel()
 	}
 
 	Real jointY = 0.75;
-	model->addBallJoint(0, 1, Vector3r(0.0, jointY, 1.0));
+	model->addBallJoint(0, 1, Vector3r(0.2, jointY, 1.0));
 	model->addBallJoint(1, 2, Vector3r(0.0, jointY - static_cast<Real>(2.0) , 1.0));
     //model->addBallJoint(2, 3, Vector3r(0.0, jointY , 1.0));
 
