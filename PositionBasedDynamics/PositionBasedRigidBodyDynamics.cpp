@@ -2,6 +2,8 @@
 #include "MathFunctions.h"
 #include <cfloat>
 #include <iostream>
+#include <unistd.h>
+
 #define _USE_MATH_DEFINES
 #include "math.h"
 
@@ -2869,8 +2871,6 @@ bool PositionBasedRigidBodyDynamics::MuellerAngleLimits(
 
     Real angle = asin((n0n.cross(n1n)).dot(nn)); // Change from Paper: Switched n0 and n1
 
-    //cout  << angle <<"\n";
-
     if (n0n.dot(n1n) < 0.0)
     {
         angle = pi - angle;
@@ -2943,8 +2943,8 @@ bool PositionBasedRigidBodyDynamics::preview_MuellerRotations(
     Matrix3r inertiaInverseL0 = rot0.transpose() * inertiaInverseW0 * rot0;
     Matrix3r inertiaInverseL1 = rot1.transpose() * inertiaInverseW1 * rot1;
 
-    q0preview.coeffs() += corr0.coeffs();
-    q1preview.coeffs() += corr1.coeffs();
+    q0preview.coeffs() = q0.coeffs() + corr0.coeffs();
+    q1preview.coeffs() = q1.coeffs() + corr1.coeffs();
     q0preview.normalize();
     q1preview.normalize();
 
@@ -3117,27 +3117,6 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
         solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, swingcorr, lambda, scorr_q0, scorr_q1, stiffness, dt);
     }
 
-    // Preview Changes Made by SwingCorrections
-    /*
-    Quaternionr previewq0 = q0;
-    Quaternionr previewq1 = q1;
-    Matrix3r previewInertiaInverseW0 = Matrix3r::Zero();
-    Matrix3r previewInertiaInverseW1 = Matrix3r::Zero();
-
-    preview_MuellerRotations(previewq0, previewq1, previewInertiaInverseW0, previewInertiaInverseW1, scorr_q0, scorr_q1, previewq0, previewq1,previewInertiaInverseW0, previewInertiaInverseW1);
-
-    // Recalculate Axis
-    rot0 = previewq0.matrix();
-    rot1 = previewq1.matrix();
-
-    a0g = (rot0 * a0l).normalized();
-    b0g = (rot0 * b0l).normalized();
-    c0g = (rot0 * c0l).normalized();
-    a1g = (rot1 * a1l).normalized();
-    b1g = (rot1 * b1l).normalized();
-    c1g = (rot1 * c1l).normalized();
-*/
-
     // Twist Limits
     Vector3r twistcorr = Vector3r(0.0, 0.0, 0.0);
     Quaternionr tcorr_q0 = Quaternionr(0.0, 0.0, 0.0, 0.0);
@@ -3160,7 +3139,6 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
     {
         lambda = 0.0;
         solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, twistcorr, lambda, tcorr_q0, tcorr_q1, twiststiffness, dt);
-        //solve_MuellerAngularJoint(invMass0, x0, previewInertiaInverseW0, previewq0, invMass1, x1, previewInertiaInverseW1, previewq1, twistcorr, lambda, tcorr_q0, tcorr_q1, stiffness, dt);
     }
 
 
@@ -3174,11 +3152,6 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
     if (invMass1 != 0.0)
     {
-        /*if (invMass0 != 0.0)
-        {
-            cout << tcorr_q1.coeffs().transpose() << "\n";
-        }*/
-
         //corr_q1.coeffs() += scorr_q1.coeffs();
         //corr_q1.coeffs() += tcorr_q1.coeffs();
         corr_q1.coeffs() += scorr_q1.coeffs() + tcorr_q1.coeffs();
@@ -3196,7 +3169,7 @@ bool PositionBasedRigidBodyDynamics::init_MuellerHingeJoint(
         const Quaternionr &q1,
         const Vector3r &hingeJointPosition,
         const Vector3r & hingeAxis,
-        Eigen::Matrix<Real, 3, 7, Eigen::DontAlign> &hingeJointInfo
+        Eigen::Matrix<Real, 4, 7, Eigen::DontAlign> &hingeJointInfo
 )
 {
     // jointInfo contains
@@ -3204,24 +3177,24 @@ bool PositionBasedRigidBodyDynamics::init_MuellerHingeJoint(
     // 1:	connector in body 1 (local)
     // 2:	connector in body 0 (global)
     // 3:	connector in body 1 (global)
-    // 4:   Hinge Axis in body 1 (local)
+    // 4:   Hinge Axis global
     // 5:   Hinge Axis in body 2 (local)
-    // 6:   Hinge Axis (global)
+    // 6:   Hinge Axis (in body 1) -> Needs to be here for rendering !
 
     // transform in local coordinates
     const Matrix3r rot0T = q0.matrix().transpose();
     const Matrix3r rot1T = q1.matrix().transpose();
 
-    hingeJointInfo.col(0) = rot0T * (hingeJointPosition - x0);
-    hingeJointInfo.col(1) = rot1T * (hingeJointPosition - x1);
+    hingeJointInfo.block<3, 1>(0, 0) = rot0T * (hingeJointPosition - x0);
+    hingeJointInfo.block<3, 1>(0, 1) = rot1T * (hingeJointPosition - x1);
 
-    hingeJointInfo.col(2) = hingeJointPosition;
-    hingeJointInfo.col(3) = hingeJointPosition;
+    hingeJointInfo.block<3, 1>(0, 2) = hingeJointPosition;
+    hingeJointInfo.block<3, 1>(0, 3) = hingeJointPosition;
 
-    hingeJointInfo.col(4) = rot0T * hingeAxis;
-    hingeJointInfo.col(5) = rot1T * hingeAxis;
+    hingeJointInfo.block<3, 1>(0, 4) = hingeAxis;
+    hingeJointInfo.block<3, 1>(0, 5) = rot1T * hingeAxis;
 
-    hingeJointInfo.col(6) = hingeAxis;
+    hingeJointInfo.block<3, 1>(0, 6) = rot0T * hingeAxis;
 
     return true;
 }
@@ -3232,7 +3205,7 @@ bool PositionBasedRigidBodyDynamics::update_MuellerHingeJoint(
         const Quaternionr &q0,
         const Vector3r &x1,
         const Quaternionr &q1,
-        Eigen::Matrix<Real, 3, 7, Eigen::DontAlign> &hingeJointInfo
+        Eigen::Matrix<Real, 4, 7, Eigen::DontAlign> &hingeJointInfo
 )
 {
     // jointInfo contains
@@ -3240,15 +3213,16 @@ bool PositionBasedRigidBodyDynamics::update_MuellerHingeJoint(
     // 1:	connector in body 1 (local)
     // 2:	connector in body 0 (global)
     // 3:	connector in body 1 (global)
-    // 4:   Hinge Axis in body 1 (local)
+    // 4:   Hinge Axis global
     // 5:   Hinge Axis in body 2 (local)
-    // 6:   Hinge Axis (global)
+    // 6:   Hinge Axis (in body 1) -> Needs to be here for rendering !
+
 
     // compute world space positions of connectors
     const Matrix3r rot0 = q0.matrix();
     const Matrix3r rot1 = q1.matrix();
-    hingeJointInfo.col(2) = rot0 * hingeJointInfo.col(0) + x0; // Update Global Positions
-    hingeJointInfo.col(3) = rot1 * hingeJointInfo.col(1) + x1; // Update Global Positions
+    hingeJointInfo.block<3, 1>(0, 2) = rot0 * hingeJointInfo.block<3, 1>(0, 0) + x0; // Update Global Positions
+    hingeJointInfo.block<3, 1>(0, 3) = rot1 * hingeJointInfo.block<3, 1>(0, 1) + x1; // Update Global Positions
 
     return true;
 }
@@ -3263,7 +3237,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerHingeJoint(
         const Vector3r &x1,
         const Matrix3r &inertiaInverseW1,
         const Quaternionr &q1,
-        const Eigen::Matrix<Real, 3, 7, Eigen::DontAlign> &hingeJointInfo,
+        const Eigen::Matrix<Real, 4, 7, Eigen::DontAlign> &hingeJointInfo,
         Vector3r &corr_x0, Quaternionr &corr_q0,
         Vector3r &corr_x1, Quaternionr &corr_q1,
         Real &stiffness,
@@ -3284,31 +3258,19 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerHingeJoint(
     Matrix3r rot0T = rot0.transpose();
     Matrix3r rot1T = rot1.transpose();
 
-    Vector3r globalHingeAxis = hingeJointInfo.col(6);
+    Vector3r globalHingeAxis = hingeJointInfo.block<3, 1>(0, 4);
 
-    /*
-     * Axis are aligned as follows:
-     * a0l:     Local Hinge axis,
-     * b0l:     perpendicular to a0l and local connector
-     * c0l:     perpendicular to a0l and b0l
-     */
+    Vector3r a0l = hingeJointInfo.block<3, 1>(0, 6).normalized();
+    Vector3r a1l = hingeJointInfo.block<3, 1>(0, 5).normalized();
 
-    Vector3r a0l = hingeJointInfo.col(4);
-    Vector3r a1l = hingeJointInfo.col(5);
-
-    Vector3r b0l = hingeJointInfo.col(0).normalized().cross(a0l);
-    Vector3r b1l = - (hingeJointInfo.col(1).normalized().cross(a1l)); // Since both axes point in the same direction, invert b1g
-
-    Vector3r c0l = a0l.cross(b0l).normalized();
-    Vector3r c1l = a1l.cross(b1l).normalized();
+    Vector3r b0l = a0l.cross(hingeJointInfo.block<3, 1>(0, 0).normalized());
+    Vector3r b1l = -a1l.cross(hingeJointInfo.block<3, 1>(0, 1).normalized()); // Since both axes point in the same direction, invert b1g
 
     // Get global systems
     Vector3r a0g = (rot0 * a0l).normalized();
     Vector3r b0g = (rot0 * b0l).normalized();
-    Vector3r c0g = (rot0 * c0l).normalized();
     Vector3r a1g = (rot1 * a1l).normalized();
     Vector3r b1g = (rot1 * b1l).normalized();
-    Vector3r c1g = (rot1 * c1l).normalized();
 
     // 2. Solve Distance Joint
     Real lambda = 0.0;
@@ -3317,16 +3279,17 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerHingeJoint(
 
     // 2. Solve Hinge Joint
     lambda = 0.0;
-    Quaternionr hcorr_q0;
-    Quaternionr hcorr_q1;
+    Quaternionr hcorr_q0 = Quaternionr(0.0, 0.0, 0.0, 0.0);
+    Quaternionr hcorr_q1 = Quaternionr(0.0, 0.0, 0.0, 0.0);
+
     Vector3r hingecorr = a0g.cross(a1g);
 
     solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, hingecorr, lambda, hcorr_q0, hcorr_q1, stiffness, dt);
 
-    Quaternionr previewq0;
-    Quaternionr previewq1;
-    Matrix3r previewInertiaInverseW0;
-    Matrix3r previewInertiaInverseW1;
+    Quaternionr previewq0 = Quaternionr(0.0, 0.0, 0.0, 0.0);
+    Quaternionr previewq1 = Quaternionr(0.0, 0.0, 0.0, 0.0);
+    Matrix3r previewInertiaInverseW0 = Matrix3r::Zero();
+    Matrix3r previewInertiaInverseW1 = Matrix3r::Zero();
 
     preview_MuellerRotations(q0, q1, inertiaInverseW0, inertiaInverseW1, hcorr_q0, hcorr_q1, previewq0, previewq1, previewInertiaInverseW0, previewInertiaInverseW1);
 
@@ -3336,26 +3299,34 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerHingeJoint(
 
     a0g = (rot0 * a0l).normalized();
     b0g = (rot0 * b0l).normalized();
-    c0g = (rot0 * c0l).normalized();
     a1g = (rot1 * a1l).normalized();
     b1g = (rot1 * b1l).normalized();
-    c1g = (rot1 * c1l).normalized();
 
     // Swing Limits
     Vector3r swingcorr = Vector3r(0.0, 0.0, 0.0);
-    Quaternionr scorr_q0;
-    Quaternionr scorr_q1;
+    Quaternionr scorr_q0 = Quaternionr(0.0, 0.0, 0.0, 0.0);;
+    Quaternionr scorr_q1 = Quaternionr(0.0, 0.0, 0.0, 0.0);;
     lambda = 0.0;
 
     Vector3r n = a0g;
     Vector3r n1 = b0g;
     Vector3r n2 = b1g;
+
+    if (n1.cross(n2).dot(n) < 0)
+    {
+        n *= -1;
+    }
+
+
     MuellerAngleLimits(n, n1, n2, alphaswing, betaswing, swingcorr, dt, 0.0);
+
 
     if (!swingcorr.isZero())
     {
         solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, swingcorr, lambda, scorr_q0, scorr_q1, stiffness, dt);
     }
+
+    cout << scorr_q1.coeffs() << "\n";
 
     if (invMass0 != 0.0)
     {

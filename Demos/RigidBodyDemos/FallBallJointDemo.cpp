@@ -150,7 +150,7 @@ void createBodyModel()
 	meshStatic.setFlatShading(true);
 
 	// static body
-	const unsigned int numberOfBodies = 2;
+	const unsigned int numberOfBodies = 3;
 	rb.resize(numberOfBodies);
 	Real startX = 0.0;
 	Real startY = 6.5;
@@ -177,7 +177,7 @@ void createBodyModel()
 			Quaternionr(1.0, 0.0, 0.0, 0.0),
 			vd, mesh);
 
-/*
+
 		// dynamic body
 		rb[3 * i + 2] = new RigidBody();
 		rb[3 * i + 2]->initBody(1.0,
@@ -185,12 +185,12 @@ void createBodyModel()
 			computeInertiaTensorBox(1.0, width, height, depth),
 			Quaternionr(1.0, 0.0, 0.0, 0.0),
 			vd, mesh);
-*/
+
 	}
 
 	Real jointY = 0.75;
 	model->addBallJoint(0, 1, Vector3r(0.25, jointY, 1.0));
-	//model->addBallJoint(1, 2, Vector3r(0.25, jointY, 3.0));
+	model->addBallJoint(1, 2, Vector3r(0.25, jointY, 3.0));
 	/*
 	model->addBallOnLineJoint(3, 4, Vector3r(4.25, jointY, 1.0), Vector3r(1.0, 0.0, 0.0));
 	model->addBallJoint(4, 5, Vector3r(4.25, jointY, 3.0));

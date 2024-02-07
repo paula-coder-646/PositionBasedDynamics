@@ -88,9 +88,9 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
 	RigidBody &rb2 = *rb[m_bodies[1]];
 
     Real alphaswing = 0.0;
-    Real betaswing = 30.0;
+    Real betaswing = 180.0;
     Real alphatwist = 0.0;
-    Real betatwist = 175.0;
+    Real betatwist = 180.0;
 
 	Vector3r corr_x1 = Vector3r::Zero();
     Vector3r corr_x2 = Vector3r::Zero();
@@ -98,7 +98,7 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
 	Quaternionr corr_q1 = Quaternionr::Identity();
     Quaternionr corr_q2  = Quaternionr::Identity();
 
-    Real stiffness = 100.0;
+    Real stiffness = 1000.0;
     const Real dt = TimeManager::getCurrent()->getTimeStepSize();
 
 	const bool res = PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
@@ -233,7 +233,7 @@ bool HingeJoint::initConstraint(SimulationModel &model, const unsigned int rbInd
 	SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
 	RigidBody &rb1 = *rb[m_bodies[0]];
 	RigidBody &rb2 = *rb[m_bodies[1]];
-	return PositionBasedRigidBodyDynamics::init_HingeJoint(
+	return PositionBasedRigidBodyDynamics::init_MuellerHingeJoint(
 		rb1.getPosition(),
 		rb1.getRotation(),
 		rb2.getPosition(),
@@ -247,7 +247,7 @@ bool HingeJoint::updateConstraint(SimulationModel &model)
 	SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
 	RigidBody &rb1 = *rb[m_bodies[0]];
 	RigidBody &rb2 = *rb[m_bodies[1]];
-	return PositionBasedRigidBodyDynamics::update_HingeJoint(
+	return PositionBasedRigidBodyDynamics::update_MuellerHingeJoint(
 		rb1.getPosition(),
 		rb1.getRotation(),
 		rb2.getPosition(),
@@ -262,9 +262,19 @@ bool HingeJoint::solvePositionConstraint(SimulationModel &model, const unsigned 
 	RigidBody &rb1 = *rb[m_bodies[0]];
 	RigidBody &rb2 = *rb[m_bodies[1]];
 
-	Vector3r corr_x1, corr_x2;
-	Quaternionr corr_q1, corr_q2;
-	const bool res = PositionBasedRigidBodyDynamics::solve_HingeJoint(
+    Real alpha = 0.0;
+    Real beta = 18.0;
+
+    Vector3r corr_x1 = Vector3r::Zero();
+    Vector3r corr_x2 = Vector3r::Zero();
+
+    Quaternionr corr_q1 = Quaternionr(0.0, 0.0, 0.0, 0.0);
+    Quaternionr corr_q2  = Quaternionr(0.0, 0.0, 0.0, 0.0);
+
+    Real stiffness = 1000.0;
+    const Real dt = TimeManager::getCurrent()->getTimeStepSize();
+
+	const bool res = PositionBasedRigidBodyDynamics::solve_MuellerHingeJoint(
 		rb1.getInvMass(),
 		rb1.getPosition(),
 		rb1.getInertiaTensorInverseW(),
@@ -277,7 +287,11 @@ bool HingeJoint::solvePositionConstraint(SimulationModel &model, const unsigned 
 		corr_x1,
 		corr_q1,
 		corr_x2,
-		corr_q2);
+		corr_q2,
+        stiffness,
+        const_cast<Real &>(dt),
+        alpha,
+        beta);
 
 	if (res)
 	{

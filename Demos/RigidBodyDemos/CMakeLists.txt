@@ -99,6 +99,32 @@ set_target_properties(BallJointDemo PROPERTIES MINSIZEREL_POSTFIX ${CMAKE_MINSIZ
 add_dependencies(BallJointDemo ${SIMULATION_DEPENDENCIES})
 target_link_libraries(BallJointDemo ${SIMULATION_LINK_LIBRARIES})
 
+add_executable(HingeJointDemo
+		HingeJointDemo.cpp
+
+		../Common/LogWindow.cpp
+		../Common/LogWindow.h
+		../Common/Simulator_GUI_imgui.cpp
+		../Common/Simulator_GUI_imgui.h
+		../Common/imguiParameters.cpp
+		../Common/imguiParameters.h
+		../Common/DemoBase.cpp
+		../Common/DemoBase.h
+
+		${VIS_FILES}
+		${PROJECT_PATH}/Common/Common.h
+
+		CMakeLists.txt
+)
+
+set_target_properties(HingeJointDemo PROPERTIES FOLDER "Demos")
+set_target_properties(HingeJointDemo PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
+set_target_properties(HingeJointDemo PROPERTIES RELWITHDEBINFO_POSTFIX ${CMAKE_RELWITHDEBINFO_POSTFIX})
+set_target_properties(HingeJointDemo PROPERTIES MINSIZEREL_POSTFIX ${CMAKE_MINSIZEREL_POSTFIX})
+add_dependencies(HingeJointDemo ${SIMULATION_DEPENDENCIES})
+target_link_libraries(HingeJointDemo ${SIMULATION_LINK_LIBRARIES})
+
+
 add_executable(FallBallJointDemo
 		FallBallJointDemo.cpp
 
