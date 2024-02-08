@@ -3264,13 +3264,23 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerHingeJoint(
     Vector3r a1l = hingeJointInfo.block<3, 1>(0, 5).normalized();
 
     Vector3r b0l = a0l.cross(hingeJointInfo.block<3, 1>(0, 0).normalized());
-    Vector3r b1l = -a1l.cross(hingeJointInfo.block<3, 1>(0, 1).normalized()); // Since both axes point in the same direction, invert b1g
+    Vector3r b1l = -a1l.cross(hingeJointInfo.block<3, 1>(0, 1).normalized());// Since both axes point in the same direction, invert b1g
+
+    if (b0l.isZero() || b1l.isZero())
+    {
+        Vector3r alt0 = rot0T * (x1 - x0);
+        Vector3r alt1 = rot1T * (x0 - x1);
+
+        b0l = a0l.cross(alt0.normalized());
+        b1l = -a1l.cross(alt1.normalized());// Since both axes point in the same direction, invert b1g
+    }
 
     // Get global systems
     Vector3r a0g = (rot0 * a0l).normalized();
     Vector3r b0g = (rot0 * b0l).normalized();
     Vector3r a1g = (rot1 * a1l).normalized();
     Vector3r b1g = (rot1 * b1l).normalized();
+
 
     // 2. Solve Distance Joint
     Real lambda = 0.0;
@@ -3301,6 +3311,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerHingeJoint(
     b0g = (rot0 * b0l).normalized();
     a1g = (rot1 * a1l).normalized();
     b1g = (rot1 * b1l).normalized();
+
 
     // Swing Limits
     Vector3r swingcorr = Vector3r(0.0, 0.0, 0.0);

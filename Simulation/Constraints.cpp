@@ -263,8 +263,7 @@ bool HingeJoint::solvePositionConstraint(SimulationModel &model, const unsigned 
 	RigidBody &rb2 = *rb[m_bodies[1]];
 
     Real alpha = 0.0;
-    Real beta = 18.0;
-
+    Real beta = 00.0;
     Vector3r corr_x1 = Vector3r::Zero();
     Vector3r corr_x2 = Vector3r::Zero();
 
@@ -295,14 +294,14 @@ bool HingeJoint::solvePositionConstraint(SimulationModel &model, const unsigned 
 
 	if (res)
 	{
-		if (rb1.getMass() != 0.0)
+		if (rb1.getMass() > 0.0)
 		{
 			rb1.getPosition() += corr_x1;
 			rb1.getRotation().coeffs() += corr_q1.coeffs();
 			rb1.getRotation().normalize();
 			rb1.rotationUpdated();
 		}
-		if (rb2.getMass() != 0.0)
+		if (rb2.getMass() > 0.0)
 		{
 			rb2.getPosition() += corr_x2;
 			rb2.getRotation().coeffs() += corr_q2.coeffs();

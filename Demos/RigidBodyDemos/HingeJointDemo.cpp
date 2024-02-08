@@ -190,7 +190,7 @@ void createBodyModel()
 
 	Real jointY = 0.75;
 
-	model->addHingeJoint(0, 1, Vector3r(0.0, jointY, 1.0), Vector3r(1.0, 0.0, 0.0));
+	model->addHingeJoint(0, 1, Vector3r(0.0, jointY, 1.0), Vector3r(0.0, 1.0, 0.0));
 	model->addBallJoint(1, 2, Vector3r(0.25, jointY, 3.0));
 
 }
