@@ -1474,6 +1474,8 @@ namespace PBD
         static bool preview_MuellerRotations(
                 const Quaternionr &q0,
                 const Quaternionr &q1,
+                const Real &invMass0,
+                const Real &invMass1,
                 const Matrix3r &inertiaInverseW0,
                 const Matrix3r &inertiaInverseW1,
                 const Quaternionr &corr0,
