@@ -1561,13 +1561,12 @@ namespace PBD
                 const Matrix3r &inertiaInverseW1,
                 const Quaternionr &q1,
                 const Eigen::Matrix<Real, 4, 7, Eigen::DontAlign> &hingeJointInfo,
-                Vector3r &corr_x0, Quaternionr &corr_q0,
-                Vector3r &corr_x1, Quaternionr &corr_q1,
+                Vector3r &corr_x0, Quaternionr &corr_q0, Vector3r &corr_x1,
+                Quaternionr &corr_q1,
                 Real &stiffness,
                 Real &dt,
                 Real &alphaswing,
-                Real &betaswing
-        );
+                Real &betaswing);
     };
 }
 

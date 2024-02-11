@@ -121,7 +121,8 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
         betaswing,
         alphatwist,
         betatwist,
-        0.5);
+        0.5
+        );
 
     if (res)
 	{
@@ -274,23 +275,23 @@ bool HingeJoint::solvePositionConstraint(SimulationModel &model, const unsigned 
     const Real dt = TimeManager::getCurrent()->getTimeStepSize();
 
 	const bool res = PositionBasedRigidBodyDynamics::solve_MuellerHingeJoint(
-		rb1.getInvMass(),
-		rb1.getPosition(),
-		rb1.getInertiaTensorInverseW(),
-		rb1.getRotation(),
-		rb2.getInvMass(),
-		rb2.getPosition(),
-		rb2.getInertiaTensorInverseW(),
-		rb2.getRotation(),
-		m_jointInfo,
-		corr_x1,
-		corr_q1,
-		corr_x2,
-		corr_q2,
-        stiffness,
-        const_cast<Real &>(dt),
-        alpha,
-        beta);
+            rb1.getInvMass(),
+            rb1.getPosition(),
+            rb1.getInertiaTensorInverseW(),
+            rb1.getRotation(),
+            rb2.getInvMass(),
+            rb2.getPosition(),
+            rb2.getInertiaTensorInverseW(),
+            rb2.getRotation(),
+            m_jointInfo,
+            corr_x1,
+            corr_q1,
+            corr_x2,
+            corr_q2,
+            stiffness,
+            const_cast<Real &>(dt),
+            alpha,
+            beta);
 
 	if (res)
 	{

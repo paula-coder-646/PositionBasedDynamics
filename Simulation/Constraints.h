@@ -19,32 +19,43 @@ namespace PBD
 	public: 
 		/** indices of the linked bodies */
 		std::vector<unsigned int> m_bodies;
+        std::string name;
+
+
 
 		Constraint(const unsigned int numberOfBodies) 
 		{
-			m_bodies.resize(numberOfBodies); 
+			m_bodies.resize(numberOfBodies);
+            name = "undefined";
 		}
 
 		unsigned int numberOfBodies() const { return static_cast<unsigned int>(m_bodies.size()); }
 		virtual ~Constraint() {};
 		virtual int &getTypeId() const = 0;
+        virtual std::basic_string<char> getName() const { return name;}
 
 		virtual bool initConstraintBeforeProjection(SimulationModel &model) { return true; };
 		virtual bool updateConstraint(SimulationModel &model) { return true; };
 		virtual bool solvePositionConstraint(SimulationModel &model, const unsigned int iter) { return true; };
 		virtual bool solveVelocityConstraint(SimulationModel &model, const unsigned int iter) { return true; };
-	};
+
+    };
 
 	class BallJoint : public Constraint
 	{
 	public:
 		static int TYPE_ID;
 		Eigen::Matrix<Real, 3, 6, Eigen::DontAlign> m_jointInfo;
+        std::string name;
 
 
 
-		BallJoint() : Constraint(2) {}
+		BallJoint() : Constraint(2) {
+            name = "BallJoint";
+        }
 		virtual int &getTypeId() const { return TYPE_ID; }
+
+        std::basic_string<char> getName() const { return name;}
 
 		bool initConstraint(SimulationModel &model, const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos);
 		virtual bool updateConstraint(SimulationModel &model);
@@ -71,7 +82,9 @@ namespace PBD
 		static int TYPE_ID;
 		Eigen::Matrix<Real, 4, 7, Eigen::DontAlign> m_jointInfo;
 
-		HingeJoint() : Constraint(2) {}
+		HingeJoint() : Constraint(2) {
+            name = "HingeJoint";
+        }
 		virtual int &getTypeId() const { return TYPE_ID; }
 
 		bool initConstraint(SimulationModel &model, const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos, const Vector3r &axis);
@@ -245,9 +258,11 @@ namespace PBD
 		static int TYPE_ID;
 		Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> m_jointInfo;
 		Real m_restLength;
-        Real lastlambda = 0.0;
 
-		DistanceJoint() : Constraint(2) {}
+
+		DistanceJoint() : Constraint(2) {
+           name = "DistanceJoint";
+        }
 		virtual int &getTypeId() const { return TYPE_ID; }
 
 		bool initConstraint(SimulationModel &model, const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos1, const Vector3r &pos2);
