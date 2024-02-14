@@ -33,7 +33,7 @@ namespace PBD
 		
 		void positionConstraintProjection(SimulationModel &model);
 		void velocityConstraintProjection(SimulationModel &model);
-        bool collectData(Constraint &constraint, std::string filename);
+        bool collectData(Constraint &constraint, SimulationModel &model, std::string filename);
         static bool initializeDataStorage(const std::string &filePath);
 
 

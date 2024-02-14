@@ -38,6 +38,7 @@ namespace PBD
 		virtual bool updateConstraint(SimulationModel &model) { return true; };
 		virtual bool solvePositionConstraint(SimulationModel &model, const unsigned int iter) { return true; };
 		virtual bool solveVelocityConstraint(SimulationModel &model, const unsigned int iter) { return true; };
+        virtual Real computeEnergy(SimulationModel &model) { return 0.0; };
 
     };
 
@@ -60,7 +61,9 @@ namespace PBD
 		bool initConstraint(SimulationModel &model, const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos);
 		virtual bool updateConstraint(SimulationModel &model);
 		virtual bool solvePositionConstraint(SimulationModel &model, const unsigned int iter);
-	};	
+
+        Real computeEnergy(SimulationModel &model);
+    };
 
 	class BallOnLineJoint : public Constraint
 	{
@@ -90,7 +93,9 @@ namespace PBD
 		bool initConstraint(SimulationModel &model, const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos, const Vector3r &axis);
 		virtual bool updateConstraint(SimulationModel &model);
 		virtual bool solvePositionConstraint(SimulationModel &model, const unsigned int iter);
-	};
+
+        Real computeEnergy(SimulationModel &model);
+    };
  
 	class UniversalJoint : public Constraint
 	{
@@ -268,7 +273,9 @@ namespace PBD
 		bool initConstraint(SimulationModel &model, const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos1, const Vector3r &pos2);
 		virtual bool updateConstraint(SimulationModel &model);
 		virtual bool solvePositionConstraint(SimulationModel &model, const unsigned int iter);
-	};
+
+        Real computeEnergy(SimulationModel &model);
+    };
  
 	class DistanceConstraint : public Constraint
 	{

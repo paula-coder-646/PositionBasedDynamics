@@ -145,6 +145,21 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
 	}
 	return res;
 }
+Real BallJoint::computeEnergy(PBD::SimulationModel &model)
+{
+    SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
+
+    RigidBody &rb1 = *rb[m_bodies[0]];
+    RigidBody &rb2 = *rb[m_bodies[1]];
+
+    const Vector3r &c0 = m_jointInfo.col(2);
+    const Vector3r &c1 = m_jointInfo.col(3);
+
+    const Real length = fabs((c0 - c1).stableNorm());
+
+    Real energy = 0.5 * pow(length, 2.0);
+    return energy;
+}
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -264,7 +279,7 @@ bool HingeJoint::solvePositionConstraint(SimulationModel &model, const unsigned 
 	RigidBody &rb2 = *rb[m_bodies[1]];
 
     Real alpha = 0.0;
-    Real beta = 1.0;
+    Real beta = 180.0;
     Vector3r corr_x1 = Vector3r::Zero();
     Vector3r corr_x2 = Vector3r::Zero();
 
@@ -313,7 +328,41 @@ bool HingeJoint::solvePositionConstraint(SimulationModel &model, const unsigned 
 	return res;
 }
 
+Real HingeJoint::computeEnergy(PBD::SimulationModel &model)
+{
+    Real energy = 0.0;
 
+    SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
+
+    RigidBody &rb1 = *rb[m_bodies[0]];
+    RigidBody &rb2 = *rb[m_bodies[1]];
+
+    const Vector3r x0 = rb1.getPosition();
+
+    const Vector3r &c0 = m_jointInfo.block<3, 1>(0, 2);
+    const Vector3r &c1 = m_jointInfo.block<3, 1>(0, 3);
+
+    const Real length = (c0 - c1).stableNorm();
+
+    energy += 0.5 * pow(length, 2.0);
+
+    // Get Orientation Energy
+    Matrix3r rot0 = rb1.getRotation().matrix();
+    Matrix3r rot1 = rb2.getRotation().matrix();
+    Matrix3r rot0T = rot0.transpose();
+    Matrix3r rot1T = rot1.transpose();
+
+    Vector3r a0l = m_jointInfo.block<3, 1>(0, 6).normalized();
+    Vector3r a1l = m_jointInfo.block<3, 1>(0, 5).normalized();
+    Vector3r a0g = (rot0 * a0l).normalized();
+    Vector3r a1g = (rot1 * a1l).normalized();
+
+    Vector3r hingecorr = a0g.cross(a1g);
+
+    energy += 0.5 * pow(hingecorr.norm(), 2.0);
+
+    return energy;
+}
 //////////////////////////////////////////////////////////////////////////
 // UniversalJoint
 //////////////////////////////////////////////////////////////////////////
@@ -1198,6 +1247,22 @@ bool DistanceJoint::solvePositionConstraint(SimulationModel &model, const unsign
 		}
 	}
 	return res;
+}
+
+Real DistanceJoint::computeEnergy(PBD::SimulationModel &model)
+{
+    SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
+
+    RigidBody &rb1 = *rb[m_bodies[0]];
+    RigidBody &rb2 = *rb[m_bodies[1]];
+
+    const Vector3r &c0 = m_jointInfo.col(2);
+    const Vector3r &c1 = m_jointInfo.col(3);
+
+    const Real length = fabs((c0 - c1).stableNorm());
+
+    Real energy = 0.5 * pow(length, 2.0);
+    return energy;
 }
 
 //////////////////////////////////////////////////////////////////////////

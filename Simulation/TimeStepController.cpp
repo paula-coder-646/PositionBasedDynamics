@@ -280,8 +280,7 @@ void TimeStepController::positionConstraintProjection(SimulationModel &model)
 					const unsigned int constraintIndex = groups[group][i];
 
 					constraints[constraintIndex]->updateConstraint(model);
-                    std::string name = constraints[constraintIndex]->getName();
-                    cout << name << "\n";
+                    collectData(*constraints[constraintIndex], model, "mueller.txt");
 					constraints[constraintIndex]->solvePositionConstraint(model, m_iterations);
 				}
 			}
@@ -375,7 +374,7 @@ bool TimeStepController::initializeDataStorage(const std::string& filePath) {
 }
 
 
-bool TimeStepController::collectData(Constraint &constraint, std::string filename)
+bool TimeStepController::collectData(Constraint &constraint, SimulationModel &model, std::string filename)
 {
     /*
      * What do I want here:
@@ -386,62 +385,13 @@ bool TimeStepController::collectData(Constraint &constraint, std::string filenam
      *      If Hinge Joint, Extract Distance Energy + Hinge Constraint Energy
      * - Write Name, Type, Global Iteration Count, Energy into CSV
      */
-    RigidBody &rb1 = *constraint.m_bodies[0];
-    RigidBody &rb2 = *constraint.m_bodies[1];
-
-    const Real invMass0 = rb1.getInvMass();
-    const Vector3r &x0 = rb1.getPosition();
-    const Matrix3r &inertiaInverseW0 = rb1.getInertiaTensorInverseW();
-    const Quaternionr &q0 = rb1.getRotation();
-    const Real invMass1 = rb2.getInvMass();
-    const Vector3r &x1 = rb2.getPosition();
-    const Matrix3r &inertiaInverseW1 = rb2.getInertiaTensorInverseW();
-    const Quaternionr &q1 = rb2.getRotation();
     Real energy = 0.0;
     Real time = TimeManager::getCurrent()->getTime();
 
     // Calculate Energy of Constraint
-    if (constraint.getName() == "BallJoint")
+    if (constraint.getName() == "BallJoint" || constraint.getName() == "HingeJoint")
     {
-        // Get Distance Energy
-        const Vector3r &c0 = constraint.jointInfo.col(2);
-        const Vector3r &c1 = constraint.jointInfo.col(3);
-        const Vector3r &c0g = c0 - x0;
-        const Vector3r &c1g = c1 - x1;
-        const Vector3r &c0l = constraint.jointInfo.col(0);
-        const Vector3r &c1l = constraint.jointInfo.col(1);
-        const Real length = (c0 - c1).stableNorm();
-
-        const Real c = (length - restLength);
-        energy += pow(c, 2.0);
-    }
-    else if (constraint.getName() == "HingeJoint")
-    {
-        // Get Distance Energy
-        const Vector3r &c0 = constraint.jointInfo.col(2);
-        const Vector3r &c1 = constraint.jointInfo.col(3);
-        const Vector3r &c0g = c0 - x0;
-        const Vector3r &c1g = c1 - x1;
-        const Vector3r &c0l = constraint.jointInfo.col(0);
-        const Vector3r &c1l = constraint.jointInfo.col(1);
-        const Real length = (c0 - c1).stableNorm();
-
-        const Real c = (length - restLength);
-        energy += pow(c, 2.0);
-
-        // Get Orientation Energy
-        Matrix3r rot0 = q0.matrix();
-        Matrix3r rot1 = q1.matrix();
-        Matrix3r rot0T = rot0.transpose();
-        Matrix3r rot1T = rot1.transpose();
-
-        Vector3r a0l = constraint.m_jointInfo.block<3, 1>(0, 6).normalized();
-        Vector3r a1l = constraint.m_jointInfo.block<3, 1>(0, 5).normalized();
-        Vector3r a0g = (rot0 * a0l).normalized();
-        Vector3r a1g = (rot1 * a1l).normalized();
-
-        Vector3r hingecorr = a0g.cross(a1g);
-        energy += pow(hingecorr.norm(), 2.0);
+        energy += constraint.computeEnergy(model);
     }
     else
     {
@@ -457,7 +407,7 @@ bool TimeStepController::collectData(Constraint &constraint, std::string filenam
     // Check if file is open
     if (!fileStream.is_open()) {
         std::cerr << "Failed to open file for appending." << std::endl;
-        return;
+        return false;
     }
     //"JointType,JointNumber,IterationCount,ConstraintPotential
     // Write the values to the file, separated by commas
@@ -466,9 +416,7 @@ bool TimeStepController::collectData(Constraint &constraint, std::string filenam
     // Close the file (optional here, because the destructor will automatically close it)
     fileStream.close();
 
-
-
-
+    return true;
 }
 
 
