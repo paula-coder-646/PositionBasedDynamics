@@ -726,13 +726,19 @@ void DemoBase::renderHingeJoint(HingeJoint &joint)
 	const SimulationModel::RigidBodyVector &rigidBodies = model->getRigidBodies();
 	RigidBody *rb = rigidBodies[joint.m_bodies[0]];
 
-	const Vector3r &c = joint.m_jointInfo.block<3, 1>(0, 4);
+	const Vector3r &c = joint.m_jointInfo.block<3, 1>(0, 5);
 	const Vector3r &axis_local = joint.m_jointInfo.block<3, 1>(0, 6);
 	const Vector3r axis = rb->getRotation().matrix() * axis_local;
 
 	MiniGL::drawSphere(c - 0.5*axis, 0.1f, m_jointColor);
 	MiniGL::drawSphere(c + 0.5*axis, 0.1f, m_jointColor);
 	MiniGL::drawCylinder(c - 0.5*axis, c + 0.5*axis, m_jointColor, 0.05f);
+
+    /*
+    for (int i = 0; i < helpvectors.rows(); ++i) {
+        MiniGL::drawCylinder(c - 0.5*axis, c + 0.5*axis, m_jointColor, 0.05f);
+    }
+
 }
 
 void DemoBase::renderUniversalJoint(UniversalJoint &uj)

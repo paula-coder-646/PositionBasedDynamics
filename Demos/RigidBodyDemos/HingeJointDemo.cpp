@@ -139,11 +139,14 @@ void createBodyModel()
 	SimulationModel *model = Simulation::getCurrent()->getModel();
 	SimulationModel::RigidBodyVector &rb = model->getRigidBodies();
 
+    // Dynamic Body
 	string fileName = FileSystem::normalizePath(base->getExePath() + "/resources/models/cube.obj");
 	IndexedFaceMesh mesh;
 	VertexData vd;
 	DemoBase::loadMesh(fileName, vd, mesh, Vector3r::Zero(), Matrix3r::Identity(), Vector3r(width, height, depth));
 	mesh.setFlatShading(true);
+
+    // Static Body
 	IndexedFaceMesh meshStatic;
 	VertexData vdStatic;
 	DemoBase::loadMesh(fileName, vdStatic, meshStatic, Vector3r::Zero(), Matrix3r::Identity(), Vector3r(0.5, 0.5, 0.5));
@@ -185,7 +188,7 @@ void createBodyModel()
 			Quaternionr(1.0, 0.0, 0.0, 0.0),
 			vd, mesh);
 
-		startX += 4.0;
+
 	}
 
 	Real jointY = 0.75;

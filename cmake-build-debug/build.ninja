@@ -81,7 +81,7 @@ build CopyImguiFonts: phony CMakeFiles/CopyImguiFonts
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -92,7 +92,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -110,7 +110,7 @@ build list_install_components: phony
 # Utility command for install
 
 build CMakeFiles/install.util: CUSTOM_COMMAND all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -122,7 +122,7 @@ build install: phony CMakeFiles/install.util
 # Utility command for install/local
 
 build CMakeFiles/install/local.util: CUSTOM_COMMAND all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -134,7 +134,7 @@ build install/local: phony CMakeFiles/install/local.util
 # Utility command for install/strip
 
 build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -152,7 +152,7 @@ build CMakeFiles/Ext_Discregrid | ${cmake_ninja_workdir}CMakeFiles/Ext_Discregri
 # Custom command for CMakeFiles/Ext_Discregrid-complete
 
 build CMakeFiles/Ext_Discregrid-complete extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-done | ${cmake_ninja_workdir}CMakeFiles/Ext_Discregrid-complete ${cmake_ninja_workdir}extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-done: CUSTOM_COMMAND extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-install extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-mkdir extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-download extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-update extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-patch extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-configure extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-build extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-install
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E make_directory /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/CMakeFiles && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/CMakeFiles/Ext_Discregrid-complete && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-done
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E make_directory /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/CMakeFiles && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/CMakeFiles/Ext_Discregrid-complete && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-done
   DESC = Completed 'Ext_Discregrid'
   restat = 1
 
@@ -161,7 +161,7 @@ build CMakeFiles/Ext_Discregrid-complete extern/Discregrid/src/Ext_Discregrid-st
 # Custom command for extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-build
 
 build extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-build | ${cmake_ninja_workdir}extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-build: CUSTOM_COMMAND extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-configure
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-build && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --build . && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-build
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-build && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --build . && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-build
   DESC = Performing build step for 'Ext_Discregrid'
   restat = 1
 
@@ -170,7 +170,7 @@ build extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-build | ${cmake_
 # Custom command for extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-configure
 
 build extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-configure | ${cmake_ninja_workdir}extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-configure: CUSTOM_COMMAND extern/Discregrid/tmp/Ext_Discregrid-cfgcmd.txt extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-patch
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-build && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_INSTALL_PREFIX:PATH=/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid -DBUILD_CMD_EXECUTABLE:BOOL=0 -DEIGEN3_INCLUDE_DIR:PATH=/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -DCMAKE_CXX_FLAGS= -GNinja -S /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid -B /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-build && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-configure
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-build && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_INSTALL_PREFIX:PATH=/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Discregrid -DBUILD_CMD_EXECUTABLE:BOOL=0 -DEIGEN3_INCLUDE_DIR:PATH=/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -DCMAKE_CXX_FLAGS= -GNinja -S /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid -B /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-build && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-configure
   DESC = Performing configure step for 'Ext_Discregrid'
   restat = 1
 
@@ -179,7 +179,7 @@ build extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-configure | ${cm
 # Custom command for extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-download
 
 build extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-download | ${cmake_ninja_workdir}extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-download: CUSTOM_COMMAND extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-gitinfo.txt extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-mkdir
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/tmp/Ext_Discregrid-gitclone.cmake && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-download
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/tmp/Ext_Discregrid-gitclone.cmake && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-download
   DESC = Performing download step (git clone) for 'Ext_Discregrid'
   restat = 1
 
@@ -188,7 +188,7 @@ build extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-download | ${cma
 # Custom command for extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-install
 
 build extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-install | ${cmake_ninja_workdir}extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-install: CUSTOM_COMMAND extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-build
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-build && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --build . --target install && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-install
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-build && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --build . --target install && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-install
   DESC = Performing install step for 'Ext_Discregrid'
   restat = 1
 
@@ -197,7 +197,7 @@ build extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-install | ${cmak
 # Custom command for extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-mkdir
 
 build extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-mkdir | ${cmake_ninja_workdir}extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-mkdir: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -Dcfgdir= -P /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/tmp/Ext_Discregrid-mkdirs.cmake && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-mkdir
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -Dcfgdir= -P /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/tmp/Ext_Discregrid-mkdirs.cmake && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-mkdir
   DESC = Creating directories for 'Ext_Discregrid'
   restat = 1
 
@@ -206,7 +206,7 @@ build extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-mkdir | ${cmake_
 # Custom command for extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-patch
 
 build extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-patch | ${cmake_ninja_workdir}extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-patch: CUSTOM_COMMAND extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-patch-info.txt extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-update
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo_append && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-patch
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo_append && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-patch
   DESC = No patch step for 'Ext_Discregrid'
   restat = 1
 
@@ -215,7 +215,7 @@ build extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-patch | ${cmake_
 # Custom command for extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-update
 
 build extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-update | ${cmake_ninja_workdir}extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-update: CUSTOM_COMMAND extern/Discregrid/tmp/Ext_Discregrid-gitupdate.cmake extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-update-info.txt extern/Discregrid/src/Ext_Discregrid-stamp/Ext_Discregrid-download
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -Dcan_fetch=YES -P /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/tmp/Ext_Discregrid-gitupdate.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -Dcan_fetch=YES -P /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/Discregrid/tmp/Ext_Discregrid-gitupdate.cmake
   DESC = Performing update step for 'Ext_Discregrid'
 
 
@@ -229,7 +229,7 @@ build CMakeFiles/Ext_GenericParameters | ${cmake_ninja_workdir}CMakeFiles/Ext_Ge
 # Custom command for CMakeFiles/Ext_GenericParameters-complete
 
 build CMakeFiles/Ext_GenericParameters-complete GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-done | ${cmake_ninja_workdir}CMakeFiles/Ext_GenericParameters-complete ${cmake_ninja_workdir}GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-done: CUSTOM_COMMAND GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-install GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-mkdir GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-download GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-update GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-patch GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-configure GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-install
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E make_directory /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/CMakeFiles && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/CMakeFiles/Ext_GenericParameters-complete && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-done
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E make_directory /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/CMakeFiles && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/CMakeFiles/Ext_GenericParameters-complete && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-done
   DESC = Completed 'Ext_GenericParameters'
   restat = 1
 
@@ -238,7 +238,7 @@ build CMakeFiles/Ext_GenericParameters-complete GenericParameters/src/Ext_Generi
 # Custom command for GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-build
 
 build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-build | ${cmake_ninja_workdir}GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-build: CUSTOM_COMMAND GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-configure
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-build && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --build . && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-build
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-build && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --build . && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-build
   DESC = Performing build step for 'Ext_GenericParameters'
   restat = 1
 
@@ -247,7 +247,7 @@ build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-bu
 # Custom command for GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-configure
 
 build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-configure | ${cmake_ninja_workdir}GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-configure: CUSTOM_COMMAND GenericParameters/tmp/Ext_GenericParameters-cfgcmd.txt GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-patch
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-build && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX:PATH=/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters -DGENERICPARAMETERS_NO_TESTS:BOOL=1 -GNinja -S /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters -B /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-build && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-configure
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-build && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX:PATH=/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters -DGENERICPARAMETERS_NO_TESTS:BOOL=1 -GNinja -S /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters -B /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-build && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-configure
   DESC = Performing configure step for 'Ext_GenericParameters'
   restat = 1
 
@@ -256,7 +256,7 @@ build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-co
 # Custom command for GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-download
 
 build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-download | ${cmake_ninja_workdir}GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-download: CUSTOM_COMMAND GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-gitinfo.txt GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-mkdir
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/tmp/Ext_GenericParameters-gitclone.cmake && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-download
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/tmp/Ext_GenericParameters-gitclone.cmake && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-download
   DESC = Performing download step (git clone) for 'Ext_GenericParameters'
   restat = 1
 
@@ -265,7 +265,7 @@ build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-do
 # Custom command for GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-install
 
 build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-install | ${cmake_ninja_workdir}GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-install: CUSTOM_COMMAND GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-build
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-build && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --build . --target install && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-install
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-build && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --build . --target install && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-install
   DESC = Performing install step for 'Ext_GenericParameters'
   restat = 1
 
@@ -274,7 +274,7 @@ build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-in
 # Custom command for GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-mkdir
 
 build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-mkdir | ${cmake_ninja_workdir}GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-mkdir: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -Dcfgdir= -P /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/tmp/Ext_GenericParameters-mkdirs.cmake && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-mkdir
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -Dcfgdir= -P /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/tmp/Ext_GenericParameters-mkdirs.cmake && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-mkdir
   DESC = Creating directories for 'Ext_GenericParameters'
   restat = 1
 
@@ -283,7 +283,7 @@ build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-mk
 # Custom command for GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-patch
 
 build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-patch | ${cmake_ninja_workdir}GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-patch: CUSTOM_COMMAND GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-patch-info.txt GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-update
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo_append && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-patch
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo_append && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E touch /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-patch
   DESC = No patch step for 'Ext_GenericParameters'
   restat = 1
 
@@ -292,7 +292,7 @@ build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-pa
 # Custom command for GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-update
 
 build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-update | ${cmake_ninja_workdir}GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-update: CUSTOM_COMMAND GenericParameters/tmp/Ext_GenericParameters-gitupdate.cmake GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-update-info.txt GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-download
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -Dcan_fetch=YES -P /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/tmp/Ext_GenericParameters-gitupdate.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/src/Ext_GenericParameters && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -Dcan_fetch=YES -P /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/GenericParameters/tmp/Ext_GenericParameters-gitupdate.cmake
   DESC = Performing update step for 'Ext_GenericParameters'
 
 
@@ -300,7 +300,7 @@ build GenericParameters/src/Ext_GenericParameters-stamp/Ext_GenericParameters-up
 # Custom command for CMakeFiles/CopyPBDShaders
 
 build CMakeFiles/CopyPBDShaders | ${cmake_ninja_workdir}CMakeFiles/CopyPBDShaders: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E copy_directory /home/paula/Desktop/PBD/PositionBasedDynamics/data/shaders /home/paula/Desktop/PBD/PositionBasedDynamics/bin/resources/shaders
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E copy_directory /home/paula/Desktop/PBD/PositionBasedDynamics/data/shaders /home/paula/Desktop/PBD/PositionBasedDynamics/bin/resources/shaders
   DESC = Copying PBD shaders
 
 
@@ -308,7 +308,7 @@ build CMakeFiles/CopyPBDShaders | ${cmake_ninja_workdir}CMakeFiles/CopyPBDShader
 # Custom command for CMakeFiles/CopyPBDModels
 
 build CMakeFiles/CopyPBDModels | ${cmake_ninja_workdir}CMakeFiles/CopyPBDModels: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E copy_directory /home/paula/Desktop/PBD/PositionBasedDynamics/data/models /home/paula/Desktop/PBD/PositionBasedDynamics/bin/resources/models
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E copy_directory /home/paula/Desktop/PBD/PositionBasedDynamics/data/models /home/paula/Desktop/PBD/PositionBasedDynamics/bin/resources/models
   DESC = Copying PBD models
 
 
@@ -316,7 +316,7 @@ build CMakeFiles/CopyPBDModels | ${cmake_ninja_workdir}CMakeFiles/CopyPBDModels:
 # Custom command for CMakeFiles/CopyPBDScenes
 
 build CMakeFiles/CopyPBDScenes | ${cmake_ninja_workdir}CMakeFiles/CopyPBDScenes: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E copy_directory /home/paula/Desktop/PBD/PositionBasedDynamics/data/scenes /home/paula/Desktop/PBD/PositionBasedDynamics/bin/resources/scenes
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E copy_directory /home/paula/Desktop/PBD/PositionBasedDynamics/data/scenes /home/paula/Desktop/PBD/PositionBasedDynamics/bin/resources/scenes
   DESC = Copying PBD scenes
 
 
@@ -324,7 +324,7 @@ build CMakeFiles/CopyPBDScenes | ${cmake_ninja_workdir}CMakeFiles/CopyPBDScenes:
 # Custom command for CMakeFiles/CopyImguiFonts
 
 build CMakeFiles/CopyImguiFonts | ${cmake_ninja_workdir}CMakeFiles/CopyImguiFonts: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E copy_directory /home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui/misc/fonts /home/paula/Desktop/PBD/PositionBasedDynamics/bin/resources/fonts
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E copy_directory /home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui/misc/fonts /home/paula/Desktop/PBD/PositionBasedDynamics/bin/resources/fonts
   DESC = Copying fonts
 
 # =============================================================================
@@ -426,7 +426,7 @@ build lib/libPositionBasedDynamics_d.a: CXX_STATIC_LIBRARY_LINKER__PositionBased
 # Utility command for edit_cache
 
 build PositionBasedDynamics/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/PositionBasedDynamics && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/PositionBasedDynamics && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -437,7 +437,7 @@ build PositionBasedDynamics/edit_cache: phony PositionBasedDynamics/CMakeFiles/e
 # Utility command for rebuild_cache
 
 build PositionBasedDynamics/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/PositionBasedDynamics && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/PositionBasedDynamics && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -455,7 +455,7 @@ build PositionBasedDynamics/list_install_components: phony
 # Utility command for install
 
 build PositionBasedDynamics/CMakeFiles/install.util: CUSTOM_COMMAND PositionBasedDynamics/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/PositionBasedDynamics && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/PositionBasedDynamics && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -467,7 +467,7 @@ build PositionBasedDynamics/install: phony PositionBasedDynamics/CMakeFiles/inst
 # Utility command for install/local
 
 build PositionBasedDynamics/CMakeFiles/install/local.util: CUSTOM_COMMAND PositionBasedDynamics/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/PositionBasedDynamics && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/PositionBasedDynamics && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -479,7 +479,7 @@ build PositionBasedDynamics/install/local: phony PositionBasedDynamics/CMakeFile
 # Utility command for install/strip
 
 build PositionBasedDynamics/CMakeFiles/install/strip.util: CUSTOM_COMMAND PositionBasedDynamics/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/PositionBasedDynamics && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/PositionBasedDynamics && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -649,7 +649,7 @@ build lib/libSimulation_d.a: CXX_STATIC_LIBRARY_LINKER__Simulation_Debug Simulat
 # Utility command for edit_cache
 
 build Simulation/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Simulation && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Simulation && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -660,7 +660,7 @@ build Simulation/edit_cache: phony Simulation/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build Simulation/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Simulation && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Simulation && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -678,7 +678,7 @@ build Simulation/list_install_components: phony
 # Utility command for install
 
 build Simulation/CMakeFiles/install.util: CUSTOM_COMMAND Simulation/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Simulation && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Simulation && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -690,7 +690,7 @@ build Simulation/install: phony Simulation/CMakeFiles/install.util
 # Utility command for install/local
 
 build Simulation/CMakeFiles/install/local.util: CUSTOM_COMMAND Simulation/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Simulation && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Simulation && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -702,7 +702,7 @@ build Simulation/install/local: phony Simulation/CMakeFiles/install/local.util
 # Utility command for install/strip
 
 build Simulation/CMakeFiles/install/strip.util: CUSTOM_COMMAND Simulation/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Simulation && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Simulation && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -784,7 +784,7 @@ build lib/libUtils_d.a: CXX_STATIC_LIBRARY_LINKER__Utils_Debug Utils/CMakeFiles/
 # Utility command for edit_cache
 
 build Utils/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Utils && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Utils && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -795,7 +795,7 @@ build Utils/edit_cache: phony Utils/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build Utils/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Utils && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Utils && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -813,7 +813,7 @@ build Utils/list_install_components: phony
 # Utility command for install
 
 build Utils/CMakeFiles/install.util: CUSTOM_COMMAND Utils/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Utils && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Utils && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -825,7 +825,7 @@ build Utils/install: phony Utils/CMakeFiles/install.util
 # Utility command for install/local
 
 build Utils/CMakeFiles/install/local.util: CUSTOM_COMMAND Utils/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Utils && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Utils && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -837,7 +837,7 @@ build Utils/install/local: phony Utils/CMakeFiles/install/local.util
 # Utility command for install/strip
 
 build Utils/CMakeFiles/install/strip.util: CUSTOM_COMMAND Utils/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Utils && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Utils && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -854,7 +854,7 @@ build Utils/install/strip: phony Utils/CMakeFiles/install/strip.util
 # Utility command for edit_cache
 
 build extern/glfw/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -865,7 +865,7 @@ build extern/glfw/edit_cache: phony extern/glfw/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build extern/glfw/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -883,7 +883,7 @@ build extern/glfw/list_install_components: phony
 # Utility command for install
 
 build extern/glfw/CMakeFiles/install.util: CUSTOM_COMMAND extern/glfw/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -895,7 +895,7 @@ build extern/glfw/install: phony extern/glfw/CMakeFiles/install.util
 # Utility command for install/local
 
 build extern/glfw/CMakeFiles/install/local.util: CUSTOM_COMMAND extern/glfw/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -907,7 +907,7 @@ build extern/glfw/install/local: phony extern/glfw/CMakeFiles/install/local.util
 # Utility command for install/strip
 
 build extern/glfw/CMakeFiles/install/strip.util: CUSTOM_COMMAND extern/glfw/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -1077,7 +1077,7 @@ build lib/libglfw3_d.a: C_STATIC_LIBRARY_LINKER__glfw_Debug extern/glfw/src/CMak
 # Utility command for edit_cache
 
 build extern/glfw/src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw/src && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw/src && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -1088,7 +1088,7 @@ build extern/glfw/src/edit_cache: phony extern/glfw/src/CMakeFiles/edit_cache.ut
 # Utility command for rebuild_cache
 
 build extern/glfw/src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw/src && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw/src && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1106,7 +1106,7 @@ build extern/glfw/src/list_install_components: phony
 # Utility command for install
 
 build extern/glfw/src/CMakeFiles/install.util: CUSTOM_COMMAND extern/glfw/src/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw/src && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw/src && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -1118,7 +1118,7 @@ build extern/glfw/src/install: phony extern/glfw/src/CMakeFiles/install.util
 # Utility command for install/local
 
 build extern/glfw/src/CMakeFiles/install/local.util: CUSTOM_COMMAND extern/glfw/src/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw/src && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw/src && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -1130,7 +1130,7 @@ build extern/glfw/src/install/local: phony extern/glfw/src/CMakeFiles/install/lo
 # Utility command for install/strip
 
 build extern/glfw/src/CMakeFiles/install/strip.util: CUSTOM_COMMAND extern/glfw/src/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw/src && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/glfw/src && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -1228,7 +1228,7 @@ build lib/libimgui_d.a: CXX_STATIC_LIBRARY_LINKER__imgui_Debug extern/imgui/CMak
 # Utility command for edit_cache
 
 build extern/imgui/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/imgui && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/imgui && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -1239,7 +1239,7 @@ build extern/imgui/edit_cache: phony extern/imgui/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build extern/imgui/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/imgui && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/imgui && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1257,7 +1257,7 @@ build extern/imgui/list_install_components: phony
 # Utility command for install
 
 build extern/imgui/CMakeFiles/install.util: CUSTOM_COMMAND extern/imgui/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/imgui && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/imgui && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -1269,7 +1269,7 @@ build extern/imgui/install: phony extern/imgui/CMakeFiles/install.util
 # Utility command for install/local
 
 build extern/imgui/CMakeFiles/install/local.util: CUSTOM_COMMAND extern/imgui/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/imgui && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/imgui && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -1281,7 +1281,7 @@ build extern/imgui/install/local: phony extern/imgui/CMakeFiles/install/local.ut
 # Utility command for install/strip
 
 build extern/imgui/CMakeFiles/install/strip.util: CUSTOM_COMMAND extern/imgui/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/imgui && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/imgui && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -1331,7 +1331,7 @@ build lib/libMD5_d.a: CXX_STATIC_LIBRARY_LINKER__MD5_Debug extern/md5/CMakeFiles
 # Utility command for edit_cache
 
 build extern/md5/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/md5 && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/md5 && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -1342,7 +1342,7 @@ build extern/md5/edit_cache: phony extern/md5/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build extern/md5/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/md5 && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/md5 && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1360,7 +1360,7 @@ build extern/md5/list_install_components: phony
 # Utility command for install
 
 build extern/md5/CMakeFiles/install.util: CUSTOM_COMMAND extern/md5/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/md5 && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/md5 && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -1372,7 +1372,7 @@ build extern/md5/install: phony extern/md5/CMakeFiles/install.util
 # Utility command for install/local
 
 build extern/md5/CMakeFiles/install/local.util: CUSTOM_COMMAND extern/md5/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/md5 && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/md5 && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -1384,7 +1384,7 @@ build extern/md5/install/local: phony extern/md5/CMakeFiles/install/local.util
 # Utility command for install/strip
 
 build extern/md5/CMakeFiles/install/strip.util: CUSTOM_COMMAND extern/md5/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/md5 && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/extern/md5 && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -1401,7 +1401,7 @@ build extern/md5/install/strip: phony extern/md5/CMakeFiles/install/strip.util
 # Utility command for edit_cache
 
 build Demos/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -1412,7 +1412,7 @@ build Demos/edit_cache: phony Demos/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build Demos/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1430,7 +1430,7 @@ build Demos/list_install_components: phony
 # Utility command for install
 
 build Demos/CMakeFiles/install.util: CUSTOM_COMMAND Demos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -1442,7 +1442,7 @@ build Demos/install: phony Demos/CMakeFiles/install.util
 # Utility command for install/local
 
 build Demos/CMakeFiles/install/local.util: CUSTOM_COMMAND Demos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -1454,7 +1454,7 @@ build Demos/install/local: phony Demos/CMakeFiles/install/local.util
 # Utility command for install/strip
 
 build Demos/CMakeFiles/install/strip.util: CUSTOM_COMMAND Demos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -1562,7 +1562,7 @@ build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/BarDemo_d: CXX_EXECUTABL
 # Utility command for edit_cache
 
 build Demos/BarDemo/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/BarDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/BarDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -1573,7 +1573,7 @@ build Demos/BarDemo/edit_cache: phony Demos/BarDemo/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build Demos/BarDemo/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/BarDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/BarDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1591,7 +1591,7 @@ build Demos/BarDemo/list_install_components: phony
 # Utility command for install
 
 build Demos/BarDemo/CMakeFiles/install.util: CUSTOM_COMMAND Demos/BarDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/BarDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/BarDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -1603,7 +1603,7 @@ build Demos/BarDemo/install: phony Demos/BarDemo/CMakeFiles/install.util
 # Utility command for install/local
 
 build Demos/BarDemo/CMakeFiles/install/local.util: CUSTOM_COMMAND Demos/BarDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/BarDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/BarDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -1615,7 +1615,7 @@ build Demos/BarDemo/install/local: phony Demos/BarDemo/CMakeFiles/install/local.
 # Utility command for install/strip
 
 build Demos/BarDemo/CMakeFiles/install/strip.util: CUSTOM_COMMAND Demos/BarDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/BarDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/BarDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -1723,7 +1723,7 @@ build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/ClothDemo_d: CXX_EXECUTA
 # Utility command for edit_cache
 
 build Demos/ClothDemo/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/ClothDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/ClothDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -1734,7 +1734,7 @@ build Demos/ClothDemo/edit_cache: phony Demos/ClothDemo/CMakeFiles/edit_cache.ut
 # Utility command for rebuild_cache
 
 build Demos/ClothDemo/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/ClothDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/ClothDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1752,7 +1752,7 @@ build Demos/ClothDemo/list_install_components: phony
 # Utility command for install
 
 build Demos/ClothDemo/CMakeFiles/install.util: CUSTOM_COMMAND Demos/ClothDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/ClothDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/ClothDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -1764,7 +1764,7 @@ build Demos/ClothDemo/install: phony Demos/ClothDemo/CMakeFiles/install.util
 # Utility command for install/local
 
 build Demos/ClothDemo/CMakeFiles/install/local.util: CUSTOM_COMMAND Demos/ClothDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/ClothDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/ClothDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -1776,7 +1776,7 @@ build Demos/ClothDemo/install/local: phony Demos/ClothDemo/CMakeFiles/install/lo
 # Utility command for install/strip
 
 build Demos/ClothDemo/CMakeFiles/install/strip.util: CUSTOM_COMMAND Demos/ClothDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/ClothDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/ClothDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -1884,7 +1884,7 @@ build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/CosseratRodsDemo_d: CXX_
 # Utility command for edit_cache
 
 build Demos/CosseratRodsDemo/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CosseratRodsDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CosseratRodsDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -1895,7 +1895,7 @@ build Demos/CosseratRodsDemo/edit_cache: phony Demos/CosseratRodsDemo/CMakeFiles
 # Utility command for rebuild_cache
 
 build Demos/CosseratRodsDemo/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CosseratRodsDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CosseratRodsDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -1913,7 +1913,7 @@ build Demos/CosseratRodsDemo/list_install_components: phony
 # Utility command for install
 
 build Demos/CosseratRodsDemo/CMakeFiles/install.util: CUSTOM_COMMAND Demos/CosseratRodsDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CosseratRodsDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CosseratRodsDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -1925,7 +1925,7 @@ build Demos/CosseratRodsDemo/install: phony Demos/CosseratRodsDemo/CMakeFiles/in
 # Utility command for install/local
 
 build Demos/CosseratRodsDemo/CMakeFiles/install/local.util: CUSTOM_COMMAND Demos/CosseratRodsDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CosseratRodsDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CosseratRodsDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -1937,7 +1937,7 @@ build Demos/CosseratRodsDemo/install/local: phony Demos/CosseratRodsDemo/CMakeFi
 # Utility command for install/strip
 
 build Demos/CosseratRodsDemo/CMakeFiles/install/strip.util: CUSTOM_COMMAND Demos/CosseratRodsDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CosseratRodsDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CosseratRodsDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -2045,7 +2045,7 @@ build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/RigidBodyClothCouplingDe
 # Utility command for edit_cache
 
 build Demos/CouplingDemos/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CouplingDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CouplingDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -2056,7 +2056,7 @@ build Demos/CouplingDemos/edit_cache: phony Demos/CouplingDemos/CMakeFiles/edit_
 # Utility command for rebuild_cache
 
 build Demos/CouplingDemos/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CouplingDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CouplingDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -2074,7 +2074,7 @@ build Demos/CouplingDemos/list_install_components: phony
 # Utility command for install
 
 build Demos/CouplingDemos/CMakeFiles/install.util: CUSTOM_COMMAND Demos/CouplingDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CouplingDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CouplingDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -2086,7 +2086,7 @@ build Demos/CouplingDemos/install: phony Demos/CouplingDemos/CMakeFiles/install.
 # Utility command for install/local
 
 build Demos/CouplingDemos/CMakeFiles/install/local.util: CUSTOM_COMMAND Demos/CouplingDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CouplingDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CouplingDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -2098,7 +2098,7 @@ build Demos/CouplingDemos/install/local: phony Demos/CouplingDemos/CMakeFiles/in
 # Utility command for install/strip
 
 build Demos/CouplingDemos/CMakeFiles/install/strip.util: CUSTOM_COMMAND Demos/CouplingDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CouplingDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/CouplingDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -2388,7 +2388,7 @@ build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/RigidBodyCollisionDemo_d
 # Utility command for edit_cache
 
 build Demos/DistanceFieldDemos/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/DistanceFieldDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/DistanceFieldDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -2399,7 +2399,7 @@ build Demos/DistanceFieldDemos/edit_cache: phony Demos/DistanceFieldDemos/CMakeF
 # Utility command for rebuild_cache
 
 build Demos/DistanceFieldDemos/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/DistanceFieldDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/DistanceFieldDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -2417,7 +2417,7 @@ build Demos/DistanceFieldDemos/list_install_components: phony
 # Utility command for install
 
 build Demos/DistanceFieldDemos/CMakeFiles/install.util: CUSTOM_COMMAND Demos/DistanceFieldDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/DistanceFieldDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/DistanceFieldDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -2429,7 +2429,7 @@ build Demos/DistanceFieldDemos/install: phony Demos/DistanceFieldDemos/CMakeFile
 # Utility command for install/local
 
 build Demos/DistanceFieldDemos/CMakeFiles/install/local.util: CUSTOM_COMMAND Demos/DistanceFieldDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/DistanceFieldDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/DistanceFieldDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -2441,7 +2441,7 @@ build Demos/DistanceFieldDemos/install/local: phony Demos/DistanceFieldDemos/CMa
 # Utility command for install/strip
 
 build Demos/DistanceFieldDemos/CMakeFiles/install/strip.util: CUSTOM_COMMAND Demos/DistanceFieldDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/DistanceFieldDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/DistanceFieldDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -2565,7 +2565,7 @@ build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/FluidDemo_d: CXX_EXECUTA
 # Utility command for edit_cache
 
 build Demos/FluidDemo/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/FluidDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/FluidDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -2576,7 +2576,7 @@ build Demos/FluidDemo/edit_cache: phony Demos/FluidDemo/CMakeFiles/edit_cache.ut
 # Utility command for rebuild_cache
 
 build Demos/FluidDemo/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/FluidDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/FluidDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -2594,7 +2594,7 @@ build Demos/FluidDemo/list_install_components: phony
 # Utility command for install
 
 build Demos/FluidDemo/CMakeFiles/install.util: CUSTOM_COMMAND Demos/FluidDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/FluidDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/FluidDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -2606,7 +2606,7 @@ build Demos/FluidDemo/install: phony Demos/FluidDemo/CMakeFiles/install.util
 # Utility command for install/local
 
 build Demos/FluidDemo/CMakeFiles/install/local.util: CUSTOM_COMMAND Demos/FluidDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/FluidDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/FluidDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -2618,7 +2618,7 @@ build Demos/FluidDemo/install/local: phony Demos/FluidDemo/CMakeFiles/install/lo
 # Utility command for install/strip
 
 build Demos/FluidDemo/CMakeFiles/install/strip.util: CUSTOM_COMMAND Demos/FluidDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/FluidDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/FluidDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -2849,7 +2849,7 @@ build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/GenericRigidBodyConstrai
 # Utility command for edit_cache
 
 build Demos/GenericConstraintsDemos/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/GenericConstraintsDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/GenericConstraintsDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -2860,7 +2860,7 @@ build Demos/GenericConstraintsDemos/edit_cache: phony Demos/GenericConstraintsDe
 # Utility command for rebuild_cache
 
 build Demos/GenericConstraintsDemos/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/GenericConstraintsDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/GenericConstraintsDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -2878,7 +2878,7 @@ build Demos/GenericConstraintsDemos/list_install_components: phony
 # Utility command for install
 
 build Demos/GenericConstraintsDemos/CMakeFiles/install.util: CUSTOM_COMMAND Demos/GenericConstraintsDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/GenericConstraintsDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/GenericConstraintsDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -2890,7 +2890,7 @@ build Demos/GenericConstraintsDemos/install: phony Demos/GenericConstraintsDemos
 # Utility command for install/local
 
 build Demos/GenericConstraintsDemos/CMakeFiles/install/local.util: CUSTOM_COMMAND Demos/GenericConstraintsDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/GenericConstraintsDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/GenericConstraintsDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -2902,7 +2902,7 @@ build Demos/GenericConstraintsDemos/install/local: phony Demos/GenericConstraint
 # Utility command for install/strip
 
 build Demos/GenericConstraintsDemos/CMakeFiles/install/strip.util: CUSTOM_COMMAND Demos/GenericConstraintsDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/GenericConstraintsDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/GenericConstraintsDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -3034,7 +3034,7 @@ build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/ElasticRodDemo_d: CXX_EX
 # Utility command for edit_cache
 
 build Demos/PositionBasedElasticRodsDemo/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/PositionBasedElasticRodsDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/PositionBasedElasticRodsDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -3045,7 +3045,7 @@ build Demos/PositionBasedElasticRodsDemo/edit_cache: phony Demos/PositionBasedEl
 # Utility command for rebuild_cache
 
 build Demos/PositionBasedElasticRodsDemo/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/PositionBasedElasticRodsDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/PositionBasedElasticRodsDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -3063,7 +3063,7 @@ build Demos/PositionBasedElasticRodsDemo/list_install_components: phony
 # Utility command for install
 
 build Demos/PositionBasedElasticRodsDemo/CMakeFiles/install.util: CUSTOM_COMMAND Demos/PositionBasedElasticRodsDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/PositionBasedElasticRodsDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/PositionBasedElasticRodsDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -3075,7 +3075,7 @@ build Demos/PositionBasedElasticRodsDemo/install: phony Demos/PositionBasedElast
 # Utility command for install/local
 
 build Demos/PositionBasedElasticRodsDemo/CMakeFiles/install/local.util: CUSTOM_COMMAND Demos/PositionBasedElasticRodsDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/PositionBasedElasticRodsDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/PositionBasedElasticRodsDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -3087,7 +3087,7 @@ build Demos/PositionBasedElasticRodsDemo/install/local: phony Demos/PositionBase
 # Utility command for install/strip
 
 build Demos/PositionBasedElasticRodsDemo/CMakeFiles/install/strip.util: CUSTOM_COMMAND Demos/PositionBasedElasticRodsDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/PositionBasedElasticRodsDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/PositionBasedElasticRodsDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -3559,7 +3559,7 @@ build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/FallBallJointDemo_d: CXX
 # Utility command for edit_cache
 
 build Demos/RigidBodyDemos/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -3570,7 +3570,7 @@ build Demos/RigidBodyDemos/edit_cache: phony Demos/RigidBodyDemos/CMakeFiles/edi
 # Utility command for rebuild_cache
 
 build Demos/RigidBodyDemos/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -3588,7 +3588,7 @@ build Demos/RigidBodyDemos/list_install_components: phony
 # Utility command for install
 
 build Demos/RigidBodyDemos/CMakeFiles/install.util: CUSTOM_COMMAND Demos/RigidBodyDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -3600,7 +3600,7 @@ build Demos/RigidBodyDemos/install: phony Demos/RigidBodyDemos/CMakeFiles/instal
 # Utility command for install/local
 
 build Demos/RigidBodyDemos/CMakeFiles/install/local.util: CUSTOM_COMMAND Demos/RigidBodyDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -3612,7 +3612,7 @@ build Demos/RigidBodyDemos/install/local: phony Demos/RigidBodyDemos/CMakeFiles/
 # Utility command for install/strip
 
 build Demos/RigidBodyDemos/CMakeFiles/install/strip.util: CUSTOM_COMMAND Demos/RigidBodyDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -3720,7 +3720,7 @@ build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/SceneLoaderDemo_d: CXX_E
 # Utility command for edit_cache
 
 build Demos/SceneLoaderDemo/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/SceneLoaderDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/SceneLoaderDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -3731,7 +3731,7 @@ build Demos/SceneLoaderDemo/edit_cache: phony Demos/SceneLoaderDemo/CMakeFiles/e
 # Utility command for rebuild_cache
 
 build Demos/SceneLoaderDemo/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/SceneLoaderDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/SceneLoaderDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -3749,7 +3749,7 @@ build Demos/SceneLoaderDemo/list_install_components: phony
 # Utility command for install
 
 build Demos/SceneLoaderDemo/CMakeFiles/install.util: CUSTOM_COMMAND Demos/SceneLoaderDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/SceneLoaderDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/SceneLoaderDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -3761,7 +3761,7 @@ build Demos/SceneLoaderDemo/install: phony Demos/SceneLoaderDemo/CMakeFiles/inst
 # Utility command for install/local
 
 build Demos/SceneLoaderDemo/CMakeFiles/install/local.util: CUSTOM_COMMAND Demos/SceneLoaderDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/SceneLoaderDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/SceneLoaderDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -3773,7 +3773,7 @@ build Demos/SceneLoaderDemo/install/local: phony Demos/SceneLoaderDemo/CMakeFile
 # Utility command for install/strip
 
 build Demos/SceneLoaderDemo/CMakeFiles/install/strip.util: CUSTOM_COMMAND Demos/SceneLoaderDemo/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/SceneLoaderDemo && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/SceneLoaderDemo && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -3980,7 +3980,7 @@ build /home/paula/Desktop/PBD/PositionBasedDynamics/bin/DirectPositionBasedSolve
 # Utility command for edit_cache
 
 build Demos/StiffRodsDemos/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/StiffRodsDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/StiffRodsDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -3991,7 +3991,7 @@ build Demos/StiffRodsDemos/edit_cache: phony Demos/StiffRodsDemos/CMakeFiles/edi
 # Utility command for rebuild_cache
 
 build Demos/StiffRodsDemos/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/StiffRodsDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/StiffRodsDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/paula/Desktop/PBD/PositionBasedDynamics -B/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -4009,7 +4009,7 @@ build Demos/StiffRodsDemos/list_install_components: phony
 # Utility command for install
 
 build Demos/StiffRodsDemos/CMakeFiles/install.util: CUSTOM_COMMAND Demos/StiffRodsDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/StiffRodsDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/StiffRodsDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -4021,7 +4021,7 @@ build Demos/StiffRodsDemos/install: phony Demos/StiffRodsDemos/CMakeFiles/instal
 # Utility command for install/local
 
 build Demos/StiffRodsDemos/CMakeFiles/install/local.util: CUSTOM_COMMAND Demos/StiffRodsDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/StiffRodsDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/StiffRodsDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -4033,7 +4033,7 @@ build Demos/StiffRodsDemos/install/local: phony Demos/StiffRodsDemos/CMakeFiles/
 # Utility command for install/strip
 
 build Demos/StiffRodsDemos/CMakeFiles/install/strip.util: CUSTOM_COMMAND Demos/StiffRodsDemos/all
-  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/StiffRodsDemos && /snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/StiffRodsDemos && /snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -4298,14 +4298,14 @@ build extern/md5/all: phony lib/libMD5_d.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/paula/Desktop/PBD/PositionBasedDynamics/.git/HEAD /home/paula/Desktop/PBD/PositionBasedDynamics/.git/refs/heads/Balljoint-Works /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/Common.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/DataCopyTargets.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/FindEigen3.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/GetGitRevisionDescription.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/GetGitRevisionDescription.cmake.in /home/paula/Desktop/PBD/PositionBasedDynamics/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/BarDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/ClothDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/CosseratRodsDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/CouplingDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/DistanceFieldDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/FluidDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/GenericConstraintsDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/PositionBasedElasticRodsDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/SceneLoaderDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/StiffRodsDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Visualization/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/PositionBasedDynamics/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Simulation/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Utils/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Utils/Version.h.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/glfw3.pc.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/glfw3Config.cmake.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/glfw_config.h.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/extern/md5/CMakeLists.txt /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDependentOption.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakePackageConfigHelpers.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckFunctionExists.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckIncludeFile.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckLibraryExists.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/PatchInfo.txt.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/RepositoryInfo.txt.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/UpdateInfo.txt.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/cfgcmd.txt.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/gitclone.cmake.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/gitupdate.cmake.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/mkdirs.cmake.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/shared_internal_commands.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindFontconfig.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindFreetype.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindGit.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindOpenGL.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindOpenMP.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindPackageMessage.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindPkgConfig.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindThreads.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindX11.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/GNUInstallDirs.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-C.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-Initialize.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/SelectLibraryConfigurations.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake GenericParameters/tmp/Ext_GenericParameters-mkdirs.cmake Utils/CMakeFiles/git-data/grabRef.cmake extern/Discregrid/tmp/Ext_Discregrid-mkdirs.cmake
+build build.ninja: RERUN_CMAKE | /home/paula/Desktop/PBD/PositionBasedDynamics/.git/HEAD /home/paula/Desktop/PBD/PositionBasedDynamics/.git/refs/heads/BallJointDev-v3 /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/Common.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/DataCopyTargets.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/FindEigen3.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/GetGitRevisionDescription.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/GetGitRevisionDescription.cmake.in /home/paula/Desktop/PBD/PositionBasedDynamics/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/BarDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/ClothDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/CosseratRodsDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/CouplingDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/DistanceFieldDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/FluidDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/GenericConstraintsDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/PositionBasedElasticRodsDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/SceneLoaderDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/StiffRodsDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Visualization/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/PositionBasedDynamics/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Simulation/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Utils/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Utils/Version.h.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/glfw3.pc.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/glfw3Config.cmake.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/glfw_config.h.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/extern/md5/CMakeLists.txt /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDependentOption.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakePackageConfigHelpers.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckFunctionExists.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckIncludeFile.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckLibraryExists.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/PatchInfo.txt.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/RepositoryInfo.txt.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/UpdateInfo.txt.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/cfgcmd.txt.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/gitclone.cmake.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/gitupdate.cmake.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/mkdirs.cmake.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/shared_internal_commands.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindFontconfig.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindFreetype.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindGit.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindOpenGL.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindOpenMP.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindPackageMessage.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindPkgConfig.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindThreads.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindX11.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/GNUInstallDirs.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-C.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-Initialize.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/SelectLibraryConfigurations.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake GenericParameters/tmp/Ext_GenericParameters-mkdirs.cmake Utils/CMakeFiles/git-data/grabRef.cmake extern/Discregrid/tmp/Ext_Discregrid-mkdirs.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/paula/Desktop/PBD/PositionBasedDynamics/.git/HEAD /home/paula/Desktop/PBD/PositionBasedDynamics/.git/refs/heads/Balljoint-Works /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/Common.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/DataCopyTargets.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/FindEigen3.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/GetGitRevisionDescription.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/GetGitRevisionDescription.cmake.in /home/paula/Desktop/PBD/PositionBasedDynamics/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/BarDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/ClothDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/CosseratRodsDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/CouplingDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/DistanceFieldDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/FluidDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/GenericConstraintsDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/PositionBasedElasticRodsDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/SceneLoaderDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/StiffRodsDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Visualization/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/PositionBasedDynamics/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Simulation/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Utils/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Utils/Version.h.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/glfw3.pc.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/glfw3Config.cmake.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/glfw_config.h.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/extern/md5/CMakeLists.txt /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDependentOption.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakePackageConfigHelpers.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckFunctionExists.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckIncludeFile.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckLibraryExists.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/PatchInfo.txt.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/RepositoryInfo.txt.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/UpdateInfo.txt.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/cfgcmd.txt.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/gitclone.cmake.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/gitupdate.cmake.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/mkdirs.cmake.in /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/shared_internal_commands.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindFontconfig.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindFreetype.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindGit.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindOpenGL.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindOpenMP.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindPackageMessage.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindPkgConfig.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindThreads.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindX11.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/GNUInstallDirs.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-C.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-Initialize.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/SelectLibraryConfigurations.cmake /snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake GenericParameters/tmp/Ext_GenericParameters-mkdirs.cmake Utils/CMakeFiles/git-data/grabRef.cmake extern/Discregrid/tmp/Ext_Discregrid-mkdirs.cmake: phony
+build /home/paula/Desktop/PBD/PositionBasedDynamics/.git/HEAD /home/paula/Desktop/PBD/PositionBasedDynamics/.git/refs/heads/BallJointDev-v3 /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/Common.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/DataCopyTargets.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/FindEigen3.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/GetGitRevisionDescription.cmake /home/paula/Desktop/PBD/PositionBasedDynamics/CMake/GetGitRevisionDescription.cmake.in /home/paula/Desktop/PBD/PositionBasedDynamics/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/BarDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/ClothDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/CosseratRodsDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/CouplingDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/DistanceFieldDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/FluidDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/GenericConstraintsDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/PositionBasedElasticRodsDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/RigidBodyDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/SceneLoaderDemo/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/StiffRodsDemos/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Demos/Visualization/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/PositionBasedDynamics/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Simulation/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Utils/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/Utils/Version.h.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/glfw3.pc.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/glfw3Config.cmake.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/glfw_config.h.in /home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui/CMakeLists.txt /home/paula/Desktop/PBD/PositionBasedDynamics/extern/md5/CMakeLists.txt /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDependentOption.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakePackageConfigHelpers.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckFunctionExists.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckIncludeFile.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/CheckLibraryExists.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/PatchInfo.txt.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/RepositoryInfo.txt.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/UpdateInfo.txt.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/cfgcmd.txt.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/gitclone.cmake.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/gitupdate.cmake.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/mkdirs.cmake.in /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/ExternalProject/shared_internal_commands.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindFontconfig.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindFreetype.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindGit.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindOpenGL.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindOpenMP.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindPackageMessage.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindPkgConfig.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindThreads.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/FindX11.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/GNUInstallDirs.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-C.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-Initialize.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/SelectLibraryConfigurations.cmake /snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake GenericParameters/tmp/Ext_GenericParameters-mkdirs.cmake Utils/CMakeFiles/git-data/grabRef.cmake extern/Discregrid/tmp/Ext_Discregrid-mkdirs.cmake: phony
 
 
 #############################################

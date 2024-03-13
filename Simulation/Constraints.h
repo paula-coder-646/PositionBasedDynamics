@@ -49,7 +49,7 @@ namespace PBD
 		Eigen::Matrix<Real, 3, 6, Eigen::DontAlign> m_jointInfo;
         std::string name;
 
-
+        Eigen::Matrix<Real, 2, 3, Eigen::DontAlign> helpvectors;
 
 		BallJoint() : Constraint(2) {
             name = "BallJoint";
@@ -84,6 +84,8 @@ namespace PBD
 	public:
 		static int TYPE_ID;
 		Eigen::Matrix<Real, 4, 7, Eigen::DontAlign> m_jointInfo;
+
+        Eigen::Matrix<Real, 2, 3, Eigen::DontAlign> helpvectors;
 
 		HingeJoint() : Constraint(2) {
             name = "HingeJoint";

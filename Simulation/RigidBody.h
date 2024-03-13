@@ -29,6 +29,8 @@ namespace PBD
 			/** acceleration (by external forces) */
 			Vector3r m_a;
 
+            int helpvector;
+
 			/** Inertia tensor in the principal axis system: \n
 			* After the main axis transformation the inertia tensor is a diagonal matrix.
 			* So only three values are required to store the inertia tensor. These values
@@ -97,6 +99,8 @@ namespace PBD
 				m_v.setZero();
 				m_v0.setZero();
 				m_a.setZero();
+
+                //helpvector = helpv;
 
 				setInertiaTensor(inertiaTensor);
 				m_q = rotation;
