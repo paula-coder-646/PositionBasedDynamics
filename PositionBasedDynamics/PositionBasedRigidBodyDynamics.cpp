@@ -3070,6 +3070,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
         Real &betaswing,
         Real &alphatwist,
         Real &betatwist,
+        Eigen::Matrix<Real, 2, 3, Eigen::DontAlign> &helpvectors,
         Real maxrotpersubstep = 0.5) {
 
 
@@ -3122,6 +3123,10 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
 
     Vector3r n = a0g.cross(a1g);
+
+    cout << n.norm() << "\n";
+
+    helpvectors.row(0) = n;
     Vector3r n1 = a0g;
     Vector3r n2 = a1g;
 
@@ -3222,6 +3227,8 @@ bool PositionBasedRigidBodyDynamics::init_MuellerHingeJoint(
     hingeJointInfo.block<3, 1>(0, 3) = hingeJointPosition;
 
     hingeJointInfo.block<3, 1>(0, 4) = hingeAxis;
+
+
     hingeJointInfo.block<3, 1>(0, 5) = rot1T * hingeAxis;
 
     hingeJointInfo.block<3, 1>(0, 6) = rot0T * hingeAxis;
@@ -3273,7 +3280,8 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerHingeJoint(
         Real &stiffness,
         Real &dt,
         Real &alphaswing,
-        Real &betaswing)
+        Real &betaswing,
+        Eigen::Matrix<Real, 2, 3, Eigen::DontAlign> helpvectors)
 {
     // Masterplan: This code solves Hinge Joints in 3 Stages:
 
@@ -3372,9 +3380,9 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerHingeJoint(
         n *= -1;
     }
 
-
     MuellerAngleLimits(n, n1, n2, alphaswing, betaswing, swingcorr, dt, 0.0);
 
+    helpvectors.row(0) = swingcorr;
 
     if (!swingcorr.isZero())
     {

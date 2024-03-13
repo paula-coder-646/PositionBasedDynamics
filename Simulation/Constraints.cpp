@@ -121,6 +121,7 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
         betaswing,
         alphatwist,
         betatwist,
+        helpvectors,
         0.5
         );
 
@@ -306,7 +307,9 @@ bool HingeJoint::solvePositionConstraint(SimulationModel &model, const unsigned 
             stiffness,
             const_cast<Real &>(dt),
             alpha,
-            beta);
+            beta,
+            helpvectors);
+
 
 	if (res)
 	{

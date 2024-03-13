@@ -1530,6 +1530,7 @@ namespace PBD
                 Real &betaswing,
                 Real &alphatwist,
                 Real &betatwist,
+                Eigen::Matrix<Real, 2, 3, Eigen::DontAlign> &helpvectors,
                 Real maxrotpersubstep
         );
 
@@ -1566,7 +1567,8 @@ namespace PBD
                 Real &stiffness,
                 Real &dt,
                 Real &alphaswing,
-                Real &betaswing);
+                Real &betaswing,
+                Eigen::Matrix<Real, 2, 3, Eigen::DontAlign> helpvectors);
     };
 }
 
