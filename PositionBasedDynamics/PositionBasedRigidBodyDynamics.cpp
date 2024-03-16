@@ -3137,8 +3137,8 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
     Vector3r tn = (a0g + a1g).stableNormalized();
 
-    Vector3r tn1 = (c0g - (tn.dot(c0g) * tn)).stableNormalized();
-    Vector3r tn2 = (c1g - (tn.dot(c1g) * tn)).stableNormalized();
+    Vector3r tn1 = (b0g - (tn.dot(b0g) * tn)).stableNormalized();
+    Vector3r tn2 = (b1g - (tn.dot(b1g) * tn)).stableNormalized();
 
     Real res0 = tn.dot(tn1);
     Real res1 = tn.dot(tn2);
@@ -3151,20 +3151,22 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
 
     Real res = a0g.dot(a1g);
-/*
-    if (res < 0.0)
+
+    if (res < -0.4)
     {
-        maxCorr = min(max(1/ fabs(res), M_PI), 1/fabs(res));
+        maxCorr = dt;
     }
-*/
+
     MuellerAngleLimits(tn, tn1, tn2, alphatwist, betatwist, twistcorr, maxCorr);
 
     helpvectors.row(0) = 10 * twistcorr;
 
     if (twistcorr.norm() > 0.5)
     {
-        cout << "here " << twistcorr.norm() << "\n";
+        cout << "here " << "twistnorm: " << twistcorr.norm() << " res0: " << res0 << "res1: " << res1 << "\n";
     }
+
+    MuellerAngleLimits(tn, tn1, tn2, alphatwist, betatwist, twistcorr, maxCorr);
 
     if (!twistcorr.isZero())
     {

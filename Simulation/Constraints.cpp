@@ -87,8 +87,8 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
 	RigidBody &rb1 = *rb[m_bodies[0]];
 	RigidBody &rb2 = *rb[m_bodies[1]];
 
-    Real alphaswing = 170.0;
-    Real betaswing = 170.0;
+    Real alphaswing = 40.0;
+    Real betaswing = 40.0;
     Real alphatwist = 0.0;
     Real betatwist = 0.0;
 
