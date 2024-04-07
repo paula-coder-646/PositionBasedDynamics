@@ -46,7 +46,7 @@ namespace PBD
 	{
 	public:
 		static int TYPE_ID;
-        Eigen::Matrix<Real, 2, 3, Eigen::DontAlign> helpvectors;
+        Eigen::Matrix<Real, 4, 3, Eigen::DontAlign> helpvectors;
 		Eigen::Matrix<Real, 3, 6, Eigen::DontAlign> m_jointInfo;
         std::string name;
 

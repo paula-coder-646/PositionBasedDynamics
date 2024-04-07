@@ -708,13 +708,21 @@ void DemoBase::renderBallJoint(BallJoint &bj)
 {
 	MiniGL::drawSphere(bj.m_jointInfo.col(2), 0.15f, m_jointColor);
 
+    float black[4] = { 0.0f, 0.0f, 0.0f, 1 };
+    float blue[4] = { 0.0f, 0.0f, 1.0f, 1 };
+    float red[4] = { 1.0f, 0.0f, 0.0f, 1 };
+    float yellow[4] = { 1.0f, 1.0f, 0.0f, 1 };
+
     const Vector3r &c = bj.m_jointInfo.block<3, 1>(0, 3);
-    for (int i = 0; i < bj.helpvectors.rows(); ++i)
-    {
-        Vector3r h = bj.helpvectors.row(i);
-        MiniGL::drawCylinder(c, c + 2*h, m_jointColor, 0.05f);
-        //std::cout << h.norm() << "\n";
-    }
+    Vector3r h0 = bj.helpvectors.row(0);
+    MiniGL::drawCylinder(c, c + 2*h0, black, 0.05f);
+    Vector3r h1 = bj.helpvectors.row(1);
+    MiniGL::drawCylinder(c, c + 2*h1, red, 0.05f);
+    Vector3r h2 = bj.helpvectors.row(2);
+    MiniGL::drawCylinder(c, c + 2*h2, blue, 0.05f);
+    Vector3r h3 = bj.helpvectors.row(3);
+    MiniGL::drawCylinder(c, c + 2*h3, yellow, 0.05f);
+
 }
 
 void DemoBase::renderRigidBodyParticleBallJoint(RigidBodyParticleBallJoint &bj)

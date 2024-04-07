@@ -1455,7 +1455,8 @@ namespace PBD
                 Quaternionr &corr_q0,
                 Quaternionr &corr_q1,
                 const Real stiffness,
-                const Real dt);
+                const Real dt,
+                Real &x);
 
 // ----------------------------------------------------------------------------------------------
 
@@ -1466,7 +1467,8 @@ namespace PBD
                 const Real alpha,
                 const Real beta,
                 Vector3r &corr_q_fixed,
-                const Real maxCorr
+                const Real maxCorr,
+                Real &angle
         );
 // ----------------------------------------------------------------------------------------------
 
@@ -1529,7 +1531,7 @@ namespace PBD
                 Real &betaswing,
                 Real &alphatwist,
                 Real &betatwist,
-                Eigen::Matrix<Real, 2, 3, Eigen::DontAlign> &helpvectors,
+                Eigen::Matrix<Real, 4, 3, Eigen::DontAlign> &helpvectors,
                 Real maxrotpersubstep
         );
 

@@ -87,8 +87,8 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
 	RigidBody &rb1 = *rb[m_bodies[0]];
 	RigidBody &rb2 = *rb[m_bodies[1]];
 
-    Real alphaswing = 40.0;
-    Real betaswing = 40.0;
+    Real alphaswing = 0.0;
+    Real betaswing = 180.0;
     Real alphatwist = 0.0;
     Real betatwist = 0.0;
 
@@ -287,7 +287,7 @@ bool HingeJoint::solvePositionConstraint(SimulationModel &model, const unsigned 
     Quaternionr corr_q1 = Quaternionr(0.0, 0.0, 0.0, 0.0);
     Quaternionr corr_q2  = Quaternionr(0.0, 0.0, 0.0, 0.0);
 
-    Real stiffness = 1000.0;
+    Real stiffness = 0.0;
     const Real dt = TimeManager::getCurrent()->getTimeStepSize();
 
 	const bool res = PositionBasedRigidBodyDynamics::solve_MuellerHingeJoint(
