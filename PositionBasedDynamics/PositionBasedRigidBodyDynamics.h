@@ -1455,8 +1455,7 @@ namespace PBD
                 Quaternionr &corr_q0,
                 Quaternionr &corr_q1,
                 const Real stiffness,
-                const Real dt,
-                Real &x);
+                const Real dt);
 
 // ----------------------------------------------------------------------------------------------
 
@@ -1467,8 +1466,7 @@ namespace PBD
                 const Real alpha,
                 const Real beta,
                 Vector3r &corr_q_fixed,
-                const Real maxCorr,
-                Real &angle
+                const Real maxCorr
         );
 // ----------------------------------------------------------------------------------------------
 
@@ -1486,13 +1484,6 @@ namespace PBD
                 Matrix3r &inertiaInverseW0_preview,
                 Matrix3r &inertiaInverseW1_preview
         );
-// ----------------------------------------------------------------------------------------------
-
-        static bool get_MuellerPositions(
-                const Quaternionr &q,
-                Matrix3r positions
-        );
-
 // ----------------------------------------------------------------------------------------------
         static bool init_MuellerBallJoint(
                 const Vector3r &x0,

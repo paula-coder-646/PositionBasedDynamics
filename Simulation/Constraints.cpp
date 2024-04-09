@@ -87,10 +87,10 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
 	RigidBody &rb1 = *rb[m_bodies[0]];
 	RigidBody &rb2 = *rb[m_bodies[1]];
 
-    Real alphaswing = 180.0;
-    Real betaswing = 180.0;
+    Real alphaswing = 10.0;
+    Real betaswing = 10.0;
     Real alphatwist = 0.0;
-    Real betatwist = 180.0;
+    Real betatwist = 10.0;
 
 	Vector3r corr_x1 = Vector3r::Zero();
     Vector3r corr_x2 = Vector3r::Zero();
@@ -279,7 +279,7 @@ bool HingeJoint::solvePositionConstraint(SimulationModel &model, const unsigned 
 	RigidBody &rb1 = *rb[m_bodies[0]];
 	RigidBody &rb2 = *rb[m_bodies[1]];
 
-    Real alpha = 0.0;
+    Real alpha = 180.0;
     Real beta = 180.0;
     Vector3r corr_x1 = Vector3r::Zero();
     Vector3r corr_x2 = Vector3r::Zero();
