@@ -2885,6 +2885,11 @@ bool PositionBasedRigidBodyDynamics::MuellerAngleLimits(
    }
 
     Real angledeg = angle/pi * 180;
+   if (angle > 180)
+   {
+       cout << angle << "\n";
+       usleep(50000);
+   }
 
     if (angledeg < alpha || angledeg > beta)
     {
@@ -3141,6 +3146,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
         corr_q1.coeffs() += scorr_q1.coeffs() + tcorr_q1.coeffs();
     }
 
+    //usleep(50000);
     return true;
 
 }
@@ -3276,6 +3282,7 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerHingeJoint(
     Vector3r b0g = (rot0 * b0l).normalized();
     Vector3r a1g = (rot1 * a1l).normalized();
     Vector3r b1g = (rot1 * b1l).normalized();
+
 
     // 2. Solve Distance Joint
     Real lambda = 0.0;

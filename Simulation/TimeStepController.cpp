@@ -389,7 +389,7 @@ bool TimeStepController::collectData(Constraint &constraint, SimulationModel &mo
     Real time = TimeManager::getCurrent()->getTime();
 
     // Calculate Energy of Constraint
-    if (constraint.getName() == "BallJoint" || constraint.getName() == "HingeJoint")
+    if (constraint.getName() == "BallJoint" || constraint.getName() == "HingeJoint" || constraint.getName() == "BenderHingeJoint" || constraint.getName() == "BenderBallJoint")
     {
         energy += constraint.computeEnergy(model);
     }
@@ -411,7 +411,10 @@ bool TimeStepController::collectData(Constraint &constraint, SimulationModel &mo
     }
     //"JointType,JointNumber,IterationCount,ConstraintPotential
     // Write the values to the file, separated by commas
-    fileStream << constraint.getName() << "," << constraint.getTypeId() << "," << time << "," << energy << std::endl;
+    if (true)
+    {
+        fileStream << constraint.getName() << "," << constraint.getTypeId() << "," << time << "," << energy << std::endl;
+    }
 
     // Close the file (optional here, because the destructor will automatically close it)
     fileStream.close();

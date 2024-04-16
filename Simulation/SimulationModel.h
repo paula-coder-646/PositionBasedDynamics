@@ -184,8 +184,10 @@ namespace PBD
 			void initConstraintGroups();
 
 			bool addBallJoint(const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos);
+            bool addBenderBallJoint(const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos);
 			bool addBallOnLineJoint(const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos, const Vector3r &dir);
 			bool addHingeJoint(const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos, const Vector3r &axis);
+            bool addBenderHingeJoint(const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos, const Vector3r &axis);
 			bool addTargetAngleMotorHingeJoint(const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos, const Vector3r &axis);
 			bool addTargetVelocityMotorHingeJoint(const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos, const Vector3r &axis);
 			bool addUniversalJoint(const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos, const Vector3r &axis1, const Vector3r &axis2);
@@ -325,7 +327,7 @@ namespace PBD
 			virtual void setRodBendingStiffnessY(Real val);
 			virtual Real getRodTwistingStiffness() { return m_rod_twistingStiffness; }
 			virtual void setRodTwistingStiffness(Real val);
-	};
+    };
 }
 
 #endif

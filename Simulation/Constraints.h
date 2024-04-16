@@ -64,6 +64,28 @@ namespace PBD
         Real computeEnergy(SimulationModel &model);
     };
 
+    class BenderBallJoint : public Constraint
+    {
+    public:
+        static int TYPE_ID;
+        Eigen::Matrix<Real, 4, 3, Eigen::DontAlign> helpvectors;
+        Eigen::Matrix<Real, 3, 4, Eigen::DontAlign> m_jointInfo;
+        std::string name;
+
+        BenderBallJoint() : Constraint(2) {
+            name = "BenderBallJoint";
+        }
+        virtual int &getTypeId() const { return TYPE_ID; }
+
+        std::basic_string<char> getName() const { return name;}
+
+        bool initConstraint(SimulationModel &model, const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos);
+        virtual bool updateConstraint(SimulationModel &model);
+        virtual bool solvePositionConstraint(SimulationModel &model, const unsigned int iter);
+
+        Real computeEnergy(SimulationModel &model);
+    };
+
 	class BallOnLineJoint : public Constraint
 	{
 	public:
@@ -96,8 +118,27 @@ namespace PBD
 
         Real computeEnergy(SimulationModel &model);
     };
- 
-	class UniversalJoint : public Constraint
+
+    class BenderHingeJoint : public Constraint
+    {
+    public:
+        Eigen::Matrix<Real, 2, 3, Eigen::DontAlign> helpvectors;
+        static int TYPE_ID;
+        Eigen::Matrix<Real, 4, 7, Eigen::DontAlign> m_jointInfo;
+
+        BenderHingeJoint() : Constraint(2) {
+            name = "BenderHingeJoint";
+        }
+        virtual int &getTypeId() const { return TYPE_ID; }
+
+        bool initConstraint(SimulationModel &model, const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos, const Vector3r &axis);
+        virtual bool updateConstraint(SimulationModel &model);
+        virtual bool solvePositionConstraint(SimulationModel &model, const unsigned int iter);
+        Real computeEnergy(SimulationModel &model);
+    };
+
+
+    class UniversalJoint : public Constraint
 	{
 	public:
 		static int TYPE_ID;

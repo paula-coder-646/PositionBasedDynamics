@@ -376,6 +376,18 @@ bool SimulationModel::addBallJoint(const unsigned int rbIndex1, const unsigned i
 	return res;
 }
 
+bool SimulationModel::addBenderBallJoint(const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos)
+{
+    BenderBallJoint *bj = new BenderBallJoint();
+    const bool res = bj->initConstraint(*this, rbIndex1, rbIndex2, pos);
+    if (res)
+    {
+        m_constraints.push_back(bj);
+        m_groupsInitialized = false;
+    }
+    return res;
+}
+
 bool SimulationModel::addBallOnLineJoint(const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos, const Vector3r &dir)
 {
 	BallOnLineJoint *bj = new BallOnLineJoint();
@@ -398,6 +410,18 @@ bool SimulationModel::addHingeJoint(const unsigned int rbIndex1, const unsigned 
 		m_groupsInitialized = false;
 	}
 	return res;
+}
+
+bool SimulationModel::addBenderHingeJoint(const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos, const Vector3r &axis)
+{
+    BenderHingeJoint *hj = new BenderHingeJoint();
+    const bool res = hj->initConstraint(*this, rbIndex1, rbIndex2, pos, axis);
+    if (res)
+    {
+        m_constraints.push_back(hj);
+        m_groupsInitialized = false;
+    }
+    return res;
 }
 
 bool SimulationModel::addUniversalJoint(const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos, const Vector3r &axis1, const Vector3r &axis2)

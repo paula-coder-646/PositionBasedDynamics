@@ -15,8 +15,10 @@ using namespace PBD;
 
 
 int BallJoint::TYPE_ID = IDFactory::getId();
+int BenderBallJoint::TYPE_ID = IDFactory::getId();
 int BallOnLineJoint::TYPE_ID = IDFactory::getId();
 int HingeJoint::TYPE_ID = IDFactory::getId();
+int BenderHingeJoint::TYPE_ID = IDFactory::getId();
 int UniversalJoint::TYPE_ID = IDFactory::getId();
 int RigidBodyParticleBallJoint::TYPE_ID = IDFactory::getId();
 int RigidBodySpring::TYPE_ID = IDFactory::getId();
@@ -87,10 +89,10 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
 	RigidBody &rb1 = *rb[m_bodies[0]];
 	RigidBody &rb2 = *rb[m_bodies[1]];
 
-    Real alphaswing = 10.0;
-    Real betaswing = 10.0;
+    Real alphaswing = 70.0;
+    Real betaswing = 70.0;
     Real alphatwist = 0.0;
-    Real betatwist = 10.0;
+    Real betatwist = 180.0;
 
 	Vector3r corr_x1 = Vector3r::Zero();
     Vector3r corr_x2 = Vector3r::Zero();
@@ -161,6 +163,107 @@ Real BallJoint::computeEnergy(PBD::SimulationModel &model)
     Real energy = 0.5 * pow(length, 2.0);
     return energy;
 }
+
+//////////////////////////////////////////////////////////////////////////
+// BenderBallJoint
+//////////////////////////////////////////////////////////////////////////
+bool BenderBallJoint::initConstraint(SimulationModel &model, const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos)
+{
+    m_bodies[0] = rbIndex1;
+    m_bodies[1] = rbIndex2;
+    SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
+    RigidBody &rb1 = *rb[m_bodies[0]];
+    RigidBody &rb2 = *rb[m_bodies[1]];
+    return PositionBasedRigidBodyDynamics::init_BallJoint(
+            rb1.getPosition(),
+            rb1.getRotation(),
+            rb2.getPosition(),
+            rb2.getRotation(),
+            pos,
+            m_jointInfo);
+}
+
+bool BenderBallJoint::updateConstraint(SimulationModel &model)
+{
+    SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
+    RigidBody &rb1 = *rb[m_bodies[0]];
+    RigidBody &rb2 = *rb[m_bodies[1]];
+    return PositionBasedRigidBodyDynamics::update_BallJoint(
+            rb1.getPosition(),
+            rb1.getRotation(),
+            rb2.getPosition(),
+            rb2.getRotation(),
+            m_jointInfo);
+}
+
+bool BenderBallJoint::solvePositionConstraint(SimulationModel &model, const unsigned int iter)
+{
+    SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
+
+    RigidBody &rb1 = *rb[m_bodies[0]];
+    RigidBody &rb2 = *rb[m_bodies[1]];
+
+    Vector3r corr_x1 = Vector3r::Zero();
+    Vector3r corr_x2 = Vector3r::Zero();
+
+    Quaternionr corr_q1 = Quaternionr::Identity();
+    Quaternionr corr_q2  = Quaternionr::Identity();
+
+    Real stiffness = 0.0;
+    const Real dt = TimeManager::getCurrent()->getTimeStepSize();
+
+    const bool res = PositionBasedRigidBodyDynamics::solve_BallJoint(
+            rb1.getInvMass(),
+            rb1.getPosition(),
+            rb1.getInertiaTensorInverseW(),
+            rb1.getRotation(),
+            rb2.getInvMass(),
+            rb2.getPosition(),
+            rb2.getInertiaTensorInverseW(),
+            rb2.getRotation(),
+            m_jointInfo,
+            corr_x1,
+            corr_q1,
+            corr_x2,
+            corr_q2);
+
+    if (res)
+    {
+        if (rb1.getMass() != 0.0)
+        {
+            rb1.getPosition() += corr_x1;
+            rb1.getRotation().coeffs() += corr_q1.coeffs();
+            Real norm = rb1.getRotation().coeffs().norm();
+            rb1.getRotation().coeffs() = rb1.getRotation().coeffs() / norm;
+            rb1.rotationUpdated();
+        }
+        if (rb2.getMass() != 0.0)
+        {
+            rb2.getPosition() += corr_x2;
+            rb2.getRotation().coeffs() += corr_q2.coeffs();
+            Real norm = rb2.getRotation().coeffs().norm();
+            rb2.getRotation().coeffs() = rb2.getRotation().coeffs() / norm;
+            rb2.rotationUpdated();
+        }
+    }
+    return res;
+}
+Real BenderBallJoint::computeEnergy(PBD::SimulationModel &model)
+{
+    SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
+
+    RigidBody &rb1 = *rb[m_bodies[0]];
+    RigidBody &rb2 = *rb[m_bodies[1]];
+
+    const Vector3r &c0 = m_jointInfo.col(2);
+    const Vector3r &c1 = m_jointInfo.col(3);
+
+    const Real length = fabs((c0 - c1).stableNorm());
+
+    Real energy = 0.5 * pow(length, 2.0);
+    return energy;
+}
+
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -366,6 +469,126 @@ Real HingeJoint::computeEnergy(PBD::SimulationModel &model)
 
     return energy;
 }
+
+//////////////////////////////////////////////////////////////////////////
+// BenderHingeJoint
+//////////////////////////////////////////////////////////////////////////
+bool BenderHingeJoint::initConstraint(SimulationModel &model, const unsigned int rbIndex1, const unsigned int rbIndex2, const Vector3r &pos, const Vector3r &axis)
+{
+    m_bodies[0] = rbIndex1;
+    m_bodies[1] = rbIndex2;
+    SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
+    RigidBody &rb1 = *rb[m_bodies[0]];
+    RigidBody &rb2 = *rb[m_bodies[1]];
+    return PositionBasedRigidBodyDynamics::init_HingeJoint(
+            rb1.getPosition(),
+            rb1.getRotation(),
+            rb2.getPosition(),
+            rb2.getRotation(),
+            pos,
+            axis,
+            m_jointInfo);
+}
+
+bool BenderHingeJoint::updateConstraint(SimulationModel &model)
+{
+    SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
+    RigidBody &rb1 = *rb[m_bodies[0]];
+    RigidBody &rb2 = *rb[m_bodies[1]];
+    return PositionBasedRigidBodyDynamics::update_HingeJoint(
+            rb1.getPosition(),
+            rb1.getRotation(),
+            rb2.getPosition(),
+            rb2.getRotation(),
+            m_jointInfo);
+}
+
+bool BenderHingeJoint::solvePositionConstraint(SimulationModel &model, const unsigned int iter)
+{
+    SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
+
+    RigidBody &rb1 = *rb[m_bodies[0]];
+    RigidBody &rb2 = *rb[m_bodies[1]];
+
+    Vector3r corr_x1 = Vector3r::Zero();
+    Vector3r corr_x2 = Vector3r::Zero();
+
+    Quaternionr corr_q1 = Quaternionr(0.0, 0.0, 0.0, 0.0);
+    Quaternionr corr_q2  = Quaternionr(0.0, 0.0, 0.0, 0.0);
+
+    const bool res = PositionBasedRigidBodyDynamics::solve_HingeJoint(
+            rb1.getInvMass(),
+            rb1.getPosition(),
+            rb1.getInertiaTensorInverseW(),
+            rb1.getRotation(),
+            rb2.getInvMass(),
+            rb2.getPosition(),
+            rb2.getInertiaTensorInverseW(),
+            rb2.getRotation(),
+            m_jointInfo,
+            corr_x1,
+            corr_q1,
+            corr_x2,
+            corr_q2);
+
+
+    if (res)
+    {
+        if (rb1.getMass() > 0.0)
+        {
+            rb1.getPosition() += corr_x1;
+            rb1.getRotation().coeffs() += corr_q1.coeffs();
+            rb1.getRotation().normalize();
+            rb1.rotationUpdated();
+        }
+        if (rb2.getMass() > 0.0)
+        {
+            rb2.getPosition() += corr_x2;
+            rb2.getRotation().coeffs() += corr_q2.coeffs();
+            rb2.getRotation().normalize();
+            rb2.rotationUpdated();
+        }
+    }
+    return res;
+}
+
+Real BenderHingeJoint::computeEnergy(PBD::SimulationModel &model)
+{
+    Real energy = 0.0;
+
+    SimulationModel::RigidBodyVector &rb = model.getRigidBodies();
+
+    RigidBody &rb1 = *rb[m_bodies[0]];
+    RigidBody &rb2 = *rb[m_bodies[1]];
+
+    const Vector3r x0 = rb1.getPosition();
+
+    const Vector3r &c0 = m_jointInfo.block<3, 1>(0, 4);
+    const Vector3r &c1 = m_jointInfo.block<3, 1>(0, 5);
+
+    const Real length = (c0 - c1).stableNorm();
+
+    energy += 0.5 * pow(length, 2.0);
+
+    // Get Orientation Energy
+    Matrix3r rot0 = rb1.getRotation().matrix();
+    Matrix3r rot1 = rb2.getRotation().matrix();
+    Matrix3r rot0T = rot0.transpose();
+    Matrix3r rot1T = rot1.transpose();
+
+    Vector3r a0l = m_jointInfo.block<3, 1>(0, 6).normalized();
+    Vector3r a1l = rot1T * rot0 * m_jointInfo.block<3, 1>(0, 6).normalized();
+
+    Vector3r a0g = (rot0 * a0l).normalized();
+    Vector3r a1g = (rot1 * a1l).normalized();
+
+    Vector3r hingecorr = a0g.cross(a1g);
+
+    energy += 0.5 * pow(hingecorr.norm(), 2.0);
+
+    return energy;
+}
+
 //////////////////////////////////////////////////////////////////////////
 // UniversalJoint
 //////////////////////////////////////////////////////////////////////////
