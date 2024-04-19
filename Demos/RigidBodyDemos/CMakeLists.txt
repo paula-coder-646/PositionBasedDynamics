@@ -150,6 +150,56 @@ set_target_properties(FallBallJointDemo PROPERTIES MINSIZEREL_POSTFIX ${CMAKE_MI
 add_dependencies(FallBallJointDemo ${SIMULATION_DEPENDENCIES})
 target_link_libraries(FallBallJointDemo ${SIMULATION_LINK_LIBRARIES})
 
+add_executable(BallJointChainDemo
+		BallJointChainDemo.cpp
+
+		../Common/LogWindow.cpp
+		../Common/LogWindow.h
+		../Common/Simulator_GUI_imgui.cpp
+		../Common/Simulator_GUI_imgui.h
+		../Common/imguiParameters.cpp
+		../Common/imguiParameters.h
+		../Common/DemoBase.cpp
+		../Common/DemoBase.h
+
+		${VIS_FILES}
+		${PROJECT_PATH}/Common/Common.h
+
+		CMakeLists.txt
+)
+
+set_target_properties(BallJointChainDemo PROPERTIES FOLDER "Demos")
+set_target_properties(BallJointChainDemo PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
+set_target_properties(BallJointChainDemo PROPERTIES RELWITHDEBINFO_POSTFIX ${CMAKE_RELWITHDEBINFO_POSTFIX})
+set_target_properties(BallJointChainDemo PROPERTIES MINSIZEREL_POSTFIX ${CMAKE_MINSIZEREL_POSTFIX})
+add_dependencies(BallJointChainDemo ${SIMULATION_DEPENDENCIES})
+target_link_libraries(BallJointChainDemo ${SIMULATION_LINK_LIBRARIES})
+
+add_executable(HingeJointChainDemo
+		HingeJointChainDemo.cpp
+
+		../Common/LogWindow.cpp
+		../Common/LogWindow.h
+		../Common/Simulator_GUI_imgui.cpp
+		../Common/Simulator_GUI_imgui.h
+		../Common/imguiParameters.cpp
+		../Common/imguiParameters.h
+		../Common/DemoBase.cpp
+		../Common/DemoBase.h
+
+		${VIS_FILES}
+		${PROJECT_PATH}/Common/Common.h
+
+		CMakeLists.txt
+)
+
+set_target_properties(HingeJointChainDemo PROPERTIES FOLDER "Demos")
+set_target_properties(HingeJointChainDemo PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
+set_target_properties(HingeJointChainDemo PROPERTIES RELWITHDEBINFO_POSTFIX ${CMAKE_RELWITHDEBINFO_POSTFIX})
+set_target_properties(HingeJointChainDemo PROPERTIES MINSIZEREL_POSTFIX ${CMAKE_MINSIZEREL_POSTFIX})
+add_dependencies(HingeJointChainDemo ${SIMULATION_DEPENDENCIES})
+target_link_libraries(HingeJointChainDemo ${SIMULATION_LINK_LIBRARIES})
+
 
 find_package( Eigen3 REQUIRED )
 include_directories( ${EIGEN3_INCLUDE_DIR} )

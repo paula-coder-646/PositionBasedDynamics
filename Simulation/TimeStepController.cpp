@@ -280,7 +280,7 @@ void TimeStepController::positionConstraintProjection(SimulationModel &model)
 					const unsigned int constraintIndex = groups[group][i];
 
 					constraints[constraintIndex]->updateConstraint(model);
-                    collectData(*constraints[constraintIndex], model, "mueller.txt");
+                    collectData(*constraints[constraintIndex], model, "bender.txt");
 					constraints[constraintIndex]->solvePositionConstraint(model, m_iterations);
 				}
 			}
@@ -386,7 +386,7 @@ bool TimeStepController::collectData(Constraint &constraint, SimulationModel &mo
      * - Write Name, Type, Global Iteration Count, Energy into CSV
      */
     Real energy = 0.0;
-    Real time = TimeManager::getCurrent()->getTime();
+    Real time = TimeManager::getCurrent()->getTime() / TimeManager::getCurrent()->getTimeStepSize();
 
     // Calculate Energy of Constraint
     if (constraint.getName() == "BallJoint" || constraint.getName() == "HingeJoint" || constraint.getName() == "BenderHingeJoint" || constraint.getName() == "BenderBallJoint")
@@ -411,9 +411,13 @@ bool TimeStepController::collectData(Constraint &constraint, SimulationModel &mo
     }
     //"JointType,JointNumber,IterationCount,ConstraintPotential
     // Write the values to the file, separated by commas
-    if (true)
+    if (time < 1500) // Bound to 500 Iterations
     {
         fileStream << constraint.getName() << "," << constraint.getTypeId() << "," << time << "," << energy << std::endl;
+    }
+    else
+    {
+        cout << "finished" << "\n";
     }
 
     // Close the file (optional here, because the destructor will automatically close it)

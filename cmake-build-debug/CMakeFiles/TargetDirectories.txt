@@ -128,6 +128,8 @@
 /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos/CMakeFiles/BallJointDemo.dir
 /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos/CMakeFiles/HingeJointDemo.dir
 /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos/CMakeFiles/FallBallJointDemo.dir
+/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos/CMakeFiles/BallJointChainDemo.dir
+/home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos/CMakeFiles/HingeJointChainDemo.dir
 /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos/CMakeFiles/edit_cache.dir
 /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos/CMakeFiles/rebuild_cache.dir
 /home/paula/Desktop/PBD/PositionBasedDynamics/cmake-build-debug/Demos/RigidBodyDemos/CMakeFiles/list_install_components.dir
