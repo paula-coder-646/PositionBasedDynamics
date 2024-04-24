@@ -91,8 +91,8 @@ bool BallJoint::solvePositionConstraint(SimulationModel &model, const unsigned i
 
     Real alphaswing = 0.0;
     Real betaswing = 180.0;
-    Real alphatwist = 0.0;
-    Real betatwist = 40.0;
+    Real alphatwist = 70.0;
+    Real betatwist = 70.0;
 
 	Vector3r corr_x1 = Vector3r::Zero();
     Vector3r corr_x2 = Vector3r::Zero();
