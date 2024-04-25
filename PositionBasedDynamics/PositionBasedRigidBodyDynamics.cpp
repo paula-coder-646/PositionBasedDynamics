@@ -2889,17 +2889,9 @@ bool PositionBasedRigidBodyDynamics::MuellerAngleLimits(
         Real goalangle = angledeg_limit/180 * pi;
         Matrix3r corraxis;
         Vector3r n0c;
-        if (goalangle < angle) {
-            corraxis = AngleAxisr(goalangle, nn).toRotationMatrix();
-            n0c = corraxis * n0n;
-            corr_q_fixed = n0c.cross(n1n);
-        }
-        else { // goalangle > angle
-            corraxis = AngleAxisr(goalangle, nn).toRotationMatrix();
-            n0c = corraxis * n0n;
-            corr_q_fixed = -n0c.cross(n1n);
-        }
-        corr_q_fixed = corr_q_fixed.dot(nn) * nn;
+        corraxis = AngleAxisr(goalangle, nn).toRotationMatrix();
+        n0c = corraxis * n0n;
+        corr_q_fixed = n0c.cross(n1n);
         return true;
     }
     corr_q_fixed.setZero();
@@ -3122,17 +3114,6 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
 
     Real check = twistcorr.normalized().dot((tn1.cross(tn2)).normalized());
 
-    /*if(check < -0.8)
-    {
-        cout << "here " << check << "\n";
-        Vector3r check_tn = tn;
-        Real check_orth0 = tn.dot(tn1);
-        Real check_orth1 = tn.dot(tn2);
-        Real check_align = tn1.cross(tn2).norm();
-        Vector3r check_twistcorr = twistcorr.normalized();
-        //usleep(5000);
-    }*/
-
     MuellerAngleLimits(tn, tn1, tn2, alphatwist, betatwist, twistcorr, M_PI);
 
     if (!twistcorr.isZero() & fabs(tn1.dot(tn2)) < 0.99)
@@ -3146,6 +3127,9 @@ bool PositionBasedRigidBodyDynamics::solve_MuellerBallJoint(
         lambda = 0.0;
         solve_MuellerAngularJoint(invMass0, x0, inertiaInverseW0, q0, invMass1, x1, inertiaInverseW1, q1, twistcorr, lambda, tcorr_q0, tcorr_q1, stiffness, dt);
     }
+    helpvectors.row(0) = tn1;
+    helpvectors.row(1) = tn2;
+
 
     // Add up all Corrections
     if (invMass0 != 0.0)
