@@ -712,6 +712,7 @@ void DemoBase::renderBallJoint(BallJoint &bj)
     float blue[4] = { 0.0f, 0.0f, 1.0f, 1 };
     float red[4] = { 1.0f, 0.0f, 0.0f, 1 };
     float yellow[4] = { 1.0f, 1.0f, 0.0f, 1 };
+    float green [4] = { 0.0f, 1.0f, 0.0f, 1 };
 
     const Vector3r &c = bj.m_jointInfo.block<3, 1>(0, 3);
     Vector3r h0 = bj.helpvectors.row(0);
@@ -722,6 +723,10 @@ void DemoBase::renderBallJoint(BallJoint &bj)
     MiniGL::drawCylinder(c, c + 2*h2, blue, 0.05f);
     Vector3r h3 = bj.helpvectors.row(3);
     MiniGL::drawCylinder(c, c + 2*h3, yellow, 0.05f);
+    Vector3r h4 = bj.helpvectors.row(4);
+    MiniGL::drawCylinder(c, c + 2*h4, yellow, 0.05f);
+    Vector3r h5 = bj.helpvectors.row(5);
+    MiniGL::drawCylinder(c, c + 2*h5, green, 0.05f);
 
 }
 

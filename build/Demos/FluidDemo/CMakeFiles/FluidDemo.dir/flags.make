@@ -7,11 +7,11 @@ C_DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
 
 C_INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/build/Discregrid/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/build/GenericParameters/include
 
-C_FLAGS = -g
+C_FLAGS = -O3 -DNDEBUG
 
 CXX_DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DUSE_DOUBLE
 
 CXX_INCLUDES = -I/home/paula/Desktop/PBD/PositionBasedDynamics -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/eigen -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/freeglut/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glew/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/glfw/src/../deps -I/home/paula/Desktop/PBD/PositionBasedDynamics/extern/imgui -I/home/paula/Desktop/PBD/PositionBasedDynamics/build/Discregrid/include -I/home/paula/Desktop/PBD/PositionBasedDynamics/build/GenericParameters/include
 
-CXX_FLAGS = -g -D_DEBUG -fopenmp -std=gnu++11
+CXX_FLAGS = -O3 -DNDEBUG -march=native -fopenmp -std=gnu++11
 

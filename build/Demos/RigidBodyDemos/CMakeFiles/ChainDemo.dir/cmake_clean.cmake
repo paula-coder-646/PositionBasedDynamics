@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/ChainDemo_d"
-  "../../../bin/ChainDemo_d.pdb"
+  "../../../bin/ChainDemo"
+  "../../../bin/ChainDemo.pdb"
   "CMakeFiles/ChainDemo.dir/ChainDemo.cpp.o"
   "CMakeFiles/ChainDemo.dir/ChainDemo.cpp.o.d"
   "CMakeFiles/ChainDemo.dir/__/Common/DemoBase.cpp.o"

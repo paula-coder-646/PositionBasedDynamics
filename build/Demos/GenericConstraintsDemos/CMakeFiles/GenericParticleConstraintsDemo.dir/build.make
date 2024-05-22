@@ -225,37 +225,37 @@ GenericParticleConstraintsDemo_OBJECTS = \
 # External object files for target GenericParticleConstraintsDemo
 GenericParticleConstraintsDemo_EXTERNAL_OBJECTS =
 
-../bin/GenericParticleConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/GenericParticleConstraintsDemo.cpp.o
-../bin/GenericParticleConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/GenericConstraintsModel.cpp.o
-../bin/GenericParticleConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/GenericConstraints.cpp.o
-../bin/GenericParticleConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/__/Common/LogWindow.cpp.o
-../bin/GenericParticleConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
-../bin/GenericParticleConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/__/Common/imguiParameters.cpp.o
-../bin/GenericParticleConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/__/Common/DemoBase.cpp.o
-../bin/GenericParticleConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
-../bin/GenericParticleConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/__/Visualization/MiniGL.cpp.o
-../bin/GenericParticleConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/__/Visualization/Shader.cpp.o
-../bin/GenericParticleConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/build.make
-../bin/GenericParticleConstraintsDemo_d: lib/libimgui_d.a
-../bin/GenericParticleConstraintsDemo_d: lib/libglfw3_d.a
-../bin/GenericParticleConstraintsDemo_d: lib/libPositionBasedDynamics_d.a
-../bin/GenericParticleConstraintsDemo_d: lib/libSimulation_d.a
-../bin/GenericParticleConstraintsDemo_d: lib/libUtils_d.a
-../bin/GenericParticleConstraintsDemo_d: /usr/lib/x86_64-linux-gnu/libOpenGL.so
-../bin/GenericParticleConstraintsDemo_d: /usr/lib/x86_64-linux-gnu/libGLX.so
-../bin/GenericParticleConstraintsDemo_d: /usr/lib/x86_64-linux-gnu/libGLU.so
-../bin/GenericParticleConstraintsDemo_d: /usr/lib/x86_64-linux-gnu/librt.a
-../bin/GenericParticleConstraintsDemo_d: /usr/lib/x86_64-linux-gnu/libm.so
-../bin/GenericParticleConstraintsDemo_d: /usr/lib/x86_64-linux-gnu/libX11.so
-../bin/GenericParticleConstraintsDemo_d: lib/libPositionBasedDynamics_d.a
-../bin/GenericParticleConstraintsDemo_d: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
-../bin/GenericParticleConstraintsDemo_d: /usr/lib/x86_64-linux-gnu/libpthread.a
-../bin/GenericParticleConstraintsDemo_d: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable ../../../bin/GenericParticleConstraintsDemo_d"
+../bin/GenericParticleConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/GenericParticleConstraintsDemo.cpp.o
+../bin/GenericParticleConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/GenericConstraintsModel.cpp.o
+../bin/GenericParticleConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/GenericConstraints.cpp.o
+../bin/GenericParticleConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/__/Common/LogWindow.cpp.o
+../bin/GenericParticleConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
+../bin/GenericParticleConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/__/Common/imguiParameters.cpp.o
+../bin/GenericParticleConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/__/Common/DemoBase.cpp.o
+../bin/GenericParticleConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
+../bin/GenericParticleConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/__/Visualization/MiniGL.cpp.o
+../bin/GenericParticleConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/__/Visualization/Shader.cpp.o
+../bin/GenericParticleConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/build.make
+../bin/GenericParticleConstraintsDemo: lib/libimgui.a
+../bin/GenericParticleConstraintsDemo: lib/libglfw3.a
+../bin/GenericParticleConstraintsDemo: lib/libPositionBasedDynamics.a
+../bin/GenericParticleConstraintsDemo: lib/libSimulation.a
+../bin/GenericParticleConstraintsDemo: lib/libUtils.a
+../bin/GenericParticleConstraintsDemo: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+../bin/GenericParticleConstraintsDemo: /usr/lib/x86_64-linux-gnu/libGLX.so
+../bin/GenericParticleConstraintsDemo: /usr/lib/x86_64-linux-gnu/libGLU.so
+../bin/GenericParticleConstraintsDemo: /usr/lib/x86_64-linux-gnu/librt.a
+../bin/GenericParticleConstraintsDemo: /usr/lib/x86_64-linux-gnu/libm.so
+../bin/GenericParticleConstraintsDemo: /usr/lib/x86_64-linux-gnu/libX11.so
+../bin/GenericParticleConstraintsDemo: lib/libPositionBasedDynamics.a
+../bin/GenericParticleConstraintsDemo: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
+../bin/GenericParticleConstraintsDemo: /usr/lib/x86_64-linux-gnu/libpthread.a
+../bin/GenericParticleConstraintsDemo: Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable ../../../bin/GenericParticleConstraintsDemo"
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/GenericConstraintsDemos && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GenericParticleConstraintsDemo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/build: ../bin/GenericParticleConstraintsDemo_d
+Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/build: ../bin/GenericParticleConstraintsDemo
 .PHONY : Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/build
 
 Demos/GenericConstraintsDemos/CMakeFiles/GenericParticleConstraintsDemo.dir/clean:

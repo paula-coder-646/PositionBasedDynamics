@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../lib/libMD5_d.a"
-  "../../lib/libMD5_d.pdb"
+  "../../lib/libMD5.a"
+  "../../lib/libMD5.pdb"
   "CMakeFiles/MD5.dir/md5.cpp.o"
   "CMakeFiles/MD5.dir/md5.cpp.o.d"
 )

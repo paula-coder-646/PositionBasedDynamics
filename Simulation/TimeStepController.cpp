@@ -280,7 +280,7 @@ void TimeStepController::positionConstraintProjection(SimulationModel &model)
 					const unsigned int constraintIndex = groups[group][i];
 
 					constraints[constraintIndex]->updateConstraint(model);
-                    collectData(*constraints[constraintIndex], model, "bender.txt");
+                    collectData(*constraints[constraintIndex], model, "testoutput.csv");
 					constraints[constraintIndex]->solvePositionConstraint(model, m_iterations);
 				}
 			}
@@ -411,7 +411,7 @@ bool TimeStepController::collectData(Constraint &constraint, SimulationModel &mo
     }
     //"JointType,JointNumber,IterationCount,ConstraintPotential
     // Write the values to the file, separated by commas
-    if (time < 1500) // Bound to 500 Iterations
+    if (time < 5) // Bound to 500 Iterations
     {
         fileStream << constraint.getName() << "," << constraint.getTypeId() << "," << time << "," << energy << std::endl;
     }

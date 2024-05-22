@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../lib/libPositionBasedDynamics_d.a"
-  "../lib/libPositionBasedDynamics_d.pdb"
+  "../lib/libPositionBasedDynamics.a"
+  "../lib/libPositionBasedDynamics.pdb"
   "CMakeFiles/PositionBasedDynamics.dir/MathFunctions.cpp.o"
   "CMakeFiles/PositionBasedDynamics.dir/MathFunctions.cpp.o.d"
   "CMakeFiles/PositionBasedDynamics.dir/PositionBasedDynamics.cpp.o"

@@ -1,4 +1,4 @@
-/home/paula/Desktop/PBD/PositionBasedDynamics/build/Discregrid/lib/libDiscregrid_d.a
+/home/paula/Desktop/PBD/PositionBasedDynamics/build/Discregrid/lib/libDiscregrid.a
 /home/paula/Desktop/PBD/PositionBasedDynamics/build/Discregrid/./include/Discregrid/mesh/halfedge.hpp
 /home/paula/Desktop/PBD/PositionBasedDynamics/build/Discregrid/./include/Discregrid/mesh/entity_iterators.hpp
 /home/paula/Desktop/PBD/PositionBasedDynamics/build/Discregrid/./include/Discregrid/mesh/entity_containers.hpp

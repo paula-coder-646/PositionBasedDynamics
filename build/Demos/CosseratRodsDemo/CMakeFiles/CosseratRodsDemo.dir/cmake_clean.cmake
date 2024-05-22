@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/CosseratRodsDemo_d"
-  "../../../bin/CosseratRodsDemo_d.pdb"
+  "../../../bin/CosseratRodsDemo"
+  "../../../bin/CosseratRodsDemo.pdb"
   "CMakeFiles/CosseratRodsDemo.dir/__/Common/DemoBase.cpp.o"
   "CMakeFiles/CosseratRodsDemo.dir/__/Common/DemoBase.cpp.o.d"
   "CMakeFiles/CosseratRodsDemo.dir/__/Common/LogWindow.cpp.o"

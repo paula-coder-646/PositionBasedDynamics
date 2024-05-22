@@ -184,8 +184,8 @@ void createBodyModel()
                             computeInertiaTensorBox(1.0, width, height, depth),
                             Quaternionr(AngleAxisr(-M_PI/3, Vector3r(0.0,1.0,0.0))),
                             vd, mesh);
-/*
-         dynamic body
+
+         /*dynamic body
         rb[3*i+3] = new RigidBody();
         rb[3*i+3]->initBody(1.0,
                             Vector3r(startX, startY - static_cast<Real>(5.25), 1.0),
@@ -200,7 +200,7 @@ void createBodyModel()
 
 	Real jointY = 0.75;
 	model->addBallJoint(0, 1, Vector3r(0.25, jointY, 1.00));
-	model->addBallJoint(1, 2, Vector3r(0.25, jointY - static_cast<Real>(2.0) , 1.0));
+	//model->addBallJoint(1, 2, Vector3r(0.25, jointY - static_cast<Real>(2.0) , 1.0));
     //model->addBallJoint(2, 3, Vector3r(0.0, jointY , 1.0));
 
     //rb[1]->setPosition(Vector3r(startX, startY - static_cast<Real>(10.25), 1.0));

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../bin/libDiscregrid_d.a"
-  "../bin/libDiscregrid_d.pdb"
+  "../bin/libDiscregrid.a"
+  "../bin/libDiscregrid.pdb"
   "CMakeFiles/Discregrid.dir/src/cubic_lagrange_discrete_grid.cpp.o"
   "CMakeFiles/Discregrid.dir/src/cubic_lagrange_discrete_grid.cpp.o.d"
   "CMakeFiles/Discregrid.dir/src/discrete_grid.cpp.o"

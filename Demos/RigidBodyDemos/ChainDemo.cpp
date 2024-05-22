@@ -157,7 +157,7 @@ void createBodyModel()
 
 	for (unsigned int i = 0; i < numberOfBodies-1; i++)
 	{
-		model->addBallJoint(i, i + 1, Vector3r((Real)i*width + static_cast<Real>(0.5)*width, 0.0, 0.0));
+		model->addHingeJoint(i, i + 1, Vector3r((Real)i*width + static_cast<Real>(0.5)*width, 0.0, 0.0), Vector3r(0.0, 0.0, 1.0));
 	}
 }
 

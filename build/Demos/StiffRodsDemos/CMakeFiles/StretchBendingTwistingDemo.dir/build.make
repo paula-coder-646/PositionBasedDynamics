@@ -195,36 +195,36 @@ StretchBendingTwistingDemo_OBJECTS = \
 # External object files for target StretchBendingTwistingDemo
 StretchBendingTwistingDemo_EXTERNAL_OBJECTS =
 
-../bin/StretchBendingTwistingDemo_d: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/StretchBendingTwistingDemo.cpp.o
-../bin/StretchBendingTwistingDemo_d: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/__/Common/LogWindow.cpp.o
-../bin/StretchBendingTwistingDemo_d: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
-../bin/StretchBendingTwistingDemo_d: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/__/Common/imguiParameters.cpp.o
-../bin/StretchBendingTwistingDemo_d: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/__/Common/DemoBase.cpp.o
-../bin/StretchBendingTwistingDemo_d: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
-../bin/StretchBendingTwistingDemo_d: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/__/Visualization/MiniGL.cpp.o
-../bin/StretchBendingTwistingDemo_d: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/__/Visualization/Shader.cpp.o
-../bin/StretchBendingTwistingDemo_d: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/build.make
-../bin/StretchBendingTwistingDemo_d: lib/libimgui_d.a
-../bin/StretchBendingTwistingDemo_d: lib/libglfw3_d.a
-../bin/StretchBendingTwistingDemo_d: lib/libMD5_d.a
-../bin/StretchBendingTwistingDemo_d: lib/libPositionBasedDynamics_d.a
-../bin/StretchBendingTwistingDemo_d: lib/libSimulation_d.a
-../bin/StretchBendingTwistingDemo_d: lib/libUtils_d.a
-../bin/StretchBendingTwistingDemo_d: /usr/lib/x86_64-linux-gnu/libOpenGL.so
-../bin/StretchBendingTwistingDemo_d: /usr/lib/x86_64-linux-gnu/libGLX.so
-../bin/StretchBendingTwistingDemo_d: /usr/lib/x86_64-linux-gnu/libGLU.so
-../bin/StretchBendingTwistingDemo_d: /usr/lib/x86_64-linux-gnu/librt.a
-../bin/StretchBendingTwistingDemo_d: /usr/lib/x86_64-linux-gnu/libm.so
-../bin/StretchBendingTwistingDemo_d: /usr/lib/x86_64-linux-gnu/libX11.so
-../bin/StretchBendingTwistingDemo_d: lib/libPositionBasedDynamics_d.a
-../bin/StretchBendingTwistingDemo_d: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
-../bin/StretchBendingTwistingDemo_d: /usr/lib/x86_64-linux-gnu/libpthread.a
-../bin/StretchBendingTwistingDemo_d: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable ../../../bin/StretchBendingTwistingDemo_d"
+../bin/StretchBendingTwistingDemo: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/StretchBendingTwistingDemo.cpp.o
+../bin/StretchBendingTwistingDemo: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/__/Common/LogWindow.cpp.o
+../bin/StretchBendingTwistingDemo: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
+../bin/StretchBendingTwistingDemo: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/__/Common/imguiParameters.cpp.o
+../bin/StretchBendingTwistingDemo: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/__/Common/DemoBase.cpp.o
+../bin/StretchBendingTwistingDemo: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
+../bin/StretchBendingTwistingDemo: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/__/Visualization/MiniGL.cpp.o
+../bin/StretchBendingTwistingDemo: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/__/Visualization/Shader.cpp.o
+../bin/StretchBendingTwistingDemo: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/build.make
+../bin/StretchBendingTwistingDemo: lib/libimgui.a
+../bin/StretchBendingTwistingDemo: lib/libglfw3.a
+../bin/StretchBendingTwistingDemo: lib/libMD5.a
+../bin/StretchBendingTwistingDemo: lib/libPositionBasedDynamics.a
+../bin/StretchBendingTwistingDemo: lib/libSimulation.a
+../bin/StretchBendingTwistingDemo: lib/libUtils.a
+../bin/StretchBendingTwistingDemo: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+../bin/StretchBendingTwistingDemo: /usr/lib/x86_64-linux-gnu/libGLX.so
+../bin/StretchBendingTwistingDemo: /usr/lib/x86_64-linux-gnu/libGLU.so
+../bin/StretchBendingTwistingDemo: /usr/lib/x86_64-linux-gnu/librt.a
+../bin/StretchBendingTwistingDemo: /usr/lib/x86_64-linux-gnu/libm.so
+../bin/StretchBendingTwistingDemo: /usr/lib/x86_64-linux-gnu/libX11.so
+../bin/StretchBendingTwistingDemo: lib/libPositionBasedDynamics.a
+../bin/StretchBendingTwistingDemo: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
+../bin/StretchBendingTwistingDemo: /usr/lib/x86_64-linux-gnu/libpthread.a
+../bin/StretchBendingTwistingDemo: Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable ../../../bin/StretchBendingTwistingDemo"
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/StiffRodsDemos && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/StretchBendingTwistingDemo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/build: ../bin/StretchBendingTwistingDemo_d
+Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/build: ../bin/StretchBendingTwistingDemo
 .PHONY : Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/build
 
 Demos/StiffRodsDemos/CMakeFiles/StretchBendingTwistingDemo.dir/clean:

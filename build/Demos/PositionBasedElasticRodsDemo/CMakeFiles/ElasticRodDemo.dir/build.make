@@ -240,38 +240,38 @@ ElasticRodDemo_OBJECTS = \
 # External object files for target ElasticRodDemo
 ElasticRodDemo_EXTERNAL_OBJECTS =
 
-../bin/ElasticRodDemo_d: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/PositionBasedElasticRodsDemo.cpp.o
-../bin/ElasticRodDemo_d: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/PositionBasedElasticRodsConstraints.cpp.o
-../bin/ElasticRodDemo_d: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/PositionBasedElasticRodsModel.cpp.o
-../bin/ElasticRodDemo_d: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/PositionBasedElasticRodsTSC.cpp.o
-../bin/ElasticRodDemo_d: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/__/Common/LogWindow.cpp.o
-../bin/ElasticRodDemo_d: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
-../bin/ElasticRodDemo_d: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/__/Common/imguiParameters.cpp.o
-../bin/ElasticRodDemo_d: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/__/Common/DemoBase.cpp.o
-../bin/ElasticRodDemo_d: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
-../bin/ElasticRodDemo_d: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/__/Visualization/MiniGL.cpp.o
-../bin/ElasticRodDemo_d: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/__/Visualization/Shader.cpp.o
-../bin/ElasticRodDemo_d: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/build.make
-../bin/ElasticRodDemo_d: lib/libimgui_d.a
-../bin/ElasticRodDemo_d: lib/libglfw3_d.a
-../bin/ElasticRodDemo_d: lib/libPositionBasedDynamics_d.a
-../bin/ElasticRodDemo_d: lib/libSimulation_d.a
-../bin/ElasticRodDemo_d: lib/libUtils_d.a
-../bin/ElasticRodDemo_d: /usr/lib/x86_64-linux-gnu/libOpenGL.so
-../bin/ElasticRodDemo_d: /usr/lib/x86_64-linux-gnu/libGLX.so
-../bin/ElasticRodDemo_d: /usr/lib/x86_64-linux-gnu/libGLU.so
-../bin/ElasticRodDemo_d: /usr/lib/x86_64-linux-gnu/librt.a
-../bin/ElasticRodDemo_d: /usr/lib/x86_64-linux-gnu/libm.so
-../bin/ElasticRodDemo_d: /usr/lib/x86_64-linux-gnu/libX11.so
-../bin/ElasticRodDemo_d: lib/libPositionBasedDynamics_d.a
-../bin/ElasticRodDemo_d: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
-../bin/ElasticRodDemo_d: /usr/lib/x86_64-linux-gnu/libpthread.a
-../bin/ElasticRodDemo_d: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable ../../../bin/ElasticRodDemo_d"
+../bin/ElasticRodDemo: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/PositionBasedElasticRodsDemo.cpp.o
+../bin/ElasticRodDemo: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/PositionBasedElasticRodsConstraints.cpp.o
+../bin/ElasticRodDemo: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/PositionBasedElasticRodsModel.cpp.o
+../bin/ElasticRodDemo: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/PositionBasedElasticRodsTSC.cpp.o
+../bin/ElasticRodDemo: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/__/Common/LogWindow.cpp.o
+../bin/ElasticRodDemo: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/__/Common/Simulator_GUI_imgui.cpp.o
+../bin/ElasticRodDemo: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/__/Common/imguiParameters.cpp.o
+../bin/ElasticRodDemo: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/__/Common/DemoBase.cpp.o
+../bin/ElasticRodDemo: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/__/__/extern/glfw/deps/glad_gl.c.o
+../bin/ElasticRodDemo: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/__/Visualization/MiniGL.cpp.o
+../bin/ElasticRodDemo: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/__/Visualization/Shader.cpp.o
+../bin/ElasticRodDemo: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/build.make
+../bin/ElasticRodDemo: lib/libimgui.a
+../bin/ElasticRodDemo: lib/libglfw3.a
+../bin/ElasticRodDemo: lib/libPositionBasedDynamics.a
+../bin/ElasticRodDemo: lib/libSimulation.a
+../bin/ElasticRodDemo: lib/libUtils.a
+../bin/ElasticRodDemo: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+../bin/ElasticRodDemo: /usr/lib/x86_64-linux-gnu/libGLX.so
+../bin/ElasticRodDemo: /usr/lib/x86_64-linux-gnu/libGLU.so
+../bin/ElasticRodDemo: /usr/lib/x86_64-linux-gnu/librt.a
+../bin/ElasticRodDemo: /usr/lib/x86_64-linux-gnu/libm.so
+../bin/ElasticRodDemo: /usr/lib/x86_64-linux-gnu/libX11.so
+../bin/ElasticRodDemo: lib/libPositionBasedDynamics.a
+../bin/ElasticRodDemo: /usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so
+../bin/ElasticRodDemo: /usr/lib/x86_64-linux-gnu/libpthread.a
+../bin/ElasticRodDemo: Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paula/Desktop/PBD/PositionBasedDynamics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable ../../../bin/ElasticRodDemo"
 	cd /home/paula/Desktop/PBD/PositionBasedDynamics/build/Demos/PositionBasedElasticRodsDemo && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ElasticRodDemo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/build: ../bin/ElasticRodDemo_d
+Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/build: ../bin/ElasticRodDemo
 .PHONY : Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/build
 
 Demos/PositionBasedElasticRodsDemo/CMakeFiles/ElasticRodDemo.dir/clean:

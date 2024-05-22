@@ -150,7 +150,7 @@ void createBodyModel()
 	meshStatic.setFlatShading(true);
 
 	// static body
-	const unsigned int numberOfBodies = 26;
+	const unsigned int numberOfBodies = 101;
 	rb.resize(numberOfBodies);
 	Real startX = 0.0;
 	Real startY = 1.0;
@@ -170,7 +170,7 @@ void createBodyModel()
                     vd, mesh);
 
     startY -= 3.25;
-    for(int j = 2; j < 26; j++)
+    for(int j = 2; j < 101; j++)
     {
         rb[j] = new RigidBody();
         rb[j]->initBody(1.0,
@@ -182,15 +182,15 @@ void createBodyModel()
 
 	Real jointY = 0.75;
 
-    model->addBenderBallJoint(0, 1, Vector3r(0.0, jointY, 1.0));
+    model->addBallJoint(0, 1, Vector3r(0.0, jointY, 1.0));
     jointY -= 2.0;
-    for (int k = 1; k < 25; k++)
+    for (int k = 1; k < 100; k++)
     {
-        model->addBenderBallJoint(k, k+1, Vector3r(0.0, jointY, 1.0));
+        model->addBallJoint(k, k+1, Vector3r(0.0, jointY, 1.0));
 
         jointY -= 2.0;
     }
-    for (int z = 1; z < 26; z++)
+    for (int z = 1; z < 101; z++)
     {
         rb[z]->setPosition(rb[z]->getPosition() + Vector3r(0.0, -2.0, 0.0));
     }

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/GenericRigidBodyConstraintsDemo_d"
-  "../../../bin/GenericRigidBodyConstraintsDemo_d.pdb"
+  "../../../bin/GenericRigidBodyConstraintsDemo"
+  "../../../bin/GenericRigidBodyConstraintsDemo.pdb"
   "CMakeFiles/GenericRigidBodyConstraintsDemo.dir/GenericConstraints.cpp.o"
   "CMakeFiles/GenericRigidBodyConstraintsDemo.dir/GenericConstraints.cpp.o.d"
   "CMakeFiles/GenericRigidBodyConstraintsDemo.dir/GenericConstraintsModel.cpp.o"

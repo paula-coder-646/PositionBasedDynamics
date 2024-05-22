@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/StretchBendingTwistingDemo_d"
-  "../../../bin/StretchBendingTwistingDemo_d.pdb"
+  "../../../bin/StretchBendingTwistingDemo"
+  "../../../bin/StretchBendingTwistingDemo.pdb"
   "CMakeFiles/StretchBendingTwistingDemo.dir/StretchBendingTwistingDemo.cpp.o"
   "CMakeFiles/StretchBendingTwistingDemo.dir/StretchBendingTwistingDemo.cpp.o.d"
   "CMakeFiles/StretchBendingTwistingDemo.dir/__/Common/DemoBase.cpp.o"

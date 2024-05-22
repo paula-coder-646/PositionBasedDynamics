@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/BarDemo_d"
-  "../../../bin/BarDemo_d.pdb"
+  "../../../bin/BarDemo"
+  "../../../bin/BarDemo.pdb"
   "CMakeFiles/BarDemo.dir/__/Common/DemoBase.cpp.o"
   "CMakeFiles/BarDemo.dir/__/Common/DemoBase.cpp.o.d"
   "CMakeFiles/BarDemo.dir/__/Common/LogWindow.cpp.o"

@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "../../../bin/BallJointDemo_d"
-  "../../../bin/BallJointDemo_d.pdb"
-  "CMakeFiles/BallJointDemo.dir/JointDemo.cpp.o"
-  "CMakeFiles/BallJointDemo.dir/JointDemo.cpp.o.d"
+  "../../../bin/BallJointDemo"
+  "../../../bin/BallJointDemo.pdb"
+  "CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o"
+  "CMakeFiles/BallJointDemo.dir/BallJointDemo.cpp.o.d"
   "CMakeFiles/BallJointDemo.dir/__/Common/DemoBase.cpp.o"
   "CMakeFiles/BallJointDemo.dir/__/Common/DemoBase.cpp.o.d"
   "CMakeFiles/BallJointDemo.dir/__/Common/LogWindow.cpp.o"

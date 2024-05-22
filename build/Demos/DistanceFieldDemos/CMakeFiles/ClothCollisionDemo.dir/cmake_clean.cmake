@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../bin/ClothCollisionDemo_d"
-  "../../../bin/ClothCollisionDemo_d.pdb"
+  "../../../bin/ClothCollisionDemo"
+  "../../../bin/ClothCollisionDemo.pdb"
   "CMakeFiles/ClothCollisionDemo.dir/ClothCollisionDemo.cpp.o"
   "CMakeFiles/ClothCollisionDemo.dir/ClothCollisionDemo.cpp.o.d"
   "CMakeFiles/ClothCollisionDemo.dir/__/Common/DemoBase.cpp.o"

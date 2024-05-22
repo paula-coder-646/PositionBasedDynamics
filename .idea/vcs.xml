@@ -4,5 +4,7 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/build/GenericParameters/src/Ext_GenericParameters" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/build/extern/Discregrid/src/Ext_Discregrid" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug/GenericParameters/src/Ext_GenericParameters" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug/extern/Discregrid/src/Ext_Discregrid" vcs="Git" />
   </component>
 </project>

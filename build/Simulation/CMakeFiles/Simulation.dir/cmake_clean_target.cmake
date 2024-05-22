@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "../lib/libSimulation_d.a"
+  "../lib/libSimulation.a"
 )

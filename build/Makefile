@@ -500,6 +500,58 @@ BallJointDemo/fast:
 .PHONY : BallJointDemo/fast
 
 #=============================================================================
+# Target rules for targets named HingeJointDemo
+
+# Build rule for target.
+HingeJointDemo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 HingeJointDemo
+.PHONY : HingeJointDemo
+
+# fast build rule for target.
+HingeJointDemo/fast:
+	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeJointDemo.dir/build
+.PHONY : HingeJointDemo/fast
+
+#=============================================================================
+# Target rules for targets named FallBallJointDemo
+
+# Build rule for target.
+FallBallJointDemo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 FallBallJointDemo
+.PHONY : FallBallJointDemo
+
+# fast build rule for target.
+FallBallJointDemo/fast:
+	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/FallBallJointDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/FallBallJointDemo.dir/build
+.PHONY : FallBallJointDemo/fast
+
+#=============================================================================
+# Target rules for targets named BallJointChainDemo
+
+# Build rule for target.
+BallJointChainDemo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BallJointChainDemo
+.PHONY : BallJointChainDemo
+
+# fast build rule for target.
+BallJointChainDemo/fast:
+	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/BallJointChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/BallJointChainDemo.dir/build
+.PHONY : BallJointChainDemo/fast
+
+#=============================================================================
+# Target rules for targets named HingeJointChainDemo
+
+# Build rule for target.
+HingeJointChainDemo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 HingeJointChainDemo
+.PHONY : HingeJointChainDemo
+
+# fast build rule for target.
+HingeJointChainDemo/fast:
+	$(MAKE) $(MAKESILENT) -f Demos/RigidBodyDemos/CMakeFiles/HingeJointChainDemo.dir/build.make Demos/RigidBodyDemos/CMakeFiles/HingeJointChainDemo.dir/build
+.PHONY : HingeJointChainDemo/fast
+
+#=============================================================================
 # Target rules for targets named SceneLoaderDemo
 
 # Build rule for target.
@@ -556,6 +608,7 @@ help:
 	@echo "... CopyPBDShaders"
 	@echo "... Ext_Discregrid"
 	@echo "... Ext_GenericParameters"
+	@echo "... BallJointChainDemo"
 	@echo "... BallJointDemo"
 	@echo "... BarDemo"
 	@echo "... ChainDemo"
@@ -565,9 +618,12 @@ help:
 	@echo "... DeformableCollisionDemo"
 	@echo "... DirectPositionBasedSolverForStiffRodsDemo"
 	@echo "... ElasticRodDemo"
+	@echo "... FallBallJointDemo"
 	@echo "... FluidDemo"
 	@echo "... GenericParticleConstraintsDemo"
 	@echo "... GenericRigidBodyConstraintsDemo"
+	@echo "... HingeJointChainDemo"
+	@echo "... HingeJointDemo"
 	@echo "... JointDemo"
 	@echo "... MD5"
 	@echo "... PositionBasedDynamics"
