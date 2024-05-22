@@ -55,8 +55,8 @@ int main( int argc, char **argv )
 
 	base->createParameterGUI();
 
-	Simulation::getCurrent()->getTimeStep()->setValue<unsigned int>(TimeStepController::NUM_SUB_STEPS, 1);
-	Simulation::getCurrent()->getTimeStep()->setValue<unsigned int>(TimeStepController::MAX_ITERATIONS, 5);
+	Simulation::getCurrent()->getTimeStep()->setValue<unsigned int>(TimeStepController::NUM_SUB_STEPS, 5);
+	Simulation::getCurrent()->getTimeStep()->setValue<unsigned int>(TimeStepController::MAX_ITERATIONS, 1);
 
 	// OpenGL
 	MiniGL::setClientIdleFunc(timeStep);
@@ -182,7 +182,7 @@ void createBodyModel()
 
 	Real jointY = 0.75;
 
-    model->addHingeJoint(0, 1, Vector3r(0.0, jointY, 1.0), Vector3r(1.0, 0.0, 0.0));
+    model->addBenderHingeJoint(0, 1, Vector3r(0.0, jointY, 1.0), Vector3r(1.0, 0.0, 0.0));
     jointY -= 2.0;
     for (int k = 1; k < 1; k++)
     {
@@ -196,11 +196,11 @@ void createBodyModel()
         rb[z]->setPosition(rb[z]->getPosition() + Vector3r(0.0, -2.0, 0.0));
         if (z % 2 == 0)
         {
-            rb[z]->setRotation(Quaternionr(AngleAxisr(90, Vector3r(0.0,1.0,0.0))) * rb[z]->getRotation());
+            rb[z]->setRotation(Quaternionr(AngleAxisr(45, Vector3r(0.0,1.0,0.0))) * rb[z]->getRotation());
         }
         else
         {
-            rb[z]->setRotation(Quaternionr(AngleAxisr(90, Vector3r(0.0,-1.0,0.0))) * rb[z]->getRotation());
+            rb[z]->setRotation(Quaternionr(AngleAxisr(45, Vector3r(0.0,-1.0,0.0))) * rb[z]->getRotation());
         }
     }
 

@@ -386,7 +386,7 @@ bool TimeStepController::collectData(Constraint &constraint, SimulationModel &mo
      * - Write Name, Type, Global Iteration Count, Energy into CSV
      */
     Real energy = 0.0;
-    Real time = TimeManager::getCurrent()->getTime() / TimeManager::getCurrent()->getTimeStepSize();
+    Real time = (TimeManager::getCurrent()->getTime() / TimeManager::getCurrent()->getTimeStepSize())/m_subSteps;
 
     // Calculate Energy of Constraint
     if (constraint.getName() == "BallJoint" || constraint.getName() == "HingeJoint" || constraint.getName() == "BenderHingeJoint" || constraint.getName() == "BenderBallJoint")
@@ -411,7 +411,7 @@ bool TimeStepController::collectData(Constraint &constraint, SimulationModel &mo
     }
     //"JointType,JointNumber,IterationCount,ConstraintPotential
     // Write the values to the file, separated by commas
-    if (time < 5) // Bound to 500 Iterations
+    if (time < 20) // Bound to 500 Iterations
     {
         fileStream << constraint.getName() << "," << constraint.getTypeId() << "," << time << "," << energy << std::endl;
     }
